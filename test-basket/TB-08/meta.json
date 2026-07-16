@@ -1,0 +1,11 @@
+{
+  "id": "TB-08",
+  "type": "Отменённое обязательство",
+  "checks": [
+    "обязательство по OPS-77 отменено в памяти (memory_updates + memory_after)",
+    "на следующем синке не попадёт в напоминания сводки"
+  ],
+  "format": "v1",
+  "transcripts_down": false,
+  "seed": true
+}

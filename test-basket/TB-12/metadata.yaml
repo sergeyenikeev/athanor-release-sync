@@ -1,0 +1,26 @@
+scenario_id: TB-12
+title: "Повторный прогон после обратной связи (формат v2)"
+task4_ref: "СЦ-15"
+difficulty: medium
+description: "Сводка слишком длинная; пользователь даёт обратную связь; применяется v2 (блокеры сверху, статусы ≤3) без деградации; откат."
+tested_functions:
+  - обратная связь
+  - эволюция навыка
+  - контрольные тесты
+  - откат
+tested_criteria:
+  - новая версия навыка
+  - нет деградации
+  - возможность отката
+expected_behavior: "деградация метрик или потеря отката; сверка с эталоном expected/"
+expected_failure_mode: "деградация метрик или потеря отката"
+required_sources:
+  - calendar
+  - tracker
+  - git
+  - mail
+  - transcript
+  - memory
+optional_sources:[]
+skill_version: v2
+data_version: 2

@@ -1,0 +1,24 @@
+scenario_id: TB-07
+title: "Изменение предыдущего решения"
+task4_ref: "СЦ-07"
+difficulty: medium
+description: "В памяти записано решение об окне 03.07; на новой встрече решили перенести на 05.07."
+tested_functions:
+  - память (решения)
+  - обнаружение изменения
+  - сохранение старого
+  - фиксация причины
+tested_criteria:
+  - замена решения
+  - статус «заменено»
+  - причина изменения
+expected_behavior: "потеря старого решения или причины; сверка с эталоном expected/"
+expected_failure_mode: "потеря старого решения или причины"
+required_sources:
+  - calendar
+  - tracker
+  - transcript
+  - memory
+optional_sources:[]
+skill_version: v1
+data_version: 2

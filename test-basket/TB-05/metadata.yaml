@@ -1,0 +1,21 @@
+scenario_id: TB-05
+title: "Поручение без срока"
+task4_ref: "СЦ-04"
+difficulty: low
+description: "Расшифровка: «Подготовь отчёт по инциденту». Срок не указан."
+tested_functions:
+  - извлечение поручений
+  - маркировка отсутствующего срока
+tested_criteria:
+  - нет выдуманного срока
+  - запрос уточнения
+  - due=не указан
+expected_behavior: "корректный срок; сверка с эталоном expected/"
+expected_failure_mode: "выдуманный срок"
+required_sources:
+  - calendar
+  - tracker
+  - transcript
+optional_sources:[]
+skill_version: v1
+data_version: 2

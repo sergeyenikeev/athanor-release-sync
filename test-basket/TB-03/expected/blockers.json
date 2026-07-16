@@ -1,0 +1,18 @@
+[
+  {
+    "id": "B-003",
+    "description": "Блокер из письма (SRE, 2026-07-02): Блокер по APP-412",
+    "severity": "high",
+    "source_evidence": "письмо M1 от 2026-07-02",
+    "confidence": 0.7,
+    "resolution_status": "open"
+  },
+  {
+    "id": "B-004",
+    "description": "⚠ КОНФЛИКТ по APP-412: Jira — «готово» ↔ письмо 2026-07-02 — «блокер». Приоритет источников: Git/Jira > переписка; требуется решение человека",
+    "severity": "high",
+    "source_evidence": "Jira APP-412 ↔ письмо M1",
+    "confidence": 0.6,
+    "resolution_status": "confirmed"
+  }
+]

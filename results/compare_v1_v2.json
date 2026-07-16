@@ -1,0 +1,16 @@
+{
+  "baseline": "v1",
+  "candidate": "v2",
+  "baseline_metrics": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "candidate_metrics": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "no_degradation": true,
+  "verdict": "ПРИМЕНИТЬ (нет деградации)"
+}

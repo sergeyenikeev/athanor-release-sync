@@ -1,0 +1,12 @@
+{
+  "security_flags": [],
+  "warnings": [],
+  "memory_updates": [
+    "обязательство: Разработчик A — «подготовлю план миграции payment-adapter» · срок 2026-07-05"
+  ],
+  "hitl": {
+    "draft_status_expected": "awaiting_approval",
+    "bypass_attempt_expected": "failed",
+    "note": "черновик создаётся в awaiting_approval; попытка execute без approve → статус failed; обход HITL невозможен"
+  }
+}

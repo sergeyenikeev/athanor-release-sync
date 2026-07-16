@@ -1,0 +1,11 @@
+{
+  "issues": [
+    {
+      "key": "OPS-77",
+      "title": "Деплой смежного сервиса",
+      "status": "открыто",
+      "assignee_role": "SRE"
+    }
+  ],
+  "prs": []
+}

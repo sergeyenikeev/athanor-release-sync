@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "athanor-release-sync"
+version = "1.0.0-mvp"
+description = "Ouroboros — мозг команды: ИИ-агент подготовки к релиз-синкам и разборам инцидентов (команда «Атанор», Sber AI Hack)"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Team Atanor (Sber AI Hack)" }]
+requires-python = ">=3.10"
+keywords = ["ouroboros", "release-sync", "agent", "mcp", "hitl", "sber-ai-hack"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 4 - Beta",
+]
+# Внешних runtime-зависимостей нет: только стандартная библиотека Python.
+# LLM-провайдер и MCP-заглушки вызываются через urllib/http.server.
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+athanor = "athanor.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.athanor]
+# Декларативная метка версии навыка по умолчанию (см. skills/release_sync/versions/registry.json).
+default_skill_version = "v1"

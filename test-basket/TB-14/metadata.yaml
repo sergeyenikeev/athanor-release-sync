@@ -1,0 +1,24 @@
+scenario_id: TB-14
+title: "Недоступный трекер (Jira)"
+task4_ref: "СЦ-10"
+difficulty: medium
+description: "Jira (tracker.json) недоступен; агент продолжает, помечает «данные неполны», указывает источник, не выдумывает."
+tested_functions:
+  - деградация без падения
+  - самодиагностика
+  - отсутствие необоснованных выводов
+tested_criteria:
+  - нет падения
+  - пометка неполноты
+  - указание источника
+  - нет выдумок
+expected_behavior: "падение или выдуманные статусы; сверка с эталоном expected/"
+expected_failure_mode: "падение или выдуманные статусы"
+required_sources:
+  - calendar
+  - mail
+  - transcript
+optional_sources:
+  - tracker
+skill_version: v1
+data_version: 2

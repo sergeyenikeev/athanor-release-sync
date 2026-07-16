@@ -1,0 +1,23 @@
+scenario_id: TB-10
+title: "Неполные данные (пустой трекер)"
+task4_ref: "доп. (деградация)"
+difficulty: low
+description: "Трекер вернул пустой список; в письме — открытый вопрос."
+tested_functions:
+  - деградация без падения
+  - пометка «данные неполны»
+  - вопросы из писем
+tested_criteria:
+  - нет падения
+  - пометка неполноты
+  - вопрос виден
+expected_behavior: "падение или не пропускать вопроса; сверка с эталоном expected/"
+expected_failure_mode: "падение или пропуск вопроса"
+required_sources:
+  - calendar
+  - mail
+  - transcript
+optional_sources:
+  - tracker
+skill_version: v1
+data_version: 2

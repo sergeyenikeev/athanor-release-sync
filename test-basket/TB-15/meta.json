@@ -1,0 +1,18 @@
+{
+  "id": "TB-15",
+  "type": "Повреждённая расшифровка",
+  "checks": [
+    "корректная обработка: нет падения",
+    "понятное предупреждение о повреждении",
+    "отсутствие фиктивных решений/поручений",
+    "возможность повторной загрузки (этап пропущен, не отменён)"
+  ],
+  "format": "v1",
+  "transcripts_down": false,
+  "seed": false,
+  "sources_down": [],
+  "corrupt_transcript": true,
+  "hitl_bypass_test": false,
+  "rerun_with_memory": false,
+  "manual_expected": true
+}

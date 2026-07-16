@@ -1,0 +1,24 @@
+scenario_id: TB-08
+title: "Отмена обязательства"
+task4_ref: "СЦ-08"
+difficulty: medium
+description: "В прошлом синке создано поручение по OPS-77; на новой встрече договорились его не выполнять."
+tested_functions:
+  - память (обязательства)
+  - отмена
+  - отсутствие дубля
+  - сохранение причины
+tested_criteria:
+  - статус «отменено»
+  - нет дубля
+  - причина отмены
+expected_behavior: "дублирующее поручение или потеря причины; сверка с эталоном expected/"
+expected_failure_mode: "дублирующее поручение или потеря причины"
+required_sources:
+  - calendar
+  - tracker
+  - transcript
+  - memory
+optional_sources:[]
+skill_version: v1
+data_version: 2

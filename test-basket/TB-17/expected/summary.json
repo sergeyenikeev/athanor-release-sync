@@ -1,0 +1,20 @@
+[
+  {
+    "text": "APP-412 «Миграция схемы оплат (alpha-api)» — в работе (исп.: Разработчик A)",
+    "source": "Jira APP-412",
+    "confidence": 0.9,
+    "kind": "status"
+  },
+  {
+    "text": "PR #128 «Схема оплат» по APP-412 — на ревью, на ревью 2 дн.",
+    "source": "Git PR#128",
+    "confidence": 0.9,
+    "kind": "status"
+  },
+  {
+    "text": "SRE: подтвержу деплой payment-adapter · срок 2026-07-03",
+    "source": "память релиза · расшифровка синка 26.06",
+    "confidence": 0.8,
+    "kind": "commitment"
+  }
+]

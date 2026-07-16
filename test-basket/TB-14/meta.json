@@ -1,0 +1,21 @@
+{
+  "id": "TB-14",
+  "type": "Недоступный трекер (Jira)",
+  "checks": [
+    "отсутствие падения при недоступном источнике",
+    "пометка «данные неполны» и указание недоступного источника",
+    "отсутствие необоснованных выводов (нет выдуманных статусов)",
+    "продолжение работы: решение из расшифровки извлекается"
+  ],
+  "format": "v1",
+  "transcripts_down": false,
+  "seed": false,
+  "sources_down": [
+    "tracker_repo"
+  ],
+  "corrupt_transcript": false,
+  "hitl_bypass_test": false,
+  "rerun_with_memory": false,
+  "no_tracker": true,
+  "manual_expected": true
+}

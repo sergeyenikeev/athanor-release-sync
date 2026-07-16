@@ -1,0 +1,12 @@
+# Preset «test» — CI/тесты (без сети, без ключей, детерминированно).
+# scripts/run_tests.py и tests/run_basket.py --engine rule используют этот режим.
+
+ATHANOR_ENGINE: rule
+ATHANOR_LLM_MOCK: 1   # путь LLM-движка тестируется через mock без сети
+LLM_API_KEY: mock
+
+# Короткие таймауты для негативных тестов.
+LLM_TIMEOUT_SECONDS: 3
+LLM_MAX_RETRIES: 1
+
+ATHANOR_HITL: "1"

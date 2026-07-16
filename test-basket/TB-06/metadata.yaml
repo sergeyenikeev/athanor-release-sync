@@ -1,0 +1,22 @@
+scenario_id: TB-06
+title: "Поручение без владельца"
+task4_ref: "СЦ-05"
+difficulty: low
+description: "Расшифровка: «Нужно задеплоить смежный сервис до релиза». Исполнитель не назван."
+tested_functions:
+  - извлечение поручений и срока
+  - маркировка отсутствующего владельца
+tested_criteria:
+  - нет выдуманного владельца
+  - запрос назначения
+  - owner=не определён
+expected_behavior: "корректный владелец; сверка с эталоном expected/"
+expected_failure_mode: "выдуманный владелец"
+required_sources:
+  - calendar
+  - tracker
+  - transcript
+  - memory
+optional_sources:[]
+skill_version: v1
+data_version: 2

@@ -1,0 +1,20 @@
+{
+  "id": "TB-13",
+  "type": "Неявный срок через релизное окно",
+  "checks": [
+    "связывание контекста: «следующее окно» → дата из календаря",
+    "преобразование относительного срока в конкретную дату",
+    "указание основания для вывода (release_windows)"
+  ],
+  "format": "v1",
+  "transcripts_down": false,
+  "seed": false,
+  "sources_down": [],
+  "corrupt_transcript": false,
+  "hitl_bypass_test": false,
+  "rerun_with_memory": false,
+  "release_windows": [
+    "2026-07-10"
+  ],
+  "manual_expected": true
+}

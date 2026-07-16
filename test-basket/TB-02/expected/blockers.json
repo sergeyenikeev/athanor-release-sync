@@ -1,0 +1,10 @@
+[
+  {
+    "id": "B-003",
+    "description": "Блокер из письма (Разработчик B, 2026-07-02): Смежный сервис не задеплоен",
+    "severity": "high",
+    "source_evidence": "письмо M1 от 2026-07-02",
+    "confidence": 0.7,
+    "resolution_status": "open"
+  }
+]

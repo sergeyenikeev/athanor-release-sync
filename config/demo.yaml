@@ -1,0 +1,18 @@
+# Preset «demo» — детерминированный демо-прогон (< 3 мин, без сети/ключей).
+# Эти значения соответствуют переменным окружения (см. .env.example).
+# Применяются скриптом scripts/run_demo.py напрямую; .env не требуется.
+
+# Движок: rule-baseline (офлайн, детерминированно) — для воспроизводимого демо.
+ATHANOR_ENGINE: rule
+ATHANOR_LLM_MOCK: 0
+ATHANOR_HITL: "1"
+
+# MCP-заглушки на дефолтных портах (127.0.0.1).
+MCP_HOST: 127.0.0.1
+MCP_CALENDAR_MAIL_PORT: 9901
+MCP_TRACKER_REPO_PORT: 9902
+MCP_TRANSCRIPTS_PORT: 9903
+MCP_TRANSCRIPTS_DOWN: 0
+
+# Источник данных по умолчанию для MCP-заглушек.
+MCP_CASE_DIR: examples/demo_case

@@ -1,0 +1,19 @@
+{
+  "issues": [
+    {
+      "key": "APP-412",
+      "title": "Миграция схемы оплат (alpha-api)",
+      "status": "в работе",
+      "assignee_role": "Разработчик A"
+    }
+  ],
+  "prs": [
+    {
+      "number": 128,
+      "title": "Схема оплат",
+      "status": "на ревью",
+      "review_days": 2,
+      "issue_key": "APP-412"
+    }
+  ]
+}

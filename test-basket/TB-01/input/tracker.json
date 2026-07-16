@@ -1,0 +1,25 @@
+{
+  "issues": [
+    {
+      "key": "APP-412",
+      "title": "Миграция схемы оплат",
+      "status": "в работе",
+      "assignee_role": "Разработчик A"
+    },
+    {
+      "key": "APP-521",
+      "title": "Интеграция с партнёром",
+      "status": "готово к релизу",
+      "assignee_role": "Разработчик B"
+    }
+  ],
+  "prs": [
+    {
+      "number": 128,
+      "title": "Схема оплат",
+      "status": "на ревью",
+      "review_days": 2,
+      "issue_key": "APP-412"
+    }
+  ]
+}

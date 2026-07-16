@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "calendar_mail": {
+      "transport": "streamable_http",
+      "url": "http://127.0.0.1:9901/mcp",
+      "description": "Календарь и почта (обезличенная демо-выгрузка, имитация Outlook)"
+    },
+    "tracker_repo": {
+      "transport": "streamable_http",
+      "url": "http://127.0.0.1:9902/mcp",
+      "description": "Задачи и PR (обезличенная демо-выгрузка, имитация Jira/Git)"
+    },
+    "transcripts": {
+      "transport": "streamable_http",
+      "url": "http://127.0.0.1:9903/mcp",
+      "description": "Расшифровки встреч (обезличенные)"
+    }
+  }
+}

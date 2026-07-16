@@ -1,0 +1,25 @@
+scenario_id: TB-04
+title: "Расшифровка: решения и поручения"
+task4_ref: "доп. (глубокое извлечение)"
+difficulty: medium
+description: "2 решения, 3 поручения (адресованное/самообязательство/безадресное), 2 идеи-дистрактора игнорируются."
+tested_functions:
+  - извлечение решений
+  - извлечение поручений
+  - решение≠идея
+  - владелец/срок/источник
+tested_criteria:
+  - precision
+  - recall
+  - идеи-дистракторы
+  - владелец/срок
+expected_behavior: "выдуманное поручение или не пропускать решения; сверка с эталоном expected/"
+expected_failure_mode: "выдуманное поручение или пропуск решения"
+required_sources:
+  - calendar
+  - tracker
+  - transcript
+optional_sources:
+  - mail
+skill_version: v1
+data_version: 2

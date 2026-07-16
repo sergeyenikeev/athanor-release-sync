@@ -1,0 +1,2 @@
+Тимлид: Решение: подключить payment-adapter к notification-service, потому что нужна связка для рассылок
+Разработчик A: я подготовлю release-notes по APP-412 до 03.07

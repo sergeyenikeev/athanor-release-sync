@@ -1,0 +1,28 @@
+scenario_id: TB-01
+title: "Базовый релиз-синк"
+task4_ref: "СЦ-01"
+difficulty: low
+description: "Все источники доступны, статусы не противоречат, есть задача и PR, одно обязательство с прошлого синка."
+tested_functions:
+  - определение встречи
+  - сбор контекста
+  - сводка
+  - извлечение решений/поручений
+  - память
+tested_criteria:
+  - end-to-end
+  - сводка
+  - источники
+  - память
+expected_behavior: "не пропускать обязательства из памяти или потеря источника; сверка с эталоном expected/"
+expected_failure_mode: "пропуск обязательства из памяти или потеря источника"
+required_sources:
+  - calendar
+  - tracker
+  - git
+  - mail
+  - transcript
+  - memory
+optional_sources:[]
+skill_version: v1
+data_version: 2

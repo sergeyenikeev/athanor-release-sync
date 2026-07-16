@@ -1,0 +1,22 @@
+scenario_id: TB-13
+title: "Неявный срок через релизное окно"
+task4_ref: "СЦ-06"
+difficulty: medium
+description: "Расшифровка: «обновлю runbook до следующего релизного окна». В календаре следующее окно — конкретная дата."
+tested_functions:
+  - связывание контекста
+  - преобразование относительного срока
+  - указание основания
+tested_criteria:
+  - отн. срок → дата
+  - основание (release_windows)
+  - нет выдуманного срока
+expected_behavior: "неверный/корректный срок или не пропускать; сверка с эталоном expected/"
+expected_failure_mode: "неверный/выдуманный срок или пропуск"
+required_sources:
+  - calendar
+  - tracker
+  - transcript
+optional_sources:[]
+skill_version: v1
+data_version: 2

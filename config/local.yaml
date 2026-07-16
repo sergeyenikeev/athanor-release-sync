@@ -1,0 +1,19 @@
+# Preset «local» — запуск с реальной LLM (OpenRouter / OpenAI-compatible / локальная).
+# Скопируйте .env.example в .env и заполните LLM_API_KEY. Без ключа CLI
+# автоматически использует mock-LLM (детерминированный прокси rule-baseline).
+
+ATHANOR_ENGINE: llm
+ATHANOR_LLM_MOCK: 0
+LLM_API_BASE: https://openrouter.ai/api/v1
+LLM_MODEL: openai/gpt-4o-mini
+LLM_TEMPERATURE: 0
+LLM_TIMEOUT_SECONDS: 60
+LLM_MAX_RETRIES: 3
+
+# Бюджет прогона (USD). 0 = без лимита.
+LLM_BUDGET_USD: 5
+
+# Локальная модель (приоритет над LLM_API_BASE, если задана):
+# LOCAL_LLM_BASE_URL: http://127.0.0.1:11434/v1
+
+ATHANOR_HITL: "1"

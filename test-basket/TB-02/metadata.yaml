@@ -1,0 +1,27 @@
+scenario_id: TB-02
+title: "Критичный блокер релиза"
+task4_ref: "СЦ-02"
+difficulty: low
+description: "Jira-задача в работе; письмо сообщает о проблеме со смежным сервисом; релизное окно близко."
+tested_functions:
+  - сбор контекста
+  - сводка (блокеры)
+  - оценка серьёзности
+  - эскалация
+tested_criteria:
+  - блокер
+  - серьёзность
+  - связь с релизом
+  - эскалация
+expected_behavior: "не пропускать блокера или неверная серьёзность; сверка с эталоном expected/"
+expected_failure_mode: "пропуск блокера или неверная серьёзность"
+required_sources:
+  - calendar
+  - tracker
+  - git
+  - mail
+  - transcript
+optional_sources:
+  - memory
+skill_version: v1
+data_version: 2

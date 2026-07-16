@@ -1,0 +1,18 @@
+{
+  "id": "TB-17",
+  "type": "Повторный прогон с памятью",
+  "checks": [
+    "использование сохранённой памяти (прошлое обязательство в сводке)",
+    "отсутствие дублирования обязательств",
+    "вывод изменений с прошлого синка (новое решение + поручение)",
+    "контроль прошлого обязательства (напоминание, статус open)"
+  ],
+  "format": "v1",
+  "transcripts_down": false,
+  "seed": false,
+  "sources_down": [],
+  "corrupt_transcript": false,
+  "hitl_bypass_test": false,
+  "rerun_with_memory": true,
+  "manual_expected": true
+}

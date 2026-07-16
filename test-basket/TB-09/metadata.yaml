@@ -1,0 +1,23 @@
+scenario_id: TB-09
+title: "Несколько похожих задач"
+task4_ref: "СЦ-09"
+difficulty: medium
+description: "В Jira две задачи с похожими названиями (APP-412/APP-421); в расшифровке — конкретный ключ."
+tested_functions:
+  - entity resolution
+  - выбор правильной задачи
+  - confidence
+tested_criteria:
+  - нет путаницы
+  - правильный ключ
+  - confidence
+expected_behavior: "ошибка привязки к чужой задаче; сверка с эталоном expected/"
+expected_failure_mode: "ошибка привязки к чужой задаче"
+required_sources:
+  - calendar
+  - tracker
+  - git
+  - transcript
+optional_sources:[]
+skill_version: v1
+data_version: 2

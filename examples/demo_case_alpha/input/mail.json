@@ -1,0 +1,11 @@
+{
+  "messages": [
+    {
+      "id": "M1",
+      "from_role": "SRE",
+      "date": "2026-07-02",
+      "subject": "Блокер по APP-412: payment-adapter не в prod",
+      "body": "APP-412: смежный сервис payment-adapter не задеплоен в production, релизное окно под риском, деплой заблокирован."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "TB-03",
+  "type": "Конфликт Jira ↔ письмо",
+  "checks": [
+    "конфликт показан двумя значениями",
+    "приоритет Git/Jira > переписка",
+    "эскалация в HITL"
+  ],
+  "format": "v1",
+  "transcripts_down": false,
+  "seed": false
+}

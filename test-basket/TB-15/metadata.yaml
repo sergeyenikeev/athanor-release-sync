@@ -1,0 +1,23 @@
+scenario_id: TB-15
+title: "Повреждённая расшифровка"
+task4_ref: "СЦ-11"
+difficulty: medium
+description: "Расшифровка — ASR-мусор без валидных «Роль: текст» реплик."
+tested_functions:
+  - обработка ошибок
+  - понятное предупреждение
+  - отсутствие фиктивных решений
+tested_criteria:
+  - нет падения
+  - понятная ошибка
+  - нет фикций
+  - повторная загрузка возможна
+expected_behavior: "фиктивные решения или падение; сверка с эталоном expected/"
+expected_failure_mode: "фиктивные решения или падение"
+required_sources:
+  - calendar
+  - tracker
+optional_sources:
+  - transcript
+skill_version: v1
+data_version: 2

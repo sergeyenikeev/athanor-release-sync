@@ -1,0 +1,25 @@
+scenario_id: TB-03
+title: "Конфликт Jira и письма"
+task4_ref: "СЦ-03"
+difficulty: medium
+description: "В Jira задача Done; в письме исполнитель сообщает, что исправление не развернуто; Git содержит незамёрженный PR."
+tested_functions:
+  - сводка (конфликты)
+  - конфликт источников
+  - HITL-эскалация
+tested_criteria:
+  - конфликт
+  - обе версии
+  - приоритет источников
+  - HITL
+expected_behavior: "скрытие конфликта или авто-выбор без человека; сверка с эталоном expected/"
+expected_failure_mode: "скрытие конфликта или авто-выбор без человека"
+required_sources:
+  - calendar
+  - tracker
+  - git
+  - mail
+  - transcript
+optional_sources:[]
+skill_version: v1
+data_version: 2

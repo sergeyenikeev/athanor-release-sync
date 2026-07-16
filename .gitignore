@@ -1,0 +1,33 @@
+# Secrets / local config
+.env
+*.env
+!.env.example
+
+# Agent outbound queue (drafts awaiting human approval) — local only
+outbox/
+*.outbox.json
+
+# Actual test-run artefacts are committed under results/runs/, but local
+# scratch runs go here:
+results/scratch/
+*.local.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node / npm cache (not part of the project)
+npm-cache/
+node_modules/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

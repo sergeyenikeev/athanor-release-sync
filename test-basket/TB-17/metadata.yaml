@@ -1,0 +1,27 @@
+scenario_id: TB-17
+title: "Повторный прогон с памятью"
+task4_ref: "СЦ-14"
+difficulty: high
+description: "Первый прогон создаёт решение и поручение; второй прогон получает новую встречу по тому же релизу."
+tested_functions:
+  - память (использование)
+  - отсутствие дублей
+  - изменения с прошлого синка
+  - контроль обязательства
+tested_criteria:
+  - память использована
+  - нет дублей
+  - изменения показаны
+  - обязательство проконтролировано
+expected_behavior: "дублирование или неиспользование памяти; сверка с эталоном expected/"
+expected_failure_mode: "дублирование или неиспользование памяти"
+required_sources:
+  - calendar
+  - tracker
+  - git
+  - transcript
+  - memory
+optional_sources:
+  - mail
+skill_version: v1
+data_version: 2

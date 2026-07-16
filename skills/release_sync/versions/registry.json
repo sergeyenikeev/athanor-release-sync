@@ -1,0 +1,91 @@
+{
+  "active": "v1",
+  "versions": {
+    "v1": {
+      "version": "v1",
+      "status": "stable",
+      "reason": "baseline: полная сводка, секции в порядке конфликты→блокеры→статусы→обязательства→вопросы→полнота",
+      "format_profile": "v1",
+      "test_results": {},
+      "created_at": "2026-07-14T10:00:00",
+      "promoted_at": "2026-07-14T10:00:00"
+    },
+    "v2": {
+      "version": "v2",
+      "status": "candidate",
+      "reason": "CLI promote by user",
+      "format_profile": "v2",
+      "test_results": {
+        "baseline": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "candidate": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "created_at": "2026-07-03T18:00:00",
+      "promoted_at": "2026-07-16T10:13:52"
+    }
+  },
+  "history": [
+    {
+      "action": "promote",
+      "version": "v1",
+      "reason": "baseline",
+      "at": "2026-07-14T10:00:00"
+    },
+    {
+      "action": "candidate",
+      "version": "v2",
+      "reason": "обратная связь: короче, блокеры сверху",
+      "at": "2026-07-03T18:00:00"
+    },
+    {
+      "action": "promote",
+      "version": "v2",
+      "reason": "демонстрация эволюции по обратной связи (control runner: TB-01/TB-02/TB-04, F1 1.0 vs 1.0 — без деградации)",
+      "baseline_f1": 1.0,
+      "candidate_f1": 1.0,
+      "at": "2026-07-16T08:38:00"
+    },
+    {
+      "action": "rollback",
+      "from": "v2",
+      "to": "v1",
+      "reason": "демонстрация отката (v2 → candidate, v1 → active)",
+      "at": "2026-07-16T08:38:00"
+    },
+    {
+      "action": "promote",
+      "version": "v2",
+      "reason": "CLI promote by user",
+      "baseline_f1": 1.0,
+      "candidate_f1": 1.0,
+      "at": "2026-07-16T09:07:27"
+    },
+    {
+      "action": "rollback",
+      "from": "v2",
+      "to": "v1",
+      "at": "2026-07-16T09:07:27"
+    },
+    {
+      "action": "promote",
+      "version": "v2",
+      "reason": "CLI promote by user",
+      "baseline_f1": 1.0,
+      "candidate_f1": 1.0,
+      "at": "2026-07-16T10:13:52"
+    },
+    {
+      "action": "rollback",
+      "from": "v2",
+      "to": "v1",
+      "at": "2026-07-16T10:13:52"
+    }
+  ]
+}

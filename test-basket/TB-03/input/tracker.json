@@ -1,0 +1,19 @@
+{
+  "issues": [
+    {
+      "key": "APP-412",
+      "title": "Миграция схемы оплат",
+      "status": "готово",
+      "assignee_role": "Разработчик A"
+    }
+  ],
+  "prs": [
+    {
+      "number": 128,
+      "title": "Схема оплат",
+      "status": "слито",
+      "review_days": 0,
+      "issue_key": "APP-412"
+    }
+  ]
+}
