@@ -7,18 +7,17 @@
   `test-instances/seed_*.py`. Расшифровки — файлы кейса (внешнего API нет).
 - **Тестовые инстансы** (`MCP_BACKEND=test`) — MCP-адаптеры `mcp/_backends.py`
   ходят к локальным тестовым инстансам `test-instances/` по **реальным контрактам**
-  Jira REST v2, Microsoft Graph, Bitbucket Cloud REST 2.0, Confluence REST API v1
-  и конвертируют ответы в схему агента. Офлайн, детерминированно.
+  Jira REST v2, Bitbucket Cloud REST 2.0, Confluence REST API v1 и конвертируют
+  ответы в схему агента. Calendar/mail в test-режиме — файлы. Офлайн, детерминированно.
 - **Файловый демо-контур** (`MCP_BACKEND=file`) — обезличенные выгрузки из папки
   кейса (`MCP_CASE_DIR`, по умолчанию `examples/demo_case`). Офлайн-демо.
 
-Боевой Outlook (Microsoft Graph, `MCP_BACKEND=microsoft`) — тот же интерфейс, после
-ИБ-согласования; Jira/Bitbucket/Confluence/mail/Calendar — реализованы и подключены (`live`).
+mail/Calendar — Google (IMAP + публичный iCal URL), без Azure/OAuth.
 
 ## Серверы и инструменты
 | Сервер | Порт | Инструменты | Файл (по умолч.) | `MCP_BACKEND=test` |
 |---|---|---|---|---|
-| calendar_mail | 9901 | `get_events`, `get_mail` | `calendar.json`, `mail.json` | Microsoft Graph `/v1.0/me/{events,messages}` |
+| calendar_mail | 9901 | `get_events`, `get_mail` | `calendar.json`, `mail.json` | (calendar/mail → файл; live: Google iCal/IMAP) |
 | tracker_repo | 9902 | `get_issues`, `get_prs` | `tracker.json` | Jira `/rest/api/2/search` + Bitbucket `/repositories/.../pullrequests` |
 | transcripts | 9903 | `get_transcript(case_id)` (при `MCP_TRANSCRIPTS_DOWN=1` — ошибка → деградация) | `transcript.txt` | (без изменений) |
 | confluence | 9904 | `get_confluence_pages(space?, label?)` | `confluence.json` | Confluence `/wiki/rest/api/content/search` (CQL) |
@@ -62,13 +61,13 @@ MCP_BACKEND=test python -m athanor.cli run --case examples/demo_case_alpha --via
 
 | MCP-инструмент | Тестовый инстанс | Конвертация |
 |---|---|---|
-| `get_events` | Graph `/v1.0/me/events` | Graph event → `CalendarEvent` |
-| `get_mail` | Graph `/v1.0/me/messages` | Graph message → `Mail` |
+| `get_events` | (calendar/mail → файл в test-режиме; live: Google iCal) | iCal VEVENT → `CalendarEvent` |
+| `get_mail` | (calendar/mail → файл в test-режиме; live: Google IMAP) | IMAP message → `Mail` |
 | `get_issues` | Jira `/rest/api/2/search` | Jira issue → `Issue` |
 | `get_prs` | Bitbucket `/repositories/{workspace}/{repo_slug}/pullrequests` | Bitbucket PR → `PullRequest` |
 | `get_confluence_pages` | Confluence `/wiki/rest/api/content/search` (CQL) | Confluence page → `ConfluencePage` (HTML→excerpt, version, url) |
 
-URL тестовых инстансов переопределяются env: `TEST_JIRA_URL`, `TEST_GRAPH_URL`,
+URL тестовых инстансов переопределяются env: `TEST_JIRA_URL`,
 `TEST_BITBUCKET_URL`, `TEST_CONFLUENCE_URL`, `TEST_JIRA_PROJECT`,
 `TEST_CONFLUENCE_SPACE`, `TEST_BB_WORKSPACE`, `TEST_BB_REPO_SLUG`.
 Подробнее — `test-instances/README.md`.
@@ -99,10 +98,9 @@ MCP_BACKEND=live MCP_BACKEND_PR=bitbucket python mcp/serve_all.py
 MCP_BACKEND=live MCP_BACKEND_PR=bitbucket python -m athanor.cli run --case examples/demo_case_alpha_live --via-mcp --engine rule --print
 ```
 
-**mail без Azure:** IMAP + пароль приложения (https://myaccount.google.com/apppasswords,
+**mail (Google):** IMAP + пароль приложения (https://myaccount.google.com/apppasswords,
 нужна 2FA). **Calendar:** публичный iCal URL (Settings → Integrate calendar).
-Креды — только в `.env` (в `.gitignore`). Альтернатива для Outlook.com — `ms_auth.py`
-(OAuth2 device code, требует регистрацию приложения в своём Entra ID tenant).
+Креды — только в `.env` (в `.gitignore`). Без Azure/OAuth.
 
 ## Реальный Bitbucket Cloud (`MCP_BACKEND_PR=bitbucket`)
 При `MCP_BACKEND_PR=bitbucket` инструмент `get_prs` ходит к боевому Bitbucket Cloud

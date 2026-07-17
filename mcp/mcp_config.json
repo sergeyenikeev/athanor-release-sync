@@ -3,7 +3,7 @@
     "calendar_mail": {
       "transport": "streamable_http",
       "url": "http://127.0.0.1:9901/mcp",
-      "description": "Календарь и почта. MCP_BACKEND=live (по умолчанию) → Google (iCal + IMAP); microsoft → Outlook.com (Graph); test → Graph-инстанс :9912; file → обезличенная выгрузка."
+      "description": "Календарь и почта (Google). MCP_BACKEND=live (по умолчанию) → Calendar (iCal) + mail (IMAP); test/file → обезличенная выгрузка."
     },
     "tracker_repo": {
       "transport": "streamable_http",

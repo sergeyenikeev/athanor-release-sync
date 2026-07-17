@@ -19,9 +19,11 @@
 | Инстанс | Порт | Контракт | Эндпоинты |
 |---|---|---|---|
 | `jira_server.py` | 9911 | Atlassian Jira REST v2 | `/rest/api/2/search?jql=`, `/rest/api/2/issue/{key}`, `/rest/api/2/serverInfo` |
-| `graph_server.py` | 9912 | Microsoft Graph (Outlook) | `/v1.0/me/events`, `/v1.0/me/messages` |
 | `bitbucket_server.py` | 9913 | Bitbucket Cloud REST 2.0 | `/repositories/{workspace}/{repo_slug}/pullrequests` |
 | `confluence_server.py` | 9914 | Atlassian Confluence REST API v1 | `/wiki/rest/api/content/search?cql=`, `/wiki/rest/api/content/{id}`, `/wiki/rest/api/space` |
+
+Calendar/mail в test-режиме читаются из файла (graph-инстанс не используется);
+реальные mail/Calendar — Google через `MCP_BACKEND=live` (IMAP + iCal, `seed_google.py`).
 
 Данные — обезличенная синтетика «Альфа» (роли, APP-/OPS-***, `payment-adapter`, страницы
 `Release Plan · Альфа` / `Decision Log · Альфа`). ПДн и секретов нет.
@@ -29,12 +31,11 @@
 ## Запуск
 
 ```bash
-# все четыре инстанса в одном процессе
+# все три инстанса в одном процессе
 python test-instances/serve_all.py
 
 # или по отдельности
 python test-instances/jira_server.py
-python test-instances/graph_server.py
 python test-instances/bitbucket_server.py
 python test-instances/confluence_server.py
 ```
@@ -42,12 +43,13 @@ python test-instances/confluence_server.py
 ## Связь с MCP-адаптерами
 
 `mcp/_backends.py` при `MCP_BACKEND=test` ходит к этим инстансам и конвертирует
-ответы реальных контрактов в схему агента (`CalendarEvent`/`Issue`/`PullRequest`/`Mail`/`ConfluencePage`):
+ответы реальных контрактов в схему агента (`Issue`/`PullRequest`/`ConfluencePage`).
+Calendar/mail в test-режиме — из файла; в live — Google (IMAP/iCal):
 
 | MCP-инструмент | Тестовый инстанс | Конвертация |
 |---|---|---|
-| `calendar_mail.get_events` | Graph `/v1.0/me/events` | Graph event → `CalendarEvent` |
-| `calendar_mail.get_mail` | Graph `/v1.0/me/messages` | Graph message → `Mail` |
+| `calendar_mail.get_events` | (файл в test; live: Google iCal) | iCal VEVENT → `CalendarEvent` |
+| `calendar_mail.get_mail` | (файл в test; live: Google IMAP) | IMAP message → `Mail` |
 | `tracker_repo.get_issues` | Jira `/rest/api/2/search` | Jira issue → `Issue` |
 | `tracker_repo.get_prs` | Bitbucket `/repositories/.../pullrequests` | Bitbucket PR → `PullRequest` |
 | `confluence.get_confluence_pages` | Confluence `/wiki/rest/api/content/search` (CQL) | Confluence page → `ConfluencePage` (HTML→excerpt, version, url) |
@@ -73,7 +75,6 @@ payment-adapter, решение + 2 поручения, черновики HITL,
 |---|---|---|
 | `MCP_BACKEND` | (не задан) | `test` — локальные инстансы; `atlassian` — реальная Jira; иначе — файлы кейса |
 | `TEST_JIRA_URL` | `http://127.0.0.1:9911` | URL тестовой Jira (`MCP_BACKEND=test`) |
-| `TEST_GRAPH_URL` | `http://127.0.0.1:9912` | URL тестового Graph |
 | `TEST_BITBUCKET_URL` | `http://127.0.0.1:9913` | URL тестового Bitbucket |
 | `TEST_CONFLUENCE_URL` | `http://127.0.0.1:9914` | URL тестового Confluence (`MCP_BACKEND=test`) |
 | `TEST_JIRA_PROJECT` | `ALPHA` | JQL-проект для поиска (test) |
@@ -195,8 +196,9 @@ MCP_BACKEND=live python -m athanor.cli run --case examples/demo_case_alpha_live 
 
 ## Что доказывает
 
-1. MCP-адаптеры работают с **реальными API-контрактами** (Jira REST, MS Graph,
-   Bitbucket Cloud REST 2.0, Confluence Cloud REST API v1), а не только с файловой выгрузкой.
+1. MCP-адаптеры работают с **реальными API-контрактами** (Jira REST,
+   Bitbucket Cloud REST 2.0, Confluence Cloud REST API v1, Google IMAP/iCal),
+   а не только с файловой выгрузкой.
 2. Конвертация «контракт системы → схема агента» реализована и воспроизводима.
 3. **Уровень 3: реальная Jira** — боевой контракт Atlassian, live-данные из Cloud.
 3b. **Реальный Bitbucket Cloud** — боевой контракт Atlassian, live-PR из Cloud (`MCP_BACKEND_PR=bitbucket`).

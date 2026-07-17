@@ -1,21 +1,19 @@
-"""MCP-адаптеры к тестовым инстансам (реальные контракты → схема агента).
+"""MCP-адаптеры к реальным и тестовым источникам (контракт → схема агента).
 
-Backend "test" включается через env MCP_BACKEND=test. Тогда MCP-серверы
-ходят к локальным тестовым инстансам (Jira REST v2, Microsoft Graph, Bitbucket
-Cloud REST 2.0, Confluence REST API v1) по реальным HTTP-контрактам и конвертируют
-ответы в схему агента (CalendarEvent/Issue/PullRequest/Mail/ConfluencePage).
-Смена URL -> боевые системы.
-
-По умолчанию (MCP_BACKEND=live) — реальные Jira/Bitbucket/Confluence/Google
-(mail+calendar). MCP_BACKEND=file — файловый демо-контур (read_case_json).
+Режимы MCP_BACKEND:
+  - live (по умолчанию) — реальные Jira/Bitbucket/Confluence/Google
+    (mail через IMAP + calendar через публичный iCal URL), stdlib-only.
+  - test — локальные тестовые инстансы (Jira REST v2, Bitbucket Cloud REST 2.0,
+    Confluence REST API v1) по реальным HTTP-контрактам; calendar/mail в test-режиме
+    читаются из файла (read_case_json). Конвертация ответов → схема агента.
+  - file — файловый демо-контур (обезличенные выгрузки из MCP_CASE_DIR).
 
 Контракты:
   Jira:       GET /rest/api/2/search?jql=project=KEY  → {issues:[{key,fields:{summary,status,assignee}}]}
-  Graph:   GET /v1.0/me/events                     → {value:[{id,subject,start,attendees}]}
-           GET /v1.0/me/messages                    → {value:[{id,subject,from,receivedDateTime,body}]}
   Bitbucket: GET /repositories/{workspace}/{repo_slug}/pullrequests → {values:[{id,title,state,created_on,updated_on,summary:{raw}}]}
   Confluence: GET /wiki/rest/api/content/search?cql=space=KEY AND label="alpha-demo"
               &expand=body.view,version,space → {results:[{id,title,space,version,body, _links}]}
+  Google mail: IMAP (imaplib) → message; Google calendar: публичный iCal (.ics) → VEVENT.
 """
 from __future__ import annotations
 
@@ -60,17 +58,8 @@ def _backend_for(source: str) -> str:
     return b
 
 
-def _is_test_backend() -> bool:
-    return _backend_for("CALENDAR") in ("test", "test-instances", "instances") \
-        or _backend() in ("test", "test-instances", "instances")
-
-
 def _jira_url() -> str:
     return os.environ.get("TEST_JIRA_URL", "http://127.0.0.1:9911")
-
-
-def _graph_url() -> str:
-    return os.environ.get("TEST_GRAPH_URL", "http://127.0.0.1:9912")
 
 
 def _bitbucket_url() -> str:
@@ -217,35 +206,6 @@ def _dt_short(iso: str) -> str:
 
 def _date_short(iso: str) -> str:
     return iso.replace("Z", "").split("+")[0][:10]
-
-
-# ----------------------------------------------------------------- calendar/mail
-def graph_events() -> list[dict]:
-    data = _get(f"{_graph_url()}/v1.0/me/events")
-    out = []
-    for e in data.get("value", []):
-        out.append({
-            "id": e["id"],
-            "title": e["subject"],
-            "project": _project_from_subject(e["subject"]),
-            "datetime": _dt_short(e["start"]["dateTime"]),
-            "participants": [a["emailAddress"]["name"] for a in e.get("attendees", [])],
-        })
-    return out
-
-
-def graph_mail() -> list[dict]:
-    data = _get(f"{_graph_url()}/v1.0/me/messages")
-    out = []
-    for m in data.get("value", []):
-        out.append({
-            "id": m["id"],
-            "from_role": m["from"]["emailAddress"]["name"],
-            "date": _date_short(m["receivedDateTime"]),
-            "subject": m["subject"],
-            "body": m["body"]["content"],
-        })
-    return out
 
 
 # ----------------------------------------------------------------- tracker/repo
@@ -446,6 +406,10 @@ def _ical_dt(raw: str) -> str:
     return raw
 
 
+# Участники — роли (обезличивание), не реальные люди.
+_ALPHA_PARTICIPANTS = ["Тимлид", "SRE", "Владелец продукта", "Разработчик backend", "Разработчик frontend"]
+
+
 def google_calendar_events() -> list[dict]:
     """События из Calendar через публичный iCal URL (.ics, без авторизации)."""
     url = os.environ.get("GOOGLE_ICAL_URL", "")
@@ -485,94 +449,7 @@ def google_calendar_events() -> list[dict]:
             "title": subj,
             "project": _project_from_subject(subj) if "·" in subj else "Альфа",
             "datetime": _ical_dt(fields.get("DTSTART", "")),
-            "participants": _ALPHA_PARTICIPANTS if "_ALPHA_PARTICIPANTS" in globals() else
-            ["Тимлид", "SRE", "Владелец продукта", "Разработчик backend", "Разработчик frontend"],
-        })
-    return out
-
-
-# --- Реальный Microsoft Graph (Outlook.com, MCP_BACKEND_CALENDAR/MAIL=microsoft) ---
-_MS_TOKEN = {"token": None, "expires": 0.0, "refresh": None}
-_MS_SCOPE = ("https://graph.microsoft.com/Mail.ReadWrite "
-             "https://graph.microsoft.com/Mail.Send "
-             "https://graph.microsoft.com/Calendars.ReadWrite offline_access")
-
-
-def _ms_access_token() -> str:
-    """Access-токен Graph с автообновлением по refresh-токену из .env."""
-    import time, urllib.parse
-    t = _MS_TOKEN
-    if t["token"] and time.time() < t["expires"] - 60:
-        return t["token"]
-    client_id = os.environ.get("MS_CLIENT_ID", "")
-    refresh = os.environ.get("MS_REFRESH_TOKEN", "")
-    tenant = os.environ.get("MS_TENANT", "consumers")
-    if not client_id or not refresh:
-        raise RuntimeError("MCP_BACKEND=microsoft требует MS_CLIENT_ID и MS_REFRESH_TOKEN "
-                           "в .env (см. test-instances/ms_auth.py — device code flow)")
-    data = urllib.parse.urlencode({"client_id": client_id, "grant_type": "refresh_token",
-                                   "refresh_token": refresh, "scope": _MS_SCOPE}).encode("utf-8")
-    req = urllib.request.Request(
-        f"https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token", data=data,
-        headers={"Content-Type": "application/x-www-form-urlencoded"}, method="POST")
-    with urllib.request.urlopen(req, timeout=15) as r:
-        body = json.loads(r.read().decode("utf-8"))
-    t["token"] = body["access_token"]
-    t["expires"] = time.time() + body.get("expires_in", 3600)
-    if body.get("refresh_token"):
-        t["refresh"] = body["refresh_token"]
-        os.environ["MS_REFRESH_TOKEN"] = body["refresh_token"]  # rotated refresh token
-    return t["token"]
-
-
-def _ms_graph_get(path: str) -> dict:
-    token = _ms_access_token()
-    req = urllib.request.Request(f"https://graph.microsoft.com/v1.0{path}",
-                                 headers={"Authorization": f"Bearer {token}",
-                                          "Accept": "application/json"})
-    with urllib.request.urlopen(req, timeout=15) as r:
-        return json.loads(r.read().decode("utf-8"))
-
-
-# Участники — роли (обезличивание), не реальные люди; в событие мы их не приглашаем
-# (чтобы не слать инвайт-письма на несуществующие адреса), а возвращаем как синтетику.
-_ALPHA_PARTICIPANTS = ["Тимлид", "SRE", "Владелец продукта", "Разработчик backend", "Разработчик frontend"]
-
-
-def graph_events_ms() -> list[dict]:
-    """События календаря из реального Outlook.com (Microsoft Graph)."""
-    data = _ms_graph_get("/me/events?$select=id,subject,start,end,attendees,body&$top=25")
-    out = []
-    for e in data.get("value", []):
-        subj = e.get("subject", "")
-        if "Релиз-синк" not in subj and "Альфа" not in subj:
-            continue  # только синтетика демо-контура
-        out.append({
-            "id": e["id"],
-            "title": subj,
-            "project": _project_from_subject(subj) if "·" in subj else "Альфа",
-            "datetime": _dt_short(e["start"]["dateTime"]),
-            "participants": _ALPHA_PARTICIPANTS,  # роли (обезличивание)
-        })
-    return out
-
-
-def graph_mail_ms() -> list[dict]:
-    """Письма из реального Outlook.com (Microsoft Graph). Фильтр по теме — синтетика."""
-    data = _ms_graph_get("/me/messages?$select=id,subject,from,receivedDateTime,body"
-                         "&$top=25&$orderby=receivedDateTime desc")
-    out = []
-    for m in data.get("value", []):
-        subj = m.get("subject", "")
-        if "payment-adapter" not in subj and "KAN-" not in subj and "Альфа" not in subj:
-            continue
-        frm = (m.get("from") or {}).get("emailAddress") or {}
-        out.append({
-            "id": m["id"],
-            "from_role": frm.get("name") or frm.get("address") or "SRE",
-            "date": _date_short(m["receivedDateTime"]),
-            "subject": subj,
-            "body": (m.get("body") or {}).get("content", ""),
+            "participants": _ALPHA_PARTICIPANTS,
         })
     return out
 
@@ -711,10 +588,7 @@ def get_events() -> list[dict]:
     b = _backend_for("CALENDAR")
     if b == "google":
         return google_calendar_events()
-    if b == "microsoft":
-        return graph_events_ms()
-    if b in ("test", "test-instances", "instances"):
-        return graph_events()
+    # test/file → файловая выгрузка (read_case_json)
     from _base import read_case_json  # noqa: PLC0415
     return read_case_json("calendar.json", "events")
 
@@ -723,10 +597,7 @@ def get_mail() -> list[dict]:
     b = _backend_for("MAIL")
     if b == "google":
         return gmail_mail()
-    if b == "microsoft":
-        return graph_mail_ms()
-    if b in ("test", "test-instances", "instances"):
-        return graph_mail()
+    # test/file → файловая выгрузка (read_case_json)
     from _base import read_case_json  # noqa: PLC0415
     return read_case_json("mail.json", "messages")
 
@@ -747,7 +618,7 @@ def get_prs() -> list[dict]:
         return bitbucket_prs_cloud()
     if b in ("test", "test-instances", "instances"):
         return bitbucket_prs()
-    # microsoft/atlassian/file: PR из локального кейса (боевой Bitbucket — через MCP_BACKEND_PR=bitbucket)
+    # atlassian/file: PR из локального кейса (боевой Bitbucket — через MCP_BACKEND_PR=bitbucket)
     from _base import read_case_json  # noqa: PLC0415
     return read_case_json("tracker.json", "prs")
 

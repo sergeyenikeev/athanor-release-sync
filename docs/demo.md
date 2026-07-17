@@ -27,8 +27,8 @@ python -m athanor.cli run --case examples/demo_case --via-mcp --print   # тер
 ```
 
 ## Через тестовые инстансы (уровень интеграций)
-Локальные серверы с реальными контрактами Jira REST v2, Microsoft Graph,
-Bitbucket Cloud REST 2.0, Confluence Cloud REST API v1 и синтетикой «Альфа»
+Локальные серверы с реальными контрактами Jira REST v2, Bitbucket Cloud REST 2.0,
+Confluence Cloud REST API v1 и синтетикой «Альфа»
 (см. `test-instances/README.md`).
 ```bash
 python test-instances/serve_all.py                    # терминал 1 (порты 9911-9914)
@@ -37,7 +37,7 @@ MCP_BACKEND=test python -m athanor.cli run --case examples/demo_case_alpha --via
 ```
 MCP-адаптеры (`mcp/_backends.py`) ходят к тестовым инстансам по реальным
 HTTP-контрактам и конвертируют ответы в схему агента. Смена URL → боевые
-Jira/Outlook/Bitbucket/Confluence. Результат идентичен файловому демо-контуру
+Jira/Bitbucket/Confluence. Результат идентичен файловому демо-контуру
 (плюс секция «Контекст из Confluence» — release plan / decision log).
 
 ## Полная оценка (с эволюцией навыка)

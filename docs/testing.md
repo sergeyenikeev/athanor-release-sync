@@ -11,7 +11,7 @@ python -m unittest discover -s tests -t .   # эквивалент
   approval gate, prompt-injection detector, metrics calculator, skill versioning.
 - `tests/integration/` — MCP-серверы, полный workflow агента,
   **тестовые инстансы** (`test_test_instances.py`: реальные контракты Jira REST v2,
-  MS Graph, Bitbucket Cloud REST 2.0 + конвертация через `mcp/_backends.py` при `MCP_BACKEND=test`).
+  Bitbucket Cloud REST 2.0, Confluence + конвертация через `mcp/_backends.py` при `MCP_BACKEND=test`).
 - `tests/e2e/` — вся корзина TB-01..TB-17; эволюция навыка (promote v2 + rollback); HITL-обход (TB-16).
 - `tests/negative/` — отсутствующий файл, битый JSON, timeout/ошибка LLM, пустой
   ответ, некорректная схема, недоступный MCP, превышение бюджета, внешнее действие

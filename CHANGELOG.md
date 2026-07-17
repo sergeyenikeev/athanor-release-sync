@@ -1,5 +1,25 @@
 ﻿# Changelog
 
+## [1.6.0] — 2026-07-17 (mail/Calendar — только Google; Outlook/MS Graph удалён)
+
+### Удалено
+- **Боевой Microsoft Graph (Outlook.com)** убран: `mcp/_backends.py` — `graph_events_ms`,
+  `graph_mail_ms`, `_ms_access_token`, `_ms_graph_get`, `_MS_TOKEN`, `_MS_SCOPE`; dispatch
+  `get_events`/`get_mail` больше не имеют `microsoft`-ветки. mail/Calendar — только Google
+  (IMAP + публичный iCal URL), без Azure/OAuth.
+- `test-instances/graph_server.py`, `ms_auth.py`, `seed_microsoft.py` — удалены.
+  `test-instances/serve_all.py` больше не поднимает Graph-инстанс (:9912).
+- `mcp/_backends.py`: test-instance функции `graph_events`/`graph_mail` и `_graph_url` убраны;
+  calendar/mail в `MCP_BACKEND=test` читаются из файла (read_case_json).
+- `.env.example`: секция `Microsoft Graph — Outlook.com` (`MS_*`) и `TEST_GRAPH_URL` убраны.
+
+### Изменено
+- `MCP_BACKEND=live` — единственный реальный контур для mail/Calendar (Google).
+- `tests/integration/test_test_instances.py` — убраны graph-тесты (4 шт.); Jira/Bitbucket/
+  Confluence-инстансы и адаптеры остаются. 117 тестов проходят.
+- README, docs (architecture/demo/mcp/testing), test-instances/README, слайды (`build_deck.py`,
+  `build_results.py`), `out/*.md` — упоминания Outlook/MS Graph заменены на Google (mail+Calendar).
+
 ## [1.5.1] — 2026-07-16 (Confluence: личные пространства + live-демо на боевой Cloud)
 
 ### Изменено

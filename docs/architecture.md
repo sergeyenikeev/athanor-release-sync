@@ -1,9 +1,8 @@
 # Архитектура
 
 «Ouroboros — мозг команды»: ИИ-агент подготовки к релиз-синкам и разборам
-инцидентов. Демонстрационный контур — обезличенные синтетические выгрузки;
-боевые коннекторы (Outlook/Jira/Git/Confluence) — тот же интерфейс через MCP,
-после пилота.
+инцидентов. Контур MVP — реальные Jira/Bitbucket/Confluence/Google (mail+calendar)
+через MCP (`MCP_BACKEND=live`); расшифровки — файлы кейса.
 
 ## Слои
 
@@ -39,12 +38,12 @@ output.md + run.json + memory_after/ + outbox/ + metrics.json
 | Память релиза + журнал | реализовано | src/athanor/memory.py |
 | HITL outbox | реализовано | src/athanor/hitl.py |
 | Safety Layer (injection/allowlist/mask) | реализовано | src/athanor/security.py |
-| MCP-инструменты (get_*) | файловый демо-контур + адаптеры к тестовым инстансам | mcp/ (mcp/_backends.py) |
-| Тестовые инстансы (реальные контракты Jira REST v2, MS Graph, Bitbucket Cloud REST 2.0, Confluence Cloud REST API v1) | реализовано (локально, `MCP_BACKEND=test`) | test-instances/ |
+| MCP-инструменты (get_*) | live (Jira/Bitbucket/Confluence/Google) + адаптеры к тестовым инстансам | mcp/ (mcp/_backends.py) |
+| Тестовые инстансы (реальные контракты Jira REST v2, Bitbucket Cloud REST 2.0, Confluence Cloud REST API v1) | реализовано (локально, `MCP_BACKEND=test`) | test-instances/ |
 | Реальная Jira (Atlassian, `/rest/api/3/search/jql`) | реализовано (`MCP_BACKEND=atlassian`, live) | mcp/_backends.py, test-instances/seed_atlassian.py |
 | Реальная Confluence Cloud (Atlassian, `/wiki/rest/api/content/search`, CQL) | реализовано (`MCP_BACKEND_CONFLUENCE=atlassian`, live) | mcp/_backends.py, test-instances/seed_confluence.py |
+| Реальный mail + Calendar (Google, IMAP + iCal) | реализовано (`MCP_BACKEND=live`) | mcp/_backends.py, test-instances/seed_google.py |
 | Версионирование навыка + rollback | реализовано | src/athanor/skill_versioning.py |
-| Коннекторы Outlook/Jira/Git | подготовлен интерфейс, боевые — после пилота (смена URL в _backends.py) | mcp/ + src/athanor/sources.py |
 | Коннектор Confluence Cloud | реализовано (Basic auth + CQL, страницы в сводке kind=`doc`) | mcp/confluence.py + mcp/_backends.py |
 
 ## Схема (Mermaid)
@@ -66,6 +65,6 @@ flowchart LR
   A --> R[output.md + run.json + metrics]
   H -->|approve| EXEC[executed (демо)]
   FB[feedback] --> SV[skill_versioning: v1↔v2 + rollback]
-  TI[test-instances: Jira REST / MS Graph / Bitbucket / Confluence] -. MCP_BACKEND=test .-> M
+  TI[test-instances: Jira REST / Bitbucket / Confluence] -. MCP_BACKEND=test .-> M
   JC[Реальная Jira: KAN-1/KAN-2] -. MCP_BACKEND=atlassian .-> M
 ```

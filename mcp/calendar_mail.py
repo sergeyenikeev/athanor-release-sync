@@ -1,10 +1,8 @@
 """MCP-сервер «календарь + почта». Порт 9901.
 
-Коннектор к календарю и почте. Источник данных — через MCP_BACKEND:
-  - live (по умолчанию) → Google: Calendar (iCal) + mail (IMAP);
-  - microsoft → Outlook.com (Microsoft Graph);
-  - test → локальный Graph-инстанс (:9912, реальный контракт);
-  - file → обезличенная выгрузка из MCP_CASE_DIR.
+Коннектор к календарю и почте (Google). Источник данных — через MCP_BACKEND:
+  - live (по умолчанию) → Google: Calendar (публичный iCal URL) + mail (IMAP, пароль приложения);
+  - test/file → обезличенная выгрузка из MCP_CASE_DIR.
 Конвертация «контракт → схема агента» — в mcp/_backends.py.
 """
 
@@ -19,11 +17,11 @@ import _backends  # noqa: E402
 
 TOOLS = {
     "get_events": (
-        {"description": "События календаря по проекту (live→Google iCal / MS Graph; test→Graph-инстанс; file→выгрузка)"},
+        {"description": "События календаря по проекту (live→Google iCal; test/file→выгрузка)"},
         _backends.get_events,
     ),
     "get_mail": (
-        {"description": "Письма по проекту (live→Google IMAP / MS Graph; test→Graph-инстанс; file→выгрузка)"},
+        {"description": "Письма по проекту (live→Google IMAP; test/file→выгрузка)"},
         _backends.get_mail,
     ),
 }
