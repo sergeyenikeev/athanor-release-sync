@@ -294,12 +294,13 @@ Calendar (событие «Релиз-синк · Альфа»); для дете
 в `examples/demo_case_alpha_live/` и прогнан через MCP (файловый бэкенд на live-данных).
 
 ## Демо-видео
-`out/video/final/Athanor_Ouroboros_Project_Results_Demo.mp4` (2:20.76, 1920×1080,
-H.264/AAC) — финальное демо-видео (< 3 мин, критерий «ДЕМО-видео» 30%). Сборка:
-`cd out/video; python make_video.py` (PIL-рендер кадров из реальных артефактов +
-edge-tts DmitryNeural + сведение ffmpeg). Версия с субтитрами + `.srt` + обложка —
-в `out/video/final/`. Отчёт по видео: `out/09_task6_demo_video_final.md`.
-Сценарий: `results/demo_scenario.md`, `docs/demo.md`.
+`video/Athanor_Ouroboros_Project_Results_Demo.mp4` (2:20.76, 1920×1080,
+H.264/AAC) — финальное демо-видео (< 3 мин, критерий «ДЕМО-видео» 30%).
+Единственный файл в `video/`; QR-код презентации ведёт на
+`/blob/main/video/Athanor_Ouroboros_Project_Results_Demo.mp4` (живой — HTTP 200).
+Сборщик (PIL-рендер кадров + edge-tts DmitryNeural + сведение ffmpeg) — во внешнем
+репозитории (`out/video/make_video.py`), в этот репозиторий выкладывается только
+готовый MP4. Сценарий: `results/demo_scenario.md`, `docs/demo.md`.
 
 ## Лицензия
 MIT (`LICENSE`). Проприетарные технологии не используются; зависимости — лицензионно
