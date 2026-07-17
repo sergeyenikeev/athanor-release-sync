@@ -47,8 +47,8 @@ KAN-1 (Jira «Готово» ↔ письмо «блокер») выявляет
 ## Артефакты
 - Прогон: `results/demo/<run_id>/` (`output.md`, `run.json`, `memory_after/`, `outbox/`)
 - Метрики: `results/metrics.json` (17 сценариев, F1 100%)
-- Демо-видео: `out/video/final/Athanor_Ouroboros_Project_Results_Demo.mp4` (2:20.69)
+- Демо-видео: `out/video/final/Athanor_Ouroboros_Project_Results_Demo.mp4` (2:20.76)
 - Отчёт по видео: `out/09_task6_demo_video_final.md`
 
 Длительность прогона < 3 мин (детерминированный rule-движок, ~1 с на цикл).
-Длительность демо-видео — 2:20.69 (< 3 мин, критерий «ДЕМО-видео» 30%).
+Длительность демо-видео — 2:20.76 (< 3 мин, критерий «ДЕМО-видео» 30%).

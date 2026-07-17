@@ -294,7 +294,7 @@ Calendar (событие «Релиз-синк · Альфа»); для дете
 в `examples/demo_case_alpha_live/` и прогнан через MCP (файловый бэкенд на live-данных).
 
 ## Демо-видео
-`out/video/final/Athanor_Ouroboros_Project_Results_Demo.mp4` (2:20.69, 1920×1080,
+`out/video/final/Athanor_Ouroboros_Project_Results_Demo.mp4` (2:20.76, 1920×1080,
 H.264/AAC) — финальное демо-видео (< 3 мин, критерий «ДЕМО-видео» 30%). Сборка:
 `cd out/video; python make_video.py` (PIL-рендер кадров из реальных артефактов +
 edge-tts DmitryNeural + сведение ffmpeg). Версия с субтитрами + `.srt` + обложка —

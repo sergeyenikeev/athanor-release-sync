@@ -1,7 +1,7 @@
 # Демо-видео Project Results (критерий «ДЕМО-видео», 30%)
 
 Финальное демо-видео сборки Project Results команды «Атанор» (Sber AI Hack).
-Длительность **2:20.69** (< 3 мин), 1920×1080, H.264/AAC, **русская голосовая озвучка**
+Длительность **2:20.76** (< 3 мин), 1920×1080, H.264/AAC, **русская голосовая озвучка**
 (edge-tts `ru-RU-DmitryNeural`), субтитры `.srt`. Полный end-to-end сценарий:
 запуск Ouroboros → сбор 5 источников через MCP → сводка с конфликтом и блокером →
 анализ расшифровки (решения ≠ идеи, поручения) → HITL-черновик → память релиза →
@@ -10,6 +10,7 @@
 ## Файлы
 - `final/Athanor_Ouroboros_Project_Results_Demo.mp4` — финальное видео ( основной артефакт).
 - `final/Athanor_Ouroboros_Project_Results_Demo.srt` — субтитры (текст озвучки).
+- `final/Athanor_Ouroboros_Project_Results_Demo_subtitles.mp4` — версия с вшитыми субтитрами.
 - `final/Athanor_Ouroboros_Project_Results_Demo_cover.png` — обложка.
 - `final/voiceover.txt` — текст озвучки.
 - `build/mcp_session.txt`, `build/live_session.txt`, `build/atlassian_session.txt` —
