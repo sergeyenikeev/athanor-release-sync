@@ -36,8 +36,8 @@ python scripts/run_demo.py
 python scripts/run_demo.py                 # демо-прогон (examples/demo_case)
 python scripts/run_tests.py                # все тесты (unittest, 90+)
 python scripts/run_evaluation.py --engine rule   # корзина + метрики + эволюция навыка
-python tests/run_basket.py --engine rule --run-id rule_v1   # только корзина (TB-01..TB-17)
-python tests/score.py --run results/runs/rule_v1 --mirror   # только метрики + артефакты
+python tests/run_basket.py --engine rule --run-id my_rule   # только корзина (TB-01..TB-17); my_rule — ваша метка
+python tests/score.py --run results/runs/eval_20260716T232149 --mirror   # метрики каноничного прогона + артефакты
 python -m athanor.cli run --case test-basket/TB-04 --engine rule --print   # один кейс
 python -m athanor.cli demo                                    # демо через CLI
 python -m athanor.cli versions                                # реестр версий навыка
