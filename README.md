@@ -217,7 +217,7 @@ results/     runs/, demo/, metrics.json, metrics.csv, results_summary.md, evalua
    $0.4337, 16 rounds, 8 MCP-вызовов (5 инструментов:
    `get_events/get_mail/get_issues/get_prs/get_confluence_pages`; 3 safety-таймаута восстановлены
    автоматическим retry) → сводка (Confluence:
-   что в релизе; KAN-1 Готово, KAN-2 к выполнению, PR #128, конфликт Jira↔mail↔Bitbucket,
+   что в релизе; APP-412 Готово, APP-521 к выполнению, PR #128, конфликт Jira↔mail↔Bitbucket,
    блокер payment-adapter; роли backend/frontend).
    Артефакт: `results/scratch/ouroboros_demo/` (`run.log`, `result.json`).
 
@@ -264,7 +264,7 @@ MCP_BACKEND=test python mcp/serve_all.py
 MCP_BACKEND=test python -m athanor.cli run --case examples/demo_case_alpha --via-mcp --engine rule --print
 
 # уровень 3 — реальная Jira (.env: JIRA_URL/JIRA_EMAIL/JIRA_API_TOKEN)
-python test-instances/seed_atlassian.py         # создать KAN-1/KAN-2 в реальной Jira
+python test-instances/seed_atlassian.py         # создать alpha-demo задачи в реальной Jira (ключи — по проекту JIRA_PROJECT, по умолчанию KAN-1/KAN-2)
 MCP_BACKEND=atlassian python mcp/serve_all.py
 
 # уровень 3b — реальный Bitbucket Cloud (.env: BITBUCKET_WORKSPACE/REPO_SLUG + personal API token или workspace token)
@@ -289,7 +289,7 @@ MCP_BACKEND=live python -m athanor.cli run --case examples/demo_case_alpha_live 
 **mail/Calendar (Google):** mail — IMAP + пароль приложения (2FA → myaccount.google.com/apppasswords),
 календарь — публичный iCal URL (`calendar.google.com → Settings → Integrate calendar`). Без Azure/OAuth.
 Креды — только в `.env` (в `.gitignore`), в репозитории плейсхолдеры. Финальное демо-видео
-собрано на уровне 4: данные реально сняты с Jira (KAN-1/KAN-2) + mail (письмо-блокер) +
+собрано на уровне 4: данные реально сняты с Jira (APP-412/APP-521 в каноническом live-снимке) + mail (письмо-блокер) +
 Calendar (событие «Релиз-синк · Альфа»); для детерминизма прогона live-снимок сохранён
 в `examples/demo_case_alpha_live/` и прогнан через MCP (файловый бэкенд на live-данных).
 

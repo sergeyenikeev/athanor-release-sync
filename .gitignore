@@ -9,7 +9,10 @@ outbox/
 
 # Actual test-run artefacts are committed under results/runs/, but local
 # scratch runs go here:
-results/scratch/
+results/scratch/*
+# ИСКЛЮЧЕНИЕ: артефакт реального прогона Ouroboros (task dec66d75) — публикуется
+# как proof ГигаАгента (презентация сл.1/5/6, README ссылаются на result.json/run.log).
+!results/scratch/ouroboros_demo/
 *.local.log
 
 # Python

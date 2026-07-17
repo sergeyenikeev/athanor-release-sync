@@ -66,5 +66,5 @@ flowchart LR
   H -->|approve| EXEC[executed (демо)]
   FB[feedback] --> SV[skill_versioning: v1↔v2 + rollback]
   TI[test-instances: Jira REST / Bitbucket / Confluence] -. MCP_BACKEND=test .-> M
-  JC[Реальная Jira: KAN-1/KAN-2] -. MCP_BACKEND=atlassian .-> M
+  JC[Реальная Jira: APP-412/APP-521] -. MCP_BACKEND=atlassian .-> M
 ```

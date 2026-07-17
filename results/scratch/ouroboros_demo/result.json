@@ -1,0 +1,1355 @@
+{
+  "parent_task_id": null,
+  "root_task_id": "dec66d75",
+  "session_id": "777fd6881c9446d79728b83aef892904",
+  "actor_id": "cli",
+  "delegation_role": "root",
+  "project_id": "athanor-release-sync",
+  "description": "Подготовь сводку к релиз-синку проекта Альфа 03.07. Вызови MCP-инструменты: mcp_calendar_mail__get_events, mcp_calendar_mail__get_mail, mcp_tracker_repo__get_issues, mcp_tracker_repo__get_prs, mcp_confluence__get_confluence_pages. Из полученных данных сформируй сводку: что включено в релиз (из Confluence), статусы задач, PR, блокеры. У каждого пункта укажи источник и уверенность. Найди конфликт, если Jira говорит задача готово, а письмо — блокер. В конце выведи '## Сводка'.",
+  "context": "",
+  "expected_output": "",
+  "constraints": "",
+  "allowed_resources": {},
+  "deadline_at": "2026-07-16T22:09:31.429276Z",
+  "task_contract": {
+    "schema_version": 1,
+    "status": "draft",
+    "source": "host_draft",
+    "task_type": "task",
+    "objective": "Подготовь сводку к релиз-синку проекта Альфа 03.07. Вызови MCP-инструменты: mcp_calendar_mail__get_events, mcp_calendar_mail__get_mail, mcp_tracker_repo__get_issues, mcp_tracker_repo__get_prs, mcp_confluence__get_confluence_pages. Из полученных данных сформируй сводку: что включено в релиз (из Confluence), статусы задач, PR, блокеры. У каждого пункта укажи источник и уверенность. Найди конфликт, если Jira говорит задача готово, а письмо — блокер. В конце выведи '## Сводка'.",
+    "expected_output": "",
+    "constraints": "",
+    "success_criteria": [],
+    "acceptance_claims": [],
+    "allowed_resources": {},
+    "resource_policy": {},
+    "disabled_tools": [],
+    "deadline_at": "2026-07-16T22:09:31.429276Z",
+    "context_requires_self_body_docs": false,
+    "workspace": {
+      "root": "D:\\d\\ouroboros\\athanor-release-sync",
+      "mode": "external"
+    },
+    "lineage": {
+      "parent_task_id": "",
+      "root_task_id": "dec66d75",
+      "session_id": "777fd6881c9446d79728b83aef892904",
+      "delegation_role": "root"
+    },
+    "delegation_budget": {
+      "may_delegate": true,
+      "may_mutate": false,
+      "may_fan_out": true,
+      "depth_remaining": null,
+      "max_children": null,
+      "intent_note": ""
+    },
+    "budget_profile": {
+      "improvement_policy": "fixed",
+      "max_improvement_passes": null,
+      "reserve_finalization_pct": null,
+      "stall_rounds_threshold": null,
+      "cost_hard_stop_pct": null
+    },
+    "answer_protocol": ""
+  },
+  "workspace_root": "D:\\d\\ouroboros\\athanor-release-sync",
+  "workspace_mode": "external",
+  "memory_mode": "forked",
+  "child_drive_root": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data",
+  "budget_drive_root": "C:\\Users\\senik\\Ouroboros\\data",
+  "artifacts": [
+    {
+      "kind": "workspace_preflight",
+      "name": "workspace_preflight.json",
+      "path": "C:\\Users\\senik\\Ouroboros\\data\\task_results\\artifacts\\dec66d75\\workspace_preflight.json",
+      "size": 14750,
+      "sha256": "91bec628e613d6d732e261ba215e06bfa6ca02aa13a35e9232463472eab1a3b8",
+      "workspace_root": "D:\\d\\ouroboros\\athanor-release-sync",
+      "status": "ready",
+      "errors": []
+    },
+    {
+      "kind": "workspace_patch",
+      "name": "workspace.patch",
+      "path": "C:\\Users\\senik\\Ouroboros\\data\\task_results\\artifacts\\dec66d75\\workspace.patch",
+      "size": 977227,
+      "sha256": "2cb795238f9e86ebb31054ce82df5b292c40ad1c47545c9ffaaa476adf663a3e",
+      "workspace_root": "D:\\d\\ouroboros\\athanor-release-sync",
+      "status": "ready",
+      "errors": []
+    },
+    {
+      "kind": "workspace_patch_manifest",
+      "name": "workspace_patch.json",
+      "path": "C:\\Users\\senik\\Ouroboros\\data\\task_results\\artifacts\\dec66d75\\workspace_patch.json",
+      "size": 106786,
+      "workspace_root": "D:\\d\\ouroboros\\athanor-release-sync",
+      "sha256": "50ea707dfa17f604490199993172d17cad4ad56ee3ccd7c12612889ae028e631",
+      "status": "ready",
+      "errors": []
+    },
+    {
+      "kind": "memory_export",
+      "name": "memory_export.json",
+      "path": "C:\\Users\\senik\\Ouroboros\\data\\task_results\\artifacts\\dec66d75\\memory_export.json",
+      "size": 2985,
+      "memory_mode": "forked",
+      "sha256": "3d2abd8c0317e0efc5aa742c60c7903b7ea187f0753ff86d9d77d760cacbadcf",
+      "status": "ready",
+      "errors": []
+    }
+  ],
+  "artifact_status": "ready_with_changes",
+  "metadata": {
+    "source": "cli",
+    "deadline_at": "2026-07-16T22:09:31.429276Z",
+    "session_id": "777fd6881c9446d79728b83aef892904",
+    "actor_id": "cli",
+    "delegation_role": "root",
+    "task_id": "dec66d75",
+    "parent_task_id": "",
+    "root_task_id": "dec66d75",
+    "workspace_root": "D:\\d\\ouroboros\\athanor-release-sync",
+    "workspace_preflight": {
+      "schema_version": 1,
+      "workspace_root": "D:\\d\\ouroboros\\athanor-release-sync",
+      "git": {
+        "head": "bfbd387ddf81832ea2c1837dc926fd104b02a9bf",
+        "branch": "main",
+        "dirty": true,
+        "status_count": 498
+      },
+      "manifests": [
+        {
+          "path": "pyproject.toml",
+          "type": "python",
+          "scripts": []
+        },
+        {
+          "path": "requirements.txt",
+          "type": "python",
+          "scripts": []
+        },
+        {
+          "path": "Makefile",
+          "type": "make",
+          "scripts": [
+            "clean",
+            "demo",
+            "evaluation",
+            "mcp-smoke",
+            "run-basket",
+            "run-basket-llm",
+            "score",
+            "serve",
+            "test"
+          ]
+        }
+      ],
+      "tools": {
+        "available": [
+          "git",
+          "node",
+          "npm",
+          "npx",
+          "pip",
+          "pip3",
+          "pytest",
+          "python",
+          "uv"
+        ],
+        "missing": [
+          "go",
+          "make",
+          "pnpm",
+          "python3",
+          "winget",
+          "yarn"
+        ]
+      }
+    },
+    "task_contract": {
+      "schema_version": 1,
+      "status": "draft",
+      "source": "host_draft",
+      "task_type": "task",
+      "objective": "Подготовь сводку к релиз-синку проекта Альфа 03.07. Вызови MCP-инструменты: mcp_calendar_mail__get_events, mcp_calendar_mail__get_mail, mcp_tracker_repo__get_issues, mcp_tracker_repo__get_prs, mcp_confluence__get_confluence_pages. Из полученных данных сформируй сводку: что включено в релиз (из Confluence), статусы задач, PR, блокеры. У каждого пункта укажи источник и уверенность. Найди конфликт, если Jira говорит задача готово, а письмо — блокер. В конце выведи '## Сводка'.",
+      "expected_output": "",
+      "constraints": "",
+      "success_criteria": [],
+      "acceptance_claims": [],
+      "allowed_resources": {},
+      "resource_policy": {},
+      "disabled_tools": [],
+      "deadline_at": "2026-07-16T22:09:31.429276Z",
+      "context_requires_self_body_docs": false,
+      "workspace": {
+        "root": "D:\\d\\ouroboros\\athanor-release-sync",
+        "mode": "external"
+      },
+      "lineage": {
+        "parent_task_id": "",
+        "root_task_id": "dec66d75",
+        "session_id": "777fd6881c9446d79728b83aef892904",
+        "delegation_role": "root"
+      },
+      "delegation_budget": {
+        "may_delegate": true,
+        "may_mutate": false,
+        "may_fan_out": true,
+        "depth_remaining": null,
+        "max_children": null,
+        "intent_note": ""
+      },
+      "budget_profile": {
+        "improvement_policy": "fixed",
+        "max_improvement_passes": null,
+        "reserve_finalization_pct": null,
+        "stall_rounds_threshold": null,
+        "cost_hard_stop_pct": null
+      },
+      "answer_protocol": ""
+    },
+    "child_drive_root": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data",
+    "budget_drive_root": "C:\\Users\\senik\\Ouroboros\\data"
+  },
+  "result": "Все пять источников собраны и сверены. Сводка ниже; у каждого пункта — источник и уверенность. Главный вывод вынесен вперёд: статус APP-412 противоречив, и это блокирующий вопрос к синку.\n\n## Что включено в релиз (Confluence)\n- **Окно релиза: 03.07, 18:00–20:00**; code freeze с 02.07 12:00 (уже наступил). — *«Release Plan · Альфа» v3. Уверенность: высокая.*\n- **APP-412 «Миграция схемы оплат» — принята в релиз** (решение 30.06); release-notes готовит backend. — *«Decision Log» + «Release Plan». Уверенность: высокая.*\n- **APP-521 «Интеграция с партнёром»** — решение от 30.06 в выдержке Decision Log обрезано, факт включения в релиз не подтверждён. — *«Decision Log» (excerpt усечён). Уверенность: низкая, нужно дочитать страницу.*\n- **Зависимости релиза:** payment-adapter (владелец SRE), partner-api. — *«Release Plan». Уверенность: высокая.*\n\n## Статусы задач (Jira)\n- **APP-412 — «готово»**, backend. — *tracker/issues. Высокая (но см. конфликт).*\n- **APP-521 — «в работе»**, frontend. — *tracker/issues. Высокая.*\n\n## Pull Requests\n- **PR #128 «Схема оплат» — «на ревью» 2 дня, привязан к APP-412, не влит.** — *tracker/prs. Высокая.*\n\n## Блокеры\n- **APP-412:** payment-adapter не задеплоен в production, деплой заблокирован, окно релиза под риском. — *письмо SRE M1, 02.07. Высокая.*\n\n## ⚠️ Конфликт по APP-412 и его разрешение\nТри источника расходятся:\n| Источник | Что говорит |\n|---|---|\n| Jira (tracker/issues) | «готово» |\n| Письмо SRE (02.07) | блокер — payment-adapter не в prod |\n| PR #128 (tracker/prs) | «на ревью», не смёржен |\n\n**Разрешение:** поле Jira «готово» **не подтверждается** ни кодом (PR не влит), ни инфраструктурой (зависимость не в prod). По совокупности объективных сигналов **APP-412 к релизу фактически не готова** — статус «готово» опережает реальность. Флаг Jira следует считать недостоверным до тех пор, пока не выполнены оба условия: PR #128 влит **и** payment-adapter подтверждён в production. Это блокирующий вопрос к синку 03.07, а не фон.\n\n## Сводка\n- **Релиз-синк:** 03.07 14:00; окно 18:00–20:00, code freeze прошёл (02.07 12:00). *(calendar + Confluence, высокая)*\n- **Блокер №1 — APP-412:** формально «готово» в Jira, фактически заблокирована (payment-adapter не в prod + PR #128 не влит). Статус «готово» недостоверен до закрытия обоих условий. **Решение до окна релиза обязательно.** *(конфликт трёх источников, высокая)*\n- **APP-521:** «в работе»; включение в релиз по Decision Log не подтверждено (выдержка обрезана). *(низкая)*\n- **Действия к синку, по приоритету:**\n  1. SRE — подтвердить деплой payment-adapter в production (снимает корневой блокер);\n  2. домёржить PR #128 и обновить фактический статус APP-412 в Jira;\n  3. принять go/no-go по APP-412 исходя из п.1–2, а не из текущего флага «готово»;\n  4. дочитать Decision Log и зафиксировать объём релиза по APP-521.",
+  "task_id": "dec66d75",
+  "status": "completed",
+  "ts": "2026-07-16T21:59:35.237687+00:00",
+  "updated_at": "2026-07-16T21:59:35.237687+00:00",
+  "root_phase_checkpoint": {
+    "phase": "task_acceptance",
+    "status": "degraded",
+    "pass_index": 1,
+    "post_task_synthesis": "pending_once"
+  },
+  "cost_final": false,
+  "cost_with_children_partial": true,
+  "cost_accounting_status": "available",
+  "cost_usd": 0.433707,
+  "total_rounds": 16,
+  "prompt_tokens": 405155,
+  "completion_tokens": 5384,
+  "reserved_usd": 0.0,
+  "unresolved_upper_bound_usd": 0.004856,
+  "unknown_unmetered": 0,
+  "ledger_integrity_degraded": false,
+  "cost_usd_with_children": 0.433707,
+  "chat_id": 0,
+  "role": null,
+  "objective": "Подготовь сводку к релиз-синку проекта Альфа 03.07. Вызови MCP-инструменты: mcp_calendar_mail__get_events, mcp_calendar_mail__get_mail, mcp_tracker_repo__get_issues, mcp_tracker_repo__get_prs, mcp_confluence__get_confluence_pages. Из полученных данных сформируй сводку: что включено в релиз (из Confluence), статусы задач, PR, блокеры. У каждого пункта укажи источник и уверенность. Найди конфликт, если Jira говорит задача готово, а письмо — блокер. В конце выведи '## Сводка'.",
+  "drive_root": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data",
+  "task_constraint": null,
+  "model_lane": null,
+  "requested_model_lane": null,
+  "effective_model_lane": null,
+  "model": null,
+  "use_local_model": null,
+  "task_group_id": null,
+  "task_group": null,
+  "subagent_envelope": {},
+  "reason_code": "final_message",
+  "outcome_axes": {
+    "schema_version": 1,
+    "lifecycle": {
+      "status": "completed"
+    },
+    "execution": {
+      "status": "ok",
+      "reason_code": "final_message",
+      "failure": null,
+      "recoveries": [
+        {
+          "tool": "mcp_tracker_repo__get_issues",
+          "status": "safety_violation",
+          "exit_code": null,
+          "signal": null,
+          "result": "⚠️ SAFETY_VIOLATION: Safety check failed with error: APITimeoutError: Request timed out.",
+          "recovered_by_call_index": 8
+        },
+        {
+          "tool": "mcp_tracker_repo__get_prs",
+          "status": "safety_violation",
+          "exit_code": null,
+          "signal": null,
+          "result": "⚠️ SAFETY_VIOLATION: Safety check failed with error: APITimeoutError: Request timed out.",
+          "recovered_by_call_index": 7
+        },
+        {
+          "tool": "mcp_tracker_repo__get_issues",
+          "status": "safety_violation",
+          "exit_code": null,
+          "signal": null,
+          "result": "⚠️ SAFETY_VIOLATION: Safety check failed with error: APITimeoutError: Request timed out.",
+          "recovered_by_call_index": 8
+        }
+      ],
+      "cosmetic_tool_errors": [],
+      "ignored_tool_errors": [],
+      "policy_denials": []
+    },
+    "artifacts": {
+      "status": "ready_with_changes"
+    },
+    "objective": {
+      "status": "best_effort",
+      "source": "task_acceptance_review",
+      "review_status": "degraded",
+      "outcome_tier": "best_effort"
+    },
+    "review": {
+      "status": "degraded",
+      "trigger": "auto_nondirect_after_agent_advisory",
+      "eligibility": "eligible",
+      "run_count": 1,
+      "aggregate_signals": [
+        "DEGRADED"
+      ],
+      "outcome_tier": "best_effort",
+      "acceptance_decision": {
+        "status": "review_degraded",
+        "source": "task_acceptance_review",
+        "rationale": "Acceptance reviewers did not reach a valid quorum.",
+        "agent_disposition": "",
+        "agent_rationale": ""
+      }
+    }
+  },
+  "review_status": {
+    "status": "degraded",
+    "trigger": "auto_nondirect_after_agent_advisory",
+    "eligibility": "eligible",
+    "run_count": 1,
+    "aggregate_signals": [
+      "DEGRADED"
+    ],
+    "outcome_tier": "best_effort",
+    "acceptance_decision": {
+      "status": "review_degraded",
+      "source": "task_acceptance_review",
+      "rationale": "Acceptance reviewers did not reach a valid quorum.",
+      "agent_disposition": "",
+      "agent_rationale": ""
+    }
+  },
+  "loop_outcome": {
+    "schema_version": 3,
+    "outcome_axes": {
+      "schema_version": 1,
+      "lifecycle": {
+        "status": "completed"
+      },
+      "execution": {
+        "status": "ok",
+        "reason_code": "final_message",
+        "failure": null,
+        "recoveries": [
+          {
+            "tool": "mcp_tracker_repo__get_issues",
+            "status": "safety_violation",
+            "exit_code": null,
+            "signal": null,
+            "result": "⚠️ SAFETY_VIOLATION: Safety check failed with error: APITimeoutError: Request timed out.",
+            "recovered_by_call_index": 8
+          },
+          {
+            "tool": "mcp_tracker_repo__get_prs",
+            "status": "safety_violation",
+            "exit_code": null,
+            "signal": null,
+            "result": "⚠️ SAFETY_VIOLATION: Safety check failed with error: APITimeoutError: Request timed out.",
+            "recovered_by_call_index": 7
+          },
+          {
+            "tool": "mcp_tracker_repo__get_issues",
+            "status": "safety_violation",
+            "exit_code": null,
+            "signal": null,
+            "result": "⚠️ SAFETY_VIOLATION: Safety check failed with error: APITimeoutError: Request timed out.",
+            "recovered_by_call_index": 8
+          }
+        ],
+        "cosmetic_tool_errors": [],
+        "ignored_tool_errors": [],
+        "policy_denials": []
+      },
+      "artifacts": {
+        "status": "not_applicable"
+      },
+      "objective": {
+        "status": "best_effort",
+        "source": "task_acceptance_review",
+        "review_status": "degraded",
+        "outcome_tier": "best_effort"
+      },
+      "review": {
+        "status": "degraded",
+        "eligibility": "eligible",
+        "trigger": "auto_nondirect_after_agent_advisory",
+        "run_count": 1,
+        "aggregate_signals": [
+          "DEGRADED"
+        ],
+        "outcome_tier": "best_effort",
+        "acceptance_decision": {
+          "status": "review_degraded",
+          "source": "task_acceptance_review",
+          "rationale": "Acceptance reviewers did not reach a valid quorum.",
+          "agent_disposition": "",
+          "agent_rationale": ""
+        }
+      }
+    },
+    "review_eligibility": "eligible",
+    "review_trigger": "auto_nondirect_after_agent_advisory",
+    "finish_reason": "final_message",
+    "reason_code": "final_message",
+    "final_text": "Все пять источников собраны и сверены. Сводка ниже; у каждого пункта — источник и уверенность. Главный вывод вынесен вперёд: статус APP-412 противоречив, и это блокирующий вопрос к синку.\n\n## Что включено в релиз (Confluence)\n- **Окно релиза: 03.07, 18:00–20:00**; code freeze с 02.07 12:00 (уже наступил). — *«Release Plan · Альфа» v3. Уверенность: высокая.*\n- **APP-412 «Миграция схемы оплат» — принята в релиз** (решение 30.06); release-notes готовит backend. — *«Decision Log» + «Release Plan». Уверенность: высокая.*\n- **APP-521 «Интеграция с партнёром»** — решение от 30.06 в выдержке Decision Log обрезано, факт включения в релиз не подтверждён. — *«Decision Log» (excerpt усечён). Уверенность: низкая, нужно дочитать страницу.*\n- **Зависимости релиза:** payment-adapter (владелец SRE), partner-api. — *«Release Plan». Уверенность: высокая.*\n\n## Статусы задач (Jira)\n- **APP-412 — «готово»**, backend. — *tracker/issues. Высокая (но см. конфликт).*\n- **APP-521 — «в работе»**, frontend. — *tracker/issues. Высокая.*\n\n## Pull Requests\n- **PR #128 «Схема оплат» — «на ревью» 2 дня, привязан к APP-412, не влит.** — *tracker/prs. Высокая.*\n\n## Блокеры\n- **APP-412:** payment-adapter не задеплоен в production, деплой заблокирован, окно релиза под риском. — *письмо SRE M1, 02.07. Высокая.*\n\n## ⚠️ Конфликт по APP-412 и его разрешение\nТри источника расходятся:\n| Источник | Что говорит |\n|---|---|\n| Jira (tracker/issues) | «готово» |\n| Письмо SRE (02.07) | блокер — payment-adapter не в prod |\n| PR #128 (tracker/prs) | «на ревью», не смёржен |\n\n**Разрешение:** поле Jira «готово» **не подтверждается** ни кодом (PR не влит), ни инфраструктурой (зависимость не в prod). По совокупности объективных сигналов **APP-412 к релизу фактически не готова** — статус «готово» опережает реальность. Флаг Jira следует считать недостоверным до тех пор, пока не выполнены оба условия: PR #128 влит **и** payment-adapter подтверждён в production. Это блокирующий вопрос к синку 03.07, а не фон.\n\n## Сводка\n- **Релиз-синк:** 03.07 14:00; окно 18:00–20:00, code freeze прошёл (02.07 12:00). *(calendar + Confluence, высокая)*\n- **Блокер №1 — APP-412:** формально «готово» в Jira, фактически заблокирована (payment-adapter не в prod + PR #128 не влит). Статус «готово» недостоверен до закрытия обоих условий. **Решение до окна релиза обязательно.** *(конфликт трёх источников, высокая)*\n- **APP-521:** «в работе»; включение в релиз по Decision Log не подтверждено (выдержка обрезана). *(низкая)*\n- **Действия к синку, по приоритету:**\n  1. SRE — подтвердить деплой payment-adapter в production (снимает корневой блокер);\n  2. домёржить PR #128 и обновить фактический статус APP-412 в Jira;\n  3. принять go/no-go по APP-412 исходя из п.1–2, а не из текущего флага «готово»;\n  4. дочитать Decision Log и зафиксировать объём релиза по APP-521.",
+    "final_answer": "",
+    "final_answer_missing_sentinel": true,
+    "failure": null,
+    "recoveries": [
+      {
+        "tool": "mcp_tracker_repo__get_issues",
+        "status": "safety_violation",
+        "exit_code": null,
+        "signal": null,
+        "result": "⚠️ SAFETY_VIOLATION: Safety check failed with error: APITimeoutError: Request timed out.",
+        "recovered_by_call_index": 8
+      },
+      {
+        "tool": "mcp_tracker_repo__get_prs",
+        "status": "safety_violation",
+        "exit_code": null,
+        "signal": null,
+        "result": "⚠️ SAFETY_VIOLATION: Safety check failed with error: APITimeoutError: Request timed out.",
+        "recovered_by_call_index": 7
+      },
+      {
+        "tool": "mcp_tracker_repo__get_issues",
+        "status": "safety_violation",
+        "exit_code": null,
+        "signal": null,
+        "result": "⚠️ SAFETY_VIOLATION: Safety check failed with error: APITimeoutError: Request timed out.",
+        "recovered_by_call_index": 8
+      }
+    ],
+    "usage": {
+      "cost_usd": 0.424674,
+      "prompt_tokens": 380231,
+      "completion_tokens": 4302,
+      "total_rounds": 6
+    },
+    "trace_refs": {
+      "execution_id": "exec_fee57d4186614bb18e63d03dbb15ce7d",
+      "llm_call_refs": [
+        {
+          "llm_call_id": "llm_c988141876ed4ba790fe9360809c7c73",
+          "execution_id": "exec_fee57d4186614bb18e63d03dbb15ce7d",
+          "round_id": "exec_fee57d4186614bb18e63d03dbb15ce7d:round:1",
+          "round": 1,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\llm_c988141876ed4ba790fe9360809c7c73_request.json",
+            "call_id": "llm_c988141876ed4ba790fe9360809c7c73_request",
+            "sha256": "0b62bc5589cea49c9255c11667ef8022fe019c1e3023426a4028325ef8c2cede"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\llm_c988141876ed4ba790fe9360809c7c73_response.json",
+            "call_id": "llm_c988141876ed4ba790fe9360809c7c73_response",
+            "sha256": "0529030c71b16923a95777a9671892f615aca2ea85efa6e2b9da603a84507b39"
+          },
+          "model": "anthropic/claude-opus-4.8",
+          "resolved_model": "anthropic/claude-opus-4.8",
+          "provider": "openrouter"
+        },
+        {
+          "llm_call_id": "llm_df7b30beb3f14ab2be507f236c6d2351",
+          "execution_id": "exec_fee57d4186614bb18e63d03dbb15ce7d",
+          "round_id": "exec_fee57d4186614bb18e63d03dbb15ce7d:round:2",
+          "round": 2,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\llm_df7b30beb3f14ab2be507f236c6d2351_request.json",
+            "call_id": "llm_df7b30beb3f14ab2be507f236c6d2351_request",
+            "sha256": "d957be8c25fee6242c1c7eb1d64940850ef9f66f5d99b512c52588ffa64cbae7"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\llm_df7b30beb3f14ab2be507f236c6d2351_response.json",
+            "call_id": "llm_df7b30beb3f14ab2be507f236c6d2351_response",
+            "sha256": "3c8d968da1902199a59a66d892bd4047ef67ce8fdbc616f63cffb0278cbdcf2f"
+          },
+          "model": "anthropic/claude-opus-4.8",
+          "resolved_model": "anthropic/claude-opus-4.8",
+          "provider": "openrouter"
+        },
+        {
+          "llm_call_id": "llm_b9f6069051a5440a9249ea01f3ce940d",
+          "execution_id": "exec_fee57d4186614bb18e63d03dbb15ce7d",
+          "round_id": "exec_fee57d4186614bb18e63d03dbb15ce7d:round:3",
+          "round": 3,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\llm_b9f6069051a5440a9249ea01f3ce940d_request.json",
+            "call_id": "llm_b9f6069051a5440a9249ea01f3ce940d_request",
+            "sha256": "4915bb49c4931d503160b0b0fa92a03420b940e70bc04e1fdd5736c8ec2ee907"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\llm_b9f6069051a5440a9249ea01f3ce940d_response.json",
+            "call_id": "llm_b9f6069051a5440a9249ea01f3ce940d_response",
+            "sha256": "45a868cf9b3fac6958f9d94bcfef42695094e8431d97fa12e5c729ff232fe62c"
+          },
+          "model": "anthropic/claude-opus-4.8",
+          "resolved_model": "anthropic/claude-opus-4.8",
+          "provider": "openrouter"
+        },
+        {
+          "llm_call_id": "llm_1cb559c3dd6a4cd090866e4a458efd97",
+          "execution_id": "exec_fee57d4186614bb18e63d03dbb15ce7d",
+          "round_id": "exec_fee57d4186614bb18e63d03dbb15ce7d:round:4",
+          "round": 4,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\llm_1cb559c3dd6a4cd090866e4a458efd97_request.json",
+            "call_id": "llm_1cb559c3dd6a4cd090866e4a458efd97_request",
+            "sha256": "fa7215fdd99c186cb0f061313e9defdffabd446afb6781c4e3ff1801ecedf737"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\llm_1cb559c3dd6a4cd090866e4a458efd97_response.json",
+            "call_id": "llm_1cb559c3dd6a4cd090866e4a458efd97_response",
+            "sha256": "f3921bc77f4b838f1d23ea82848cf034a68e246d6e0020adcddde8963180a3e7"
+          },
+          "model": "anthropic/claude-opus-4.8",
+          "resolved_model": "anthropic/claude-opus-4.8",
+          "provider": "openrouter"
+        },
+        {
+          "llm_call_id": "llm_58364e09251a42dbad318e6dbabb8f92",
+          "execution_id": "exec_fee57d4186614bb18e63d03dbb15ce7d",
+          "round_id": "exec_fee57d4186614bb18e63d03dbb15ce7d:round:5",
+          "round": 5,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\llm_58364e09251a42dbad318e6dbabb8f92_request.json",
+            "call_id": "llm_58364e09251a42dbad318e6dbabb8f92_request",
+            "sha256": "282b10be859370703e894c3a99ffee8bdd391409e7d5b689bf7ac579f231741c"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\llm_58364e09251a42dbad318e6dbabb8f92_response.json",
+            "call_id": "llm_58364e09251a42dbad318e6dbabb8f92_response",
+            "sha256": "25c5a40c12a4229ffd7cc55c8f22ca541fb9cfea4d3970d3e98f9be69f1a2520"
+          },
+          "model": "anthropic/claude-opus-4.8",
+          "resolved_model": "anthropic/claude-opus-4.8",
+          "provider": "openrouter"
+        },
+        {
+          "llm_call_id": "llm_c93f74b957ed476aaf54510fdb6ed9b8",
+          "execution_id": "exec_fee57d4186614bb18e63d03dbb15ce7d",
+          "round_id": "exec_fee57d4186614bb18e63d03dbb15ce7d:round:6",
+          "round": 6,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\llm_c93f74b957ed476aaf54510fdb6ed9b8_request.json",
+            "call_id": "llm_c93f74b957ed476aaf54510fdb6ed9b8_request",
+            "sha256": "32d6c64113cefb02717ba4bd3a5cfb9c192fbd9f00d9fd0e97d562d721c01e79"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\llm_c93f74b957ed476aaf54510fdb6ed9b8_response.json",
+            "call_id": "llm_c93f74b957ed476aaf54510fdb6ed9b8_response",
+            "sha256": "27a9d243ee977c61abbd0a8bfea764eabd5130ab42821f6660aca2d2b1cfe998"
+          },
+          "model": "anthropic/claude-opus-4.8",
+          "resolved_model": "anthropic/claude-opus-4.8",
+          "provider": "openrouter"
+        }
+      ],
+      "tool_call_refs": [
+        {
+          "call_id": "tool_mcp_calendar_mail__get_events_dd88acbff2cb4c7e9863dd68a89a5278",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\tool_mcp_calendar_mail__get_events_dd88acbff2cb4c7e9863dd68a89a5278.json",
+            "call_id": "tool_mcp_calendar_mail__get_events_dd88acbff2cb4c7e9863dd68a89a5278",
+            "sha256": "b4840a3b7366e6270abb4edbd47c93015cca48413d1ed9d939a0d00cf081a851"
+          },
+          "redacted_projection_ref": {
+            "sha256": "2d701ce8a7b4ade379e8046ac818ac54399ed5cb0c245be29f14260e3dfa9b74",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\blobs\\2d701ce8a7b4ade379e8046ac818ac54399ed5cb0c245be29f14260e3dfa9b74.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 806,
+            "compressed_size": 624
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_mcp_calendar_mail__get_mail_378841d6b0224657bf7881d2b55321b6",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\tool_mcp_calendar_mail__get_mail_378841d6b0224657bf7881d2b55321b6.json",
+            "call_id": "tool_mcp_calendar_mail__get_mail_378841d6b0224657bf7881d2b55321b6",
+            "sha256": "c67854b02784ed0e1005957641793ad9d5b15d4719e2bf72b048f534fc165294"
+          },
+          "redacted_projection_ref": {
+            "sha256": "53333cecf7fe38a83db946a9a9884af69ddfef44c5242dcb8346ee8fa0913744",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\blobs\\53333cecf7fe38a83db946a9a9884af69ddfef44c5242dcb8346ee8fa0913744.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 833,
+            "compressed_size": 621
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_mcp_tracker_repo__get_issues_9e4a48b980dd4d4bae154bbe8f66052f",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\tool_mcp_tracker_repo__get_issues_9e4a48b980dd4d4bae154bbe8f66052f.json",
+            "call_id": "tool_mcp_tracker_repo__get_issues_9e4a48b980dd4d4bae154bbe8f66052f",
+            "sha256": "dba019e970015a219cf8fa72c9e739c68b2e91efcb862e63ce0f1b250c82da34"
+          },
+          "redacted_projection_ref": {
+            "sha256": "cdeb4af13ed4d7b6fd5fb068dc95769701689ea4a4a9bc80f28ff8f1086453f7",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\blobs\\cdeb4af13ed4d7b6fd5fb068dc95769701689ea4a4a9bc80f28ff8f1086453f7.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 470,
+            "compressed_size": 425
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_mcp_tracker_repo__get_prs_fe24d4095b61433ebd8f9be0f9a2db36",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\tool_mcp_tracker_repo__get_prs_fe24d4095b61433ebd8f9be0f9a2db36.json",
+            "call_id": "tool_mcp_tracker_repo__get_prs_fe24d4095b61433ebd8f9be0f9a2db36",
+            "sha256": "544f171cf52633dd3ed1811a00f811d1d55fa78e6de4ce5a7fa822b8203c60fa"
+          },
+          "redacted_projection_ref": {
+            "sha256": "f4ea05774ffc75b541088bef2ef90a621bda3d84b961db61319e66795c05bf13",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\blobs\\f4ea05774ffc75b541088bef2ef90a621bda3d84b961db61319e66795c05bf13.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 467,
+            "compressed_size": 424
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_mcp_confluence__get_confluence_pages_ab0bfc70881f497197e0819d90036c81",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\tool_mcp_confluence__get_confluence_pages_ab0bfc70881f497197e0819d90036c81.json",
+            "call_id": "tool_mcp_confluence__get_confluence_pages_ab0bfc70881f497197e0819d90036c81",
+            "sha256": "41470ac7a76d9dde10bdd4db5fdf34a475257334168d2c1ce0c915702f4b5988"
+          },
+          "redacted_projection_ref": {
+            "sha256": "c3072b7b29e200d4b7f2bd143a2e5dff9c5ff5d2a52a7f13b714407135525614",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\blobs\\c3072b7b29e200d4b7f2bd143a2e5dff9c5ff5d2a52a7f13b714407135525614.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 1530,
+            "compressed_size": 961
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_mcp_tracker_repo__get_issues_c123171956c44ed3858e61f89702b14c",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\tool_mcp_tracker_repo__get_issues_c123171956c44ed3858e61f89702b14c.json",
+            "call_id": "tool_mcp_tracker_repo__get_issues_c123171956c44ed3858e61f89702b14c",
+            "sha256": "d6dada973f0c6136a118a381ca24df68cd09e2fee07415e7fdba1d644890b383"
+          },
+          "redacted_projection_ref": {
+            "sha256": "9468304ccb2da7d15465ed58238277ca751b34a48bb317c788e1895566faf33c",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\blobs\\9468304ccb2da7d15465ed58238277ca751b34a48bb317c788e1895566faf33c.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 470,
+            "compressed_size": 425
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_mcp_tracker_repo__get_prs_04fa4908ef644e23b8d25785719715fd",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\tool_mcp_tracker_repo__get_prs_04fa4908ef644e23b8d25785719715fd.json",
+            "call_id": "tool_mcp_tracker_repo__get_prs_04fa4908ef644e23b8d25785719715fd",
+            "sha256": "940520948441a36078eef00ffd6c9ca9c99569852aae54b2a102914f616ad489"
+          },
+          "redacted_projection_ref": {
+            "sha256": "3a8308e268f8361ee603fda9cfd00148318284b62ba7f8e0f2e3e67270f2f9fc",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\blobs\\3a8308e268f8361ee603fda9cfd00148318284b62ba7f8e0f2e3e67270f2f9fc.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 632,
+            "compressed_size": 525
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_mcp_tracker_repo__get_issues_34fd654d07f748639fd0e6125623a645",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\tool_mcp_tracker_repo__get_issues_34fd654d07f748639fd0e6125623a645.json",
+            "call_id": "tool_mcp_tracker_repo__get_issues_34fd654d07f748639fd0e6125623a645",
+            "sha256": "fcb089731d9849806d68fa62532f973022d14b9de15a6c1b3e419fe25330a34b"
+          },
+          "redacted_projection_ref": {
+            "sha256": "ca7f1e8f660705f79384574f45b7c64d37b7c1b7585ad4dda8000cbff5951709",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\blobs\\ca7f1e8f660705f79384574f45b7c64d37b7c1b7585ad4dda8000cbff5951709.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 836,
+            "compressed_size": 594
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        }
+      ]
+    }
+  },
+  "title": null,
+  "final_answer": "",
+  "trace_summary": "## Tool trace (8 calls, 0 errors, 3 recovered)\n1. mcp_calendar_mail__get_events()\n2. mcp_calendar_mail__get_mail()\n3. mcp_tracker_repo__get_issues() [status=safety_violation] → ERROR\n4. mcp_tracker_repo__get_prs() [status=safety_violation] → ERROR\n5. mcp_confluence__get_confluence_pages()\n6. mcp_tracker_repo__get_issues() [status=safety_violation] → ERROR\n7. mcp_tracker_repo__get_prs()\n8. mcp_tracker_repo__get_issues()\n\n## Agent notes (supplementary, not source of truth)\n- I'll pull data from all five MCP sources first, then reconcile them into a summary. Let me call them together since they're independent.\n- MCP tools are responding now. Let me pull the remaining four sources.\n- Three of five sources returned data. The two tracker calls hit a transient safety-check timeout (not a policy refusal). Let me retry them.\n- PRs came through. One more retry on `get_issues` — it's just timing out on the safety check.\n- Все пять источников собраны и сверены. Сводка ниже; у каждого пункта — источник и уверенность. Главный вывод вынесен вперёд: статус APP-412 противоречив, и это блокирующий вопрос к синку.\n\n## Что включено в релиз (Confluence)\n- **Окно релиза: 03.07, 18:00–20:00**; code freeze с 02.07 12:00 (уже наступил). — *«Release Plan · Альфа» v3. Уверенность: высокая.*\n- **APP-412 «Миграция схемы оплат» — принята в релиз** (решение 30.06); release-notes готовит backend. — *«Decision Log» + «Release Plan». Уверенность: высокая.*\n- **APP-521 «Интеграция с партнёром»** — решение от 30.06 в выдержке Decision Log обрезано, факт включения в релиз не подтверждён. — *«Decision Log» (excerpt усечён). Уверенность: низкая, нужно дочитать страницу.*\n- **Зависимости релиза:** payment-adapter (владелец SRE), partner-api. — *«Release Plan». Уверенность: высокая.*\n\n## Статусы задач (Jira)\n- **APP-412 — «готово»**, backend. — *tracker/issues. Высокая (но см. конфликт).*\n- **APP-521 — «в работе»**, frontend. — *tracker/issues. Высокая.*\n\n## Pull Requests\n- **PR #128 «Схема оплат» — «на ревью» 2 дня, привязан к APP-412, не влит.** — *tracker/prs. Высокая.*\n\n## Блокеры\n- **APP-412:** payment-adapter не задеплоен в production, деплой заблокирован, окно релиза под риском. — *письмо SRE M1, 02.07. Высокая.*\n\n## ⚠️ Конфликт по APP-412 и его разрешение\nТри источника расходятся:\n| Источник | Что говорит |\n|---|---|\n| Jira (tracker/issues) | «готово» |\n| Письмо SRE (02.07) | блокер — payment-adapter не в prod |\n| PR #128 (tracker/prs) | «на ревью», не смёржен |\n\n**Разрешение:** поле Jira «готово» **не подтверждается** ни кодом (PR не влит), ни инфраструктурой (зависимость не в prod). По совокупности объективных сигналов **APP-412 к релизу фактически не готова** — статус «готово» опережает реальность. Флаг Jira следует считать недостоверным до тех пор, пока не выполнены оба условия: PR #128 влит **и** payment-adapter подтверждён в production. Это блокирующий вопрос к синку 03.07, а не фон.\n\n## Сводка\n- **Релиз-синк:** 03.07 14:00; окно 18:00–20:00, code freeze прошёл (02.07 12:00). *(calendar + Confluence, высокая)*\n- **Блокер №1 — APP-412:** формально «готово» в Jira, фактически заблокирована (payment-adapter не в prod + PR #128 не влит). Статус «готово» недостоверен до закрытия обоих условий. **Решение до окна релиза обязательно.** *(конфликт трёх источников, высокая)*\n- **APP-521:** «в работе»; включение в релиз по Decision Log не подтверждено (выдержка обрезана). *(низкая)*\n- **Действия к синку, по приоритету:**\n  1. SRE — подтвердить деплой payment-adapter в production (снимает корневой блокер);\n  2. домёржить PR #128 и обновить фактический статус APP-412 в Jira;\n  3. принять go/no-go по APP-412 исходя из п.1–2, а не из текущего флага «готово»;\n  4. дочитать Decision Log и зафиксировать объём релиза по APP-521.",
+  "trace_refs": {
+    "execution_id": "exec_fee57d4186614bb18e63d03dbb15ce7d",
+    "llm_call_refs": [
+      {
+        "llm_call_id": "llm_c988141876ed4ba790fe9360809c7c73",
+        "execution_id": "exec_fee57d4186614bb18e63d03dbb15ce7d",
+        "round_id": "exec_fee57d4186614bb18e63d03dbb15ce7d:round:1",
+        "round": 1,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\llm_c988141876ed4ba790fe9360809c7c73_request.json",
+          "call_id": "llm_c988141876ed4ba790fe9360809c7c73_request",
+          "sha256": "0b62bc5589cea49c9255c11667ef8022fe019c1e3023426a4028325ef8c2cede"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\llm_c988141876ed4ba790fe9360809c7c73_response.json",
+          "call_id": "llm_c988141876ed4ba790fe9360809c7c73_response",
+          "sha256": "0529030c71b16923a95777a9671892f615aca2ea85efa6e2b9da603a84507b39"
+        },
+        "model": "anthropic/claude-opus-4.8",
+        "resolved_model": "anthropic/claude-opus-4.8",
+        "provider": "openrouter"
+      },
+      {
+        "llm_call_id": "llm_df7b30beb3f14ab2be507f236c6d2351",
+        "execution_id": "exec_fee57d4186614bb18e63d03dbb15ce7d",
+        "round_id": "exec_fee57d4186614bb18e63d03dbb15ce7d:round:2",
+        "round": 2,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\llm_df7b30beb3f14ab2be507f236c6d2351_request.json",
+          "call_id": "llm_df7b30beb3f14ab2be507f236c6d2351_request",
+          "sha256": "d957be8c25fee6242c1c7eb1d64940850ef9f66f5d99b512c52588ffa64cbae7"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\llm_df7b30beb3f14ab2be507f236c6d2351_response.json",
+          "call_id": "llm_df7b30beb3f14ab2be507f236c6d2351_response",
+          "sha256": "3c8d968da1902199a59a66d892bd4047ef67ce8fdbc616f63cffb0278cbdcf2f"
+        },
+        "model": "anthropic/claude-opus-4.8",
+        "resolved_model": "anthropic/claude-opus-4.8",
+        "provider": "openrouter"
+      },
+      {
+        "llm_call_id": "llm_b9f6069051a5440a9249ea01f3ce940d",
+        "execution_id": "exec_fee57d4186614bb18e63d03dbb15ce7d",
+        "round_id": "exec_fee57d4186614bb18e63d03dbb15ce7d:round:3",
+        "round": 3,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\llm_b9f6069051a5440a9249ea01f3ce940d_request.json",
+          "call_id": "llm_b9f6069051a5440a9249ea01f3ce940d_request",
+          "sha256": "4915bb49c4931d503160b0b0fa92a03420b940e70bc04e1fdd5736c8ec2ee907"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\llm_b9f6069051a5440a9249ea01f3ce940d_response.json",
+          "call_id": "llm_b9f6069051a5440a9249ea01f3ce940d_response",
+          "sha256": "45a868cf9b3fac6958f9d94bcfef42695094e8431d97fa12e5c729ff232fe62c"
+        },
+        "model": "anthropic/claude-opus-4.8",
+        "resolved_model": "anthropic/claude-opus-4.8",
+        "provider": "openrouter"
+      },
+      {
+        "llm_call_id": "llm_1cb559c3dd6a4cd090866e4a458efd97",
+        "execution_id": "exec_fee57d4186614bb18e63d03dbb15ce7d",
+        "round_id": "exec_fee57d4186614bb18e63d03dbb15ce7d:round:4",
+        "round": 4,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\llm_1cb559c3dd6a4cd090866e4a458efd97_request.json",
+          "call_id": "llm_1cb559c3dd6a4cd090866e4a458efd97_request",
+          "sha256": "fa7215fdd99c186cb0f061313e9defdffabd446afb6781c4e3ff1801ecedf737"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\llm_1cb559c3dd6a4cd090866e4a458efd97_response.json",
+          "call_id": "llm_1cb559c3dd6a4cd090866e4a458efd97_response",
+          "sha256": "f3921bc77f4b838f1d23ea82848cf034a68e246d6e0020adcddde8963180a3e7"
+        },
+        "model": "anthropic/claude-opus-4.8",
+        "resolved_model": "anthropic/claude-opus-4.8",
+        "provider": "openrouter"
+      },
+      {
+        "llm_call_id": "llm_58364e09251a42dbad318e6dbabb8f92",
+        "execution_id": "exec_fee57d4186614bb18e63d03dbb15ce7d",
+        "round_id": "exec_fee57d4186614bb18e63d03dbb15ce7d:round:5",
+        "round": 5,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\llm_58364e09251a42dbad318e6dbabb8f92_request.json",
+          "call_id": "llm_58364e09251a42dbad318e6dbabb8f92_request",
+          "sha256": "282b10be859370703e894c3a99ffee8bdd391409e7d5b689bf7ac579f231741c"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\llm_58364e09251a42dbad318e6dbabb8f92_response.json",
+          "call_id": "llm_58364e09251a42dbad318e6dbabb8f92_response",
+          "sha256": "25c5a40c12a4229ffd7cc55c8f22ca541fb9cfea4d3970d3e98f9be69f1a2520"
+        },
+        "model": "anthropic/claude-opus-4.8",
+        "resolved_model": "anthropic/claude-opus-4.8",
+        "provider": "openrouter"
+      },
+      {
+        "llm_call_id": "llm_c93f74b957ed476aaf54510fdb6ed9b8",
+        "execution_id": "exec_fee57d4186614bb18e63d03dbb15ce7d",
+        "round_id": "exec_fee57d4186614bb18e63d03dbb15ce7d:round:6",
+        "round": 6,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\llm_c93f74b957ed476aaf54510fdb6ed9b8_request.json",
+          "call_id": "llm_c93f74b957ed476aaf54510fdb6ed9b8_request",
+          "sha256": "32d6c64113cefb02717ba4bd3a5cfb9c192fbd9f00d9fd0e97d562d721c01e79"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\llm_c93f74b957ed476aaf54510fdb6ed9b8_response.json",
+          "call_id": "llm_c93f74b957ed476aaf54510fdb6ed9b8_response",
+          "sha256": "27a9d243ee977c61abbd0a8bfea764eabd5130ab42821f6660aca2d2b1cfe998"
+        },
+        "model": "anthropic/claude-opus-4.8",
+        "resolved_model": "anthropic/claude-opus-4.8",
+        "provider": "openrouter"
+      }
+    ],
+    "tool_call_refs": [
+      {
+        "call_id": "tool_mcp_calendar_mail__get_events_dd88acbff2cb4c7e9863dd68a89a5278",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\tool_mcp_calendar_mail__get_events_dd88acbff2cb4c7e9863dd68a89a5278.json",
+          "call_id": "tool_mcp_calendar_mail__get_events_dd88acbff2cb4c7e9863dd68a89a5278",
+          "sha256": "b4840a3b7366e6270abb4edbd47c93015cca48413d1ed9d939a0d00cf081a851"
+        },
+        "redacted_projection_ref": {
+          "sha256": "2d701ce8a7b4ade379e8046ac818ac54399ed5cb0c245be29f14260e3dfa9b74",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\blobs\\2d701ce8a7b4ade379e8046ac818ac54399ed5cb0c245be29f14260e3dfa9b74.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 806,
+          "compressed_size": 624
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_mcp_calendar_mail__get_mail_378841d6b0224657bf7881d2b55321b6",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\tool_mcp_calendar_mail__get_mail_378841d6b0224657bf7881d2b55321b6.json",
+          "call_id": "tool_mcp_calendar_mail__get_mail_378841d6b0224657bf7881d2b55321b6",
+          "sha256": "c67854b02784ed0e1005957641793ad9d5b15d4719e2bf72b048f534fc165294"
+        },
+        "redacted_projection_ref": {
+          "sha256": "53333cecf7fe38a83db946a9a9884af69ddfef44c5242dcb8346ee8fa0913744",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\blobs\\53333cecf7fe38a83db946a9a9884af69ddfef44c5242dcb8346ee8fa0913744.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 833,
+          "compressed_size": 621
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_mcp_tracker_repo__get_issues_9e4a48b980dd4d4bae154bbe8f66052f",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\tool_mcp_tracker_repo__get_issues_9e4a48b980dd4d4bae154bbe8f66052f.json",
+          "call_id": "tool_mcp_tracker_repo__get_issues_9e4a48b980dd4d4bae154bbe8f66052f",
+          "sha256": "dba019e970015a219cf8fa72c9e739c68b2e91efcb862e63ce0f1b250c82da34"
+        },
+        "redacted_projection_ref": {
+          "sha256": "cdeb4af13ed4d7b6fd5fb068dc95769701689ea4a4a9bc80f28ff8f1086453f7",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\blobs\\cdeb4af13ed4d7b6fd5fb068dc95769701689ea4a4a9bc80f28ff8f1086453f7.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 470,
+          "compressed_size": 425
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_mcp_tracker_repo__get_prs_fe24d4095b61433ebd8f9be0f9a2db36",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\tool_mcp_tracker_repo__get_prs_fe24d4095b61433ebd8f9be0f9a2db36.json",
+          "call_id": "tool_mcp_tracker_repo__get_prs_fe24d4095b61433ebd8f9be0f9a2db36",
+          "sha256": "544f171cf52633dd3ed1811a00f811d1d55fa78e6de4ce5a7fa822b8203c60fa"
+        },
+        "redacted_projection_ref": {
+          "sha256": "f4ea05774ffc75b541088bef2ef90a621bda3d84b961db61319e66795c05bf13",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\blobs\\f4ea05774ffc75b541088bef2ef90a621bda3d84b961db61319e66795c05bf13.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 467,
+          "compressed_size": 424
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_mcp_confluence__get_confluence_pages_ab0bfc70881f497197e0819d90036c81",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\tool_mcp_confluence__get_confluence_pages_ab0bfc70881f497197e0819d90036c81.json",
+          "call_id": "tool_mcp_confluence__get_confluence_pages_ab0bfc70881f497197e0819d90036c81",
+          "sha256": "41470ac7a76d9dde10bdd4db5fdf34a475257334168d2c1ce0c915702f4b5988"
+        },
+        "redacted_projection_ref": {
+          "sha256": "c3072b7b29e200d4b7f2bd143a2e5dff9c5ff5d2a52a7f13b714407135525614",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\blobs\\c3072b7b29e200d4b7f2bd143a2e5dff9c5ff5d2a52a7f13b714407135525614.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 1530,
+          "compressed_size": 961
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_mcp_tracker_repo__get_issues_c123171956c44ed3858e61f89702b14c",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\tool_mcp_tracker_repo__get_issues_c123171956c44ed3858e61f89702b14c.json",
+          "call_id": "tool_mcp_tracker_repo__get_issues_c123171956c44ed3858e61f89702b14c",
+          "sha256": "d6dada973f0c6136a118a381ca24df68cd09e2fee07415e7fdba1d644890b383"
+        },
+        "redacted_projection_ref": {
+          "sha256": "9468304ccb2da7d15465ed58238277ca751b34a48bb317c788e1895566faf33c",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\blobs\\9468304ccb2da7d15465ed58238277ca751b34a48bb317c788e1895566faf33c.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 470,
+          "compressed_size": 425
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_mcp_tracker_repo__get_prs_04fa4908ef644e23b8d25785719715fd",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\tool_mcp_tracker_repo__get_prs_04fa4908ef644e23b8d25785719715fd.json",
+          "call_id": "tool_mcp_tracker_repo__get_prs_04fa4908ef644e23b8d25785719715fd",
+          "sha256": "940520948441a36078eef00ffd6c9ca9c99569852aae54b2a102914f616ad489"
+        },
+        "redacted_projection_ref": {
+          "sha256": "3a8308e268f8361ee603fda9cfd00148318284b62ba7f8e0f2e3e67270f2f9fc",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\blobs\\3a8308e268f8361ee603fda9cfd00148318284b62ba7f8e0f2e3e67270f2f9fc.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 632,
+          "compressed_size": 525
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_mcp_tracker_repo__get_issues_34fd654d07f748639fd0e6125623a645",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\tool_mcp_tracker_repo__get_issues_34fd654d07f748639fd0e6125623a645.json",
+          "call_id": "tool_mcp_tracker_repo__get_issues_34fd654d07f748639fd0e6125623a645",
+          "sha256": "fcb089731d9849806d68fa62532f973022d14b9de15a6c1b3e419fe25330a34b"
+        },
+        "redacted_projection_ref": {
+          "sha256": "ca7f1e8f660705f79384574f45b7c64d37b7c1b7585ad4dda8000cbff5951709",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\blobs\\ca7f1e8f660705f79384574f45b7c64d37b7c1b7585ad4dda8000cbff5951709.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 836,
+          "compressed_size": 594
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      }
+    ]
+  },
+  "review_evidence": {
+    "task_id": "dec66d75",
+    "repo_key": "C:\\Users\\senik\\Ouroboros\\repo",
+    "current_repo": {
+      "snapshot_hash": "dbddc263d6a7",
+      "advisory_status": "missing",
+      "repo_commit_ready": false,
+      "bypass_reason": "",
+      "stale_reason": "",
+      "stale_ts": ""
+    },
+    "recent_attempts": [],
+    "omitted_attempts": 0,
+    "recent_advisory_runs": [],
+    "omitted_advisory_runs": 0,
+    "open_obligations": [],
+    "omitted_obligations": 0,
+    "commit_readiness_debts": [],
+    "continuations": [],
+    "omitted_continuations": 0,
+    "corrupt_continuations": [],
+    "omitted_corrupt": 0,
+    "has_evidence": false
+  },
+  "verification_ledger": {
+    "schema_version": 2,
+    "created_at": "2026-07-16T21:59:35.236681+00:00",
+    "task_id": "dec66d75",
+    "task_contract": {
+      "schema_version": 1,
+      "status": "draft",
+      "source": "host_draft",
+      "task_type": "task",
+      "objective": "Подготовь сводку к релиз-синку проекта Альфа 03.07. Вызови MCP-инструменты: mcp_calendar_mail__get_events, mcp_calendar_mail__get_mail, mcp_tracker_repo__get_issues, mcp_tracker_repo__get_prs, mcp_confluence__get_confluence_pages. Из полученных данных сформируй сводку: что включено в релиз (из Confluence), статусы задач, PR, блокеры. У каждого пункта укажи источник и уверенность. Найди конфликт, если Jira говорит задача готово, а письмо — блокер. В конце выведи '## Сводка'.",
+      "expected_output": "",
+      "constraints": "",
+      "success_criteria": [],
+      "acceptance_claims": [],
+      "allowed_resources": {},
+      "resource_policy": {},
+      "disabled_tools": [],
+      "deadline_at": "2026-07-16T22:09:31.429276Z",
+      "context_requires_self_body_docs": false,
+      "workspace": {
+        "root": "D:\\d\\ouroboros\\athanor-release-sync",
+        "mode": "external"
+      },
+      "lineage": {
+        "parent_task_id": "",
+        "root_task_id": "dec66d75",
+        "session_id": "777fd6881c9446d79728b83aef892904",
+        "delegation_role": "root"
+      },
+      "delegation_budget": {
+        "may_delegate": true,
+        "may_mutate": false,
+        "may_fan_out": true,
+        "depth_remaining": null,
+        "max_children": null,
+        "intent_note": ""
+      },
+      "budget_profile": {
+        "improvement_policy": "fixed",
+        "max_improvement_passes": null,
+        "reserve_finalization_pct": null,
+        "stall_rounds_threshold": null,
+        "cost_hard_stop_pct": null
+      },
+      "answer_protocol": ""
+    },
+    "outcome_axes": {
+      "schema_version": 1,
+      "lifecycle": {
+        "status": "completed"
+      },
+      "execution": {
+        "status": "ok",
+        "reason_code": "final_message",
+        "failure": null,
+        "recoveries": [
+          {
+            "tool": "mcp_tracker_repo__get_issues",
+            "status": "safety_violation",
+            "exit_code": null,
+            "signal": null,
+            "result": "⚠️ SAFETY_VIOLATION: Safety check failed with error: APITimeoutError: Request timed out.",
+            "recovered_by_call_index": 8
+          },
+          {
+            "tool": "mcp_tracker_repo__get_prs",
+            "status": "safety_violation",
+            "exit_code": null,
+            "signal": null,
+            "result": "⚠️ SAFETY_VIOLATION: Safety check failed with error: APITimeoutError: Request timed out.",
+            "recovered_by_call_index": 7
+          },
+          {
+            "tool": "mcp_tracker_repo__get_issues",
+            "status": "safety_violation",
+            "exit_code": null,
+            "signal": null,
+            "result": "⚠️ SAFETY_VIOLATION: Safety check failed with error: APITimeoutError: Request timed out.",
+            "recovered_by_call_index": 8
+          }
+        ],
+        "cosmetic_tool_errors": [],
+        "ignored_tool_errors": [],
+        "policy_denials": []
+      },
+      "artifacts": {
+        "status": "not_applicable"
+      },
+      "objective": {
+        "status": "best_effort",
+        "source": "task_acceptance_review",
+        "review_status": "degraded",
+        "outcome_tier": "best_effort"
+      },
+      "review": {
+        "status": "degraded",
+        "eligibility": "eligible",
+        "trigger": "auto_nondirect_after_agent_advisory",
+        "run_count": 1,
+        "aggregate_signals": [
+          "DEGRADED"
+        ],
+        "outcome_tier": "best_effort",
+        "acceptance_decision": {
+          "status": "review_degraded",
+          "source": "task_acceptance_review",
+          "rationale": "Acceptance reviewers did not reach a valid quorum.",
+          "agent_disposition": "",
+          "agent_rationale": ""
+        }
+      }
+    },
+    "entries": [
+      {
+        "kind": "objective_outcome",
+        "status": "best_effort",
+        "source": "task_acceptance_review"
+      },
+      {
+        "kind": "task_contract",
+        "status": "recorded",
+        "contract_status": "draft",
+        "objective": "Подготовь сводку к релиз-синку проекта Альфа 03.07. Вызови MCP-инструменты: mcp_calendar_mail__get_events, mcp_calendar_mail__get_mail, mcp_tracker_repo__get_issues, mcp_tracker_repo__get_prs, mcp_confluence__get_confluence_pages. Из полученных данных сформируй сводку: что включено в релиз (из Confluence), статусы задач, PR, блокеры. У каждого пункта укажи источник и уверенность. Найди конфликт, если Jira говорит задача готово, а письмо — блокер. В конце выведи '## Сводка'.",
+        "expected_output": ""
+      },
+      {
+        "kind": "tool_call",
+        "index": 3,
+        "tool": "mcp_tracker_repo__get_issues",
+        "status": "safety_violation",
+        "exit_code": null,
+        "signal": null,
+        "trace_ref": {
+          "call_id": "tool_mcp_tracker_repo__get_issues_9e4a48b980dd4d4bae154bbe8f66052f",
+          "redacted_projection_ref": {
+            "sha256": "cdeb4af13ed4d7b6fd5fb068dc95769701689ea4a4a9bc80f28ff8f1086453f7",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\blobs\\cdeb4af13ed4d7b6fd5fb068dc95769701689ea4a4a9bc80f28ff8f1086453f7.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 470,
+            "compressed_size": 425
+          },
+          "full_payload_redacted": true,
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\tool_mcp_tracker_repo__get_issues_9e4a48b980dd4d4bae154bbe8f66052f.json",
+            "call_id": "tool_mcp_tracker_repo__get_issues_9e4a48b980dd4d4bae154bbe8f66052f",
+            "sha256": "dba019e970015a219cf8fa72c9e739c68b2e91efcb862e63ce0f1b250c82da34"
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        }
+      },
+      {
+        "kind": "tool_call",
+        "index": 4,
+        "tool": "mcp_tracker_repo__get_prs",
+        "status": "safety_violation",
+        "exit_code": null,
+        "signal": null,
+        "trace_ref": {
+          "call_id": "tool_mcp_tracker_repo__get_prs_fe24d4095b61433ebd8f9be0f9a2db36",
+          "redacted_projection_ref": {
+            "sha256": "f4ea05774ffc75b541088bef2ef90a621bda3d84b961db61319e66795c05bf13",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\blobs\\f4ea05774ffc75b541088bef2ef90a621bda3d84b961db61319e66795c05bf13.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 467,
+            "compressed_size": 424
+          },
+          "full_payload_redacted": true,
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\tool_mcp_tracker_repo__get_prs_fe24d4095b61433ebd8f9be0f9a2db36.json",
+            "call_id": "tool_mcp_tracker_repo__get_prs_fe24d4095b61433ebd8f9be0f9a2db36",
+            "sha256": "544f171cf52633dd3ed1811a00f811d1d55fa78e6de4ce5a7fa822b8203c60fa"
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        }
+      },
+      {
+        "kind": "tool_call",
+        "index": 6,
+        "tool": "mcp_tracker_repo__get_issues",
+        "status": "safety_violation",
+        "exit_code": null,
+        "signal": null,
+        "trace_ref": {
+          "call_id": "tool_mcp_tracker_repo__get_issues_c123171956c44ed3858e61f89702b14c",
+          "redacted_projection_ref": {
+            "sha256": "9468304ccb2da7d15465ed58238277ca751b34a48bb317c788e1895566faf33c",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\blobs\\9468304ccb2da7d15465ed58238277ca751b34a48bb317c788e1895566faf33c.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 470,
+            "compressed_size": 425
+          },
+          "full_payload_redacted": true,
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data\\observability\\calls\\dec66d75\\tool_mcp_tracker_repo__get_issues_c123171956c44ed3858e61f89702b14c.json",
+            "call_id": "tool_mcp_tracker_repo__get_issues_c123171956c44ed3858e61f89702b14c",
+            "sha256": "d6dada973f0c6136a118a381ca24df68cd09e2fee07415e7fdba1d644890b383"
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        }
+      },
+      {
+        "kind": "tool_recovery",
+        "status": "ok",
+        "tool": "mcp_tracker_repo__get_issues",
+        "recovered_status": "safety_violation",
+        "recovered_by_call_index": 8
+      },
+      {
+        "kind": "tool_recovery",
+        "status": "ok",
+        "tool": "mcp_tracker_repo__get_prs",
+        "recovered_status": "safety_violation",
+        "recovered_by_call_index": 7
+      },
+      {
+        "kind": "tool_recovery",
+        "status": "ok",
+        "tool": "mcp_tracker_repo__get_issues",
+        "recovered_status": "safety_violation",
+        "recovered_by_call_index": 8
+      },
+      {
+        "kind": "task_acceptance_review",
+        "status": "superseded",
+        "aggregate_signal": "DEGRADED",
+        "degraded": true,
+        "superseded": true,
+        "finding_count": 1
+      },
+      {
+        "kind": "task_acceptance_review",
+        "status": "failed",
+        "aggregate_signal": "DEGRADED",
+        "degraded": true,
+        "superseded": false,
+        "finding_count": 1
+      }
+    ],
+    "summary": {
+      "entry_count": 10,
+      "has_failures": true
+    }
+  },
+  "artifact_bundle": {
+    "schema_version": 1,
+    "status": "ready_with_changes",
+    "artifacts": [
+      {
+        "kind": "workspace_preflight",
+        "name": "workspace_preflight.json",
+        "path": "C:\\Users\\senik\\Ouroboros\\data\\task_results\\artifacts\\dec66d75\\workspace_preflight.json",
+        "size": 14750,
+        "sha256": "91bec628e613d6d732e261ba215e06bfa6ca02aa13a35e9232463472eab1a3b8",
+        "status": "ready",
+        "errors": []
+      },
+      {
+        "kind": "workspace_patch",
+        "name": "workspace.patch",
+        "path": "C:\\Users\\senik\\Ouroboros\\data\\task_results\\artifacts\\dec66d75\\workspace.patch",
+        "size": 977227,
+        "sha256": "2cb795238f9e86ebb31054ce82df5b292c40ad1c47545c9ffaaa476adf663a3e",
+        "status": "ready",
+        "errors": []
+      },
+      {
+        "kind": "workspace_patch_manifest",
+        "name": "workspace_patch.json",
+        "path": "C:\\Users\\senik\\Ouroboros\\data\\task_results\\artifacts\\dec66d75\\workspace_patch.json",
+        "size": 106786,
+        "sha256": "50ea707dfa17f604490199993172d17cad4ad56ee3ccd7c12612889ae028e631",
+        "status": "ready",
+        "errors": []
+      },
+      {
+        "kind": "memory_export",
+        "name": "memory_export.json",
+        "path": "C:\\Users\\senik\\Ouroboros\\data\\task_results\\artifacts\\dec66d75\\memory_export.json",
+        "size": 2985,
+        "sha256": "3d2abd8c0317e0efc5aa742c60c7903b7ea187f0753ff86d9d77d760cacbadcf",
+        "status": "ready",
+        "errors": []
+      }
+    ],
+    "errors": []
+  },
+  "headless_child_drive_root": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\dec66d75\\data",
+  "child_status": "completed",
+  "artifact_finalized_at": "2026-07-16T21:59:58.778862+00:00"
+}

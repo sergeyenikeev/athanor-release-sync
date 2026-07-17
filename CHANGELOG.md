@@ -1,5 +1,31 @@
 ﻿# Changelog
 
+## [1.7.1] — 2026-07-18 (коррекция длительности видео 2:20.76 → 2:20.62; унификация ключей Альфы)
+
+### Исправлено
+- Длительность демо-видео: `2:20.76` → `2:20.62` (фактический `mvhd`-парсинг: `struct.unpack`
+  version=0, timescale=1000, duration=140617 → 140.617 c = 2:20.62; mdhd аудио 140.639 c,
+  видео 140.6 c; SRT последний cue 00:02:20,609). `README.md`, `results/demo_scenario.md`,
+  сборщик видео — приведены к 2:20.62. Запись [1.7.0] оставлена как исторический факт
+  (на момент [1.7.0] считалось 2:20.76).
+- Ключи Jira-задач в демо-контуре унифицированы к каноническим `APP-412`/`APP-521`
+  (соответствуют реальному прогону Ouroboros `dec66d75` — `results/scratch/ouroboros_demo/result.json`,
+  тестовой корзине TB-01..TB-17 и `examples/demo_case_alpha`). Раньше `demo_case_alpha_live`
+  и сборщик видео использовали `KAN-1`/`KAN-2` (проект сидинга KAN), что расходилось с
+  реальным прогоном и презентацией. Заменено: `examples/demo_case_alpha_live/input/*`,
+  `results/scratch/demo_alpha_live/*`, `results/scratch/demo_case_alpha_live/*`,
+  `README.md`, `results/demo_scenario.md`, `docs/architecture.md`, `test-instances/README.md`,
+  сборщик видео (`scenes.py`). Сидинг-инструмент `seed_atlassian.py` создаёт задачи в проекте
+  `JIRA_PROJECT` (по умолчанию KAN) — это команда команды, ключи зависят от проекта.
+- `docs/mcp.md`: «Jira/Graph/Bitbucket/Confluence» → «Jira/Bitbucket/Confluence; mail/Calendar — Google»
+  (боевой Outlook/MS Graph удалён в [1.6.0]).
+
+### Изменено
+- Презентация `Atanor_Project_Results.pptx/.pdf` (слайд 8 + приложение E): исправлена
+  арифметика классификации прогонов — `10 полных + 5 с корректной неполнотой + 2 нештатных = 17`
+  (раньше `11+6+2=19` на слайде 8 и `11+5+2=18` в приложении E с двойным учётом TB-16).
+  Пересобрано `build_results.py` (внешний репо).
+
 ## [1.7.0] — 2026-07-17 (демо-видео: короткий путь video/, out/ удалён)
 
 ### Изменено

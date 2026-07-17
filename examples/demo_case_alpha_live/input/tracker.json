@@ -1,13 +1,13 @@
 {
   "issues": [
     {
-      "key": "KAN-1",
+      "key": "APP-412",
       "title": "Миграция схемы оплат",
       "status": "Готово",
       "assignee_role": "не определён"
     },
     {
-      "key": "KAN-2",
+      "key": "APP-521",
       "title": "Интеграция с партнёром",
       "status": "к выполнению",
       "assignee_role": "не определён"
@@ -19,7 +19,7 @@
       "title": "Схема оплат",
       "status": "на ревью",
       "review_days": 2,
-      "issue_key": "KAN-1"
+      "issue_key": "APP-412"
     }
   ]
 }

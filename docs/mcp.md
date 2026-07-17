@@ -28,7 +28,7 @@ mail/Calendar — Google (IMAP + публичный iCal URL), без Azure/OAut
 python mcp/serve_all.py                                   # все четыре, данные examples/demo_case
 MCP_CASE_DIR=test-basket/TB-03 python mcp/serve_all.py    # данные конкретного кейса
 
-# тестовые инстансы (реальные контракты Jira/Graph/Bitbucket/Confluence)
+# тестовые инстансы (реальные контракты Jira/Bitbucket/Confluence; mail/Calendar — Google)
 python test-instances/serve_all.py                        # порты 9911-9914 (терминал 1)
 MCP_BACKEND=test python mcp/serve_all.py                  # MCP-адаптеры → тестовые инстансы (терминал 2)
 
