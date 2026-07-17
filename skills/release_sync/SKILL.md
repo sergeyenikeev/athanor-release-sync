@@ -9,10 +9,9 @@ runtime: python
 entry: main.py
 version: 1
 timeout_sec: 300
-permissions:
-  network: local-mcp-only        # только MCP-серверы 127.0.0.1:9901-9904 и LLM-провайдер
-  filesystem: workspace          # memory/, outbox/, results/ рабочего пространства
-  external_actions: hitl-required  # любое внешнее действие — черновик до подтверждения
+permissions: [net, fs]           # net — MCP 127.0.0.1:9901-9904; fs — memory/outbox/results
+scripts:
+  - name: ./main.py              # единственная исполняемая точка навыка
 ---
 
 # Навык release_sync (v1)

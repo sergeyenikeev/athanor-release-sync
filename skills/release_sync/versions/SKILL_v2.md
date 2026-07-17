@@ -8,10 +8,9 @@ runtime: python
 entry: main.py
 version: 2
 timeout_sec: 300
-permissions:
-  network: local-mcp-only
-  filesystem: workspace
-  external_actions: hitl-required
+permissions: [net, fs]
+scripts:
+  - name: ./main.py
 ---
 
 # Навык release_sync (v2)
