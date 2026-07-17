@@ -10,7 +10,7 @@ PY ?= python
 serve:
 	$(PY) mcp/serve_all.py
 
-## Прогнать корзину TB-01..TB-12 офлайн (rule-baseline, без ключей)
+## Прогнать корзину TB-01..TB-17 офлайн (rule-baseline, без ключей)
 run-basket:
 	$(PY) tests/run_basket.py --engine rule
 

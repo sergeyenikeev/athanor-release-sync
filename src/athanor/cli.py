@@ -272,7 +272,7 @@ def main(argv: list[str] | None = None) -> int:
     pd.add_argument("--format", choices=["v1", "v2"], help="формат сводки")
     pd.set_defaults(func=cmd_demo)
 
-    pb = sub.add_parser("basket", help="прогон тестовой корзины TB-01..TB-12")
+    pb = sub.add_parser("basket", help="прогон тестовой корзины TB-01..TB-17")
     pb.add_argument("--engine", choices=["llm", "rule"], default="rule")
     pb.add_argument("--mock", action="store_true", help="mock-LLM")
     pb.add_argument("--run-id", default=None)
