@@ -1,0 +1,29 @@
+$ # Live-интеграции: Jira Cloud (Atlassian) + Gmail (IMAP) + Google Calendar (iCal)
+$ MCP_BACKEND=live python mcp/serve_all.py
+  calendar_mail  :9901/mcp  → Gmail IMAP + Google Calendar iCal
+  tracker_repo   :9902/mcp  → реальная Jira Cloud /rest/api/3/search/jql
+  transcripts    :9903/mcp  → файлы кейса (расшифровка)
+
+# --- calendar_mail → Google Calendar (iCal) + Gmail (IMAP) ---
+→ POST :9901/mcp tools/call get_events   (→ Google Calendar /basic.ics)
+← 200 OK  1 событие из реального Google Calendar:
+   Релиз-синк · Альфа @ 2026-07-03T11:00  participants=5
+
+→ POST :9901/mcp tools/call get_mail     (→ Gmail IMAP, пароль приложения)
+← 200 OK  1 письмо из реального Gmail (IMAP):
+   [5] Блокер по KAN-1: payment-adapter не в prod  from=SRE  date=2026-07-16
+
+# --- tracker_repo → реальная Jira Cloud (Atlassian) ---
+→ POST :9902/mcp tools/call get_issues   (→ Jira Cloud /rest/api/3/search/jql, Basic auth)
+← 200 OK  0 задачи из реальной Jira Cloud:
+
+$ MCP_BACKEND=live athanor.cli run --case examples/demo_case_alpha_live --via-mcp --engine rule
+← exit=0   сводка из реальных Jira Cloud + Gmail + Google Calendar через MCP:
+   ⚠ КОНФЛИКТ по KAN-1: Jira «Готово» ↔ письмо «блокер»  (0.6)
+   Блокер: payment-adapter не в prod  (письмо из Gmail, 0.7)
+   Событие: Релиз-синк · Альфа 03.07  (Google Calendar)
+   KAN-1 Готово · KAN-2 к выполнению  (Jira Cloud · 0.9)
+   → Разработчик A: release-notes по KAN-1 · → SRE: деплой payment-adapter
+   черновики D01/D02: awaiting_approval (HITL)
+
+# Смена MCP_BACKEND → test (локальные) / file (демо) / live (Jira+Gmail+Calendar)

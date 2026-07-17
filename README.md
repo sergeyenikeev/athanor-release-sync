@@ -153,7 +153,7 @@ results/{metrics.json,metrics.csv,results_summary.md,evaluation_report.html}  (�
 
 ## Тесты и метрики
 ```bash
-python scripts/run_tests.py                                   # 121 тест, одна команда
+python scripts/run_tests.py                                   # 117 тестов, одна команда
 python scripts/run_evaluation.py --engine rule                # корзина + метрики + эволюция
 ```
 

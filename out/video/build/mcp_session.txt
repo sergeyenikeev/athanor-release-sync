@@ -1,0 +1,56 @@
+$ MCP_CASE_DIR=examples/demo_case_alpha python mcp/serve_all.py
+
+# --- calendar_mail (http://127.0.0.1:9901/mcp) ---
+→ POST http://127.0.0.1:9901/mcp  initialize
+← 200 OK  server=calendar_mail v1.0.0-mvp proto=2025-03-26
+
+→ POST http://127.0.0.1:9901/mcp  tools/list
+← 200 OK  tools: get_events, get_mail
+
+→ POST http://127.0.0.1:9901/mcp  tools/call get_events
+← 200 OK  1 объект(ов)
+   {"id": "DEMO-ALPHA", "title": "Релиз-синк · Альфа", "project": "Альфа", "datetime": "2026-07-03T14:00", "participants": ["Тимлид", "SRE", "Владелец продукта", "Разработчик A", "Разработчик B"]}
+
+→ POST http://127.0.0.1:9901/mcp  tools/call get_mail
+← 200 OK  1 объект(ов)
+   {"id": "M1", "from_role": "SRE", "date": "2026-07-02", "subject": "Блокер по APP-412: payment-adapter не в prod", "body": "APP-412: смежный сервис payment-adapter не задеплоен в production, релизное окно под риском, деплой заблокирован."}
+
+
+# --- tracker_repo (http://127.0.0.1:9902/mcp) ---
+→ POST http://127.0.0.1:9902/mcp  initialize
+← 200 OK  server=tracker_repo v1.0.0-mvp proto=2025-03-26
+
+→ POST http://127.0.0.1:9902/mcp  tools/list
+← 200 OK  tools: get_issues, get_prs
+
+→ POST http://127.0.0.1:9902/mcp  tools/call get_issues
+← 200 OK  2 объект(ов)
+   {"key": "APP-412", "title": "Миграция схемы оплат", "status": "готово", "assignee_role": "Разработчик A"}
+   {"key": "APP-521", "title": "Интеграция с партнёром", "status": "в работе", "assignee_role": "Разработчик B"}
+
+→ POST http://127.0.0.1:9902/mcp  tools/call get_prs
+← 200 OK  1 объект(ов)
+   {"number": 128, "title": "Схема оплат", "status": "на ревью", "review_days": 2, "issue_key": "APP-412"}
+
+
+# --- transcripts (http://127.0.0.1:9903/mcp) ---
+→ POST http://127.0.0.1:9903/mcp  initialize
+← 200 OK  server=transcripts v1.0.0-mvp proto=2025-03-26
+
+→ POST http://127.0.0.1:9903/mcp  tools/list
+← 200 OK  tools: get_transcript
+
+→ POST http://127.0.0.1:9903/mcp  tools/call get_transcript
+← 200 OK  (строка, 206 симв.)
+   Тимлид: Решение: выкатываем релиз 03.07 в окно 18:00–20:00, потому что регламентное окно
+   Разработчик A: я подготовлю release-notes по APP-412 до 03.07
+   Тимлид: SRE, подтверди деплой payment-adapter до 03.07
+
+
+$ python -m athanor.cli run --case examples/demo_case_alpha --via-mcp --engine rule --print
+← exit=0  (сводка сформирована через реальные MCP-вызовы, см. выше)
+   - ⚠ КОНФЛИКТ по APP-412: Jira — «готово» ↔ письмо 2026-07-02 — «блокер». Приоритет источников: Git/Jira > переписка; требуется решение человека (Jira APP-412 ↔ письмо M1 · 0.6)
+   - Блокер из письма (SRE, 2026-07-02): Блокер по APP-412: payment-adapter не в prod (письмо M1 от 2026-07-02 · 0.7)
+   → Разработчик A: подготовлю release-notes по APP-412 · срок 2026-07-03 · источник APP-412
+   → SRE: подтверди деплой payment-adapter · срок 2026-07-03 · источник расшифровка синка 03.07
+   - demo_case_alpha-D01: [APP-412] подготовлю release-notes по APP-412 → Разработчик A · статус awaiting_approval

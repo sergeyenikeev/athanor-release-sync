@@ -1,0 +1,33 @@
+$ # Jira — реальная Jira Cloud (Atlassian), остальные источники — обезличенные выгрузки
+$ MCP_BACKEND=atlassian python mcp/serve_all.py
+  calendar_mail  :9901/mcp  → файлы кейса (календарь + почта)
+  tracker_repo   :9902/mcp  → реальная Jira Cloud /rest/api/3/search/jql (Basic auth)
+  transcripts    :9903/mcp  → файлы кейса (расшифровка)
+
+# --- tracker_repo → реальная Jira Cloud (MCP_BACKEND=atlassian) ---
+→ POST :9902/mcp tools/call get_issues   (→ Jira /rest/api/3/search/jql, Basic auth)
+← 200 OK  2 задачи из реальной Jira Cloud:
+   KAN-1: Миграция схемы оплат  [Готово]  assignee=не определён  (Jira KAN-1 · 0.9)
+   KAN-2: Интеграция с партнёром  [к выполнению]  assignee=не определён  (Jira KAN-2 · 0.9)
+
+# --- calendar_mail → файлы кейса (календарь + почта-блокер) ---
+→ POST :9901/mcp tools/call get_events   (→ calendar.json)
+← 1 событие: Релиз-синк · Альфа @ 2026-07-03T14:00  participants=5
+→ POST :9901/mcp tools/call get_mail     (→ mail.json: блокер по KAN-1)
+← 1 письмо: [M1] Блокер по KAN-1: payment-adapter не в prod  from=SRE
+
+# --- transcripts → расшифровка ---
+→ POST :9903/mcp tools/call get_transcript
+← 209 симв.: решение + 2 поручения (ссылки на KAN-1)
+
+$ MCP_BACKEND=atlassian athanor.cli run --case examples/demo_case_alpha_live --via-mcp --engine rule --print
+← exit=0   сводка из реальной Jira Cloud + файлов через MCP-адаптеры:
+   ⚠ КОНФЛИКТ по KAN-1: Jira «Готово» ↔ письмо «блокер»  (0.6)
+   Блокер: payment-adapter не в prod  (письмо M1, 0.7)
+   KAN-1 «Миграция схемы оплат» — Готово  (Jira KAN-1 · 0.9)  ← из реальной Jira
+   KAN-2 «Интеграция с партнёром» — к выполнению  (Jira KAN-2 · 0.9)  ← из реальной Jira
+   → Разработчик A: release-notes по KAN-1 · 2026-07-03
+   → SRE: подтверди деплой payment-adapter · 2026-07-03
+   черновики D01/D02: awaiting_approval (HITL)
+
+# Смена URL в .env (JIRA_URL) → другой tenant Jira Cloud; смена MCP_BACKEND → тестовые/боевые инстансы
