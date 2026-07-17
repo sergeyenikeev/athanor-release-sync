@@ -19,9 +19,9 @@ class TestExtract(unittest.TestCase):
         self.assertEqual(a, [])
 
     def test_self_commitment(self):
-        d, a, c = extract_rule("Разработчик A: я подготовлю release-notes по APP-412 до 03.07", EVENT)
+        d, a, c = extract_rule("Разработчик backend: я подготовлю release-notes по APP-412 до 03.07", EVENT)
         self.assertEqual(len(a), 1)
-        self.assertEqual(a[0].owner, "Разработчик A")
+        self.assertEqual(a[0].owner, "Разработчик backend")
         self.assertEqual(a[0].due, "2026-07-03")
         self.assertEqual(a[0].source, "APP-412")
 
@@ -52,7 +52,7 @@ class TestExtract(unittest.TestCase):
 
     def test_distractor_on_then_not_action(self):
         # «на потом» — дистрактор, не поручение
-        d, a, c = extract_rule("Разработчик B: предлагаю подумать про автотесты на потом", EVENT)
+        d, a, c = extract_rule("Разработчик frontend: предлагаю подумать про автотесты на потом", EVENT)
         self.assertEqual(a, [])
 
     def test_dogovorili_prefix_stripped(self):

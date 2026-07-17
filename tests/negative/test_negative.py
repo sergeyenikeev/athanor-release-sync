@@ -64,8 +64,10 @@ class TestNegative(unittest.TestCase):
         cfg["MCP_CALENDAR_MAIL_PORT"] = "9901"
         cfg["MCP_TRACKER_REPO_PORT"] = "9902"
         cfg["MCP_TRANSCRIPTS_PORT"] = "9903"
+        cfg["MCP_CONFLUENCE_PORT"] = "9904"
         case = load_case_via_mcp(cfg, "TB-xx")  # серверы не подняты
-        self.assertEqual(set(case.sources_down), {"calendar_mail", "tracker_repo", "transcripts"})
+        self.assertEqual(set(case.sources_down),
+                         {"calendar_mail", "tracker_repo", "transcripts", "confluence"})
 
     def test_budget_exceeded(self):
         import athanor.llm as L

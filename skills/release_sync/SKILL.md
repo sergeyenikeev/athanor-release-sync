@@ -10,7 +10,7 @@ entry: main.py
 version: 1
 timeout_sec: 300
 permissions:
-  network: local-mcp-only        # только MCP-заглушки 127.0.0.1:9901-9903 и LLM-провайдер
+  network: local-mcp-only        # только MCP-серверы 127.0.0.1:9901-9904 и LLM-провайдер
   filesystem: workspace          # memory/, outbox/, results/ рабочего пространства
   external_actions: hitl-required  # любое внешнее действие — черновик до подтверждения
 ---

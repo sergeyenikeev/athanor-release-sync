@@ -1,0 +1,11 @@
+{
+  "messages": [
+    {
+      "id": "5",
+      "from_role": "SRE",
+      "date": "2026-07-16",
+      "subject": "Блокер по KAN-1: payment-adapter не в prod",
+      "body": "   1. KAN-1: смежный сервис payment-adapter не задеплоен в production,\r\n   релизное окно под риском, деплой заблокирован. (Синтетическое демо-письмо\r\n   Ouroboros, от SRE.)\r\n"
+    }
+  ]
+}

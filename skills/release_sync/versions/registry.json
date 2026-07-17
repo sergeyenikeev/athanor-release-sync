@@ -28,7 +28,7 @@
         }
       },
       "created_at": "2026-07-03T18:00:00",
-      "promoted_at": "2026-07-16T10:13:52"
+      "promoted_at": "2026-07-16T23:21:50"
     }
   },
   "history": [
@@ -86,6 +86,34 @@
       "from": "v2",
       "to": "v1",
       "at": "2026-07-16T10:13:52"
+    },
+    {
+      "action": "promote",
+      "version": "v2",
+      "reason": "CLI promote by user",
+      "baseline_f1": 1.0,
+      "candidate_f1": 1.0,
+      "at": "2026-07-16T12:59:12"
+    },
+    {
+      "action": "rollback",
+      "from": "v2",
+      "to": "v1",
+      "at": "2026-07-16T12:59:12"
+    },
+    {
+      "action": "promote",
+      "version": "v2",
+      "reason": "CLI promote by user",
+      "baseline_f1": 1.0,
+      "candidate_f1": 1.0,
+      "at": "2026-07-16T23:21:50"
+    },
+    {
+      "action": "rollback",
+      "from": "v2",
+      "to": "v1",
+      "at": "2026-07-16T23:21:50"
     }
   ]
 }

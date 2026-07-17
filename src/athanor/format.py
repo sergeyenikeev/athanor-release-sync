@@ -13,13 +13,14 @@ _KIND_TITLES = [
     ("conflict", "Конфликты источников"),
     ("blocker", "Блокеры"),
     ("status", "Статусы задач и PR"),
+    ("doc", "Контекст из Confluence (release plan / decision log)"),
     ("commitment", "Обязательства с прошлого синка"),
     ("question", "Открытые вопросы"),
     ("warning", "Полнота данных"),
 ]
 
 # v2: блокеры/конфликты сверху, вопросы и статусы свёрнуты до ключевого
-_KIND_ORDER_V2 = ["conflict", "blocker", "commitment", "status", "warning"]
+_KIND_ORDER_V2 = ["conflict", "blocker", "commitment", "doc", "status", "warning"]
 
 
 def _fmt_item(it: SummaryItem) -> str:

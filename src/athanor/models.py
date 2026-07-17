@@ -16,6 +16,7 @@ CONFIDENCE = {
     "mail": 0.7,
     "transcript": 0.6,
     "memory": 0.8,
+    "confluence": 0.8,
 }
 
 
@@ -56,6 +57,18 @@ class Mail:
     date: str
     subject: str
     body: str
+
+
+@dataclass
+class ConfluencePage:
+    """Страница Confluence (release plan / decision log / RFC). Обезличенная синтетика."""
+    id: str
+    title: str
+    space: str = ""
+    excerpt: str = ""
+    url: str = ""
+    version: int = 1
+    updated_at: str = ""
 
 
 @dataclass
@@ -176,6 +189,7 @@ class CaseInput:
     transcript: str | None
     sources_down: list[str] = field(default_factory=list)  # напр. ["transcripts"]
     release_windows: list[str] = field(default_factory=list)  # даты релизных окон (ISO) — для разрешения относительных сроков
+    confluence_pages: list[ConfluencePage] = field(default_factory=list)  # страницы Confluence (release plan / decision log)
 
 
 @dataclass

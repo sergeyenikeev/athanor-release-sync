@@ -6,7 +6,7 @@ PY ?= python
 
 .PHONY: serve run-basket run-basket-llm score mcp-smoke demo test evaluation clean
 
-## Поднять три MCP-заглушки (Ctrl+C для остановки)
+## Поднять четыре MCP-сервера (Ctrl+C для остановки)
 serve:
 	$(PY) mcp/serve_all.py
 
@@ -22,7 +22,7 @@ run-basket-llm:
 score:
 	$(PY) tests/score.py --mirror
 
-## Проверить, что MCP-заглушки отвечают (initialize + tools/list + tools/call)
+## Проверить, что MCP-серверы отвечают (initialize + tools/list + tools/call)
 mcp-smoke:
 	$(PY) mcp/serve_all.py & sleep 1; $(PY) mcp/smoke_test.py; kill %1 2>/dev/null || true
 

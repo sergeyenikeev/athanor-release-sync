@@ -18,7 +18,7 @@ classifiers = [
     "Development Status :: 4 - Beta",
 ]
 # Внешних runtime-зависимостей нет: только стандартная библиотека Python.
-# LLM-провайдер и MCP-заглушки вызываются через urllib/http.server.
+# LLM-провайдер и MCP-серверы вызываются через urllib/http.server.
 dependencies = []
 
 [project.optional-dependencies]

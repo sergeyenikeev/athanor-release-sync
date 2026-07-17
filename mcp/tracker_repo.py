@@ -1,4 +1,11 @@
-"""MCP-заглушка «трекер + репозиторий» (имитация Jira/Git-выгрузки). Порт 9902."""
+"""MCP-сервер «трекер + репозиторий». Порт 9902.
+
+Коннектор к задачам (Jira) и pull request-ам (Bitbucket). Источник — MCP_BACKEND:
+  - live (по умолчанию) → Jira Cloud (atlassian) + Bitbucket Cloud (bitbucket);
+  - test → локальные инстансы Jira (:9911) + Bitbucket (:9913);
+  - file → обезличенная выгрузка из MCP_CASE_DIR.
+Конвертация «контракт → схема агента» — в mcp/_backends.py.
+"""
 
 from __future__ import annotations
 
@@ -6,24 +13,25 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _base import McpStub, read_case_json, serve  # noqa: E402
+from _base import McpServer, serve  # noqa: E402
+import _backends  # noqa: E402
 
 TOOLS = {
     "get_issues": (
-        {"description": "Задачи трекера по релизу (обезличенная выгрузка Jira)"},
-        lambda: read_case_json("tracker.json", "issues"),
+        {"description": "Задачи трекера по релизу (live→Jira Cloud; test→Jira-инстанс; file→выгрузка)"},
+        _backends.get_issues,
     ),
     "get_prs": (
-        {"description": "Pull Request-ы по релизу (обезличенная выгрузка Git)"},
-        lambda: read_case_json("tracker.json", "prs"),
+        {"description": "Pull Request-ы по релизу (live→Bitbucket Cloud; test→Bitbucket-инстанс; file→выгрузка)"},
+        _backends.get_prs,
     ),
 }
 
-stub = McpStub("tracker_repo", TOOLS)
+server = McpServer("tracker_repo", TOOLS)
 
 if __name__ == "__main__":
     import os
 
     port = int(os.environ.get("MCP_TRACKER_REPO_PORT", "9902"))
-    print(f"[tracker_repo] MCP stub on http://127.0.0.1:{port}/mcp")
-    serve(stub, port).serve_forever()
+    print(f"[tracker_repo] MCP server on http://127.0.0.1:{port}/mcp")
+    serve(server, port).serve_forever()

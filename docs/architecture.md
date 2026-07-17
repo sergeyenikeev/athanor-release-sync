@@ -8,7 +8,7 @@
 ## Слои
 
 ```
-sources (calendar/tracker/mail/transcript) → MCP stubs (JSON-RPC/HTTP)
+sources (calendar/tracker/mail/transcript) → MCP-серверы (JSON-RPC/HTTP)
         ↓ load_case_from_files | load_case_via_mcp
 agent.run_case (orchestration):
   0. security.scan_untrusted (письма)         ← Safety Layer
@@ -39,26 +39,33 @@ output.md + run.json + memory_after/ + outbox/ + metrics.json
 | Память релиза + журнал | реализовано | src/athanor/memory.py |
 | HITL outbox | реализовано | src/athanor/hitl.py |
 | Safety Layer (injection/allowlist/mask) | реализовано | src/athanor/security.py |
-| MCP-инструменты (get_*) | демо-адаптеры (тот же интерфейс) | mcp/ |
+| MCP-инструменты (get_*) | файловый демо-контур + адаптеры к тестовым инстансам | mcp/ (mcp/_backends.py) |
+| Тестовые инстансы (реальные контракты Jira REST v2, MS Graph, Bitbucket Cloud REST 2.0, Confluence Cloud REST API v1) | реализовано (локально, `MCP_BACKEND=test`) | test-instances/ |
+| Реальная Jira (Atlassian, `/rest/api/3/search/jql`) | реализовано (`MCP_BACKEND=atlassian`, live) | mcp/_backends.py, test-instances/seed_atlassian.py |
+| Реальная Confluence Cloud (Atlassian, `/wiki/rest/api/content/search`, CQL) | реализовано (`MCP_BACKEND_CONFLUENCE=atlassian`, live) | mcp/_backends.py, test-instances/seed_confluence.py |
 | Версионирование навыка + rollback | реализовано | src/athanor/skill_versioning.py |
-| Коннекторы Outlook/Jira/Git/Confluence | подготовлен интерфейс, боевые — после пилота | mcp/ + src/athanor/sources.py |
+| Коннекторы Outlook/Jira/Git | подготовлен интерфейс, боевые — после пилота (смена URL в _backends.py) | mcp/ + src/athanor/sources.py |
+| Коннектор Confluence Cloud | реализовано (Basic auth + CQL, страницы в сводке kind=`doc`) | mcp/confluence.py + mcp/_backends.py |
 
 ## Схема (Mermaid)
 ```mermaid
 flowchart LR
-  C[Календарь] --> M[MCP stubs]
+  C[Календарь] --> M[MCP-серверы]
   J[Jira/Tracker] --> M
   G[Git/PR] --> M
   ML[Почта] --> M
   T[Расшифровка] --> M
+  CF[Confluence] --> M
   M -->|load_case| A[agent.run_case]
   A -->|scan| S[Safety Layer]
   A --> MEM[(memory/knowledge)]
-  A --> SUM[summary: конфликты/блокеры]
+  A --> SUM[summary: конфликты/блокеры + контекст Confluence]
   A --> EXT[extract: решения/поручения]
   EXT -->|LLM\|rule| A
   A --> H[HITL outbox]
   A --> R[output.md + run.json + metrics]
   H -->|approve| EXEC[executed (демо)]
   FB[feedback] --> SV[skill_versioning: v1↔v2 + rollback]
+  TI[test-instances: Jira REST / MS Graph / Bitbucket / Confluence] -. MCP_BACKEND=test .-> M
+  JC[Реальная Jira: KAN-1/KAN-2] -. MCP_BACKEND=atlassian .-> M
 ```

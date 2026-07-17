@@ -1,0 +1,9 @@
+﻿{
+  "space": "~<your-account-id>",
+  "label": "alpha-demo",
+  "url": "https://<your-tenant>.atlassian.net",
+  "pages": {
+    "Release Plan · Альфа": "425985",
+    "Decision Log · Альфа": "458753"
+  }
+}

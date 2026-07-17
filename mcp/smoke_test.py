@@ -1,7 +1,7 @@
-"""Smoke-тест MCP-заглушек: initialize + tools/list + tools/call на каждом сервере.
+"""Smoke-тест MCP-серверов: initialize + tools/list + tools/call на каждом сервере.
 
 Запуск: сначала `python mcp/serve_all.py` в соседнем терминале, затем
-`python mcp/smoke_test.py` (или `make mcp-smoke`). Код выхода 0 = все три отвечают.
+`python mcp/smoke_test.py` (или `make mcp-smoke`). Код выхода 0 = все четыре отвечают.
 """
 
 from __future__ import annotations
@@ -21,6 +21,7 @@ def main() -> int:
         ("calendar_mail", cfg["MCP_CALENDAR_MAIL_PORT"], "get_events", {}),
         ("tracker_repo", cfg["MCP_TRACKER_REPO_PORT"], "get_issues", {}),
         ("transcripts", cfg["MCP_TRANSCRIPTS_PORT"], "get_transcript", {"case_id": "smoke"}),
+        ("confluence", cfg["MCP_CONFLUENCE_PORT"], "get_confluence_pages", {}),
     ]
     failed = 0
     for name, port, tool, args in checks:

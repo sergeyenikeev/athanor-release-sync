@@ -1,9 +1,10 @@
-"""Минимальный MCP-сервер (streamable_http, JSON-RPC 2.0 poverh HTTP POST).
+"""Минимальный MCP-сервер (streamable_http, JSON-RPC 2.0 поверх HTTP POST).
 
 Реализовано подмножество протокола, достаточное для обнаружения и вызова
 инструментов клиентом Ouroboros: initialize, tools/list, tools/call.
-Каждая заглушка объявляет свои инструменты и читает обезличенные данные
-из папки кейса (env MCP_CASE_DIR, по умолчанию examples/demo_case).
+Каждый сервер объявляет свои инструменты; источник данных задаётся через
+MCP_BACKEND (live/test/file) — см. mcp/_backends.py. В режиме live
+инструменты ходят к реальным Jira/Bitbucket/Confluence/Google (mail+calendar).
 """
 
 from __future__ import annotations
@@ -28,7 +29,7 @@ def read_case_json(name: str, key: str) -> list[dict[str, Any]]:
     return json.loads(path.read_text(encoding="utf-8")).get(key, [])
 
 
-class McpStub:
+class McpServer:
     def __init__(self, name: str, tools: dict[str, tuple[dict[str, Any], Callable[..., Any]]]):
         self.name = name
         self.tools = tools  # tool_name -> (schema, handler)
@@ -69,16 +70,16 @@ class McpStub:
             else:
                 raise KeyError(f"unsupported method {method!r}")
             return {"jsonrpc": "2.0", "id": rid, "result": result}
-        except Exception as e:  # noqa: BLE001 — заглушка отвечает ошибкой протокола
+        except Exception as e:  # noqa: BLE001 — сервер отвечает ошибкой протокола
             return {"jsonrpc": "2.0", "id": rid, "error": {"code": -32000, "message": str(e)}}
 
 
-def make_handler(stub: McpStub) -> type[BaseHTTPRequestHandler]:
+def make_handler(server: McpServer) -> type[BaseHTTPRequestHandler]:
     class Handler(BaseHTTPRequestHandler):
         def do_POST(self) -> None:  # noqa: N802
             length = int(self.headers.get("Content-Length", 0))
             body = json.loads(self.rfile.read(length) or b"{}")
-            reply = stub.handle(body)
+            reply = server.handle(body)
             payload = json.dumps(reply, ensure_ascii=False).encode("utf-8")
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
@@ -87,7 +88,7 @@ def make_handler(stub: McpStub) -> type[BaseHTTPRequestHandler]:
             self.wfile.write(payload)
 
         def do_GET(self) -> None:  # noqa: N802 — health-check
-            payload = json.dumps({"server": stub.name, "status": "ok"}).encode("utf-8")
+            payload = json.dumps({"server": server.name, "status": "ok"}).encode("utf-8")
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
             self.send_header("Content-Length", str(len(payload)))
@@ -100,6 +101,6 @@ def make_handler(stub: McpStub) -> type[BaseHTTPRequestHandler]:
     return Handler
 
 
-def serve(stub: McpStub, port: int) -> ThreadingHTTPServer:
-    server = ThreadingHTTPServer(("127.0.0.1", port), make_handler(stub))
-    return server
+def serve(server: McpServer, port: int) -> ThreadingHTTPServer:
+    srv = ThreadingHTTPServer(("127.0.0.1", port), make_handler(server))
+    return srv

@@ -1,0 +1,22 @@
+{
+  "pages": [
+    {
+      "id": "196612",
+      "title": "Release Plan · Альфа",
+      "space": "ALPHA",
+      "excerpt": "Целевое окно релиза 03.07 18:00–20:00. Code freeze с 02.07 12:00. Release-notes по APP-412 готовит Разработчик backend.",
+      "url": "http://demo.atlassian.net/wiki/spaces/ALPHA/pages/196612",
+      "version": 3,
+      "updated_at": "2026-07-01"
+    },
+    {
+      "id": "196613",
+      "title": "Decision Log · Альфа",
+      "space": "ALPHA",
+      "excerpt": "26.06: согласовано окно 18:00–20:00 (исключить пятницу по регламенту). 28.06: APP-521 «Интеграция с партнёром» — готово к релизу.",
+      "url": "http://demo.atlassian.net/wiki/spaces/ALPHA/pages/196613",
+      "version": 5,
+      "updated_at": "2026-06-30"
+    }
+  ]
+}

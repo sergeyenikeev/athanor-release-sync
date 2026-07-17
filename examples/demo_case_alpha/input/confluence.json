@@ -1,0 +1,22 @@
+{
+  "pages": [
+    {
+      "id": "196612",
+      "title": "Release Plan · Альфа",
+      "space": "ALPHA",
+      "excerpt": "Целевое окно 03.07 18:00–20:00. Code freeze с 02.07 12:00. Зависимость: payment-adapter (владелец SRE), partner-api.",
+      "url": "http://demo.atlassian.net/wiki/spaces/ALPHA/pages/196612",
+      "version": 3,
+      "updated_at": "2026-07-01"
+    },
+    {
+      "id": "196613",
+      "title": "Decision Log · Альфа",
+      "space": "ALPHA",
+      "excerpt": "26.06: согласовано окно 18:00–20:00 (пятница исключена по регламенту). 30.06: APP-412 «Миграция схемы оплат» — принято в релиз 03.07.",
+      "url": "http://demo.atlassian.net/wiki/spaces/ALPHA/pages/196613",
+      "version": 5,
+      "updated_at": "2026-06-30"
+    }
+  ]
+}

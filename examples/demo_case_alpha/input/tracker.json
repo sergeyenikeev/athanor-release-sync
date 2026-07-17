@@ -4,13 +4,13 @@
       "key": "APP-412",
       "title": "Миграция схемы оплат",
       "status": "готово",
-      "assignee_role": "Разработчик A"
+      "assignee_role": "Разработчик backend"
     },
     {
       "key": "APP-521",
       "title": "Интеграция с партнёром",
       "status": "в работе",
-      "assignee_role": "Разработчик B"
+      "assignee_role": "Разработчик frontend"
     }
   ],
   "prs": [

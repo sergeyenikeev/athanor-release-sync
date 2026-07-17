@@ -1,0 +1,17 @@
+{
+  "events": [
+    {
+      "id": "DEMO-ALPHA-LIVE",
+      "title": "Релиз-синк · Альфа",
+      "project": "Альфа",
+      "datetime": "2026-07-03T11:00",
+      "participants": [
+        "Тимлид",
+        "SRE",
+        "Владелец продукта",
+        "Разработчик backend",
+        "Разработчик frontend"
+      ]
+    }
+  ]
+}

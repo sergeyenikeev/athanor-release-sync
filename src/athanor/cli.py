@@ -3,7 +3,7 @@
 Примеры:
   python -m athanor.cli run --case test-basket/TB-01 --engine rule --print
   python -m athanor.cli run --case test-basket/TB-03 --engine llm --out results/scratch/TB-03
-  python -m athanor.cli run --case test-basket/TB-01 --via-mcp   # через заглушки
+  python -m athanor.cli run --case test-basket/TB-01 --via-mcp   # через MCP-серверы
   python -m athanor.cli approve --draft outbox/TB-04-D01.json
   python -m athanor.cli demo                          # демо-прогон < 3 мин
   python -m athanor.cli basket --engine rule          # вся корзина
@@ -257,7 +257,7 @@ def main(argv: list[str] | None = None) -> int:
     pr.add_argument("--format", choices=["v1", "v2"], help="формат сводки (версия навыка)")
     pr.add_argument("--memory", help="папка памяти (по умолчанию — временная с посевом кейса)")
     pr.add_argument("--out", help="папка результатов (по умолчанию results/scratch/<кейс>)")
-    pr.add_argument("--via-mcp", action="store_true", help="читать данные через MCP-заглушки")
+    pr.add_argument("--via-mcp", action="store_true", help="читать данные через MCP-серверы (live→реальные Jira/Bitbucket/Confluence/Google; file→выгрузка)")
     pr.add_argument("--print", action="store_true", help="вывести результат в консоль")
     pr.set_defaults(func=cmd_run)
 

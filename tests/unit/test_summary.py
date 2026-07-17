@@ -9,7 +9,7 @@ EVENT = CalendarEvent("TB", "Релиз-синк", "Альфа", "2026-07-03T14:
 
 class TestSummary(unittest.TestCase):
     def test_status_items(self):
-        case = CaseInput(EVENT, [Issue("APP-412", "Миграция", "в работе", "Разработчик A")], [], [], None)
+        case = CaseInput(EVENT, [Issue("APP-412", "Миграция", "в работе", "Разработчик backend")], [], [], None)
         items = build_summary(case)
         self.assertTrue(any(i.kind == "status" and "APP-412" in i.text for i in items))
         self.assertEqual(items[0].confidence, 0.9)
@@ -22,7 +22,7 @@ class TestSummary(unittest.TestCase):
     def test_conflict_jira_vs_mail(self):
         case = CaseInput(
             EVENT,
-            [Issue("APP-412", "Миграция", "готово", "Разработчик A")],
+            [Issue("APP-412", "Миграция", "готово", "Разработчик backend")],
             [],
             [Mail("M1", "SRE", "2026-07-02", "Блокер по APP-412", "APP-412 не задеплоен, заблокирован")],
             None,
@@ -35,7 +35,7 @@ class TestSummary(unittest.TestCase):
     def test_no_duplicate_conflict(self):
         case = CaseInput(
             EVENT,
-            [Issue("APP-412", "Миграция", "готово", "Разработчик A")],
+            [Issue("APP-412", "Миграция", "готово", "Разработчик backend")],
             [],
             [Mail("M1", "SRE", "2026-07-02", "Блокер по APP-412", "APP-412 не задеплоен, APP-412 заблокирован")],
             None,

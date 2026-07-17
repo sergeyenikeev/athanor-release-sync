@@ -1,8 +1,10 @@
-"""MCP-заглушка «расшифровки встреч». Порт 9903.
+"""MCP-сервер «расшифровки встреч». Порт 9903.
 
-Для кейса TB-11 (недоступный источник) сервер запускается с
-MCP_TRANSCRIPTS_DOWN=1 и отвечает ошибкой — клиент обязан деградировать
-без падения («данные неполны»), это проверяется корзиной.
+Расшифровки — локальные файлы кейса (MCP_CASE_DIR/input/transcript.txt):
+это исходный источник, внешнего API расшифровок нет. Для кейса TB-11
+(недоступный источник) сервер запускается с MCP_TRANSCRIPTS_DOWN=1 и
+отвечает ошибкой — клиент обязан деградировать без падения («данные
+неполны»), это проверяется корзиной.
 """
 
 from __future__ import annotations
@@ -12,7 +14,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _base import McpStub, case_dir, serve  # noqa: E402
+from _base import McpServer, case_dir, serve  # noqa: E402
 
 
 def get_transcript(case_id: str = "") -> str:
@@ -25,7 +27,7 @@ def get_transcript(case_id: str = "") -> str:
 TOOLS = {
     "get_transcript": (
         {
-            "description": "Расшифровка релиз-синка (обезличенная)",
+            "description": "Расшифровка релиз-синка (обезличенная, из файлов кейса)",
             "inputSchema": {
                 "type": "object",
                 "properties": {"case_id": {"type": "string", "description": "ID кейса (опц.)"}},
@@ -35,9 +37,9 @@ TOOLS = {
     ),
 }
 
-stub = McpStub("transcripts", TOOLS)
+server = McpServer("transcripts", TOOLS)
 
 if __name__ == "__main__":
     port = int(os.environ.get("MCP_TRANSCRIPTS_PORT", "9903"))
-    print(f"[transcripts] MCP stub on http://127.0.0.1:{port}/mcp")
-    serve(stub, port).serve_forever()
+    print(f"[transcripts] MCP server on http://127.0.0.1:{port}/mcp")
+    serve(server, port).serve_forever()

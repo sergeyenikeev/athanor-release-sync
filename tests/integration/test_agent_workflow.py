@@ -38,7 +38,7 @@ class TestAgentWorkflow(unittest.TestCase):
         self.assertEqual(res.case_id, "TB-01")
         self.assertEqual(len(res.decisions), 1)
         self.assertEqual(len(res.actions), 1)
-        self.assertEqual(res.actions[0].owner, "Разработчик A")
+        self.assertEqual(res.actions[0].owner, "Разработчик backend")
         self.assertTrue(res.memory_updates)
         self.assertTrue(res.drafts)
         # evidence linking: у action есть id и confidence

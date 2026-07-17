@@ -12,8 +12,12 @@ import re
 
 from .models import CONFIDENCE, CaseInput, SummaryItem
 
-# Статусы задач, означающие «сделано» (для поиска конфликтов с письмами)
-_DONE_STATUSES = {"готово", "готово к релизу", "закрыто", "done", "released"}
+# Статусы задач, означающие «сделано» (для поиска конфликтов с письмами).
+# Включает русские и английские варианты (боевая Jira может быть на любом языке).
+_DONE_STATUSES = {
+    "готово", "готово к релизу", "закрыто", "сделано", "выполнено", "решено",
+    "done", "released", "closed", "resolved", "complete", "completed",
+}
 
 # Ключевые слова блокера в письмах
 _BLOCKER_RX = re.compile(
@@ -46,6 +50,18 @@ def build_summary(case: CaseInput, memory_commitments: list[dict] | None = None)
                 source=f"Git PR#{pr.number}",
                 confidence=CONFIDENCE["git"],
                 kind="status",
+            )
+        )
+
+    # 1b) Контекст из Confluence: release plan / decision log / RFC (Confluence · 0.8)
+    for page in case.confluence_pages:
+        excerpt = f": {page.excerpt}" if page.excerpt else ""
+        items.append(
+            SummaryItem(
+                text=f"{page.title}{excerpt}",
+                source=f"Confluence {page.id}" + (f" ({page.space})" if page.space else ""),
+                confidence=CONFIDENCE["confluence"],
+                kind="doc",
             )
         )
 

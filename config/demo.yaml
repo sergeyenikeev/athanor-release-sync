@@ -7,12 +7,13 @@ ATHANOR_ENGINE: rule
 ATHANOR_LLM_MOCK: 0
 ATHANOR_HITL: "1"
 
-# MCP-заглушки на дефолтных портах (127.0.0.1).
+# MCP-серверы на дефолтных портах (127.0.0.1). Демо-пресет читает файлы кейса
+# напрямую (load_case_from_files), MCP_BACKEND не используется — офлайн/детерминированно.
 MCP_HOST: 127.0.0.1
 MCP_CALENDAR_MAIL_PORT: 9901
 MCP_TRACKER_REPO_PORT: 9902
 MCP_TRANSCRIPTS_PORT: 9903
 MCP_TRANSCRIPTS_DOWN: 0
 
-# Источник данных по умолчанию для MCP-заглушек.
+# Папка кейса для file-режима MCP-серверов (fallback / transcripts).
 MCP_CASE_DIR: examples/demo_case

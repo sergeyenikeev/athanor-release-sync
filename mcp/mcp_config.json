@@ -3,17 +3,27 @@
     "calendar_mail": {
       "transport": "streamable_http",
       "url": "http://127.0.0.1:9901/mcp",
-      "description": "Календарь и почта (обезличенная демо-выгрузка, имитация Outlook)"
+      "description": "Календарь и почта. MCP_BACKEND=live (по умолчанию) → Google (iCal + IMAP); microsoft → Outlook.com (Graph); test → Graph-инстанс :9912; file → обезличенная выгрузка."
     },
     "tracker_repo": {
       "transport": "streamable_http",
       "url": "http://127.0.0.1:9902/mcp",
-      "description": "Задачи и PR (обезличенная демо-выгрузка, имитация Jira/Git)"
+      "description": "Задачи и PR. MCP_BACKEND=live → Jira Cloud + Bitbucket Cloud (MCP_BACKEND_PR=bitbucket); test → инстансы :9911/:9913; file → выгрузка."
     },
     "transcripts": {
       "transport": "streamable_http",
       "url": "http://127.0.0.1:9903/mcp",
-      "description": "Расшифровки встреч (обезличенные)"
+      "description": "Расшифровки встреч — локальные файлы кейса (обезличенные)"
+    },
+    "confluence": {
+      "transport": "streamable_http",
+      "url": "http://127.0.0.1:9904/mcp",
+      "description": "Страницы Confluence (release plan / decision log / RFC). MCP_BACKEND=live → Confluence Cloud (CQL по space+label); test → инстанс :9914; file → выгрузка."
     }
+  },
+  "backends": {
+    "live": "по умолчанию — реальные Jira/Bitbucket/Confluence/Google (mail+calendar) через mcp/_backends.py",
+    "test": "MCP_BACKEND=test — локальные инстансы test-instances/ (реальные контракты, офлайн)",
+    "file": "MCP_BACKEND=file — обезличенная выгрузка из MCP_CASE_DIR (демо-контур, офлайн)"
   }
 }

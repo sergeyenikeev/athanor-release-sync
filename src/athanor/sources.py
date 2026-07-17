@@ -1,8 +1,9 @@
-"""Загрузка входных данных: напрямую из файлов кейса или через MCP-заглушки.
+"""Загрузка входных данных: напрямую из файлов кейса или через MCP-серверы.
 
 Оба пути дают одинаковый CaseInput. Файловый путь используется тестовым
-харнессом (офлайн, детерминированно); MCP-путь доказывает, что заглушки
-отвечают по тому же интерфейсу, что и боевые коннекторы (streamable_http).
+харнессом (офлайн, детерминированно); MCP-путь ходит к MCP-серверам
+(streamable_http), которые в режиме live читают реальные Jira/Bitbucket/
+Confluence/Google, в режиме file — обезличенные выгрузки.
 """
 
 from __future__ import annotations
@@ -12,7 +13,7 @@ import urllib.request
 from pathlib import Path
 from typing import Any
 
-from .models import CalendarEvent, CaseInput, Issue, Mail, PullRequest
+from .models import CalendarEvent, CaseInput, ConfluencePage, Issue, Mail, PullRequest
 
 
 # ---------------------------------------------------------------- file mode
@@ -47,6 +48,8 @@ def load_case_from_files(case_dir: Path, transcripts_down: bool = False) -> Case
     issues = [i for i in (_safe_build(Issue, i, "issue", schema_warnings) for i in trk.get("issues", [])) if i]
     prs = [p for p in (_safe_build(PullRequest, p, "pr", schema_warnings) for p in trk.get("prs", [])) if p]
     mails = [m for m in (_safe_build(Mail, m, "mail", schema_warnings) for m in mail.get("messages", [])) if m]
+    conf = _read_json(inp / "confluence.json")
+    confluence_pages = [p for p in (_safe_build(ConfluencePage, p, "confluence page", schema_warnings) for p in conf.get("pages", [])) if p]
 
     transcript: str | None = None
     sources_down: list[str] = []
@@ -71,6 +74,7 @@ def load_case_from_files(case_dir: Path, transcripts_down: bool = False) -> Case
         transcript=transcript,
         sources_down=sources_down,
         release_windows=release_windows,
+        confluence_pages=confluence_pages,
     )
     case.schema_warnings = schema_warnings  # type: ignore[attr-defined]
     return case
@@ -80,7 +84,7 @@ def load_case_from_files(case_dir: Path, transcripts_down: bool = False) -> Case
 class McpClient:
     """Минимальный клиент MCP поверх streamable_http (JSON-RPC 2.0 POST)."""
 
-    def __init__(self, base_url: str, timeout: float = 10.0):
+    def __init__(self, base_url: str, timeout: float = 30.0):
         self.base_url = base_url.rstrip("/")
         self.timeout = timeout
         self._id = 0
@@ -124,12 +128,13 @@ class McpClient:
 
 
 def load_case_via_mcp(cfg: dict[str, str], case_id: str) -> CaseInput:
-    """Собрать CaseInput вызовами трёх MCP-заглушек (данные кейса задаются
-    заглушкам через переменную окружения MCP_CASE_DIR при их запуске)."""
+    """Собрать CaseInput вызовами MCP-серверов (источник данных серверов
+    задаётся через MCP_BACKEND/MCP_CASE_DIR при их запуске)."""
     host = cfg["MCP_HOST"]
     cal_mail = McpClient(f"http://{host}:{cfg['MCP_CALENDAR_MAIL_PORT']}/mcp")
     tracker = McpClient(f"http://{host}:{cfg['MCP_TRACKER_REPO_PORT']}/mcp")
     transcripts = McpClient(f"http://{host}:{cfg['MCP_TRANSCRIPTS_PORT']}/mcp")
+    confluence = McpClient(f"http://{host}:{cfg['MCP_CONFLUENCE_PORT']}/mcp")
 
     sources_down: list[str] = []
     events: list[CalendarEvent] = []
@@ -137,6 +142,7 @@ def load_case_via_mcp(cfg: dict[str, str], case_id: str) -> CaseInput:
     issues: list[Issue] = []
     prs: list[PullRequest] = []
     transcript: str | None = None
+    confluence_pages: list[ConfluencePage] = []
 
     try:
         cal_mail.initialize()
@@ -159,6 +165,12 @@ def load_case_via_mcp(cfg: dict[str, str], case_id: str) -> CaseInput:
     except Exception:
         sources_down.append("transcripts")
 
+    try:
+        confluence.initialize()
+        confluence_pages = [ConfluencePage(**p) for p in confluence.call_tool("get_confluence_pages") or []]
+    except Exception:
+        sources_down.append("confluence")
+
     return CaseInput(
         event=events[0] if events else None,
         issues=issues,
@@ -166,4 +178,5 @@ def load_case_via_mcp(cfg: dict[str, str], case_id: str) -> CaseInput:
         mails=mails,
         transcript=transcript,
         sources_down=sources_down,
+        confluence_pages=confluence_pages,
     )

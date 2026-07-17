@@ -1,0 +1,25 @@
+{
+  "issues": [
+    {
+      "key": "KAN-1",
+      "title": "Миграция схемы оплат",
+      "status": "Готово",
+      "assignee_role": "не определён"
+    },
+    {
+      "key": "KAN-2",
+      "title": "Интеграция с партнёром",
+      "status": "к выполнению",
+      "assignee_role": "не определён"
+    }
+  ],
+  "prs": [
+    {
+      "number": 128,
+      "title": "Схема оплат",
+      "status": "на ревью",
+      "review_days": 2,
+      "issue_key": "KAN-1"
+    }
+  ]
+}
