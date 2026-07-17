@@ -294,7 +294,7 @@ Calendar (событие «Релиз-синк · Альфа»); для дете
 в `examples/demo_case_alpha_live/` и прогнан через MCP (файловый бэкенд на live-данных).
 
 ## Демо-видео
-`video/Athanor_Ouroboros_Project_Results_Demo.mp4` (2:20.76, 1920×1080,
+`video/Athanor_Ouroboros_Project_Results_Demo.mp4` (2:20.62, 1920×1080,
 H.264/AAC) — финальное демо-видео (< 3 мин, критерий «ДЕМО-видео» 30%).
 Единственный файл в `video/`; QR-код презентации ведёт на
 `/blob/main/video/Athanor_Ouroboros_Project_Results_Demo.mp4` (живой — HTTP 200).
