@@ -6,115 +6,283 @@ METHOD:PUBLISH
 X-WR-CALNAME:Альфа (демо Ouroboros)
 X-WR-TIMEZONE:UTC
 BEGIN:VEVENT
-UID:alpha-incident-3006@athanor
+UID:alpha-daily-0629@athanor
 DTSTAMP:20260701T000000Z
-DTSTART:20260630T110000
-DTEND:20260630T120000
-SUMMARY:Разбор инцидента · Альфа
-DESCRIPTION:Разбор инцидента 30.06: деградация ППРБ-адаптера 14:00–15:30.
-END:VEVENT
-BEGIN:VEVENT
-UID:alpha-postmortem-0107@athanor
-DTSTAMP:20260701T000000Z
-DTSTART:20260701T110000
-DTEND:20260701T120000
-SUMMARY:Postmortem-митинг · Альфа
-DESCRIPTION:Postmortem-митинг по инциденту 30.06.
-END:VEVENT
-BEGIN:VEVENT
-UID:alpha-freeze-0207@athanor
-DTSTAMP:20260701T000000Z
-DTSTART:20260702T120000
-DTEND:20260702T180000
-SUMMARY:Code freeze · Альфа
-DESCRIPTION:Code freeze перед релизом ALPHA-2026.07.
-END:VEVENT
-BEGIN:VEVENT
-UID:alpha-rs-0307@athanor
-DTSTAMP:20260701T000000Z
-DTSTART:20260703T140000
-DTEND:20260703T150000
-SUMMARY:Релиз-синк · Альфа
-DESCRIPTION:Релиз-синк проекта Альфа (ALPHA-2026.07). 5 участников: Тимлид\, SRE\, Владелец продукта\, Разработчик backend\, Разработчик frontend.
-END:VEVENT
-BEGIN:VEVENT
-UID:alpha-retro-0607@athanor
-DTSTAMP:20260701T000000Z
-DTSTART:20260706T110000
-DTEND:20260706T120000
-SUMMARY:Ретроспектива · Альфа
-DESCRIPTION:Ретроспектива спринта 12 по проекту Альфа. (Перенесена с 05.07 — воскресенье\, выходной.)
-END:VEVENT
-BEGIN:VEVENT
-UID:alpha-daily-0607@athanor
-DTSTAMP:20260701T000000Z
-DTSTART:20260706T160000
-DTEND:20260706T161500
+DTSTART:20260629T093000
+DTEND:20260629T094500
 SUMMARY:Daily стендап · Альфа
 DESCRIPTION:Daily стендап команды Альфа: статус по ППРБ-миграции\, блокеры.
 END:VEVENT
 BEGIN:VEVENT
-UID:alpha-sprint-0707@athanor
+UID:alpha-plan-0629@athanor
 DTSTAMP:20260701T000000Z
-DTSTART:20260707T120000
-DTEND:20260707T130000
-SUMMARY:Планирование спринта · Альфа
-DESCRIPTION:Планирование спринта 13 по проекту Альфа.
+DTSTART:20260629T110000
+DTEND:20260629T120000
+SUMMARY:Планирование спринта 13 · Альфа
+DESCRIPTION:Планирование спринта 13 по проекту Альфа: задачи по ППРБ-миграции.
 END:VEVENT
 BEGIN:VEVENT
-UID:alpha-sre-sync-0707@athanor
+UID:alpha-groom-0629@athanor
 DTSTAMP:20260701T000000Z
-DTSTART:20260707T160000
-DTEND:20260707T163000
+DTSTART:20260629T123000
+DTEND:20260629T133000
+SUMMARY:Груминг бэклога · Альфа
+DESCRIPTION:Груминг бэклога проекта Альфа: уточнение задач ППРБ-миграции.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-qa-0629@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260629T140000
+DTEND:20260629T150000
+SUMMARY:Синк с QA · Альфа
+DESCRIPTION:Синк с QA по тестированию ППРБ-миграции: smoke\, регресс\, нагрузка.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-arch-0629@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260629T153000
+DTEND:20260629T160000
+SUMMARY:Архитектурный синк · Альфа
+DESCRIPTION:Архитектурный синк: ППРБ v2\, разбиение на ППРБ-ядро + ППРБ-адаптер.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-metrics-0629@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260629T170000
+DTEND:20260629T180000
+SUMMARY:Разбор метрик · Альфа
+DESCRIPTION:Разбор метрик бизнес-операций: дашборд ППРБ\, RPS\, ошибки.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-1on1-0629@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260629T180000
+DTEND:20260629T183000
+SUMMARY:1-1 с тимлидом · Альфа
+DESCRIPTION:Встреча 1-1 с тимлидом по проекту Альфа: статус\, блокеры\, рост.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-daily-0630@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260630T093000
+DTEND:20260630T094500
+SUMMARY:Daily стендап · Альфа
+DESCRIPTION:Daily стендап команды Альфа: статус по ППРБ-миграции\, блокеры.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-incident-0630@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260630T110000
+DTEND:20260630T120000
+SUMMARY:Разбор инцидента · Альфа
+DESCRIPTION:Разбор инцидента: деградация ППРБ-адаптера\, connection pool.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-sre-0630@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260630T123000
+DTEND:20260630T133000
 SUMMARY:Синхронизация с SRE · Альфа
 DESCRIPTION:Синхронизация с SRE по деплою ППРБ-адаптера в production.
 END:VEVENT
 BEGIN:VEVENT
-UID:alpha-blockers-0807@athanor
+UID:alpha-review-0630@athanor
 DTSTAMP:20260701T000000Z
-DTSTART:20260708T110000
-DTEND:20260708T113000
-SUMMARY:Разбор блокеров · Альфа
-DESCRIPTION:Разбор блокеров релиза ALPHA-2026.07: ППРБ-адаптер\, partner-api.
-END:VEVENT
-BEGIN:VEVENT
-UID:alpha-demo-0807@athanor
-DTSTAMP:20260701T000000Z
-DTSTART:20260708T150000
-DTEND:20260708T160000
-SUMMARY:Демо для заказчика · Альфа
-DESCRIPTION:Демо релиза ALPHA-2026.07 (Миграция на ППРБ) для заказчика. (Перенесено с 12.07 — воскресенье\, выходной.)
-END:VEVENT
-BEGIN:VEVENT
-UID:alpha-review-0907@athanor
-DTSTAMP:20260701T000000Z
-DTSTART:20260709T100000
-DTEND:20260709T103000
+DTSTART:20260630T140000
+DTEND:20260630T150000
 SUMMARY:Код-ревью синк · Альфа
 DESCRIPTION:Синк по код-ревью PR: Миграция на ППРБ\, Репликация ППРБ\, Вебхуки ППРБ.
 END:VEVENT
 BEGIN:VEVENT
-UID:alpha-rs-1007@athanor
+UID:alpha-risks-0630@athanor
 DTSTAMP:20260701T000000Z
-DTSTART:20260710T140000
-DTEND:20260710T150000
-SUMMARY:Релиз-синк · Альфа
-DESCRIPTION:Релиз-синк проекта Альфа (ALPHA-2026.10).
+DTSTART:20260630T153000
+DTEND:20260630T160000
+SUMMARY:Обзор рисков релиза · Альфа
+DESCRIPTION:Обзор рисков релиза ALPHA-2026.07: ППРБ-адаптер\, partner-api.
 END:VEVENT
 BEGIN:VEVENT
-UID:alpha-rs-1707@athanor
+UID:alpha-blockers-0630@athanor
 DTSTAMP:20260701T000000Z
-DTSTART:20260717T140000
-DTEND:20260717T150000
-SUMMARY:Релиз-синк · Альфа
-DESCRIPTION:Релиз-синк проекта Альфа (ALPHA-2026.12).
+DTSTART:20260630T170000
+DTEND:20260630T180000
+SUMMARY:Разбор блокеров · Альфа
+DESCRIPTION:Разбор блокеров релиза ALPHA-2026.07: ППРБ-адаптер\, partner-api.
 END:VEVENT
 BEGIN:VEVENT
-UID:alpha-rs-2407@athanor
+UID:alpha-1on1-0630@athanor
 DTSTAMP:20260701T000000Z
-DTSTART:20260724T140000
-DTEND:20260724T150000
+DTSTART:20260630T180000
+DTEND:20260630T183000
+SUMMARY:1-1 с тимлидом · Альфа
+DESCRIPTION:Встреча 1-1 с тимлидом по проекту Альфа: статус\, блокеры\, рост.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-daily-0701@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260701T093000
+DTEND:20260701T094500
+SUMMARY:Daily стендап · Альфа
+DESCRIPTION:Daily стендап команды Альфа: статус по ППРБ-миграции\, блокеры.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-postmortem-0701@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260701T110000
+DTEND:20260701T120000
+SUMMARY:Postmortem-митинг · Альфа
+DESCRIPTION:Postmortem-митинг по инциденту 30.06: ППРБ-адаптер\, action items.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-partners-0701@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260701T123000
+DTEND:20260701T133000
+SUMMARY:Синк с партнёрами · Альфа
+DESCRIPTION:Синк с партнёрами по partner-api: интеграция с ППРБ-адаптером.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-tech-0701@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260701T140000
+DTEND:20260701T150000
+SUMMARY:Технический разбор · Альфа
+DESCRIPTION:Технический разбор ППРБ-адаптера: connection pool\, retries\, таймауты.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-groom-0701@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260701T153000
+DTEND:20260701T160000
+SUMMARY:Груминг бэклога · Альфа
+DESCRIPTION:Груминг бэклога проекта Альфа: уточнение задач ППРБ-миграции.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-metrics-0701@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260701T170000
+DTEND:20260701T180000
+SUMMARY:Разбор метрик · Альфа
+DESCRIPTION:Разбор метрик бизнес-операций: дашборд ППРБ\, RPS\, ошибки.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-1on1-0701@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260701T180000
+DTEND:20260701T183000
+SUMMARY:1-1 с тимлидом · Альфа
+DESCRIPTION:Встреча 1-1 с тимлидом по проекту Альфа: статус\, блокеры\, рост.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-daily-0702@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260702T093000
+DTEND:20260702T094500
+SUMMARY:Daily стендап · Альфа
+DESCRIPTION:Daily стендап команды Альфа: статус по ППРБ-миграции\, блокеры.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-freeze-0702@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260702T110000
+DTEND:20260702T120000
+SUMMARY:Code freeze · Альфа
+DESCRIPTION:Code freeze перед релизом ALPHA-2026.07: окно 03.07 18:00–20:00.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-release-plan-0702@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260702T123000
+DTEND:20260702T133000
+SUMMARY:Планирование релиза · Альфа
+DESCRIPTION:Планирование релиза ALPHA-2026.07: окно 03.07 18:00–20:00\, регламент.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-sre-0702@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260702T140000
+DTEND:20260702T150000
+SUMMARY:Синхронизация с SRE · Альфа
+DESCRIPTION:Синхронизация с SRE по деплою ППРБ-адаптера в production.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-blockers-0702@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260702T153000
+DTEND:20260702T160000
+SUMMARY:Разбор блокеров · Альфа
+DESCRIPTION:Разбор блокеров релиза ALPHA-2026.07: ППРБ-адаптер\, partner-api.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-review-0702@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260702T170000
+DTEND:20260702T180000
+SUMMARY:Код-ревью синк · Альфа
+DESCRIPTION:Синк по код-ревью PR: Миграция на ППРБ\, Репликация ППРБ\, Вебхуки ППРБ.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-1on1-0702@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260702T180000
+DTEND:20260702T183000
+SUMMARY:1-1 с тимлидом · Альфа
+DESCRIPTION:Встреча 1-1 с тимлидом по проекту Альфа: статус\, блокеры\, рост.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-daily-0703@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260703T093000
+DTEND:20260703T094500
+SUMMARY:Daily стендап · Альфа
+DESCRIPTION:Daily стендап команды Альфа: статус по ППРБ-миграции\, блокеры.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-rs-0703@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260703T110000
+DTEND:20260703T120000
 SUMMARY:Релиз-синк · Альфа
-DESCRIPTION:Релиз-синк проекта Альфа (ALPHA-2026.14).
+DESCRIPTION:Релиз-синк проекта Альфа (ALPHA-2026.07). 5 участников: Тимлид\, SRE\, Владелец продукта\, Разработчик backend\, Разработчик frontend.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-blockers-0703@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260703T123000
+DTEND:20260703T133000
+SUMMARY:Разбор блокеров · Альфа
+DESCRIPTION:Разбор блокеров релиза ALPHA-2026.07: ППРБ-адаптер\, partner-api.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-demo-0703@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260703T140000
+DTEND:20260703T150000
+SUMMARY:Демо для заказчика · Альфа
+DESCRIPTION:Демо релиза ALPHA-2026.07 (Миграция на ППРБ) для заказчика.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-retro-0703@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260703T153000
+DTEND:20260703T160000
+SUMMARY:Ретроспектива · Альфа
+DESCRIPTION:Ретроспектива спринта 12 по проекту Альфа: что хорошо\, что улучшить.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-qa-0703@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260703T170000
+DTEND:20260703T180000
+SUMMARY:Синк с QA · Альфа
+DESCRIPTION:Синк с QA по тестированию ППРБ-миграции: smoke\, регресс\, нагрузка.
+END:VEVENT
+BEGIN:VEVENT
+UID:alpha-1on1-0703@athanor
+DTSTAMP:20260701T000000Z
+DTSTART:20260703T180000
+DTEND:20260703T183000
+SUMMARY:1-1 с тимлидом · Альфа
+DESCRIPTION:Встреча 1-1 с тимлидом по проекту Альфа: статус\, блокеры\, рост.
 END:VEVENT
 END:VCALENDAR

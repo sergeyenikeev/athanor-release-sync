@@ -186,11 +186,11 @@
   "calendar": {
     "ics": {
       "ics": "examples\\calendar_alpha_10.ics",
-      "events": 14
+      "events": 35
     },
     "csv": {
       "csv": "examples\\calendar_alpha.csv",
-      "events": 14
+      "events": 35
     }
   }
 }
