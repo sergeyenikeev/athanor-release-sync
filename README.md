@@ -9,6 +9,10 @@ Safety Layer + Human-in-the-loop).
 
 > Контур MVP — реальные Jira/Bitbucket/Confluence/Google (mail+calendar) через MCP
 > (`MCP_BACKEND=live`); расшифровки — файлы кейса.
+>
+> Два входа в проект: **CLI/демо офлайн** (быстрый старт ниже, без Ouroboros) и
+> **настольное приложение Ouroboros** (навык + MCP + память + Safety + HITL) —
+> см. раздел [«Установка и настройка Ouroboros»](#установка-и-настройка-ouroboros).
 
 ## Быстрый старт (5 шагов)
 
@@ -200,38 +204,157 @@ test-instances/ jira_server (REST v2), bitbucket_server (Cloud REST 2.0), conflu
 results/     runs/, demo/, metrics.json, metrics.csv, results_summary.md, evaluation_report.html
 ```
 
-## Реальный Ouroboros v6.64 (настольное приложение)
+## Установка и настройка Ouroboros
 
-На машине установлен Ouroboros v6.64 (папка установки названа `6.61.4` —
-`D:\d\Ouroboros-6.61.4-windows-x64\Ouroboros\Ouroboros.exe`, приложение обновлено до 6.64),
-рабочее пространство `C:\Users\senik\Ouroboros`. Настройка для демо:
+Проект работает на настольном приложении **Ouroboros** (навык + память + MCP +
+Safety Layer + Human-in-the-loop). Ниже — инструкция с нуля до первого прогона.
+Проверено на Ouroboros **v6.64** (Windows x64); шаги те же для macOS/Linux.
+Актуальная версия — на странице релизов.
 
-1. **MCP-серверы подключены** в Settings → MCP (`data/settings.json`, `MCP_SERVERS`):
-   `calendar_mail` (:9901), `tracker_repo` (:9902), `transcripts` (:9903), `confluence` (:9904) — `enabled: true`.
-2. **Навык `release_sync`** подключён через `OUROBOROS_SKILLS_REPO_PATH` =
-   `D:\d\ouroboros\athanor-release-sync\skills` (Ouroboros видит навык в `skills list`).
-3. **Модель** `anthropic/claude-opus-4.8` (Claude Opus 4.8, OpenRouter),
-   `OUROBOROS_MAX_WORKERS=2`, runtime_mode=advanced. Safety/review — `openai/gpt-4o-mini`.
-4. **Реальный прогон** `ouroboros run --workspace athanor-release-sync "Подготовь сводку…"`:
-   task `dec66d75`, **lifecycle=completed** (review=best_effort, auto-acceptance без кворума),
-   $0.4337, 16 rounds, 8 MCP-вызовов (5 инструментов:
-   `get_events/get_mail/get_issues/get_prs/get_confluence_pages`; 3 safety-таймаута восстановлены
-   автоматическим retry) → сводка (Confluence:
-   что в релизе; APP-412 Готово, APP-521 к выполнению, PR #128, конфликт Jira↔mail↔Bitbucket,
-   блокер payment-adapter; роли backend/frontend).
-   Артефакт: `results/scratch/ouroboros_demo/` (`run.log`, `result.json`).
+> Минимум для офлайн-демо (без Ouroboros, без сети, без ключей):
+> `python scripts/run_demo.py` — раздел [«Быстрый старт»](#быстрый-старт-5-шагов).
+
+### 1. Установить Ouroboros
+
+- Скачать сборку со страницы релизов: <https://github.com/razzant/ouroboros/releases>
+  - **Windows x64**: `Ouroboros-<ver>-windows-x64.zip` → распаковать →
+    `Ouroboros\Ouroboros.exe`. (Установка проекта использовала папку
+    `D:\d\Ouroboros-6.61.4-windows-x64\`, приложение обновлено до 6.64.)
+  - **macOS**: `Ouroboros-<ver>-macos.dmg`; при блокировке Gatekeeper —
+    `xattr -cr /Applications/Ouroboros.app`.
+  - **Linux**: AppImage (`chmod +x && ./Ouroboros-*.AppImage`).
+- Первый запуск → Onboarding Wizard → выбрать провайдера модели (шаг 2).
+- Рабочее пространство по умолчанию: `C:\Users\<user>\Ouroboros` (Windows),
+  `~/.local/share/Ouroboros` (Linux/macOS). Все настройки — `data/settings.json`.
+
+### 2. Настроить провайдера модели
+
+Settings → Models (или Onboarding Wizard). Ouroboros принимает любой
+OpenAI-совместимый шлюз: OpenRouter / GigaChat / Cloud.ru Foundation Models /
+локальный сервер (Ollama, LM Studio, vLLM). Вписать ключ в соответствующее поле.
+
+Ключевые поля `data/settings.json` (канонические для этого MVP):
+
+| Поле | Значение MVP | Назначение |
+|---|---|---|
+| `OUROBOROS_MODEL` | `anthropic/claude-opus-4.8` (OpenRouter) | основная модель агента |
+| `OUROBOROS_REVIEW_MODELS` | `openai/gpt-4o-mini` | ревью/safety-модель (лёгкая, дешёвая) |
+| `OUROBOROS_REVIEW_ENFORCEMENT` | `advisory` | ревью рекомендательное, не блокирующее |
+| `OUROBOROS_RUNTIME_MODE` | `advanced` | полный цикл с ревью и HITL |
+| `OUROBOROS_MAX_WORKERS` | `2` | параллелизм модели |
+| `TOTAL_BUDGET` / `OUROBOROS_PER_TASK_COST_USD` | `300.0` | бюджетный лимит на задачу (USD) |
+
+Любая модель класса agentic reasoning (Claude Opus 4.x / GPT-5.x / GigaChat Max)
+работает; для запуска без внешнего провайдера ключ не нужен — CLI `--engine rule`
+и `scripts/run_demo.py` работают офлайн.
+
+### 3. Поднять MCP-серверы проекта
+
+Из корня репозитория (Python 3.10+, внешних зависимостей нет):
 
 ```bash
-# 1) поднять MCP-серверы (MCP_BACKEND=test — тестовые инстансы с реальными контрактами)
-cd athanor-release-sync
-python test-instances/serve_all.py        # терминал 1 (порты 9911-9914)
-MCP_BACKEND=test python mcp/serve_all.py  # терминал 2 (порты 9901-9904)
-# 2) в Ouroboros: Settings → MCP → refresh (4 сервера, tool_count > 0)
-# 3) запустить задачу
+python mcp/serve_all.py          # 4 сервера: 9901-9904 (MCP_BACKEND=file по умолчанию)
+python mcp/smoke_test.py         # проверка: initialize + tools/list + tools/call
+```
+
+Режимы данных (`MCP_BACKEND` в `.env` или в среде запуска):
+- `file` (по умолчанию) — обезличенные выгрузки из `examples/demo_case` (офлайн-демо).
+- `test` — локальные тестовые инстансы `test-instances/` с **реальными контрактами**
+  Jira REST v2 / Bitbucket 2.0 / Confluence REST API v1 (офлайн, детерминированно).
+- `live` — реальные Jira/Bitbucket/Confluence/Google mail+Calendar (нужны креды в `.env`).
+
+### 4. Подключить MCP-серверы в Ouroboros
+
+Settings → MCP → Add server (или импорт `mcp/mcp_config.json`). Четыре сервера:
+
+| id | transport | url |
+|---|---|---|
+| `calendar_mail` | streamable_http | `http://127.0.0.1:9901/mcp` |
+| `tracker_repo` | streamable_http | `http://127.0.0.1:9902/mcp` |
+| `transcripts` | streamable_http | `http://127.0.0.1:9903/mcp` |
+| `confluence` | streamable_http | `http://127.0.0.1:9904/mcp` |
+
+После добавления — **Refresh**; у каждого сервера `enabled: true` и `tool_count > 0`
+(в сумме 5 инструментов: `get_events`, `get_mail`, `get_issues`, `get_prs`,
+`get_confluence_pages`). Это соответствует блоку `MCP_SERVERS` в `data/settings.json`.
+
+### 5. Подключить навык `release_sync`
+
+Ouroboros подгружает внешние навыки из каталога, заданного переменной
+`OUROBOROS_SKILLS_REPO_PATH`. В `data/settings.json` (или Settings → Advanced → Skills):
+
+```json
+"OUROBOROS_SKILLS_REPO_PATH": "D:\\d\\ouroboros\\athanor-release-sync\\skills"
+```
+
+Путь указывает на папку `skills/` этого репозитория (навык лежит в
+`skills/release_sync/`: `SKILL.md` + `main.py` + `versions/` + `prompts/`).
+Навык не копируется в workspace — Ouroboros читает его прямо из чекаута репо.
+
+Проверка: `ouroboros skills list` — навык `release_sync` виден.
+**Перезапустить Ouroboros** после изменения настройки.
+
+### 6. Память и рабочее пространство
+
+Память навыка — файлы в репозитории (`memory/`), открывать в Ouroboros проект
+`athanor-release-sync` (New task → Workspace = `athanor-release-sync`):
+
+- `memory/identity.md` — роль агента, границы автономии, запреты.
+- `memory/knowledge/` — память релиза, модель команды, организация, проекты,
+  решения, терминология, предпочтения, политики.
+- `memory/journal.log` — журнал решений (аудит).
+- `memory/feedback.jsonl` — обратная связь для эволюции навыка.
+
+Навык `main.py` сам резолвит `src/athanor` и `memory/` через
+`OUROBOROS_SKILLS_REPO_PATH`/parents — отдельная загрузка в workspace не требуется.
+
+### 7. Первый прогон в Ouroboros
+
+```bash
+# терминал 1: MCP-серверы (шаг 3)
+python mcp/serve_all.py
+```
+
+В Ouroboros: New task → Workspace = `athanor-release-sync` → запрос:
+
+> Подготовь сводку к релиз-синку проекта Альфа 03.07
+
+Агент вызовет MCP-инструменты (`get_events` → `get_issues` → `get_prs` →
+`get_mail` → `get_confluence_pages`) и вернёт сводку с источником и уверенностью
+у каждого пункта. После встречи — приложите расшифровку и попросите извлечь
+решения и поручения. Эквивалент в CLI (если установлен `ouroboros`):
+
+```bash
 ouroboros run --workspace athanor-release-sync "Подготовь сводку к релиз-синку проекта Альфа 03.07"
 ```
 
-Фрагмент 2 финального демо-видео — кадр с реальным выводом Ouroboros (task dec66d75).
+### 8. Устранение типовых ошибок
+
+| Симптом | Решение |
+|---|---|
+| Агент не видит MCP-инструменты | проверьте `python mcp/serve_all.py` и адреса в Settings → MCP; `python mcp/smoke_test.py` |
+| `skills list` не показывает `release_sync` | проверьте `OUROBOROS_SKILLS_REPO_PATH` (папка `skills/` репо) и перезапустите Ouroboros |
+| 401/403 от провайдера | проверьте ключ и баланс; для OpenRouter из РФ — VPN |
+| Skill review quorum failure | добавьте второй провайдер для ревью либо `OUROBOROS_REVIEW_ENFORCEMENT=advisory` |
+| MCP-серверы не стартуют (порт занят) | измените `MCP_*_PORT` в `.env` и в `mcp/mcp_config.json` синхронно |
+| Пустой экран / зависание | перезапустить Ouroboros; проверить `ouroboros.pid` в workspace |
+
+### 9. Эталонный реальный прогон (что должно получиться)
+
+Реальный прогон Ouroboros v6.64 + Claude Opus 4.8 на этом проекте:
+
+- task `dec66d75`, **lifecycle=completed** (review=best_effort, auto-acceptance без кворума),
+  $0.4337, 16 rounds, 8 MCP-вызовов (5 инструментов:
+  `get_events`/`get_mail`/`get_issues`/`get_prs`/`get_confluence_pages`;
+  3 safety-таймаута восстановлены автоматическим retry) → сводка (Confluence:
+  что в релизе; APP-412 Готово, APP-521 к выполнению, PR #128, конфликт
+  Jira↔mail↔Bitbucket, блокер payment-adapter; роли backend/frontend).
+- Артефакт: `results/scratch/ouroboros_demo/` (`run.log`, `result.json`).
+- Кадр с реальным выводом Ouroboros — фрагмент 2 демо-видео.
+
+> Важно: реальный прогон Ouroboros делал **только сводку** (MCP-оркестрация).
+> Память, HITL, Safety, версионирование — это **код навыка / rule-движок**,
+> не реальный прогон Ouroboros.
 
 ## Тестовые инстансы и live-интеграции (Jira/Bitbucket/Confluence Cloud + mail + Calendar)
 
