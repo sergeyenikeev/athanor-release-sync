@@ -10,9 +10,9 @@ import os
 from pathlib import Path
 
 _DEFAULTS = {
-    "LLM_API_BASE": "https://openrouter.ai/api/v1",
+    "LLM_API_BASE": "https://router.jet-night.com/api/v1",
     "LLM_API_KEY": "",
-    "LLM_MODEL": "openai/gpt-4o-mini",
+    "LLM_MODEL": "jetnight-pro",
     "LLM_TEMPERATURE": "0",
     "LLM_TIMEOUT_SECONDS": "60",
     "LLM_MAX_RETRIES": "3",

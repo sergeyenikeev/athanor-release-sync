@@ -1,11 +1,11 @@
-# Preset «local» — запуск с реальной LLM (OpenRouter / OpenAI-compatible / локальная).
+# Preset «local» — запуск с реальной LLM (jet-night router / OpenAI-compatible / локальная).
 # Скопируйте .env.example в .env и заполните LLM_API_KEY. Без ключа CLI
 # автоматически использует mock-LLM (детерминированный прокси rule-baseline).
 
 ATHANOR_ENGINE: llm
 ATHANOR_LLM_MOCK: 0
-LLM_API_BASE: https://openrouter.ai/api/v1
-LLM_MODEL: openai/gpt-4o-mini
+LLM_API_BASE: https://router.jet-night.com/api/v1
+LLM_MODEL: jetnight-pro
 LLM_TEMPERATURE: 0
 LLM_TIMEOUT_SECONDS: 60
 LLM_MAX_RETRIES: 3

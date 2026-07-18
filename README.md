@@ -164,7 +164,7 @@ test-basket/ TB-01..TB-17 (input + expected + meta + metadata.yaml + README); TB
 tests/       unit, integration, e2e, negative, run_basket.py, score.py
 scripts/     _bootstrap, run_demo, run_tests, run_evaluation, export_results, gen_basket, gen_expected
 examples/    demo_case, demo_case_alpha (данные по умолчанию для MCP, incl. confluence.json)
-test-instances/ jira_server (REST v2), bitbucket_server (Cloud REST 2.0), confluence_server (REST API v1), serve_all, discover_atlassian, seed_atlassian, seed_bitbucket, seed_confluence, seed_google, gen_live_case
+test-instances/ jira_server (REST v2), bitbucket_server (Cloud REST 2.0), confluence_server (REST API v1), serve_all, discover_atlassian, seed_atlassian, seed_bitbucket, seed_confluence, seed_google, seed_basket, gen_live_case
 results/     runs/, demo/, metrics.json, metrics.csv, results_summary.md, evaluation_report.html
 ```
 
@@ -191,20 +191,20 @@ Safety Layer + Human-in-the-loop). Ниже — инструкция с нуля
 ### 2. Настроить провайдера модели
 
 Settings → Models (или Onboarding Wizard). Ouroboros принимает любой
-OpenAI-совместимый шлюз: OpenRouter / GigaChat / Cloud.ru Foundation Models /
+OpenAI-совместимый шлюз: jet-night router / OpenRouter / GigaChat / Cloud.ru Foundation Models /
 локальный сервер (Ollama, LM Studio, vLLM). Вписать ключ в соответствующее поле.
 
 Ключевые поля `data/settings.json` (канонические для этого MVP):
 
 | Поле | Значение MVP | Назначение |
 |---|---|---|
-| `OUROBOROS_MODEL` | `anthropic/claude-opus-4.8` (OpenRouter) | основная модель агента |
-| `OUROBOROS_REVIEW_MODELS` | `openai/gpt-4o-mini` | ревью/safety-модель (лёгкая, дешёвая) |
+| `OUROBOROS_MODEL` | `openai-compatible::jetnight-pro` (GLM 5.2, jet-night router) | основная модель агента |
+| `OUROBOROS_REVIEW_MODELS` | `openai-compatible::jetnight-fast` (GLM 5.2 Fast) | ревью/safety-модель (лёгкая, дешёвая) |
 | `OUROBOROS_REVIEW_ENFORCEMENT` | `advisory` | ревью рекомендательное, не блокирующее |
 | `OUROBOROS_RUNTIME_MODE` | `advanced` | полный цикл с ревью и HITL |
 | `OUROBOROS_MAX_WORKERS` | `2` | параллелизм модели |
 
-Любая модель класса agentic reasoning (Claude Opus 4.x / GPT-5.x / GigaChat Max)
+Любая модель класса agentic reasoning (Claude Opus 4.x / GPT-5.x / GigaChat Max / GLM 5.2)
 работает. Команды для тестов и метрик (`--engine rule`) работают без ключа
 провайдера — они используют детерминированный rule-движок (см. раздел «Команды»).
 
@@ -294,7 +294,7 @@ ouroboros run --workspace athanor-release-sync "Подготовь сводку 
 |---|---|
 | Агент не видит MCP-инструменты | проверьте `python mcp/serve_all.py` и адреса в Settings → MCP; `python mcp/smoke_test.py` |
 | `skills list` не показывает `release_sync` | проверьте `OUROBOROS_SKILLS_REPO_PATH` (папка `skills/` репо) и перезапустите Ouroboros |
-| 401/403 от провайдера | проверьте ключ и баланс; для OpenRouter из РФ — VPN |
+| 401/403 от провайдера | проверьте ключ и баланс; для внешних провайдеров из РФ — VPN |
 | Skill review quorum failure | добавьте второй провайдер для ревью либо `OUROBOROS_REVIEW_ENFORCEMENT=advisory` |
 | MCP-серверы не стартуют (порт занят) | измените `MCP_*_PORT` в `.env` и в `mcp/mcp_config.json` синхронно |
 | Пустой экран / зависание | перезапустить Ouroboros; проверить `ouroboros.pid` в workspace |
@@ -367,6 +367,12 @@ python test-instances/seed_google.py            # письмо-блокер в m
 MCP_BACKEND=live python mcp/serve_all.py
 MCP_BACKEND=live python -m athanor.cli run --case examples/demo_case_alpha_live --via-mcp --engine rule --print
 #   с боевым Bitbucket: добавить MCP_BACKEND_PR=bitbucket
+
+# библиотека сущностей тестовой корзины в реальных облаках (опционально)
+#   17 сценариев имеют конфликтующие состояния (APP-412 то «в работе», то «готово»),
+#   поэтому в live грузится не per-сценарное состояние, а по одному экземпляру
+#   каждой уникальной задачи/PR/письма. Per-сценарное состояние — файловый контур.
+python test-instances/seed_basket.py            # Jira (APP/OPS + 5 задач) + Bitbucket (PR «Схема возвратов») + Gmail (5 писем)
 ```
 
 **mail/Calendar (Google):** mail — IMAP + пароль приложения (2FA → myaccount.google.com/apppasswords),
@@ -377,8 +383,12 @@ Calendar (событие «Релиз-синк · Альфа»); для дете
 в `examples/demo_case_alpha_live/` и прогнан через MCP (файловый бэкенд на live-данных).
 
 ## Демо-видео
-`video/Athanor_Ouroboros_Project_Results_Demo.mp4` (2:20.62, 1920×1080,
+`video/Athanor_Ouroboros_Project_Results_Demo.mp4` (2:20.69, 1920×1080,
 H.264/AAC) — финальное демо-видео (< 3 мин, критерий «ДЕМО-видео» 30%).
+Фрагмент F2 — реальный скринкаст браузерного UI Ouroboros (http://127.0.0.1:8765):
+прогон a5336602 (jetnight-opus, 8 rounds, 5 MCP-вызовов, конфликт Jira↔mail↔PR
+найден, $0, 127с). Артефакт прогона: `results/scratch/ouroboros_demo_e2e_jetnight/`.
+Первый прогон dec66d75 (Claude Opus 4.8, $0.43, 16 rounds) — в `results/scratch/ouroboros_demo/`.
 Единственный файл в `video/`; QR-код презентации ведёт на
 `/blob/main/video/Athanor_Ouroboros_Project_Results_Demo.mp4` (живой — HTTP 200).
 Сборщик (PIL-рендер кадров + edge-tts DmitryNeural + сведение ffmpeg) — во внешнем

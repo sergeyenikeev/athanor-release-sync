@@ -1,5 +1,41 @@
 ﻿# Changelog
 
+## [1.7.3] — 2026-07-18 (task5: модели Ouroboros → jetnight-pro / jetnight-fast)
+
+### Изменено
+- **Конфиг Ouroboros** (`data/settings.json`, провайдер `openai-compatible` →
+  jet-night router `https://router.jet-night.com/api/v1`): основная
+  `OUROBOROS_MODEL`/`OUROBOROS_MODEL_HEAVY`/`OUROBOROS_WEBSEARCH_MODEL` —
+  `openai-compatible::jetnight-pro` (GLM 5.2); лёгкие/review/safety-слоты
+  `OUROBOROS_MODEL_LIGHT`/`CONSCIOUSNESS`/`DEEP_SELF_REVIEW`/`REVIEW_MODELS`/
+  `SCOPE_REVIEW_MODELS`/`SCOPE_REVIEW_MODEL` — `openai-compatible::jetnight-fast`
+  (GLM 5.2 Fast); `OUROBOROS_MODEL_VISION` — `openai-compatible::jetnight-pro`
+  (мультимодальный слот оставлен на сильной модели); `OUROBOROS_MODEL_FALLBACKS`
+  — `jetnight-pro, jetnight-fast`. Заменено `jetnight-opus`→`jetnight-pro`,
+  `gpt-5.5`→`jetnight-fast`, `opus-visual`→`jetnight-pro`.
+- **Документация** (forward-looking): `AGENTS.md`, `.opencode/skills/athanor-contest/SKILL.md`,
+  `.opencode/agents/ouroboros-ops.md`, `README.md` (таблица «Ключевые поля
+  settings.json»), `out/video/record_ouroboros.py` — приведены к актуальным
+  моделям jetnight-pro/jetnight-fast и провайдеру jet-night.
+
+### Не изменено (исторические артефакты — правило честности)
+- `results/scratch/ouroboros_demo/result.json` (прогон `dec66d75`): поля
+  `model`/`resolved_model` = `anthropic/claude-opus-4.8` — **факт прогона**,
+  не переписывается. `out/video/scenes.py` (фрагмент 2): подпись
+  `model=anthropic/claude-opus-4.8` — отражает реальный вывод dec66d75 в видео.
+- Прошлые записи CHANGELOG `[1.4.0]`…`[1.7.0]` (claude-opus-4 / gpt-4o-mini /
+  jetnight-opus) сохранены как история.
+- `results/runs/*`, `results/demo/*`, `results/reproducibility/*`,
+  `results/metrics.json` и т.п. (поля `model` = `openai/gpt-4o-mini`) —
+  записи прошлых прогонов MVP (`--engine rule`/`llm`), не переписываются.
+
+### MVP LLM (путь `--engine llm`)
+- `LLM_MODEL` в `.env.example` / `config/local.yaml` / `src/athanor/config.py`
+  заменён с `openai/gpt-4o-mini` на `jetnight-pro` (GLM 5.2); `LLM_API_BASE` —
+  с `https://openrouter.ai/api/v1` на `https://router.jet-night.com/api/v1`.
+  Для запуска `--engine llm` требуется ключ jet-night (`LLM_API_KEY=jn_sk_…`);
+  без него CLI авто-падает в mock-LLM. `--engine rule` (метрики отчёта) — без ключа.
+
 ## [1.7.2] — 2026-07-18 (AS IS — фактический замер 15 мин; README — инструкция Ouroboros)
 
 ### Изменено
