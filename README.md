@@ -10,29 +10,10 @@ Safety Layer + Human-in-the-loop).
 > Контур MVP — реальные Jira/Bitbucket/Confluence/Google (mail+calendar) через MCP
 > (`MCP_BACKEND=live`); расшифровки — файлы кейса.
 >
-> Два входа в проект: **CLI/демо офлайн** (быстрый старт ниже, без Ouroboros) и
-> **настольное приложение Ouroboros** (навык + MCP + память + Safety + HITL) —
-> см. раздел [«Установка и настройка Ouroboros»](#установка-и-настройка-ouroboros).
-
-## Быстрый старт (5 шагов)
-
-```bash
-# 1. Клонировать репозиторий
-git clone https://github.com/sergeyenikeev/athanor-release-sync.git athanor-release-sync && cd athanor-release-sync
-
-# 2. Установить зависимости (нет внешних runtime-зависимостей — только Python 3.10+)
-python -m pip install -e .            # опционально; скрипты работают и без установки
-
-# 3. Скопировать .env.example (для демо не обязательно — работает без ключей)
-cp .env.example .env                  # заполнить LLM_API_KEY только для реальной LLM
-
-# 4. Запустить demo (одна команда, < 3 мин, без сети/ключей)
-python scripts/run_demo.py
-
-# 5. Открыть результат
-#    results/demo/<run_id>/output.md  — briefing, решения, поручения, черновики, память
-#    results/demo/<run_id>/memory_after/  — обновлённая память релиза
-```
+> Агент работает на настольном приложении **Ouroboros** (навык + MCP + память +
+> Safety Layer + Human-in-the-loop) — оркестрация нескольких систем, HITL и
+> аудируемая память достижимы только в его контуре. Инструкция с нуля — в разделе
+> [«Установка и настройка Ouroboros»](#установка-и-настройка-ouroboros).
 
 ## Команды
 
@@ -211,9 +192,6 @@ Safety Layer + Human-in-the-loop). Ниже — инструкция с нуля
 Проверено на Ouroboros **v6.64** (Windows x64); шаги те же для macOS/Linux.
 Актуальная версия — на странице релизов.
 
-> Минимум для офлайн-демо (без Ouroboros, без сети, без ключей):
-> `python scripts/run_demo.py` — раздел [«Быстрый старт»](#быстрый-старт-5-шагов).
-
 ### 1. Установить Ouroboros
 
 - Скачать сборку со страницы релизов: <https://github.com/razzant/ouroboros/releases>
@@ -242,11 +220,10 @@ OpenAI-совместимый шлюз: OpenRouter / GigaChat / Cloud.ru Foundat
 | `OUROBOROS_REVIEW_ENFORCEMENT` | `advisory` | ревью рекомендательное, не блокирующее |
 | `OUROBOROS_RUNTIME_MODE` | `advanced` | полный цикл с ревью и HITL |
 | `OUROBOROS_MAX_WORKERS` | `2` | параллелизм модели |
-| `TOTAL_BUDGET` / `OUROBOROS_PER_TASK_COST_USD` | `300.0` | бюджетный лимит на задачу (USD) |
 
 Любая модель класса agentic reasoning (Claude Opus 4.x / GPT-5.x / GigaChat Max)
-работает; для запуска без внешнего провайдера ключ не нужен — CLI `--engine rule`
-и `scripts/run_demo.py` работают офлайн.
+работает. Команды для тестов и метрик (`--engine rule`) работают без ключа
+провайдера — они используют детерминированный rule-движок (см. раздел «Команды»).
 
 ### 3. Поднять MCP-серверы проекта
 
