@@ -182,5 +182,15 @@
   "calendar_ics": {
     "ics": "examples\\calendar_alpha_10.ics",
     "events": 14
+  },
+  "calendar": {
+    "ics": {
+      "ics": "examples\\calendar_alpha_10.ics",
+      "events": 14
+    },
+    "csv": {
+      "csv": "examples\\calendar_alpha.csv",
+      "events": 14
+    }
   }
 }

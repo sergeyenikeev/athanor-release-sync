@@ -491,6 +491,48 @@ def _ics_escape(text: str) -> str:
             .replace("\n", "\\n"))
 
 
+def _dt_to_csv(dt: str) -> tuple[str, str]:
+    """20260703T140000 → ('07/03/2026', '02:00 PM') — формат Google Calendar CSV."""
+    y, m, d, hh, mm = dt[:4], dt[4:6], dt[6:8], dt[9:11], dt[11:13]
+    date = f"{m}/{d}/{y}"
+    h = int(hh)
+    suffix = "AM" if h < 12 else "PM"
+    h12 = h if h <= 12 else h - 12
+    if h12 == 0:
+        h12 = 12
+    time = f"{h12}:{mm} {suffix}"
+    return date, time
+
+
+def gen_calendar_csv():
+    """CSV для импорта в Google Calendar — надёжнее .ics для кириллицы.
+
+    Google Calendar .ics-импорт иногда читает UTF-8 как Latin-1 → mojibake в
+    русских названиях. CSV с UTF-8 BOM импортируется корректно. Формат:
+    Subject, Start Date, Start Time, End Date, End Time, All Day Event,
+    Description, Location, Private
+    """
+    print(f"\n=== Calendar: .csv с {len(CAL_EVENTS)} событиями (UTF-8 BOM, для Google Calendar) ===")
+    out_dir = REPO / "examples"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    csv = out_dir / "calendar_alpha.csv"
+    import csv as _csv
+    rows = [["Subject", "Start Date", "Start Time", "End Date", "End Time",
+             "All Day Event", "Description", "Location", "Private"]]
+    for ev in CAL_EVENTS:
+        sd, st = _dt_to_csv(ev["dtstart"])
+        ed, et = _dt_to_csv(ev["dtend"])
+        rows.append([ev["summary"], sd, st, ed, et, "False", ev["desc"], "", "True"])
+    with csv.open("w", encoding="utf-8-sig", newline="") as f:
+        _csv.writer(f).writerows(rows)
+    print(f"  [saved] {csv} ({len(CAL_EVENTS)} событий, UTF-8 BOM)")
+    print("  ИМПОРТ В GOOGLE CALENDAR (рекомендуемый путь для кириллицы):")
+    print("  Settings → Import & export → Import → выберите examples/calendar_alpha.csv →")
+    print("  выберите календарь (athanorproject2026) → Import. CSV с UTF-8 BOM импортирует")
+    print("  кириллицу корректно (в отличие от .ics, где Google Calendar иногда даёт mojibake).")
+    return {"csv": str(csv.relative_to(REPO)), "events": len(CAL_EVENTS)}
+
+
 def gen_calendar_ics():
     print(f"\n=== Calendar: .ics с {len(CAL_EVENTS)} событиями (все на рабочих днях) ===")
     out_dir = REPO / "examples"
@@ -558,10 +600,12 @@ def main():
     if "gmail" in only:
         mail = seed_gmail_more()
     if "calendar" in only:
-        cal = gen_calendar_ics()
+        cal_ics = gen_calendar_ics()
+        cal_csv = gen_calendar_csv()
+        cal = {"ics": cal_ics, "csv": cal_csv}
 
     out = {"jira_more": jira_more, "jira_map": jira_map, "bitbucket_more": bb,
-           "confluence_more": conf, "gmail_more": mail, "calendar_ics": cal}
+           "confluence_more": conf, "gmail_more": mail, "calendar": cal if isinstance(cal, dict) else cal}
     outpath = REPO / "results" / "more_seeded.json"
     outpath.parent.mkdir(parents=True, exist_ok=True)
     # merge с предыдущим прогоном (если --only запускали частями)
@@ -581,8 +625,8 @@ def main():
     print(f"  Bitbucket: +{len(bb)} PR (всего {2 + len(bb)})")
     print(f"  Confluence: +{len(conf.get('pages', {})) if isinstance(conf, dict) else 0} страниц")
     print(f"  Gmail: +{sum(1 for m in mail if isinstance(m, dict) and m.get('status') in ('sent', 'reused'))} писем")
-    if isinstance(cal, dict) and cal.get("events"):
-        print(f"  Calendar: .ics с {cal['events']} событиями (требует ручного импорта в Google Calendar)")
+    if isinstance(cal, dict) and cal.get("ics", {}).get("events"):
+        print(f"  Calendar: .ics + .csv с {cal['ics']['events']} событиями (CSV — рекомендуемый импорт для кириллицы)")
     print(f"\n[saved] {outpath}")
 
 

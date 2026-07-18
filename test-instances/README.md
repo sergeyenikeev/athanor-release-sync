@@ -244,7 +244,7 @@ python test-instances/seed_more.py --only jira bitbucket confluence gmail calend
 | **Bitbucket** | +8 PR (#3..#10: Вебхуки, Кэш, Метрики, Реестр, Мониторинг, Runbook, Postmortem, Архитектура) | 10 PR |
 | **Confluence** | +8 страниц (RFC, Postmortem, Runbook, Changelog, On-call, Retrospective, Architecture, Test Plan) | 10 страниц |
 | **Gmail** | +6 писем (Release-notes, Деплой partner-api, Postmortem готов, Runbook обновлён, Запрос на ревью, Согласование окна) | 14 писем (все с `X-Athanor-Role`) |
-| **Calendar** | `examples/calendar_alpha_10.ics` (14 событий, все на рабочих днях, UTF-8 with BOM) | 14 встреч — требует ручного импорта в Google Calendar (Settings → Import & export → Import). Неделя 03.07 — 8 встреч; выходные (05.07, 12.07) перенесены на 06.07, 08.07. **BOM обязателен для кириллицы** (без BOM Google Calendar читает Latin-1 → абракадабра в названиях) |
+| **Calendar** | `examples/calendar_alpha_10.ics` + `examples/calendar_alpha.csv` (14 событий, все на рабочих днях, UTF-8 BOM) | 14 встреч — ручной импорт в Google Calendar. **CSV рекомендуется** (Settings → Import & export → Import → выберите `calendar_alpha.csv`). .ics-импорт Google Calendar иногда даёт mojibake для кириллицы; CSV с UTF-8 BOM импортирует корректно. Неделя 03.07 — 8 встреч; выходные (05.07, 12.07) перенесены на 06.07, 08.07 |
 
 Calendar нельзя автоматизировать (API требует OAuth2; app password даёт только
 IMAP/SMTP). Скрипт генерирует `.ics` для ручного импорта. Идемпотентно, с retry
