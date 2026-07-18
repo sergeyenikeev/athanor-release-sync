@@ -229,6 +229,34 @@ Jira) → реально `APP-1/2/3`, `OPS-1/2`. Маппинг `basket_key → 
 > не транслируются — они прогоняются на файловом контуре в каноническом eval
 > (`results/runs/eval_20260716T232149`).
 
+## Расширение до 10+ сущностей (`seed_more.py`)
+
+Дополняет `seed_basket.py` до 10+ в каждой системе (демо-контур масштаба):
+
+```bash
+python test-instances/seed_more.py              # все 5 систем
+python test-instances/seed_more.py --only jira bitbucket confluence gmail calendar
+```
+
+| Система | Что добавляет | Всего в облаке |
+|---|---|---|
+| **Jira** | +7 задач (APP-4..7, OPS-3..5) | 14 (KAN-1/2 + APP-1..7 + OPS-1..5) |
+| **Bitbucket** | +8 PR (#3..#10: Вебхуки, Кэш, Метрики, Реестр, Мониторинг, Runbook, Postmortem, Архитектура) | 10 PR |
+| **Confluence** | +8 страниц (RFC, Postmortem, Runbook, Changelog, On-call, Retrospective, Architecture, Test Plan) | 10 страниц |
+| **Gmail** | +6 писем (Release-notes, Деплой partner-api, Postmortem готов, Runbook обновлён, Запрос на ревью, Согласование окна) | 14 писем (все с `X-Athanor-Role`) |
+| **Calendar** | `examples/calendar_alpha_10.ics` (10 событий) | 10 встреч — требует ручного импорта в Google Calendar (Settings → Import & export → Import) |
+
+Calendar нельзя автоматизировать (API требует OAuth2; app password даёт только
+IMAP/SMTP). Скрипт генерирует `.ics` для ручного импорта. Идемпотентно, с retry
+на сетевые таймауты (`_req_retry`: 6 попыток × 12с + backoff). Артефакт —
+`results/more_seeded.json`. Поддерживает `--only` для частичного перезапуска.
+
+> **Сетевая нестабильность Atlassian/Bitbucket** (18.07.2026): API плавают (таймауты,
+> ConnectionReset). `seed_more.py` с retry пробивает окна доступности; если часть
+> вызовов упала — повторный запуск (`--only <система>`) доделает. Live-прогон на
+> расширенных данных — `results/runs/live_real_20260718T153435/` (10 PR, 10 Confluence,
+> 3 письма — до правки фильтра писем; перегон на 14 письмах требует стабильной сети).
+
 ## Что доказывает
 
 1. MCP-адаптеры работают с **реальными API-контрактами** (Jira REST,

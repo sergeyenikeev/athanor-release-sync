@@ -164,7 +164,7 @@ test-basket/ TB-01..TB-17 (input + expected + meta + metadata.yaml + README); TB
 tests/       unit, integration, e2e, negative, run_basket.py, score.py
 scripts/     _bootstrap, run_demo, run_tests, run_evaluation, export_results, gen_basket, gen_expected
 examples/    demo_case, demo_case_alpha (данные по умолчанию для MCP, incl. confluence.json)
-test-instances/ jira_server (REST v2), bitbucket_server (Cloud REST 2.0), confluence_server (REST API v1), serve_all, discover_atlassian, seed_atlassian, seed_bitbucket, seed_confluence, seed_google, seed_basket, gen_live_case
+test-instances/ jira_server (REST v2), bitbucket_server (Cloud REST 2.0), confluence_server (REST API v1), serve_all, discover_atlassian, seed_atlassian, seed_bitbucket, seed_confluence, seed_google, seed_basket, seed_more, gen_live_case
 results/     runs/, demo/, metrics.json, metrics.csv, results_summary.md, evaluation_report.html
 ```
 
@@ -373,6 +373,12 @@ MCP_BACKEND=live python -m athanor.cli run --case examples/demo_case_alpha_live 
 #   поэтому в live грузится не per-сценарное состояние, а по одному экземпляру
 #   каждой уникальной задачи/PR/письма. Per-сценарное состояние — файловый контур.
 python test-instances/seed_basket.py            # Jira (APP/OPS + 5 задач) + Bitbucket (PR «Схема возвратов») + Gmail (5 писем)
+
+# расширение до 10+ сущностей в каждой системе (опционально)
+#   10+ встреч/писем/задач/PR/страниц в реальных облаках. Идемпотентно, с retry
+#   на сетевые таймауты (Atlassian/Bitbucket нестабильны). Calendar — .ics для
+#   ручного импорта в Google Calendar (нет OAuth для автоматизации).
+python test-instances/seed_more.py              # Jira (+7) + Bitbucket (+8 PR) + Confluence (+8) + Gmail (+6) + Calendar .ics (10)
 ```
 
 **mail/Calendar (Google):** mail — IMAP + пароль приложения (2FA → myaccount.google.com/apppasswords),

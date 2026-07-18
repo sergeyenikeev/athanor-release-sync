@@ -160,16 +160,23 @@ def _jira_search(jql: str, fields: list[str] | None = None) -> list[dict]:
     """
     url = f"{_jira_cloud_url()}/rest/api/3/search/jql"
     body = {"jql": jql, "fields": fields or ["summary", "status", "assignee"]}
-    req = urllib.request.Request(
-        url, data=json.dumps(body).encode("utf-8"),
-        headers=_jira_auth_header(), method="POST",
-    )
-    with urllib.request.urlopen(req, timeout=15) as r:
-        data = json.loads(r.read().decode("utf-8"))
-    # api/3 кладёт поля под "fields" так же, как api/2; но в search/jql
-    # ответ может содержать {issues: [{key, fields: {...}}]} или {values: [...]}.
-    issues = data.get("issues") or data.get("values") or []
-    return issues
+    last = None
+    for _ in range(3):
+        req = urllib.request.Request(
+            url, data=json.dumps(body).encode("utf-8"),
+            headers=_jira_auth_header(), method="POST",
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=20) as r:
+                data = json.loads(r.read().decode("utf-8"))
+            issues = data.get("issues") or data.get("values") or []
+            return issues
+        except urllib.error.HTTPError:
+            raise
+        except Exception as e:  # noqa: BLE001
+            last = e
+            import time as _t; _t.sleep(1.0)
+    raise last  # type: ignore[misc]
 
 
 # Нормализация статусов Jira (EN/RU) → каноничные русские для схемы агента.
@@ -186,10 +193,21 @@ def _normalize_status(name: str) -> str:
     return _STATUS_MAP.get(name.strip().lower(), name)
 
 
-def _get(url: str, headers: dict | None = None) -> dict | list:
-    req = urllib.request.Request(url, headers=headers or {})
-    with urllib.request.urlopen(req, timeout=5) as r:
-        return json.loads(r.read().decode("utf-8"))
+def _get(url: str, headers: dict | None = None, timeout: int = 20, retries: int = 3) -> dict | list:
+    """HTTP GET с retry на network timeout (live-облака нестабильны)."""
+    last = None
+    for _ in range(retries):
+        req = urllib.request.Request(url, headers=headers or {})
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return json.loads(r.read().decode("utf-8"))
+        except urllib.error.HTTPError as e:
+            # HTTP-ошибка — не сетевая, поднимаем сразу (как было)
+            raise
+        except Exception as e:  # noqa: BLE001
+            last = e
+            import time as _t; _t.sleep(1.0)
+    raise last  # type: ignore[misc]
 
 
 def _project_from_subject(subject: str) -> str:
@@ -371,10 +389,13 @@ def gmail_mail() -> list[dict]:
                 continue
             msg = _email.message_from_bytes(msgdata[0][1])
             subj = _decode_hdr(msg["Subject"])
-            # только синтетика демо-контура (не личная почта пользователя)
-            if not any(k in subj for k in ("payment-adapter", "KAN-", "Альфа", "Релиз-синк")):
+            role_hdr = _decode_hdr(msg.get("X-Athanor-Role"))
+            # только синтетика демо-контура (не личная почта пользователя):
+            # маркер — заголовок X-Athanor-Role (все сид-письма его имеют) ИЛИ ключевые
+            # слова в теме (для писем без заголовка, напр. импортированных вручную).
+            if not role_hdr and not any(k in subj for k in ("payment-adapter", "KAN-", "Альфа", "Релиз-синк")):
                 continue
-            role = (msg.get("X-Athanor-Role") or "").strip() or "SRE"
+            role = role_hdr or "SRE"
             out.append({
                 "id": mid.decode(),
                 "from_role": role,
@@ -541,9 +562,18 @@ def confluence_pages_atlassian() -> list[dict]:
     url = (f"{_confluence_cloud_url()}/wiki/rest/api/content/search"
            f"?cql={quote(cql)}&expand=body.view,version,space&limit=25")
     req = urllib.request.Request(url, headers=_confluence_auth_header(), method="GET")
-    with urllib.request.urlopen(req, timeout=15) as r:
-        data = json.loads(r.read().decode("utf-8"))
-    return _confluence_results_to_schema(data, base_url=_confluence_cloud_url())
+    last = None
+    for _ in range(3):
+        try:
+            with urllib.request.urlopen(req, timeout=20) as r:
+                data = json.loads(r.read().decode("utf-8"))
+            return _confluence_results_to_schema(data, base_url=_confluence_cloud_url())
+        except urllib.error.HTTPError:
+            raise
+        except Exception as e:  # noqa: BLE001
+            last = e
+            import time as _t; _t.sleep(1.0)
+    raise last  # type: ignore[misc]
 
 
 def _confluence_results_to_schema(data: dict, base_url: str) -> list[dict]:

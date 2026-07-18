@@ -13,6 +13,9 @@ results/scratch/*
 # ИСКЛЮЧЕНИЕ: артефакт реального прогона Ouroboros (task dec66d75) — публикуется
 # как proof ГигаАгента (презентация сл.1/5/6, README ссылаются на result.json/run.log).
 !results/scratch/ouroboros_demo/
+# ИСКЛЮЧЕНИЕ: скринкаст-прогон a5336602 (jetnight-opus, 5 MCP-вызовов, конфликт
+# найден) — F2 демо-видео собрано из реального скринкаста UI Ouroboros (Playwright).
+!results/scratch/ouroboros_demo_e2e_jetnight/
 *.local.log
 
 # Python

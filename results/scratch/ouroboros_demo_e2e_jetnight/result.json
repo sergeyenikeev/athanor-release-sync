@@ -1,0 +1,718 @@
+{
+  "parent_task_id": null,
+  "root_task_id": "a5336602",
+  "session_id": "9e981ef9e8ac40129ea7958259513708",
+  "actor_id": "cli",
+  "delegation_role": "root",
+  "project_id": "athanor-release-sync",
+  "description": "Подготовь сводку к релиз-синку проекта Альфа 03.07. Вызови MCP-инструменты: mcp_calendar_mail__get_events, mcp_calendar_mail__get_mail, mcp_tracker_repo__get_issues, mcp_tracker_repo__get_prs, mcp_confluence__get_confluence_pages. Из полученных данных сформируй сводку: что включено в релиз (из Confluence), статусы задач, PR, блокеры. У каждого пункта укажи источник и уверенность. Найди конфликт, если Jira говорит задача готово, а письмо — блокер. В конце выведи '## Сводка'.",
+  "context": "",
+  "expected_output": "",
+  "constraints": "",
+  "allowed_resources": {},
+  "deadline_at": "",
+  "task_contract": {
+    "schema_version": 1,
+    "status": "draft",
+    "source": "host_draft",
+    "task_type": "task",
+    "objective": "Подготовь сводку к релиз-синку проекта Альфа 03.07. Вызови MCP-инструменты: mcp_calendar_mail__get_events, mcp_calendar_mail__get_mail, mcp_tracker_repo__get_issues, mcp_tracker_repo__get_prs, mcp_confluence__get_confluence_pages. Из полученных данных сформируй сводку: что включено в релиз (из Confluence), статусы задач, PR, блокеры. У каждого пункта укажи источник и уверенность. Найди конфликт, если Jira говорит задача готово, а письмо — блокер. В конце выведи '## Сводка'.",
+    "expected_output": "",
+    "constraints": "",
+    "success_criteria": [],
+    "acceptance_claims": [],
+    "allowed_resources": {},
+    "resource_policy": {},
+    "disabled_tools": [],
+    "deadline_at": "",
+    "context_requires_self_body_docs": false,
+    "workspace": {
+      "root": "",
+      "mode": ""
+    },
+    "lineage": {
+      "parent_task_id": "",
+      "root_task_id": "a5336602",
+      "session_id": "9e981ef9e8ac40129ea7958259513708",
+      "delegation_role": "root"
+    },
+    "delegation_budget": {
+      "may_delegate": true,
+      "may_mutate": false,
+      "may_fan_out": true,
+      "depth_remaining": null,
+      "max_children": null,
+      "intent_note": ""
+    },
+    "budget_profile": {
+      "improvement_policy": "fixed",
+      "max_improvement_passes": null,
+      "reserve_finalization_pct": null,
+      "stall_rounds_threshold": null,
+      "cost_hard_stop_pct": null
+    },
+    "answer_protocol": ""
+  },
+  "workspace_root": "",
+  "workspace_mode": "",
+  "memory_mode": "shared",
+  "child_drive_root": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data",
+  "budget_drive_root": "C:\\Users\\senik\\Ouroboros\\data",
+  "artifacts": [],
+  "artifact_status": "",
+  "metadata": {
+    "session_id": "9e981ef9e8ac40129ea7958259513708",
+    "actor_id": "cli",
+    "source": "api_task",
+    "delegation_role": "root",
+    "task_id": "a5336602",
+    "parent_task_id": "",
+    "root_task_id": "a5336602",
+    "task_contract": {
+      "schema_version": 1,
+      "status": "draft",
+      "source": "host_draft",
+      "task_type": "task",
+      "objective": "Подготовь сводку к релиз-синку проекта Альфа 03.07. Вызови MCP-инструменты: mcp_calendar_mail__get_events, mcp_calendar_mail__get_mail, mcp_tracker_repo__get_issues, mcp_tracker_repo__get_prs, mcp_confluence__get_confluence_pages. Из полученных данных сформируй сводку: что включено в релиз (из Confluence), статусы задач, PR, блокеры. У каждого пункта укажи источник и уверенность. Найди конфликт, если Jira говорит задача готово, а письмо — блокер. В конце выведи '## Сводка'.",
+      "expected_output": "",
+      "constraints": "",
+      "success_criteria": [],
+      "acceptance_claims": [],
+      "allowed_resources": {},
+      "resource_policy": {},
+      "disabled_tools": [],
+      "deadline_at": "",
+      "context_requires_self_body_docs": false,
+      "workspace": {
+        "root": "",
+        "mode": ""
+      },
+      "lineage": {
+        "parent_task_id": "",
+        "root_task_id": "a5336602",
+        "session_id": "9e981ef9e8ac40129ea7958259513708",
+        "delegation_role": "root"
+      },
+      "delegation_budget": {
+        "may_delegate": true,
+        "may_mutate": false,
+        "may_fan_out": true,
+        "depth_remaining": null,
+        "max_children": null,
+        "intent_note": ""
+      },
+      "budget_profile": {
+        "improvement_policy": "fixed",
+        "max_improvement_passes": null,
+        "reserve_finalization_pct": null,
+        "stall_rounds_threshold": null,
+        "cost_hard_stop_pct": null
+      },
+      "answer_protocol": ""
+    },
+    "child_drive_root": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data",
+    "budget_drive_root": "C:\\Users\\senik\\Ouroboros\\data"
+  },
+  "result": "Все пять источников вернули данные. Анализирую и формирую сводку.\n\n---\n\n# Сводка к релиз-синку · Альфа · 03.07\n\n**Встреча:** Релиз-синк · Альфа, 03.07 в 11:00. Участники: Тимлид, SRE, Владелец продукта, Разработчик backend, Разработчик frontend.\n*Источник: Calendar (mcp_calendar_mail__get_events) · уверенность: высокая*\n\n---\n\n### 1. Что включено в релиз (scope)\n\n| Пункт | Содержание | Источник | Уверенность |\n|---|---|---|---|\n| Релиз | ALPHA-2026.07, окно **03.07 18:00–20:00**, code freeze с 02.07 12:00 | Confluence, Release Plan (стр. 196612, обн. 2026-07-01) | **Высокая** |\n| Включено | APP-412 «Миграция схемы оплат» | Confluence, Release Plan + Decision Log (30.06: принято в релиз) | **Высокая** |\n| Включено | APP-521 «Интеграция с партнёром» | Confluence, Release Plan + Decision Log (30.06: готово к релизу) | **Высокая** |\n| Зависимости | payment-adapter (владелец SRE), partner-api | Confluence, Release Plan | **Высокая** |\n| Release-notes | По APP-412 готовит Разработчик backend | Confluence, Release Plan | **Средняя** (ответственный назначен, статус заметок не подтверждён отдельно) |\n\n---\n\n### 2. Статусы задач (Jira)\n\n| Задача | Статус Jira | Источник | Уверенность |\n|---|---|---|---|\n| APP-412 «Миграция схемы оплат» | **Готово** | Jira (mcp_tracker_repo__get_issues) | **Средняя** — противоречит PR и письму (см. §4) |\n| APP-521 «Интеграция с партнёром» | **к выполнению** | Jira | **Высокая** (трекер-статус как есть) |\n\n*Исполнитель по обеим задачам в Jira — «не определён» (ущерб полноты данных).*\n\n---\n\n### 3. Pull Request-ы (Bitbucket)\n\n| PR | Статус | Связь | Источник | Уверенность |\n|---|---|---|---|---|\n| PR #1 «Схема оплат» | **на ревью** (в ревью 1 день) | APP-412 | Bitbucket (mcp_tracker_repo__get_prs) | **Высокая** |\n\n---\n\n### 4. Блокеры\n\n| Блокер | Содержание | Источник | Уверенность |\n|---|---|---|---|\n| APP-412 / payment-adapter | Смежный сервис payment-adapter **не задеплоен в production**, релизное окно под риском, деплой заблокирован | Письмо от SRE (mcp_calendar_mail__get_mail) | **Средняя** — содержание достоверно (SRE — владелец зависимости по Confluence), но дата письма **16.07**, т.е. после окна релиза 03.07. Датировка аномальна: либо письмо пришло постфактум, либо дата синтетическая. Как предрелизный сигнал — применять с оговоркой. |\n\n---\n\n### 5. ⚠️ Конфликт: Jira «Готово» vs письмо «Блокер» (APP-412)\n\n**Прямое противоречие по задаче APP-412 «Миграция схемы оплат»:**\n- **Jira:** статус = «Готово» → задача считается завершённой.\n- **Письмо (SRE):** payment-adapter не в prod, деплой заблокирован → релиз под риском.\n\n**Интерпретация:** В Jira задача закрыта на уровне кода/трекера, но **релизный деплой заблокирован внешней зависимостью** (payment-adapter), которой владеет SRE. То есть «готово в Jira» ≠ «готово к выкатке». На синке нужно зафиксировать, что APP-412 нельзя считать releasable, пока payment-adapter не в prod.\n\n**Дополнительные расхождения (выявлены попутно):**\n1. **PR vs Jira по APP-412:** PR #1 всё ещё «на ревью» (1 день), при этом Jira = «Готово». Задача помечена готовой, а код ещё не смержен — несостыковка статусов трекера и VCS.\n2. **APP-521: Jira vs Confluence:** Jira = «к выполнению» (не начата), но Confluence Decision Log = «готово к релизу». План релиза включает её, фактически работа не стартовала. Риск попадания в окно 03.07.\n\n---\n\n### Рекомендация на синк\n1. Снять с APP-412 статус «готово к выкатке» до деплоя payment-adapter (ответственный — SRE).\n2. Проверить статус PR #1 — мердж до code freeze (02.07 12:00) под вопросом.\n3. Переоценить включение APP-521: статус «к выполнению» несовместим с окном 03.07 без эскалации.\n\n*Уверенность в источниках в целом: Confluence (Release Plan, обн. 01.07) и Calendar — наиболее свежие и релевантные; Jira и Bitbucket противоречат друг другу по APP-412; письмо содержит ключевой блокер, но с аномальной датой.*\n\n## Сводка",
+  "task_id": "a5336602",
+  "status": "completed",
+  "ts": "2026-07-18T08:03:35.888978+00:00",
+  "updated_at": "2026-07-18T08:03:35.895728+00:00",
+  "root_phase_checkpoint": {
+    "phase": "task_acceptance",
+    "status": "pass",
+    "pass_index": 0,
+    "post_task_synthesis": "pending_once"
+  },
+  "cost_final": false,
+  "cost_with_children_partial": true,
+  "chat_id": 0,
+  "role": null,
+  "objective": "Подготовь сводку к релиз-синку проекта Альфа 03.07. Вызови MCP-инструменты: mcp_calendar_mail__get_events, mcp_calendar_mail__get_mail, mcp_tracker_repo__get_issues, mcp_tracker_repo__get_prs, mcp_confluence__get_confluence_pages. Из полученных данных сформируй сводку: что включено в релиз (из Confluence), статусы задач, PR, блокеры. У каждого пункта укажи источник и уверенность. Найди конфликт, если Jira говорит задача готово, а письмо — блокер. В конце выведи '## Сводка'.",
+  "drive_root": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data",
+  "task_constraint": null,
+  "model_lane": null,
+  "requested_model_lane": null,
+  "effective_model_lane": null,
+  "model": null,
+  "use_local_model": null,
+  "task_group_id": null,
+  "task_group": null,
+  "subagent_envelope": {},
+  "reason_code": "final_message",
+  "outcome_axes": {
+    "schema_version": 1,
+    "lifecycle": {
+      "status": "completed"
+    },
+    "execution": {
+      "status": "ok",
+      "reason_code": "final_message",
+      "failure": null,
+      "recoveries": [],
+      "cosmetic_tool_errors": [],
+      "ignored_tool_errors": [],
+      "policy_denials": []
+    },
+    "artifacts": {
+      "status": "not_applicable"
+    },
+    "objective": {
+      "status": "pass",
+      "source": "task_acceptance_review",
+      "review_status": "pass",
+      "outcome_tier": "solved"
+    },
+    "review": {
+      "status": "pass",
+      "trigger": "auto_nondirect",
+      "eligibility": "eligible",
+      "run_count": 1,
+      "aggregate_signals": [
+        "PASS"
+      ],
+      "outcome_tier": "solved",
+      "acceptance_decision": {
+        "status": "accepted",
+        "source": "task_acceptance_review",
+        "rationale": "Quorum PASS classified the deliverable solved with criterion evidence.",
+        "agent_disposition": "",
+        "agent_rationale": ""
+      }
+    }
+  },
+  "review_status": {
+    "status": "pass",
+    "trigger": "auto_nondirect",
+    "eligibility": "eligible",
+    "run_count": 1,
+    "aggregate_signals": [
+      "PASS"
+    ],
+    "outcome_tier": "solved",
+    "acceptance_decision": {
+      "status": "accepted",
+      "source": "task_acceptance_review",
+      "rationale": "Quorum PASS classified the deliverable solved with criterion evidence.",
+      "agent_disposition": "",
+      "agent_rationale": ""
+    }
+  },
+  "cost_usd_with_children": 0.0,
+  "loop_outcome": {
+    "schema_version": 3,
+    "outcome_axes": {
+      "schema_version": 1,
+      "lifecycle": {
+        "status": "completed"
+      },
+      "execution": {
+        "status": "ok",
+        "reason_code": "final_message",
+        "failure": null,
+        "recoveries": [],
+        "cosmetic_tool_errors": [],
+        "ignored_tool_errors": [],
+        "policy_denials": []
+      },
+      "artifacts": {
+        "status": "not_applicable"
+      },
+      "objective": {
+        "status": "pass",
+        "source": "task_acceptance_review",
+        "review_status": "pass",
+        "outcome_tier": "solved"
+      },
+      "review": {
+        "status": "pass",
+        "eligibility": "eligible",
+        "trigger": "auto_nondirect",
+        "run_count": 1,
+        "aggregate_signals": [
+          "PASS"
+        ],
+        "outcome_tier": "solved",
+        "acceptance_decision": {
+          "status": "accepted",
+          "source": "task_acceptance_review",
+          "rationale": "Quorum PASS classified the deliverable solved with criterion evidence.",
+          "agent_disposition": "",
+          "agent_rationale": ""
+        }
+      }
+    },
+    "review_eligibility": "eligible",
+    "review_trigger": "auto_nondirect",
+    "finish_reason": "final_message",
+    "reason_code": "final_message",
+    "final_text": "Все пять источников вернули данные. Анализирую и формирую сводку.\n\n---\n\n# Сводка к релиз-синку · Альфа · 03.07\n\n**Встреча:** Релиз-синк · Альфа, 03.07 в 11:00. Участники: Тимлид, SRE, Владелец продукта, Разработчик backend, Разработчик frontend.\n*Источник: Calendar (mcp_calendar_mail__get_events) · уверенность: высокая*\n\n---\n\n### 1. Что включено в релиз (scope)\n\n| Пункт | Содержание | Источник | Уверенность |\n|---|---|---|---|\n| Релиз | ALPHA-2026.07, окно **03.07 18:00–20:00**, code freeze с 02.07 12:00 | Confluence, Release Plan (стр. 196612, обн. 2026-07-01) | **Высокая** |\n| Включено | APP-412 «Миграция схемы оплат» | Confluence, Release Plan + Decision Log (30.06: принято в релиз) | **Высокая** |\n| Включено | APP-521 «Интеграция с партнёром» | Confluence, Release Plan + Decision Log (30.06: готово к релизу) | **Высокая** |\n| Зависимости | payment-adapter (владелец SRE), partner-api | Confluence, Release Plan | **Высокая** |\n| Release-notes | По APP-412 готовит Разработчик backend | Confluence, Release Plan | **Средняя** (ответственный назначен, статус заметок не подтверждён отдельно) |\n\n---\n\n### 2. Статусы задач (Jira)\n\n| Задача | Статус Jira | Источник | Уверенность |\n|---|---|---|---|\n| APP-412 «Миграция схемы оплат» | **Готово** | Jira (mcp_tracker_repo__get_issues) | **Средняя** — противоречит PR и письму (см. §4) |\n| APP-521 «Интеграция с партнёром» | **к выполнению** | Jira | **Высокая** (трекер-статус как есть) |\n\n*Исполнитель по обеим задачам в Jira — «не определён» (ущерб полноты данных).*\n\n---\n\n### 3. Pull Request-ы (Bitbucket)\n\n| PR | Статус | Связь | Источник | Уверенность |\n|---|---|---|---|---|\n| PR #1 «Схема оплат» | **на ревью** (в ревью 1 день) | APP-412 | Bitbucket (mcp_tracker_repo__get_prs) | **Высокая** |\n\n---\n\n### 4. Блокеры\n\n| Блокер | Содержание | Источник | Уверенность |\n|---|---|---|---|\n| APP-412 / payment-adapter | Смежный сервис payment-adapter **не задеплоен в production**, релизное окно под риском, деплой заблокирован | Письмо от SRE (mcp_calendar_mail__get_mail) | **Средняя** — содержание достоверно (SRE — владелец зависимости по Confluence), но дата письма **16.07**, т.е. после окна релиза 03.07. Датировка аномальна: либо письмо пришло постфактум, либо дата синтетическая. Как предрелизный сигнал — применять с оговоркой. |\n\n---\n\n### 5. ⚠️ Конфликт: Jira «Готово» vs письмо «Блокер» (APP-412)\n\n**Прямое противоречие по задаче APP-412 «Миграция схемы оплат»:**\n- **Jira:** статус = «Готово» → задача считается завершённой.\n- **Письмо (SRE):** payment-adapter не в prod, деплой заблокирован → релиз под риском.\n\n**Интерпретация:** В Jira задача закрыта на уровне кода/трекера, но **релизный деплой заблокирован внешней зависимостью** (payment-adapter), которой владеет SRE. То есть «готово в Jira» ≠ «готово к выкатке». На синке нужно зафиксировать, что APP-412 нельзя считать releasable, пока payment-adapter не в prod.\n\n**Дополнительные расхождения (выявлены попутно):**\n1. **PR vs Jira по APP-412:** PR #1 всё ещё «на ревью» (1 день), при этом Jira = «Готово». Задача помечена готовой, а код ещё не смержен — несостыковка статусов трекера и VCS.\n2. **APP-521: Jira vs Confluence:** Jira = «к выполнению» (не начата), но Confluence Decision Log = «готово к релизу». План релиза включает её, фактически работа не стартовала. Риск попадания в окно 03.07.\n\n---\n\n### Рекомендация на синк\n1. Снять с APP-412 статус «готово к выкатке» до деплоя payment-adapter (ответственный — SRE).\n2. Проверить статус PR #1 — мердж до code freeze (02.07 12:00) под вопросом.\n3. Переоценить включение APP-521: статус «к выполнению» несовместим с окном 03.07 без эскалации.\n\n*Уверенность в источниках в целом: Confluence (Release Plan, обн. 01.07) и Calendar — наиболее свежие и релевантные; Jira и Bitbucket противоречат друг другу по APP-412; письмо содержит ключевой блокер, но с аномальной датой.*\n\n## Сводка",
+    "final_answer": "",
+    "final_answer_missing_sentinel": true,
+    "failure": null,
+    "recoveries": [],
+    "usage": {
+      "cost_usd": null,
+      "prompt_tokens": 45939,
+      "completion_tokens": 2808,
+      "total_rounds": 2
+    },
+    "trace_refs": {
+      "execution_id": "exec_fc214beffc1a4880af7b991f0a94a26e",
+      "llm_call_refs": [
+        {
+          "llm_call_id": "llm_f032e17ba7eb40cd9f45b2ec92a18e8d",
+          "execution_id": "exec_fc214beffc1a4880af7b991f0a94a26e",
+          "round_id": "exec_fc214beffc1a4880af7b991f0a94a26e:round:1",
+          "round": 1,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\calls\\a5336602\\llm_f032e17ba7eb40cd9f45b2ec92a18e8d_request.json",
+            "call_id": "llm_f032e17ba7eb40cd9f45b2ec92a18e8d_request",
+            "sha256": "614d65e46ed57822cc5dc11cbbe194542e8c1c4fa7ec414fb56c9e5b3a86671d"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\calls\\a5336602\\llm_f032e17ba7eb40cd9f45b2ec92a18e8d_response.json",
+            "call_id": "llm_f032e17ba7eb40cd9f45b2ec92a18e8d_response",
+            "sha256": "d6826ec3e2ca2426b8eafd9fdf772b8bd604de7b3b64a6cc301e72b4d7b58231"
+          },
+          "model": "openai-compatible::jetnight-opus",
+          "resolved_model": "openai-compatible/jetnight-opus",
+          "provider": "openai-compatible"
+        },
+        {
+          "llm_call_id": "llm_9938e0e939f94220a4f49ab498ac74ec",
+          "execution_id": "exec_fc214beffc1a4880af7b991f0a94a26e",
+          "round_id": "exec_fc214beffc1a4880af7b991f0a94a26e:round:2",
+          "round": 2,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\calls\\a5336602\\llm_9938e0e939f94220a4f49ab498ac74ec_request.json",
+            "call_id": "llm_9938e0e939f94220a4f49ab498ac74ec_request",
+            "sha256": "ded99966bb5ef657c63f1fb9f2ab9cf8ba6fc5230b1f16efd2658fa78aa887d9"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\calls\\a5336602\\llm_9938e0e939f94220a4f49ab498ac74ec_response.json",
+            "call_id": "llm_9938e0e939f94220a4f49ab498ac74ec_response",
+            "sha256": "037ff905445b79f15c48b3cec89546599de36f42b87d36077774b7ad80f27c0e"
+          },
+          "model": "openai-compatible::jetnight-opus",
+          "resolved_model": "openai-compatible/jetnight-opus",
+          "provider": "openai-compatible"
+        }
+      ],
+      "tool_call_refs": [
+        {
+          "call_id": "tool_mcp_calendar_mail__get_events_14ea797670b945f791a3ad409fc5a7b0",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\calls\\a5336602\\tool_mcp_calendar_mail__get_events_14ea797670b945f791a3ad409fc5a7b0.json",
+            "call_id": "tool_mcp_calendar_mail__get_events_14ea797670b945f791a3ad409fc5a7b0",
+            "sha256": "7b69eeed7d210b704fc771d6d1ac603aeecf6ead76ae90cb2199222f05e75a4b"
+          },
+          "redacted_projection_ref": {
+            "sha256": "e91a8f366c94b5b503394d46fca4210a0c2d1f9e6d6b3a698e2a8b40c2a363bd",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\blobs\\e91a8f366c94b5b503394d46fca4210a0c2d1f9e6d6b3a698e2a8b40c2a363bd.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 807,
+            "compressed_size": 622
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_mcp_calendar_mail__get_mail_32a252d99f4e4920ac7ab791bb600e6c",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\calls\\a5336602\\tool_mcp_calendar_mail__get_mail_32a252d99f4e4920ac7ab791bb600e6c.json",
+            "call_id": "tool_mcp_calendar_mail__get_mail_32a252d99f4e4920ac7ab791bb600e6c",
+            "sha256": "ab639d5ea9275cb046a70a3ae49377e091128d2ad559f7a8349a9f3effe914df"
+          },
+          "redacted_projection_ref": {
+            "sha256": "836fd624e4d81133438374356097de83f25f9db8eb049dbc4e9b610b9cce1e72",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\blobs\\836fd624e4d81133438374356097de83f25f9db8eb049dbc4e9b610b9cce1e72.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 932,
+            "compressed_size": 677
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_mcp_tracker_repo__get_issues_5cadbbf0762347758466ec663e0ec9ab",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\calls\\a5336602\\tool_mcp_tracker_repo__get_issues_5cadbbf0762347758466ec663e0ec9ab.json",
+            "call_id": "tool_mcp_tracker_repo__get_issues_5cadbbf0762347758466ec663e0ec9ab",
+            "sha256": "a17e4d831a7d46e6045e3f1e9169c34716ce81652f89f551a123935ae7cc88a5"
+          },
+          "redacted_projection_ref": {
+            "sha256": "5c462080cd969d96856bfaf893fb7b720d4e9aa08b941c761959d526413e59ef",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\blobs\\5c462080cd969d96856bfaf893fb7b720d4e9aa08b941c761959d526413e59ef.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 829,
+            "compressed_size": 593
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_mcp_tracker_repo__get_prs_5fc9be1ef09148f0ac623681f0e3af52",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\calls\\a5336602\\tool_mcp_tracker_repo__get_prs_5fc9be1ef09148f0ac623681f0e3af52.json",
+            "call_id": "tool_mcp_tracker_repo__get_prs_5fc9be1ef09148f0ac623681f0e3af52",
+            "sha256": "18062c7c75fefefe3598167d6389a01f4f1927beada0d1e015746a042ee4403b"
+          },
+          "redacted_projection_ref": {
+            "sha256": "075c6fa6231d4106ba1d7636b61738ca48538257db76c5572d9e30d7c00e236d",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\blobs\\075c6fa6231d4106ba1d7636b61738ca48538257db76c5572d9e30d7c00e236d.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 630,
+            "compressed_size": 515
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_mcp_confluence__get_confluence_pages_c0ef4e048808459395d5b94bc67f48ce",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\calls\\a5336602\\tool_mcp_confluence__get_confluence_pages_c0ef4e048808459395d5b94bc67f48ce.json",
+            "call_id": "tool_mcp_confluence__get_confluence_pages_c0ef4e048808459395d5b94bc67f48ce",
+            "sha256": "7818c71b26b0605a5b0ba96f10b686aae0a1a75ced4a4c534eccb6afbfc0d708"
+          },
+          "redacted_projection_ref": {
+            "sha256": "6b79a5c18f963824181b154460ce84f7a5d74e029350ec81129fb056f82d6936",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\blobs\\6b79a5c18f963824181b154460ce84f7a5d74e029350ec81129fb056f82d6936.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 1638,
+            "compressed_size": 980
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        }
+      ]
+    }
+  },
+  "title": null,
+  "final_answer": "",
+  "trace_summary": "## Tool trace (5 calls, 0 errors)\n1. mcp_calendar_mail__get_events()\n2. mcp_calendar_mail__get_mail()\n3. mcp_tracker_repo__get_issues()\n4. mcp_tracker_repo__get_prs()\n5. mcp_confluence__get_confluence_pages()\n\n## Agent notes (supplementary, not source of truth)\n- Вызову все пять MCP-источников параллельно — они независимы.\n- Все пять источников вернули данные. Анализирую и формирую сводку.\n\n---\n\n# Сводка к релиз-синку · Альфа · 03.07\n\n**Встреча:** Релиз-синк · Альфа, 03.07 в 11:00. Участники: Тимлид, SRE, Владелец продукта, Разработчик backend, Разработчик frontend.\n*Источник: Calendar (mcp_calendar_mail__get_events) · уверенность: высокая*\n\n---\n\n### 1. Что включено в релиз (scope)\n\n| Пункт | Содержание | Источник | Уверенность |\n|---|---|---|---|\n| Релиз | ALPHA-2026.07, окно **03.07 18:00–20:00**, code freeze с 02.07 12:00 | Confluence, Release Plan (стр. 196612, обн. 2026-07-01) | **Высокая** |\n| Включено | APP-412 «Миграция схемы оплат» | Confluence, Release Plan + Decision Log (30.06: принято в релиз) | **Высокая** |\n| Включено | APP-521 «Интеграция с партнёром» | Confluence, Release Plan + Decision Log (30.06: готово к релизу) | **Высокая** |\n| Зависимости | payment-adapter (владелец SRE), partner-api | Confluence, Release Plan | **Высокая** |\n| Release-notes | По APP-412 готовит Разработчик backend | Confluence, Release Plan | **Средняя** (ответственный назначен, статус заметок не подтверждён отдельно) |\n\n---\n\n### 2. Статусы задач (Jira)\n\n| Задача | Статус Jira | Источник | Уверенность |\n|---|---|---|---|\n| APP-412 «Миграция схемы оплат» | **Готово** | Jira (mcp_tracker_repo__get_issues) | **Средняя** — противоречит PR и письму (см. §4) |\n| APP-521 «Интеграция с партнёром» | **к выполнению** | Jira | **Высокая** (трекер-статус как есть) |\n\n*Исполнитель по обеим задачам в Jira — «не определён» (ущерб полноты данных).*\n\n---\n\n### 3. Pull Request-ы (Bitbucket)\n\n| PR | Статус | Связь | Источник | Уверенность |\n|---|---|---|---|---|\n| PR #1 «Схема оплат» | **на ревью** (в ревью 1 день) | APP-412 | Bitbucket (mcp_tracker_repo__get_prs) | **Высокая** |\n\n---\n\n### 4. Блокеры\n\n| Блокер | Содержание | Источник | Уверенность |\n|---|---|---|---|\n| APP-412 / payment-adapter | Смежный сервис payment-adapter **не задеплоен в production**, релизное окно под риском, деплой заблокирован | Письмо от SRE (mcp_calendar_mail__get_mail) | **Средняя** — содержание достоверно (SRE — владелец зависимости по Confluence), но дата письма **16.07**, т.е. после окна релиза 03.07. Датировка аномальна: либо письмо пришло постфактум, либо дата синтетическая. Как предрелизный сигнал — применять с оговоркой. |\n\n---\n\n### 5. ⚠️ Конфликт: Jira «Готово» vs письмо «Блокер» (APP-412)\n\n**Прямое противоречие по задаче APP-412 «Миграция схемы оплат»:**\n- **Jira:** статус = «Готово» → задача считается завершённой.\n- **Письмо (SRE):** payment-adapter не в prod, деплой заблокирован → релиз под риском.\n\n**Интерпретация:** В Jira задача закрыта на уровне кода/трекера, но **релизный деплой заблокирован внешней зависимостью** (payment-adapter), которой владеет SRE. То есть «готово в Jira» ≠ «готово к выкатке». На синке нужно зафиксировать, что APP-412 нельзя считать releasable, пока payment-adapter не в prod.\n\n**Дополнительные расхождения (выявлены попутно):**\n1. **PR vs Jira по APP-412:** PR #1 всё ещё «на ревью» (1 день), при этом Jira = «Готово». Задача помечена готовой, а код ещё не смержен — несостыковка статусов трекера и VCS.\n2. **APP-521: Jira vs Confluence:** Jira = «к выполнению» (не начата), но Confluence Decision Log = «готово к релизу». План релиза включает её, фактически работа не стартовала. Риск попадания в окно 03.07.\n\n---\n\n### Рекомендация на синк\n1. Снять с APP-412 статус «готово к выкатке» до деплоя payment-adapter (ответственный — SRE).\n2. Проверить статус PR #1 — мердж до code freeze (02.07 12:00) под вопросом.\n3. Переоценить включение APP-521: статус «к выполнению» несовместим с окном 03.07 без эскалации.\n\n*Уверенность в источниках в целом: Confluenc\n⚠️ OMISSION NOTE: truncated at 4000 chars; original length 4193",
+  "trace_refs": {
+    "execution_id": "exec_fc214beffc1a4880af7b991f0a94a26e",
+    "llm_call_refs": [
+      {
+        "llm_call_id": "llm_f032e17ba7eb40cd9f45b2ec92a18e8d",
+        "execution_id": "exec_fc214beffc1a4880af7b991f0a94a26e",
+        "round_id": "exec_fc214beffc1a4880af7b991f0a94a26e:round:1",
+        "round": 1,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\calls\\a5336602\\llm_f032e17ba7eb40cd9f45b2ec92a18e8d_request.json",
+          "call_id": "llm_f032e17ba7eb40cd9f45b2ec92a18e8d_request",
+          "sha256": "614d65e46ed57822cc5dc11cbbe194542e8c1c4fa7ec414fb56c9e5b3a86671d"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\calls\\a5336602\\llm_f032e17ba7eb40cd9f45b2ec92a18e8d_response.json",
+          "call_id": "llm_f032e17ba7eb40cd9f45b2ec92a18e8d_response",
+          "sha256": "d6826ec3e2ca2426b8eafd9fdf772b8bd604de7b3b64a6cc301e72b4d7b58231"
+        },
+        "model": "openai-compatible::jetnight-opus",
+        "resolved_model": "openai-compatible/jetnight-opus",
+        "provider": "openai-compatible"
+      },
+      {
+        "llm_call_id": "llm_9938e0e939f94220a4f49ab498ac74ec",
+        "execution_id": "exec_fc214beffc1a4880af7b991f0a94a26e",
+        "round_id": "exec_fc214beffc1a4880af7b991f0a94a26e:round:2",
+        "round": 2,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\calls\\a5336602\\llm_9938e0e939f94220a4f49ab498ac74ec_request.json",
+          "call_id": "llm_9938e0e939f94220a4f49ab498ac74ec_request",
+          "sha256": "ded99966bb5ef657c63f1fb9f2ab9cf8ba6fc5230b1f16efd2658fa78aa887d9"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\calls\\a5336602\\llm_9938e0e939f94220a4f49ab498ac74ec_response.json",
+          "call_id": "llm_9938e0e939f94220a4f49ab498ac74ec_response",
+          "sha256": "037ff905445b79f15c48b3cec89546599de36f42b87d36077774b7ad80f27c0e"
+        },
+        "model": "openai-compatible::jetnight-opus",
+        "resolved_model": "openai-compatible/jetnight-opus",
+        "provider": "openai-compatible"
+      }
+    ],
+    "tool_call_refs": [
+      {
+        "call_id": "tool_mcp_calendar_mail__get_events_14ea797670b945f791a3ad409fc5a7b0",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\calls\\a5336602\\tool_mcp_calendar_mail__get_events_14ea797670b945f791a3ad409fc5a7b0.json",
+          "call_id": "tool_mcp_calendar_mail__get_events_14ea797670b945f791a3ad409fc5a7b0",
+          "sha256": "7b69eeed7d210b704fc771d6d1ac603aeecf6ead76ae90cb2199222f05e75a4b"
+        },
+        "redacted_projection_ref": {
+          "sha256": "e91a8f366c94b5b503394d46fca4210a0c2d1f9e6d6b3a698e2a8b40c2a363bd",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\blobs\\e91a8f366c94b5b503394d46fca4210a0c2d1f9e6d6b3a698e2a8b40c2a363bd.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 807,
+          "compressed_size": 622
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_mcp_calendar_mail__get_mail_32a252d99f4e4920ac7ab791bb600e6c",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\calls\\a5336602\\tool_mcp_calendar_mail__get_mail_32a252d99f4e4920ac7ab791bb600e6c.json",
+          "call_id": "tool_mcp_calendar_mail__get_mail_32a252d99f4e4920ac7ab791bb600e6c",
+          "sha256": "ab639d5ea9275cb046a70a3ae49377e091128d2ad559f7a8349a9f3effe914df"
+        },
+        "redacted_projection_ref": {
+          "sha256": "836fd624e4d81133438374356097de83f25f9db8eb049dbc4e9b610b9cce1e72",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\blobs\\836fd624e4d81133438374356097de83f25f9db8eb049dbc4e9b610b9cce1e72.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 932,
+          "compressed_size": 677
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_mcp_tracker_repo__get_issues_5cadbbf0762347758466ec663e0ec9ab",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\calls\\a5336602\\tool_mcp_tracker_repo__get_issues_5cadbbf0762347758466ec663e0ec9ab.json",
+          "call_id": "tool_mcp_tracker_repo__get_issues_5cadbbf0762347758466ec663e0ec9ab",
+          "sha256": "a17e4d831a7d46e6045e3f1e9169c34716ce81652f89f551a123935ae7cc88a5"
+        },
+        "redacted_projection_ref": {
+          "sha256": "5c462080cd969d96856bfaf893fb7b720d4e9aa08b941c761959d526413e59ef",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\blobs\\5c462080cd969d96856bfaf893fb7b720d4e9aa08b941c761959d526413e59ef.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 829,
+          "compressed_size": 593
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_mcp_tracker_repo__get_prs_5fc9be1ef09148f0ac623681f0e3af52",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\calls\\a5336602\\tool_mcp_tracker_repo__get_prs_5fc9be1ef09148f0ac623681f0e3af52.json",
+          "call_id": "tool_mcp_tracker_repo__get_prs_5fc9be1ef09148f0ac623681f0e3af52",
+          "sha256": "18062c7c75fefefe3598167d6389a01f4f1927beada0d1e015746a042ee4403b"
+        },
+        "redacted_projection_ref": {
+          "sha256": "075c6fa6231d4106ba1d7636b61738ca48538257db76c5572d9e30d7c00e236d",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\blobs\\075c6fa6231d4106ba1d7636b61738ca48538257db76c5572d9e30d7c00e236d.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 630,
+          "compressed_size": 515
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_mcp_confluence__get_confluence_pages_c0ef4e048808459395d5b94bc67f48ce",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\calls\\a5336602\\tool_mcp_confluence__get_confluence_pages_c0ef4e048808459395d5b94bc67f48ce.json",
+          "call_id": "tool_mcp_confluence__get_confluence_pages_c0ef4e048808459395d5b94bc67f48ce",
+          "sha256": "7818c71b26b0605a5b0ba96f10b686aae0a1a75ced4a4c534eccb6afbfc0d708"
+        },
+        "redacted_projection_ref": {
+          "sha256": "6b79a5c18f963824181b154460ce84f7a5d74e029350ec81129fb056f82d6936",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data\\observability\\blobs\\6b79a5c18f963824181b154460ce84f7a5d74e029350ec81129fb056f82d6936.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 1638,
+          "compressed_size": 980
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      }
+    ]
+  },
+  "cost_accounting_status": "available",
+  "cost_usd": 0.0,
+  "total_rounds": 8,
+  "prompt_tokens": 72002,
+  "completion_tokens": 5177,
+  "reserved_usd": 0.0,
+  "unresolved_upper_bound_usd": 0.0,
+  "unknown_unmetered": 8,
+  "ledger_integrity_degraded": false,
+  "review_evidence": {
+    "task_id": "a5336602",
+    "repo_key": "C:\\Users\\senik\\Ouroboros\\repo",
+    "current_repo": {
+      "snapshot_hash": "0c68f8d3990e",
+      "advisory_status": "missing",
+      "repo_commit_ready": false,
+      "bypass_reason": "",
+      "stale_reason": "",
+      "stale_ts": ""
+    },
+    "recent_attempts": [],
+    "omitted_attempts": 0,
+    "recent_advisory_runs": [],
+    "omitted_advisory_runs": 0,
+    "open_obligations": [],
+    "omitted_obligations": 0,
+    "commit_readiness_debts": [],
+    "continuations": [],
+    "omitted_continuations": 0,
+    "corrupt_continuations": [],
+    "omitted_corrupt": 0,
+    "has_evidence": false
+  },
+  "verification_ledger": {
+    "schema_version": 2,
+    "created_at": "2026-07-18T08:03:35.888978+00:00",
+    "task_id": "a5336602",
+    "task_contract": {
+      "schema_version": 1,
+      "status": "draft",
+      "source": "host_draft",
+      "task_type": "task",
+      "objective": "Подготовь сводку к релиз-синку проекта Альфа 03.07. Вызови MCP-инструменты: mcp_calendar_mail__get_events, mcp_calendar_mail__get_mail, mcp_tracker_repo__get_issues, mcp_tracker_repo__get_prs, mcp_confluence__get_confluence_pages. Из полученных данных сформируй сводку: что включено в релиз (из Confluence), статусы задач, PR, блокеры. У каждого пункта укажи источник и уверенность. Найди конфликт, если Jira говорит задача готово, а письмо — блокер. В конце выведи '## Сводка'.",
+      "expected_output": "",
+      "constraints": "",
+      "success_criteria": [],
+      "acceptance_claims": [],
+      "allowed_resources": {},
+      "resource_policy": {},
+      "disabled_tools": [],
+      "deadline_at": "",
+      "context_requires_self_body_docs": false,
+      "workspace": {
+        "root": "",
+        "mode": ""
+      },
+      "lineage": {
+        "parent_task_id": "",
+        "root_task_id": "a5336602",
+        "session_id": "9e981ef9e8ac40129ea7958259513708",
+        "delegation_role": "root"
+      },
+      "delegation_budget": {
+        "may_delegate": true,
+        "may_mutate": false,
+        "may_fan_out": true,
+        "depth_remaining": null,
+        "max_children": null,
+        "intent_note": ""
+      },
+      "budget_profile": {
+        "improvement_policy": "fixed",
+        "max_improvement_passes": null,
+        "reserve_finalization_pct": null,
+        "stall_rounds_threshold": null,
+        "cost_hard_stop_pct": null
+      },
+      "answer_protocol": ""
+    },
+    "outcome_axes": {
+      "schema_version": 1,
+      "lifecycle": {
+        "status": "completed"
+      },
+      "execution": {
+        "status": "ok",
+        "reason_code": "final_message",
+        "failure": null,
+        "recoveries": [],
+        "cosmetic_tool_errors": [],
+        "ignored_tool_errors": [],
+        "policy_denials": []
+      },
+      "artifacts": {
+        "status": "not_applicable"
+      },
+      "objective": {
+        "status": "pass",
+        "source": "task_acceptance_review",
+        "review_status": "pass",
+        "outcome_tier": "solved"
+      },
+      "review": {
+        "status": "pass",
+        "eligibility": "eligible",
+        "trigger": "auto_nondirect",
+        "run_count": 1,
+        "aggregate_signals": [
+          "PASS"
+        ],
+        "outcome_tier": "solved",
+        "acceptance_decision": {
+          "status": "accepted",
+          "source": "task_acceptance_review",
+          "rationale": "Quorum PASS classified the deliverable solved with criterion evidence.",
+          "agent_disposition": "",
+          "agent_rationale": ""
+        }
+      }
+    },
+    "entries": [
+      {
+        "kind": "objective_outcome",
+        "status": "pass",
+        "source": "task_acceptance_review"
+      },
+      {
+        "kind": "task_contract",
+        "status": "recorded",
+        "contract_status": "draft",
+        "objective": "Подготовь сводку к релиз-синку проекта Альфа 03.07. Вызови MCP-инструменты: mcp_calendar_mail__get_events, mcp_calendar_mail__get_mail, mcp_tracker_repo__get_issues, mcp_tracker_repo__get_prs, mcp_confluence__get_confluence_pages. Из полученных данных сформируй сводку: что включено в релиз (из Confluence), статусы задач, PR, блокеры. У каждого пункта укажи источник и уверенность. Найди конфликт, если Jira говорит задача готово, а письмо — блокер. В конце выведи '## Сводка'.",
+        "expected_output": ""
+      },
+      {
+        "kind": "task_acceptance_review",
+        "status": "ok",
+        "aggregate_signal": "PASS",
+        "degraded": false,
+        "superseded": false,
+        "finding_count": 0
+      }
+    ],
+    "summary": {
+      "entry_count": 3,
+      "has_failures": false
+    }
+  },
+  "artifact_bundle": {
+    "schema_version": 1,
+    "status": "not_applicable",
+    "artifacts": [],
+    "errors": []
+  },
+  "headless_child_drive_root": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\a5336602\\data"
+}

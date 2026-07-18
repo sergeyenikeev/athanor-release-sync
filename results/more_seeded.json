@@ -1,0 +1,186 @@
+{
+  "jira_more": [
+    {
+      "proj": "APP",
+      "basket_key": "APP-410",
+      "summary": "Кэш платежей",
+      "status": "готово",
+      "role": "Разработчик backend",
+      "jira_key": "APP-4"
+    },
+    {
+      "proj": "APP",
+      "basket_key": "APP-413",
+      "summary": "Вебхуки оплат",
+      "status": "в работе",
+      "role": "Разработчик backend",
+      "jira_key": "APP-5"
+    },
+    {
+      "proj": "APP",
+      "basket_key": "APP-422",
+      "summary": "Реестр возвратов",
+      "status": "открыто",
+      "role": "Разработчик frontend",
+      "jira_key": "APP-6"
+    },
+    {
+      "proj": "APP",
+      "basket_key": "APP-430",
+      "summary": "Метрики бизнес-операций",
+      "status": "открыто",
+      "role": "Владелец продукта",
+      "jira_key": "APP-7"
+    },
+    {
+      "proj": "OPS",
+      "basket_key": "OPS-70",
+      "summary": "Стенд предпрода",
+      "status": "готово",
+      "role": "SRE",
+      "jira_key": "OPS-3"
+    },
+    {
+      "proj": "OPS",
+      "basket_key": "OPS-79",
+      "summary": "Мониторинг payment-adapter",
+      "status": "в работе",
+      "role": "SRE",
+      "jira_key": "OPS-4"
+    },
+    {
+      "proj": "OPS",
+      "basket_key": "OPS-80",
+      "summary": "Runbook релизов",
+      "status": "открыто",
+      "role": "SRE",
+      "jira_key": "OPS-5"
+    }
+  ],
+  "jira_map": {
+    "APP-412": "APP-1",
+    "APP-521": "APP-2",
+    "APP-421": "APP-3",
+    "OPS-77": "OPS-1",
+    "OPS-78": "OPS-2"
+  },
+  "bitbucket_more": [
+    {
+      "title": "Кэш платежей",
+      "pr_id": 4,
+      "branch": "feature/payment-cache",
+      "issue_key": "APP-410",
+      "url": "https://bitbucket.org/athanorproject/athanor/pull-requests/4"
+    },
+    {
+      "title": "Вебхуки оплат",
+      "pr_id": 3,
+      "branch": "feature/payment-webhooks",
+      "issue_key": "APP-413",
+      "url": "https://bitbucket.org/athanorproject/athanor/pull-requests/3"
+    },
+    {
+      "title": "Реестр возвратов",
+      "pr_id": 6,
+      "branch": "feature/refund-registry",
+      "issue_key": "APP-422",
+      "url": "https://bitbucket.org/athanorproject/athanor/pull-requests/6"
+    },
+    {
+      "title": "Метрики бизнес-операций",
+      "pr_id": 5,
+      "branch": "feature/bizops-metrics",
+      "issue_key": "APP-430",
+      "url": "https://bitbucket.org/athanorproject/athanor/pull-requests/5"
+    },
+    {
+      "title": "Мониторинг payment-adapter",
+      "pr_id": 7,
+      "branch": "feature/payment-monitoring",
+      "issue_key": "OPS-79",
+      "url": "https://bitbucket.org/athanorproject/athanor/pull-requests/7"
+    },
+    {
+      "title": "Runbook релизов",
+      "pr_id": 8,
+      "branch": "docs/release-runbook",
+      "issue_key": "OPS-80",
+      "url": "https://bitbucket.org/athanorproject/athanor/pull-requests/8"
+    },
+    {
+      "title": "Postmortem 2026-06-30",
+      "pr_id": 9,
+      "branch": "docs/postmortem-0630",
+      "issue_key": "OPS-2",
+      "url": "https://bitbucket.org/athanorproject/athanor/pull-requests/9"
+    },
+    {
+      "title": "Архитектура платежей v2",
+      "pr_id": 10,
+      "branch": "docs/payment-arch-v2",
+      "issue_key": "APP-1",
+      "url": "https://bitbucket.org/athanorproject/athanor/pull-requests/10"
+    }
+  ],
+  "confluence_more": {
+    "space": "~701215a97c830dad041c3a280469021649a00",
+    "pages": {
+      "RFC · Платежи v2": "1245185",
+      "Postmortem · Инцидент 2026-06-30": "1081346",
+      "Runbook · Релизы Альфа": "1310722",
+      "Changelog · Альфа 2026.07": "1179650",
+      "On-call · Альфа": "1245202",
+      "Retrospective · Спринт 12": "1179666",
+      "Architecture · Платежи": "1212418",
+      "Test Plan · Альфа 2026.07": "1081363"
+    }
+  },
+  "gmail_more": [
+    {
+      "basket_id": "more-1",
+      "role": "Разработчик backend",
+      "subject": "Release-notes APP-412 готовы",
+      "body": "Release-notes по APP-412 (Миграция схемы оплат) готовы, залил в Confluence. (Синтетика Ouroboros, from backend.)",
+      "status": "sent"
+    },
+    {
+      "basket_id": "more-2",
+      "role": "Разработчик frontend",
+      "subject": "Деплой partner-api завершён",
+      "body": "Partner-api задеплоен в prod, интеграция APP-521 проверена. (Синтетика Ouroboros, from frontend.)",
+      "status": "sent"
+    },
+    {
+      "basket_id": "more-3",
+      "role": "SRE",
+      "subject": "Postmortem 2026-06-30 готов",
+      "body": "Postmortem инцидента 2026-06-30 готов, action items: OPS-79, APP-413. (Синтетика Ouroboros, from SRE.)",
+      "status": "sent"
+    },
+    {
+      "basket_id": "more-4",
+      "role": "SRE",
+      "subject": "Runbook релизов обновлён",
+      "body": "Runbook релизов Альфа обновлён, добавлен шаг smoke-теста payment-core. (Синтетика Ouroboros, from SRE.)",
+      "status": "sent"
+    },
+    {
+      "basket_id": "more-5",
+      "role": "Разработчик backend",
+      "subject": "Запрос на ревью PR Кэш платежей",
+      "body": "PR «Кэш платежей» готов к ревью, нужен аппрув до 03.07. (Синтетика Ouroboros, from backend.)",
+      "status": "sent"
+    },
+    {
+      "basket_id": "more-6",
+      "role": "Владелец продукта",
+      "subject": "Согласование окна релиза 10.07",
+      "body": "Согласуем окно релиза 10.07 18:00–20:00, пятница исключена по регламенту. (Синтетика Ouroboros, from PM.)",
+      "status": "sent"
+    }
+  ],
+  "calendar_ics": {
+    "ics": "examples\\calendar_alpha_10.ics",
+    "events": 10
+  }
+}
