@@ -437,9 +437,42 @@ def seed_gmail_more():
 
 # ============================================================ Calendar: .ics (10 событий)
 CAL_EVENTS = [
+    # — Июнь: разбор инцидента + postmortem + code freeze перед релизом 03.07 —
+    {"uid": "alpha-incident-3006@athanor", "summary": "Разбор инцидента · Альфа",
+     "dtstart": "20260630T110000", "dtend": "20260630T120000",
+     "desc": "Разбор инцидента 30.06: деградация ППРБ-адаптера 14:00–15:30."},
+    {"uid": "alpha-postmortem-0107@athanor", "summary": "Postmortem-митинг · Альфа",
+     "dtstart": "20260701T110000", "dtend": "20260701T120000",
+     "desc": "Postmortem-митинг по инциденту 30.06."},
+    {"uid": "alpha-freeze-0207@athanor", "summary": "Code freeze · Альфа",
+     "dtstart": "20260702T120000", "dtend": "20260702T180000",
+     "desc": "Code freeze перед релизом ALPHA-2026.07."},
+    # — Неделя 03.07 (много встреч: Релиз-синк + 6 рабочих встреч 06–09.07) —
     {"uid": "alpha-rs-0307@athanor", "summary": "Релиз-синк · Альфа",
      "dtstart": "20260703T140000", "dtend": "20260703T150000",
      "desc": "Релиз-синк проекта Альфа (ALPHA-2026.07). 5 участников: Тимлид, SRE, Владелец продукта, Разработчик backend, Разработчик frontend."},
+    {"uid": "alpha-retro-0607@athanor", "summary": "Ретроспектива · Альфа",
+     "dtstart": "20260706T110000", "dtend": "20260706T120000",
+     "desc": "Ретроспектива спринта 12 по проекту Альфа. (Перенесена с 05.07 — воскресенье, выходной.)"},
+    {"uid": "alpha-daily-0607@athanor", "summary": "Daily стендап · Альфа",
+     "dtstart": "20260706T160000", "dtend": "20260706T161500",
+     "desc": "Daily стендап команды Альфа: статус по ППРБ-миграции, блокеры."},
+    {"uid": "alpha-sprint-0707@athanor", "summary": "Планирование спринта · Альфа",
+     "dtstart": "20260707T120000", "dtend": "20260707T130000",
+     "desc": "Планирование спринта 13 по проекту Альфа."},
+    {"uid": "alpha-sre-sync-0707@athanor", "summary": "Синхронизация с SRE · Альфа",
+     "dtstart": "20260707T160000", "dtend": "20260707T163000",
+     "desc": "Синхронизация с SRE по деплою ППРБ-адаптера в production."},
+    {"uid": "alpha-blockers-0807@athanor", "summary": "Разбор блокеров · Альфа",
+     "dtstart": "20260708T110000", "dtend": "20260708T113000",
+     "desc": "Разбор блокеров релиза ALPHA-2026.07: ППРБ-адаптер, partner-api."},
+    {"uid": "alpha-demo-0807@athanor", "summary": "Демо для заказчика · Альфа",
+     "dtstart": "20260708T150000", "dtend": "20260708T160000",
+     "desc": "Демо релиза ALPHA-2026.07 (Миграция на ППРБ) для заказчика. (Перенесено с 12.07 — воскресенье, выходной.)"},
+    {"uid": "alpha-review-0907@athanor", "summary": "Код-ревью синк · Альфа",
+     "dtstart": "20260709T100000", "dtend": "20260709T103000",
+     "desc": "Синк по код-ревью PR: Миграция на ППРБ, Репликация ППРБ, Вебхуки ППРБ."},
+    # — Следующие недели: релиз-синки по пятницам + демо —
     {"uid": "alpha-rs-1007@athanor", "summary": "Релиз-синк · Альфа",
      "dtstart": "20260710T140000", "dtend": "20260710T150000",
      "desc": "Релиз-синк проекта Альфа (ALPHA-2026.10)."},
@@ -449,29 +482,11 @@ CAL_EVENTS = [
     {"uid": "alpha-rs-2407@athanor", "summary": "Релиз-синк · Альфа",
      "dtstart": "20260724T140000", "dtend": "20260724T150000",
      "desc": "Релиз-синк проекта Альфа (ALPHA-2026.14)."},
-    {"uid": "alpha-incident-3006@athanor", "summary": "Разбор инцидента · Альфа",
-     "dtstart": "20260630T110000", "dtend": "20260630T120000",
-     "desc": "Разбор инцидента 30.06: деградация ППРБ-адаптера 14:00–15:30."},
-    {"uid": "alpha-retro-0507@athanor", "summary": "Ретроспектива · Альфа",
-     "dtstart": "20260705T160000", "dtend": "20260705T170000",
-     "desc": "Ретроспектива спринта 12 по проекту Альфа."},
-    {"uid": "alpha-sprint-0707@athanor", "summary": "Планирование спринта · Альфа",
-     "dtstart": "20260707T120000", "dtend": "20260707T130000",
-     "desc": "Планирование спринта 13 по проекту Альфа."},
-    {"uid": "alpha-demo-1207@athanor", "summary": "Демо для заказчика · Альфа",
-     "dtstart": "20260712T150000", "dtend": "20260712T160000",
-     "desc": "Демо релиза ALPHA-2026.07 для заказчика."},
-    {"uid": "alpha-postmortem-0107@athanor", "summary": "Postmortem-митинг · Альфа",
-     "dtstart": "20260701T110000", "dtend": "20260701T120000",
-     "desc": "Postmortem-митинг по инциденту 30.06."},
-    {"uid": "alpha-freeze-0207@athanor", "summary": "Code freeze · Альфа",
-     "dtstart": "20260702T120000", "dtend": "20260702T180000",
-     "desc": "Code freeze перед релизом ALPHA-2026.07."},
 ]
 
 
 def gen_calendar_ics():
-    print("\n=== Calendar: .ics с 10 событиями ===")
+    print(f"\n=== Calendar: .ics с {len(CAL_EVENTS)} событиями (все на рабочих днях) ===")
     out_dir = REPO / "examples"
     out_dir.mkdir(parents=True, exist_ok=True)
     ics = out_dir / "calendar_alpha_10.ics"

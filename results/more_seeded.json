@@ -181,6 +181,6 @@
   ],
   "calendar_ics": {
     "ics": "examples\\calendar_alpha_10.ics",
-    "events": 10
+    "events": 14
   }
 }

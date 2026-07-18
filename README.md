@@ -378,7 +378,7 @@ python test-instances/seed_basket.py            # Jira (APP/OPS + 5 задач) 
 #   10+ встреч/писем/задач/PR/страниц в реальных облаках. Идемпотентно, с retry
 #   на сетевые таймауты (Atlassian/Bitbucket нестабильны). Calendar — .ics для
 #   ручного импорта в Google Calendar (нет OAuth для автоматизации).
-python test-instances/seed_more.py              # Jira (+7) + Bitbucket (+8 PR) + Confluence (+8) + Gmail (+6) + Calendar .ics (10)
+python test-instances/seed_more.py              # Jira (+7) + Bitbucket (+8 PR) + Confluence (+8) + Gmail (+6) + Calendar .ics (14 событий, рабочие дни)
 ```
 
 **mail/Calendar (Google):** mail — IMAP + пароль приложения (2FA → myaccount.google.com/apppasswords),

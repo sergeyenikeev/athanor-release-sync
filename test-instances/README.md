@@ -244,7 +244,7 @@ python test-instances/seed_more.py --only jira bitbucket confluence gmail calend
 | **Bitbucket** | +8 PR (#3..#10: Вебхуки, Кэш, Метрики, Реестр, Мониторинг, Runbook, Postmortem, Архитектура) | 10 PR |
 | **Confluence** | +8 страниц (RFC, Postmortem, Runbook, Changelog, On-call, Retrospective, Architecture, Test Plan) | 10 страниц |
 | **Gmail** | +6 писем (Release-notes, Деплой partner-api, Postmortem готов, Runbook обновлён, Запрос на ревью, Согласование окна) | 14 писем (все с `X-Athanor-Role`) |
-| **Calendar** | `examples/calendar_alpha_10.ics` (10 событий) | 10 встреч — требует ручного импорта в Google Calendar (Settings → Import & export → Import) |
+| **Calendar** | `examples/calendar_alpha_10.ics` (14 событий, все на рабочих днях) | 14 встреч — требует ручного импорта в Google Calendar (Settings → Import & export → Import). Неделя 03.07 — 8 встреч; выходные (05.07, 12.07) перенесены на 06.07, 08.07 |
 
 Calendar нельзя автоматизировать (API требует OAuth2; app password даёт только
 IMAP/SMTP). Скрипт генерирует `.ics` для ручного импорта. Идемпотентно, с retry
