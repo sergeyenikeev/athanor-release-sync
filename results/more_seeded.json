@@ -191,6 +191,10 @@
     "csv": {
       "csv": "examples\\calendar_alpha.csv",
       "events": 35
+    },
+    "outlook_csv": {
+      "outlook_csv": "examples\\calendar_alpha_outlook.csv",
+      "events": 35
     }
   }
 }

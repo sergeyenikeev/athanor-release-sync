@@ -578,6 +578,54 @@ def gen_calendar_csv():
     return {"csv": str(csv.relative_to(REPO)), "events": len(CAL_EVENTS)}
 
 
+def _dt_to_outlook(dt: str) -> tuple[str, str]:
+    """20260703T140000 → ('29.06.2026', '14:00') — формат Outlook Desktop (DD.MM.YYYY, 24ч)."""
+    y, m, d, hh, mm = dt[:4], dt[4:6], dt[6:8], dt[9:11], dt[11:13]
+    return f"{d}.{m}.{y}", f"{hh}:{mm}"
+
+
+def gen_calendar_outlook_csv():
+    """CSV для импорта в MS Outlook Desktop — windows-1251 кодировка (родная для Outlook).
+
+    Outlook Desktop плохо читает UTF-8 CSV (кракозябры в кириллице), а .ics-импорт
+    тоже даёт mojibake. Windows-1251 — родная кодировка Outlook, кириллица читается
+    гарантированно. Формат Outlook CSV: колонки могут быть произвольными, Outlook
+    покажет мастер назначения колонок. Разделитель — точка с запятой (LOCALE ru-RU),
+    дата DD.MM.YYYY, время 24ч.
+
+    Импорт: Файл → Открыть и экспорт → Импорт/экспорт → Импорт из другой программы
+    или файла → Значения, разделённые запятыми (Windows) → выбрать файл →
+    кодировка Windows (1251) → назначить колонки (Тема/Начало/Конец/Описание).
+    """
+    print(f"\n=== Calendar: Outlook CSV с {len(CAL_EVENTS)} событиями (windows-1251) ===")
+    out_dir = REPO / "examples"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    ocsv = out_dir / "calendar_alpha_outlook.csv"
+    import csv as _csv
+    # Заголовки — на русском (Outlook распознаёт и английские, и русские)
+    rows = [["Тема", "Дата начала", "Время начала", "Дата окончания", "Время окончания",
+             "Весь день", "Описание", "Место", "Частное"]]
+    for ev in CAL_EVENTS:
+        sd, st = _dt_to_outlook(ev["dtstart"])
+        ed, et = _dt_to_outlook(ev["dtend"])
+        rows.append([ev["summary"], sd, st, ed, et, "Нет", ev["desc"], "", "Да"])
+    # windows-1251 — родная кодировка Outlook Desktop для кириллицы.
+    # Разделитель ; (русская локаль) — Outlook RU по умолчанию ожидает ;
+    with ocsv.open("w", encoding="cp1251", newline="") as f:
+        w = _csv.writer(f, delimiter=";")
+        w.writerows(rows)
+    print(f"  [saved] {ocsv} ({len(CAL_EVENTS)} событий, windows-1251, разделитель ';')")
+    print("  ИМПОРТ В MS OUTLOOK DESKTOP:")
+    print("  1. Файл (Alt+F) → Открыть и экспорт → Импорт/экспорт")
+    print("  2. Импорт из другой программы или файла → Значения, разделённые запятыми (Windows)")
+    print("  3. Выбрать calendar_alpha_outlook.csv → кодировка: Windows (1251) — уже в файле")
+    print("  4. Назначить колонки: Тема→Subject, Дата начала→Start date, Время начала→Start time,")
+    print("     Дата окончания→End date, Время окончания→End time, Описание→Body/Description")
+    print("  Если в Новом Outlook нет меню Файл — открой outlook.office.com в браузере,")
+    print("  там 'Добавить календарь → Загрузить из файла' (.ics с BOM в web-Outlook работает).")
+    return {"outlook_csv": str(ocsv.relative_to(REPO)), "events": len(CAL_EVENTS)}
+
+
 def gen_calendar_ics():
     print(f"\n=== Calendar: .ics с {len(CAL_EVENTS)} событиями (все на рабочих днях) ===")
     out_dir = REPO / "examples"
@@ -647,7 +695,8 @@ def main():
     if "calendar" in only:
         cal_ics = gen_calendar_ics()
         cal_csv = gen_calendar_csv()
-        cal = {"ics": cal_ics, "csv": cal_csv}
+        cal_outlook = gen_calendar_outlook_csv()
+        cal = {"ics": cal_ics, "csv": cal_csv, "outlook_csv": cal_outlook}
 
     out = {"jira_more": jira_more, "jira_map": jira_map, "bitbucket_more": bb,
            "confluence_more": conf, "gmail_more": mail, "calendar": cal if isinstance(cal, dict) else cal}
