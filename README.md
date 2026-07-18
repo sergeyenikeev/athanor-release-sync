@@ -116,7 +116,7 @@ python scripts/run_evaluation.py --engine rule                # корзина +
 | Поручения F1 | ≥ 82% | 100% | ✅ |
 | Полезность сводки | ≥ 4/5 | не замерено в MVP (пилот, независимый оценщик) | 📅 пилот |
 | Принятые черновики | ≥ 60% | 100% (11/11) | ✅ |
-| Время подготовки TO BE | ≤ 3 мин | <1 с end-to-end (5 мс cycle) | ✅ |
+| Время подготовки TO BE | ≤ 3 мин | <1 с end-to-end (3 мс cycle) | ✅ |
 
 5 из 6 целей измерены и достигнуты; полезность сводки — замер пилота (независимый оценщик).
 Подробнее — `docs/testing.md`, `docs/evaluation.md`. Результаты — `results/` (`metrics.json`,
@@ -126,7 +126,7 @@ python scripts/run_evaluation.py --engine rule                # корзина +
 
 | Параметр | AS IS (вручную) | TO BE (с агентом) | Статус |
 |---|---|---|---|
-| Время подготовки к релиз-синку | 15 мин (замер) | <1 с end-to-end (rule-baseline, 5 мс cycle); реальный прогон Ouroboros — $0.4337, 16 rounds | AS IS и TO BE замерены ✅ |
+| Время подготовки к релиз-синку | 15 мин (замер) | <1 с end-to-end (rule-baseline, 3 мс cycle); реальный прогон Ouroboros — $0.4337, 16 rounds | AS IS и TO BE замерены ✅ |
 | Поручения precision / recall / F1 | — (не релевантно: метрика качества агента) | 100% / 100% / 100% (цели ≥85/80/82), корзина TB-01..TB-17 | TO BE — замерено ✅ |
 | Принятые черновики (HITL) | — (не релевантно: метрика агента) | 100% (11/11), цель ≥60% | TO BE — замерено ✅ |
 | Полезность сводки (≥4/5) | — (не релевантно: метрика агента) | не замерено | 📅 пилот (независимый оценщик) |
@@ -389,11 +389,14 @@ Calendar (событие «Релиз-синк · Альфа»); для дете
 в `examples/demo_case_alpha_live/` и прогнан через MCP (файловый бэкенд на live-данных).
 
 ## Демо-видео
-`video/Athanor_Ouroboros_Project_Results_Demo.mp4` (2:20.69, 1920×1080,
+`video/Athanor_Ouroboros_Project_Results_Demo.mp4` (2:20.62, 1920×1080,
 H.264/AAC) — финальное демо-видео (< 3 мин, критерий «ДЕМО-видео» 30%).
 Фрагмент F2 — реальный скринкаст браузерного UI Ouroboros (http://127.0.0.1:8765):
 прогон a5336602 (jetnight-opus, 8 rounds, 5 MCP-вызовов, конфликт Jira↔mail↔PR
-найден, $0, 127с). Артефакт прогона: `results/scratch/ouroboros_demo_e2e_jetnight/`.
+найден, $0, 127с). Фрагмент F3 — реальные скринкасты Cloud UI (Jira Cloud KAN-1
+«Миграция на ППРБ» статус Готово, Confluence Cloud Release Plan, Google Calendar
+событие «Релиз-синк · Альфа»). Артефакты: `results/scratch/ouroboros_demo_e2e_jetnight/`
+(result.json, F2_real_clip.mp4, cloud_jira.mp4, cloud_confluence.mp4, cloud_calendar.mp4).
 Первый прогон dec66d75 (Claude Opus 4.8, $0.43, 16 rounds) — в `results/scratch/ouroboros_demo/`.
 Единственный файл в `video/`; QR-код презентации ведёт на
 `/blob/main/video/Athanor_Ouroboros_Project_Results_Demo.mp4` (живой — HTTP 200).
@@ -419,7 +422,7 @@ python scripts/run_demo.py                 # демо-прогон (examples/dem
 python scripts/run_tests.py                # все тесты (unittest, 90+)
 python scripts/run_evaluation.py --engine rule   # корзина + метрики + эволюция навыка
 python tests/run_basket.py --engine rule --run-id my_rule   # только корзина (TB-01..TB-17); my_rule — ваша метка
-python tests/score.py --run results/runs/eval_20260716T232149 --mirror   # метрики каноничного прогона + артефакты
+python tests/score.py --run results/runs/eval_20260718T164508 --mirror   # метрики каноничного прогона + артефакты
 python -m athanor.cli run --case test-basket/TB-04 --engine rule --print   # один кейс
 python -m athanor.cli demo                                    # демо через CLI
 python -m athanor.cli versions                                # реестр версий навыка
