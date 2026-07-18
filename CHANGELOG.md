@@ -9,10 +9,11 @@
   `openai-compatible::jetnight-pro` (GLM 5.2); лёгкие/review/safety-слоты
   `OUROBOROS_MODEL_LIGHT`/`CONSCIOUSNESS`/`DEEP_SELF_REVIEW`/`REVIEW_MODELS`/
   `SCOPE_REVIEW_MODELS`/`SCOPE_REVIEW_MODEL` — `openai-compatible::jetnight-fast`
-  (GLM 5.2 Fast); `OUROBOROS_MODEL_VISION` — `openai-compatible::jetnight-pro`
-  (мультимодальный слот оставлен на сильной модели); `OUROBOROS_MODEL_FALLBACKS`
-  — `jetnight-pro, jetnight-fast`. Заменено `jetnight-opus`→`jetnight-pro`,
-  `gpt-5.5`→`jetnight-fast`, `opus-visual`→`jetnight-pro`.
+  (GLM 5.2 Fast); `OUROBOROS_MODEL_VISION` — `openai-compatible::opus-visual`
+  (мультимодальный слот; оставлен на opus-visual из исходной конфигурации);
+  `OUROBOROS_MODEL_FALLBACKS` — `jetnight-pro, jetnight-fast`. Заменено
+  `jetnight-opus`→`jetnight-pro`, `gpt-5.5`→`jetnight-fast` (vision `opus-visual`
+  сохранён без изменений).
 - **Документация** (forward-looking): `AGENTS.md`, `.opencode/skills/athanor-contest/SKILL.md`,
   `.opencode/agents/ouroboros-ops.md`, `README.md` (таблица «Ключевые поля
   settings.json»), `out/video/record_ouroboros.py` — приведены к актуальным
@@ -262,8 +263,8 @@
   `BITBUCKET_API_TOKEN`, опц. `BITBUCKET_PR_ISSUE_KEY` (по умолч. `APP-412`).
   (Аутентификация переведена на API tokens — App Passwords удаляются 28.07.2026, см. [1.4.1].)
 - `test-instances/seed_bitbucket.py` — идемпотентный сидинг синтетики «Альфа» в реальный
-  Bitbucket: репо + начальный коммит на `main` + ветка `feature/payment-schema` с отличающимся
-  коммитом + открытый PR «Схема оплат» (summary «PR по `<key>`: миграция схемы оплат»).
+  Bitbucket: репо + начальный коммит на `main` + ветка `feature/pprb-migration` с отличающимся
+  коммитом + открытый PR «Миграция на ППРБ» (summary «PR по `<key>`: миграция на ППРБ»).
   Результат — `results/bitbucket_seeded.json`. Поддержка связки с Jira через
   `BITBUCKET_PR_ISSUE_KEY=<KAN-ключ>`.
 - `tests/unit/test_bitbucket_cloud.py` — 4 mock-теста (без сети/кредов): конвертация
@@ -352,7 +353,7 @@
 ### Добавлено
 - **Confluence в демо-сценарии**: `examples/demo_case_alpha_live/input/confluence.json` —
   страницы «Release Plan · Альфа» (что включено в релиз: APP-412, APP-521, зависимость
-  payment-adapter) и «Decision Log · Альфа». Агент выводит раздел Confluence (· 0.8) в сводке.
+  ППРБ-адаптер) и «Decision Log · Альфа». Агент выводит раздел Confluence (· 0.8) в сводке.
 - **UI-кадры реальных инструментов** в видео (`scenes.py`: `jira_ui`, `confluence_ui`,
   `mail_ui`, `calendar_ui`, `bitbucket_ui`): фрагменты 3–4 показывают реалистичные окна
   Jira/mail/Calendar/Bitbucket/Confluence на реальных данных демо-контура (Альфа).
@@ -371,7 +372,7 @@
 
 ### Результаты
 - 121 тест проходит; sanitize: 246 файлов, 0 находок ПДн/секретов.
-- Confluence в live-сводке: «В релиз включено: APP-412, APP-521. Зависимости: payment-adapter».
+- Confluence в live-сводке: «В релиз включено: APP-412, APP-521. Зависимости: ППРБ-адаптер».
 - Видео 2:20.69, decode 0 ошибок; 8 кадров анимации; UI 5 инструментов.
 
 ## [1.4.0] — 2026-07-16 (task6: реальный Ouroboros v6.64)
@@ -383,7 +384,7 @@
 - Реальный прогон `ouroboros run` (task `094004e0`, **completed**, $0.0187, 11 rounds,
   5 MCP-вызовов): агент вызвал `mcp_calendar_mail__get_events/get_mail`,
   `mcp_tracker_repo__get_issues/get_prs` и сформировал сводку (APP-412 готово, APP-521
-  в работе, PR #128, блокер payment-adapter от SRE).
+  в работе, PR #128, блокер ППРБ-адаптера от SRE).
 - `results/scratch/ouroboros_demo/` — артефакт прогона (`run.log`, `result.json` с
   trace_summary, cost, tool_calls).
 - `out/video/scenes.py::f2_ouroboros` — кадр с реальным выводом Ouroboros в фрагменте 2.
@@ -459,7 +460,7 @@
 ### Результаты
 - 99 тестов проходят; sanitize: 243 файла, 0 находок ПДн/секретов.
 - end-to-end через реальную Jira воспроизводим: конфликт KAN-1 (Jira «Готово» ↔
-  письмо «блокер»), блокер payment-adapter, 2 поручения, HITL, обновление памяти.
+  письмо «блокер»), блокер ППРБ-адаптера, 2 поручения, HITL, обновление памяти.
 - Видео 2:47.91, decode 0 ошибок; в кадрах URL/email замаскированы.
 
 ## [1.1.0] — 2026-07-16 (task6: уровень интеграций + демо-видео)

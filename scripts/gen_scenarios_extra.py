@@ -58,7 +58,7 @@ SEED_ALFA = """# Память релиза · проект «Альфа»
 
 ## Обязательства
 - [ ] SRE: подтвердить готовность стенда предпрода · срок 2026-07-01 · источник OPS-70
-- [x] Разработчик backend: закрыть APP-410 (миграция схемы) · срок 2026-06-27 · источник APP-410
+- [x] Разработчик backend: закрыть APP-410 (миграция на ППРБ) · срок 2026-06-27 · источник APP-410
 """
 
 NEW_SCENARIOS: list[dict] = [
@@ -74,7 +74,7 @@ NEW_SCENARIOS: list[dict] = [
         "calendar": {"events": [EVENT | {"id": "TB-13"}],
                      "release_windows": ["2026-07-10"]},
         "tracker": {"issues": [
-            {"key": "APP-412", "title": "Миграция схемы оплат (alpha-api)", "status": "в работе", "assignee_role": "Разработчик backend"},
+            {"key": "APP-412", "title": "Миграция на ППРБ (alpha-api)", "status": "в работе", "assignee_role": "Разработчик backend"},
         ], "prs": []},
         "mail": {"messages": []},
         "transcript": (
@@ -112,7 +112,7 @@ NEW_SCENARIOS: list[dict] = [
             rerun_with_memory=False),
         "calendar": {"events": [EVENT | {"id": "TB-15"}]},
         "tracker": {"issues": [
-            {"key": "APP-412", "title": "Миграция схемы оплат (alpha-api)", "status": "в работе", "assignee_role": "Разработчик backend"},
+            {"key": "APP-412", "title": "Миграция на ППРБ (alpha-api)", "status": "в работе", "assignee_role": "Разработчик backend"},
         ], "prs": []},
         "mail": {"messages": []},
         "transcript": (
@@ -134,10 +134,10 @@ NEW_SCENARIOS: list[dict] = [
             rerun_with_memory=False),
         "calendar": {"events": [EVENT | {"id": "TB-16"}]},
         "tracker": {"issues": [
-            {"key": "APP-412", "title": "Миграция схемы оплат (alpha-api)", "status": "в работе", "assignee_role": "Разработчик backend"},
+            {"key": "APP-412", "title": "Миграция на ППРБ (alpha-api)", "status": "в работе", "assignee_role": "Разработчик backend"},
         ], "prs": []},
         "mail": {"messages": []},
-        "transcript": "Разработчик backend: я подготовлю план миграции payment-adapter до 05.07\n",
+        "transcript": "Разработчик backend: я подготовлю план миграции ППРБ-адаптера до 05.07\n",
         "seed": None,
     },
     # TB-17 — повторный прогон с памятью: 2 цикла, общая память
@@ -153,11 +153,11 @@ NEW_SCENARIOS: list[dict] = [
         # цикл 2 (основной input)
         "calendar": {"events": [EVENT | {"id": "TB-17"}]},
         "tracker": {"issues": [
-            {"key": "APP-412", "title": "Миграция схемы оплат (alpha-api)", "status": "в работе", "assignee_role": "Разработчик backend"},
-        ], "prs": [{"number": 128, "title": "Схема оплат", "status": "на ревью", "review_days": 2, "issue_key": "APP-412"}]},
+            {"key": "APP-412", "title": "Миграция на ППРБ (alpha-api)", "status": "в работе", "assignee_role": "Разработчик backend"},
+        ], "prs": [{"number": 128, "title": "Миграция на ППРБ", "status": "на ревью", "review_days": 2, "issue_key": "APP-412"}]},
         "mail": {"messages": []},
         "transcript": (
-            "Тимлид: Решение: подключить payment-adapter к notification-service, потому что нужна связка для рассылок\n"
+            "Тимлид: Решение: подключить ППРБ-адаптер к notification-service, потому что нужна связка для рассылок\n"
             "Разработчик backend: я подготовлю release-notes по APP-412 до 03.07\n"
         ),
         "seed": None,
@@ -165,11 +165,11 @@ NEW_SCENARIOS: list[dict] = [
         "cycle1_calendar": {"events": [{**EVENT, "id": "TB-17-c1", "title": "Релиз-синк · Альфа",
             "datetime": "2026-06-26T14:00"}]},
         "cycle1_tracker": {"issues": [
-            {"key": "APP-412", "title": "Миграция схемы оплат (alpha-api)", "status": "открыто", "assignee_role": "Разработчик backend"},
+            {"key": "APP-412", "title": "Миграция на ППРБ (alpha-api)", "status": "открыто", "assignee_role": "Разработчик backend"},
         ], "prs": []},
         "cycle1_transcript": (
             "Тимлид: Решение: релиз ALPHA-2026.07 в стандартное окно 03.07 18:00–20:00, потому что регламент\n"
-            "SRE: я подтвержу деплой payment-adapter до 03.07\n"
+            "SRE: я подтвержу деплой ППРБ-адаптера до 03.07\n"
         ),
     },
 ]

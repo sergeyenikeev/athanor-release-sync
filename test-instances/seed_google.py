@@ -1,6 +1,6 @@
 """Сидинг синтетики «Альфа» в реальный mail (SMTP + пароль приложения).
 
-Отправляет в mail (GOOGLE_ACCOUNT из .env, по умолчанию athanor-demo@gmail.com) письмо-блокер «Блокер по KAN-1: payment-adapter
+Отправляет в mail (GOOGLE_ACCOUNT из .env, по умолчанию athanor-demo@gmail.com) письмо-блокер «Блокер по KAN-1: ППРБ-адаптер
 не в prod» (from SRE, заголовок X-Athanor-Role: SRE) — попадает в Inbox. Идемпотентно:
 при повторном запуске переотправляет (mail не даёт искать перед отправкой; дубли
 фильтруются на чтении по теме). Событие календаря создаётся вручную в Calendar
@@ -32,7 +32,7 @@ def _load_env(path: Path) -> None:
 _load_env(REPO / ".env")
 ACCOUNT = os.environ.get("GOOGLE_ACCOUNT", "")
 PWD = os.environ.get("GOOGLE_APP_PASSWORD", "")
-MAIL_SUBJECT = "Блокер по KAN-1: payment-adapter не в prod"
+MAIL_SUBJECT = "Блокер по KAN-1: ППРБ-адаптер не в prod"
 
 
 def main() -> int:
@@ -47,7 +47,7 @@ def main() -> int:
     msg["Subject"] = MAIL_SUBJECT
     msg["X-Athanor-Role"] = "SRE"
     msg.set_content(
-        "KAN-1: смежный сервис payment-adapter не задеплоен в production, "
+        "KAN-1: смежный сервис ППРБ-адаптер не задеплоен в production, "
         "релизное окно под риском, деплой заблокирован. "
         "(Синтетическое демо-письмо Ouroboros, from SRE.)")
     with smtplib.SMTP("smtp.gmail.com", 587, timeout=20) as s:

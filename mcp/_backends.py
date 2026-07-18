@@ -393,7 +393,7 @@ def gmail_mail() -> list[dict]:
             # только синтетика демо-контура (не личная почта пользователя):
             # маркер — заголовок X-Athanor-Role (все сид-письма его имеют) ИЛИ ключевые
             # слова в теме (для писем без заголовка, напр. импортированных вручную).
-            if not role_hdr and not any(k in subj for k in ("payment-adapter", "KAN-", "Альфа", "Релиз-синк")):
+            if not role_hdr and not any(k in subj for k in ("ППРБ-адаптер", "KAN-", "Альфа", "Релиз-синк")):
                 continue
             role = role_hdr or "SRE"
             out.append({

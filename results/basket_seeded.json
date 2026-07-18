@@ -8,7 +8,7 @@
       {
         "proj": "APP",
         "basket_key": "APP-412",
-        "summary": "Миграция схемы оплат",
+        "summary": "Миграция на ППРБ",
         "status": "в работе",
         "role": "Разработчик backend",
         "jira_key": "APP-1"
@@ -24,7 +24,7 @@
       {
         "proj": "APP",
         "basket_key": "APP-421",
-        "summary": "Миграция схемы возвратов",
+        "summary": "Репликация ППРБ",
         "status": "готово",
         "role": "Разработчик backend",
         "jira_key": "APP-3"
@@ -32,7 +32,7 @@
       {
         "proj": "OPS",
         "basket_key": "OPS-77",
-        "summary": "Деплой смежного сервиса",
+        "summary": "Деплой ППРБ-адаптера",
         "status": "открыто",
         "role": "SRE",
         "jira_key": "OPS-1"
@@ -51,7 +51,7 @@
     "workspace": "athanorproject",
     "repo": "athanor",
     "pr_id": 2,
-    "title": "Схема возвратов",
+    "title": "Репликация ППРБ",
     "issue_key": "APP-3",
     "url": "https://bitbucket.org/athanorproject/athanor/pull-requests/2"
   },
@@ -66,8 +66,8 @@
     {
       "basket_id": "TB-02/12",
       "role": "Разработчик frontend",
-      "subject": "Смежный сервис не задеплоен",
-      "body": "Блокер: смежный сервис оплат не задеплоен, релиз под риском. (Синтетика Ouroboros, from frontend.)",
+      "subject": "ППРБ-адаптер не задеплоен",
+      "body": "Блокер: ППРБ-адаптер не задеплоен, релиз под риском. (Синтетика Ouroboros, from frontend.)",
       "status": "reused"
     },
     {

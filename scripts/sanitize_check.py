@@ -49,7 +49,7 @@ DETECTORS = [
 
 # Разрешённые синтетические маркеры (не ПДн)
 SYNTH_OK = ["Тимлид", "SRE", "Владелец продукта", "Разработчик backend", "Разработчик frontend", "Атакующий",
-            "Альфа", "alpha-web", "alpha-api", "payment-adapter", "notification-service",
+            "Альфа", "alpha-web", "alpha-api", "ППРБ-адаптер", "notification-service",
             "ALPHA-2026.07", "APP-", "OPS-", "PR #"]
 
 

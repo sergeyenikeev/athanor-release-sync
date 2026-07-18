@@ -2,8 +2,8 @@
 """Сидинг реального Bitbucket Cloud: создаёт синтетику «Альфа» в демо-репо.
 
 Идемпотентно: создаёт репо (если нет), начальный коммит на main, ветку
-feature/payment-schema с отличающимся коммитом и открытый PR «Схема оплат»
-(summary «PR по <issue_key>: миграция схемы оплат»). При повторном запуске
+feature/payment-schema с отличающимся коммитом и открытый PR «Миграция на ППРБ»
+(summary «PR по <issue_key>: миграция на ППРБ»). При повторном запуске
 переиспользует существующие репо/ветку/PR.
 
 Запуск: python test-instances/seed_bitbucket.py
@@ -189,9 +189,9 @@ def main():
         else:
             sys.exit(f"[create branch FAILED] HTTP {s2} {body2}")
 
-    # 4) PR «Схема оплат»
-    title = "Схема оплат"
-    summary = f"PR по {issue_key}: миграция схемы оплат"
+    # 4) PR «Миграция на ППРБ»
+    title = "Миграция на ППРБ"
+    summary = f"PR по {issue_key}: миграция на ППРБ"
     s, body = _req("GET", f"{BASE}/repositories/{ws}/{slug}/pullrequests?state=OPEN&pagelen=50", headers)
     existing = None
     if s == 200:

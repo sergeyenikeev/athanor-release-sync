@@ -308,7 +308,7 @@ ouroboros run --workspace athanor-release-sync "Подготовь сводку 
   `get_events`/`get_mail`/`get_issues`/`get_prs`/`get_confluence_pages`;
   3 safety-таймаута восстановлены автоматическим retry) → сводка (Confluence:
   что в релизе; APP-412 Готово, APP-521 к выполнению, PR #128, конфликт
-  Jira↔mail↔Bitbucket, блокер payment-adapter; роли backend/frontend).
+  Jira↔mail↔Bitbucket, блокер ППРБ-адаптера; роли backend/frontend).
 - Артефакт: `results/scratch/ouroboros_demo/` (`run.log`, `result.json`).
 - Кадр с реальным выводом Ouroboros — фрагмент 2 демо-видео.
 
@@ -372,7 +372,7 @@ MCP_BACKEND=live python -m athanor.cli run --case examples/demo_case_alpha_live 
 #   17 сценариев имеют конфликтующие состояния (APP-412 то «в работе», то «готово»),
 #   поэтому в live грузится не per-сценарное состояние, а по одному экземпляру
 #   каждой уникальной задачи/PR/письма. Per-сценарное состояние — файловый контур.
-python test-instances/seed_basket.py            # Jira (APP/OPS + 5 задач) + Bitbucket (PR «Схема возвратов») + Gmail (5 писем)
+python test-instances/seed_basket.py            # Jira (APP/OPS + 5 задач) + Bitbucket (PR «Репликация ППРБ») + Gmail (5 писем)
 
 # расширение до 10+ сущностей в каждой системе (опционально)
 #   10+ встреч/писем/задач/PR/страниц в реальных облаках. Идемпотентно, с retry

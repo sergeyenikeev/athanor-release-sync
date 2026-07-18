@@ -14,8 +14,8 @@ APP-412 в TB-01 «в работе», в TB-03 «готово»; один PR #12
     OPS-77, OPS-78) с лейблом alpha-demo+basket. Ключи назначает Jira (APP-1..,
     OPS-1..) — канонические номера 412/521 в Cloud задать нельзя; маппинг
     сохраняется в results/basket_seeded.json.
-  - Bitbucket: доп-PR «Схема возвратов» (feature/refund-schema -> main,
-    issue_key=APP-<ключ «Схема возвратов»>) в демо-репо. PR #1 «Схема оплат»
+  - Bitbucket: доп-PR «Репликация ППРБ» (feature/refund-schema -> main,
+    issue_key=APP-<ключ «Репликация ППРБ»>) в демо-репо. PR #1 «Миграция на ППРБ»
     уже существует (seed_bitbucket.py).
   - Gmail: 5 уникальных писем корзины (с заголовком X-Athanor-Role). Идемпотентно:
     перед отправкой проверяет IMAP, есть ли уже письмо с такой темой.
@@ -103,13 +103,13 @@ def _req(method, url, headers, body=None, content_type="application/json", timeo
 # в корзине); assignee_role — роль (обезличивание), в Jira assignee не ставится,
 # роль уходит в description.
 JIRA_TASKS = [
-    {"proj": "APP", "basket_key": "APP-412", "summary": "Миграция схемы оплат",
+    {"proj": "APP", "basket_key": "APP-412", "summary": "Миграция на ППРБ",
      "status": "в работе", "role": "Разработчик backend"},
     {"proj": "APP", "basket_key": "APP-521", "summary": "Интеграция с партнёром",
      "status": "готово к релизу", "role": "Разработчик frontend"},
-    {"proj": "APP", "basket_key": "APP-421", "summary": "Миграция схемы возвратов",
+    {"proj": "APP", "basket_key": "APP-421", "summary": "Репликация ППРБ",
      "status": "готово", "role": "Разработчик backend"},
-    {"proj": "OPS", "basket_key": "OPS-77", "summary": "Деплой смежного сервиса",
+    {"proj": "OPS", "basket_key": "OPS-77", "summary": "Деплой ППРБ-адаптера",
      "status": "открыто", "role": "SRE"},
     {"proj": "OPS", "basket_key": "OPS-78", "summary": "Разбор инцидента предпрода",
      "status": "открыто", "role": "SRE"},
@@ -302,13 +302,13 @@ def _bb_branch_sha(ws, slug, headers, name):
     return None
 
 
-def seed_bitbucket(app_refund_key):
-    print("\n=== Bitbucket: доп-PR «Схема возвратов» ===")
+def seed_bitbucket(app_replica_key):
+    print("\n=== Bitbucket: доп-PR «Репликация ППРБ» ===")
     ws, slug, headers = _bb_cfg()
     if not ws:
         print("  [skip] BITBUCKET_WORKSPACE/REPO_SLUG/ creds не заданы")
         return None
-    issue_key = app_refund_key or os.environ.get("BITBUCKET_PR_ISSUE_KEY", "APP-421")
+    issue_key = app_replica_key or os.environ.get("BITBUCKET_PR_ISSUE_KEY", "APP-421")
     print(f"  repo: {ws}/{slug} · issue_key={issue_key}")
 
     main_sha = _bb_branch_sha(ws, slug, headers, "main")
@@ -321,7 +321,7 @@ def seed_bitbucket(app_refund_key):
     else:
         mbody, ct = _bb_multipart(
             [("branch", feat), ("parents", main_sha), ("message", "refund schema migration (demo basket)")],
-            [("demo/refund.txt", "refund.txt", "text/plain", b"refund-schema v2 (demo)\n")],
+            [("demo/pprb_replica.txt", "pprb_replica.txt", "text/plain", b"refund-schema v2 (demo)\n")],
         )
         s, body = _req("POST", f"{BB_BASE}/repositories/{ws}/{slug}/src", headers, mbody, ct)
         if s not in (200, 201):
@@ -329,7 +329,7 @@ def seed_bitbucket(app_refund_key):
             return None
         print(f"  [create branch] {feat} <- main {main_sha[:12]}")
 
-    title = "Схема возвратов"
+    title = "Репликация ППРБ"
     s, body = _req("GET", f"{BB_BASE}/repositories/{ws}/{slug}/pullrequests?state=OPEN&pagelen=50", headers)
     existing = None
     if s == 200:
@@ -344,7 +344,7 @@ def seed_bitbucket(app_refund_key):
         s2, body2 = _req("POST", f"{BB_BASE}/repositories/{ws}/{slug}/pullrequests", headers, {
             "title": title, "source": {"branch": {"name": feat}},
             "destination": {"branch": {"name": "main"}},
-            "summary": {"raw": f"PR по {issue_key}: миграция схемы возвратов (демо корзина Ouroboros, TB-09)"},
+            "summary": {"raw": f"PR по {issue_key}: репликация ППРБ (демо корзина Ouroboros, TB-09)"},
             "close_source_branch": False,
         })
         if s2 not in (200, 201):
@@ -361,8 +361,8 @@ def seed_bitbucket(app_refund_key):
 MAIL_MESSAGES = [
     {"basket_id": "TB-01", "role": "SRE", "subject": "Готовность стенда предпрода",
      "body": "Стенд предпрода готов, деплой в окно 03.07. (Синтетика Ouroboros, from SRE.)"},
-    {"basket_id": "TB-02/12", "role": "Разработчик frontend", "subject": "Смежный сервис не задеплоен",
-     "body": "Блокер: смежный сервис оплат не задеплоен, релиз под риском. (Синтетика Ouroboros, from frontend.)"},
+    {"basket_id": "TB-02/12", "role": "Разработчик frontend", "subject": "ППРБ-адаптер не задеплоен",
+     "body": "Блокер: ППРБ-адаптер не задеплоен, релиз под риском. (Синтетика Ouroboros, from frontend.)"},
     {"basket_id": "TB-03", "role": "SRE", "subject": "Блокер по APP-412",
      "body": "APP-412 не задеплоен на предпрод, заблокирован, деплой сорван. (Синтетика Ouroboros, from SRE.)"},
     {"basket_id": "TB-10/14", "role": "Владелец продукта", "subject": "Уточнить окно заморозки",
@@ -445,10 +445,10 @@ def main():
 
     jira = seed_jira()
 
-    # ключ APP-задачи «Схема возвратов» для summary PR
-    app_refund_key = next((t["jira_key"] for t in jira["tasks"]
+    # ключ APP-задачи «Репликация ППРБ» для summary PR
+    app_replica_key = next((t["jira_key"] for t in jira["tasks"]
                            if t["basket_key"] == "APP-421"), None)
-    bb = seed_bitbucket(app_refund_key)
+    bb = seed_bitbucket(app_replica_key)
 
     mail = seed_gmail()
 

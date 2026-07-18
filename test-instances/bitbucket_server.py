@@ -15,16 +15,16 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 PRS = [
     {
         "id": 128,
-        "title": "Схема оплат",
+        "title": "Миграция на ППРБ",
         "state": "OPEN",
         "created_on": "2026-06-30T10:00:00Z",
         "updated_on": "2026-07-02T09:00:00Z",
         "author": {"nickname": "Разработчик backend", "display_name": "Разработчик backend"},
-        "source": {"branch": {"name": "feature/payment-schema"},
+        "source": {"branch": {"name": "feature/pprb-migration"},
                    "repository": {"name": "alpha", "full_name": "athanor/alpha"}},
         "destination": {"branch": {"name": "main"},
                         "repository": {"name": "alpha", "full_name": "athanor/alpha"}},
-        "summary": {"raw": "PR по APP-412: миграция схемы оплат", "markup": "markdown"},
+        "summary": {"raw": "PR по APP-412: миграция на ППРБ", "markup": "markdown"},
         "comment_count": 2,
     }
 ]

@@ -16,7 +16,7 @@ ISSUES = [
     {
         "key": "APP-412",
         "fields": {
-            "summary": "Миграция схемы оплат",
+            "summary": "Миграция на ППРБ",
             "status": {"name": "готово"},
             "assignee": {"displayName": "Разработчик backend"},
             "project": {"key": "ALPHA", "name": "Альфа"},

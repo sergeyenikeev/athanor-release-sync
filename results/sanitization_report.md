@@ -26,7 +26,7 @@
 - Альфа
 - alpha-web
 - alpha-api
-- payment-adapter
+- ППРБ-адаптер
 - notification-service
 - ALPHA-2026.07
 - APP-

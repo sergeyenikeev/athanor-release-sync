@@ -3,7 +3,7 @@
     {
       "proj": "APP",
       "basket_key": "APP-410",
-      "summary": "Кэш платежей",
+      "summary": "Кэш ППРБ",
       "status": "готово",
       "role": "Разработчик backend",
       "jira_key": "APP-4"
@@ -11,7 +11,7 @@
     {
       "proj": "APP",
       "basket_key": "APP-413",
-      "summary": "Вебхуки оплат",
+      "summary": "Вебхуки ППРБ",
       "status": "в работе",
       "role": "Разработчик backend",
       "jira_key": "APP-5"
@@ -19,7 +19,7 @@
     {
       "proj": "APP",
       "basket_key": "APP-422",
-      "summary": "Реестр возвратов",
+      "summary": "Реестр ППРБ",
       "status": "открыто",
       "role": "Разработчик frontend",
       "jira_key": "APP-6"
@@ -43,7 +43,7 @@
     {
       "proj": "OPS",
       "basket_key": "OPS-79",
-      "summary": "Мониторинг payment-adapter",
+      "summary": "Мониторинг ППРБ-адаптера",
       "status": "в работе",
       "role": "SRE",
       "jira_key": "OPS-4"
@@ -66,23 +66,23 @@
   },
   "bitbucket_more": [
     {
-      "title": "Кэш платежей",
+      "title": "Кэш ППРБ",
       "pr_id": 4,
-      "branch": "feature/payment-cache",
+      "branch": "feature/pprb-cache",
       "issue_key": "APP-410",
       "url": "https://bitbucket.org/athanorproject/athanor/pull-requests/4"
     },
     {
-      "title": "Вебхуки оплат",
+      "title": "Вебхуки ППРБ",
       "pr_id": 3,
-      "branch": "feature/payment-webhooks",
+      "branch": "feature/pprb-webhooks",
       "issue_key": "APP-413",
       "url": "https://bitbucket.org/athanorproject/athanor/pull-requests/3"
     },
     {
-      "title": "Реестр возвратов",
+      "title": "Реестр ППРБ",
       "pr_id": 6,
-      "branch": "feature/refund-registry",
+      "branch": "feature/pprb-registry",
       "issue_key": "APP-422",
       "url": "https://bitbucket.org/athanorproject/athanor/pull-requests/6"
     },
@@ -94,9 +94,9 @@
       "url": "https://bitbucket.org/athanorproject/athanor/pull-requests/5"
     },
     {
-      "title": "Мониторинг payment-adapter",
+      "title": "Мониторинг ППРБ-адаптера",
       "pr_id": 7,
-      "branch": "feature/payment-monitoring",
+      "branch": "feature/pprb-monitoring",
       "issue_key": "OPS-79",
       "url": "https://bitbucket.org/athanorproject/athanor/pull-requests/7"
     },
@@ -115,9 +115,9 @@
       "url": "https://bitbucket.org/athanorproject/athanor/pull-requests/9"
     },
     {
-      "title": "Архитектура платежей v2",
+      "title": "Архитектура ППРБ v2",
       "pr_id": 10,
-      "branch": "docs/payment-arch-v2",
+      "branch": "docs/pprb-arch-v2",
       "issue_key": "APP-1",
       "url": "https://bitbucket.org/athanorproject/athanor/pull-requests/10"
     }
@@ -125,13 +125,13 @@
   "confluence_more": {
     "space": "~701215a97c830dad041c3a280469021649a00",
     "pages": {
-      "RFC · Платежи v2": "1245185",
+      "RFC · ППРБ v2": "1245185",
       "Postmortem · Инцидент 2026-06-30": "1081346",
       "Runbook · Релизы Альфа": "1310722",
       "Changelog · Альфа 2026.07": "1179650",
       "On-call · Альфа": "1245202",
       "Retrospective · Спринт 12": "1179666",
-      "Architecture · Платежи": "1212418",
+      "Architecture · ППРБ": "1212418",
       "Test Plan · Альфа 2026.07": "1081363"
     }
   },
@@ -140,7 +140,7 @@
       "basket_id": "more-1",
       "role": "Разработчик backend",
       "subject": "Release-notes APP-412 готовы",
-      "body": "Release-notes по APP-412 (Миграция схемы оплат) готовы, залил в Confluence. (Синтетика Ouroboros, from backend.)",
+      "body": "Release-notes по APP-412 (Миграция на ППРБ) готовы, залил в Confluence. (Синтетика Ouroboros, from backend.)",
       "status": "sent"
     },
     {
@@ -161,14 +161,14 @@
       "basket_id": "more-4",
       "role": "SRE",
       "subject": "Runbook релизов обновлён",
-      "body": "Runbook релизов Альфа обновлён, добавлен шаг smoke-теста payment-core. (Синтетика Ouroboros, from SRE.)",
+      "body": "Runbook релизов Альфа обновлён, добавлен шаг smoke-теста ППРБ-ядро. (Синтетика Ouroboros, from SRE.)",
       "status": "sent"
     },
     {
       "basket_id": "more-5",
       "role": "Разработчик backend",
-      "subject": "Запрос на ревью PR Кэш платежей",
-      "body": "PR «Кэш платежей» готов к ревью, нужен аппрув до 03.07. (Синтетика Ouroboros, from backend.)",
+      "subject": "Запрос на ревью PR Кэш ППРБ",
+      "body": "PR «Кэш ППРБ» готов к ревью, нужен аппрув до 03.07. (Синтетика Ouroboros, from backend.)",
       "status": "sent"
     },
     {

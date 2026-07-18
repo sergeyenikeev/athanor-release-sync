@@ -2,7 +2,7 @@
   "issues": [
     {
       "key": "APP-412",
-      "title": "Миграция схемы оплат (alpha-api)",
+      "title": "Миграция на ППРБ (alpha-api)",
       "status": "открыто",
       "assignee_role": "Разработчик backend"
     }

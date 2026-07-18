@@ -63,11 +63,11 @@ class TestBitbucketCloud(unittest.TestCase):
 
     def test_cloud_pr_conversion_and_auth(self):
         payload = {"pagelen": 50, "size": 1, "page": 1, "values": [{
-            "id": 128, "title": "Схема оплат", "state": "OPEN",
+            "id": 128, "title": "Миграция на ППРБ", "state": "OPEN",
             "created_on": "2026-06-30T10:00:00Z", "updated_on": "2026-07-02T09:00:00Z",
-            "summary": {"raw": "PR по APP-412: миграция схемы оплат"},
+            "summary": {"raw": "PR по APP-412: миграция на ППРБ"},
             "author": {"nickname": "Разработчик backend"},
-            "source": {"branch": {"name": "feature/payment-schema"}},
+            "source": {"branch": {"name": "feature/pprb-migration"}},
             "destination": {"branch": {"name": "main"}},
         }]}
         captured, orig = self._patch_urlopen(payload)
@@ -78,7 +78,7 @@ class TestBitbucketCloud(unittest.TestCase):
         self.assertEqual(len(prs), 1)
         pr = prs[0]
         self.assertEqual(pr["number"], 128)
-        self.assertEqual(pr["title"], "Схема оплат")
+        self.assertEqual(pr["title"], "Миграция на ППРБ")
         self.assertEqual(pr["status"], "на ревью")
         self.assertEqual(pr["issue_key"], "APP-412")
         self.assertEqual(pr["review_days"], 2)

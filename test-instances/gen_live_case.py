@@ -23,7 +23,7 @@ OUT = REPO / "examples" / "demo_case_alpha_live"
     "id": "DEMO-ALPHA-LIVE",
     "type": "Сквозной демо-сценарий: Jira — реальная Cloud (KAN), остальное — обезличенные выгрузки",
     "checks": ["сводка из нескольких источников", "конфликт Jira ↔ письмо",
-               "блокер payment-adapter", "решение и два поручения", "черновики HITL",
+               "блокер ППРБ-адаптер", "решение и два поручения", "черновики HITL",
                "обновление памяти релиза"],
     "format": "v2", "transcripts_down": False, "seed": True,
 }, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -41,8 +41,8 @@ OUT = REPO / "examples" / "demo_case_alpha_live"
 (OUT / "input" / "mail.json").write_text(json.dumps({
     "messages": [{
         "id": "M1", "from_role": "SRE", "date": "2026-07-02",
-        "subject": f"Блокер по {DONE_KEY}: payment-adapter не в prod",
-        "body": f"{DONE_KEY}: смежный сервис payment-adapter не задеплоен в production, "
+        "subject": f"Блокер по {DONE_KEY}: ППРБ-адаптер не в prod",
+        "body": f"{DONE_KEY}: смежный сервис ППРБ-адаптер не задеплоен в production, "
                 f"релизное окно под риском, деплой заблокирован.",
     }],
 }, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -51,7 +51,7 @@ OUT = REPO / "examples" / "demo_case_alpha_live"
 (OUT / "input" / "tracker.json").write_text(json.dumps({
     "issues": [],  # MCP_BACKEND=atlassian отдаёт реальные KAN-1/KAN-2
     "prs": [{
-        "number": 128, "title": "Схема оплат", "status": "на ревью",
+        "number": 128, "title": "Миграция на ППРБ", "status": "на ревью",
         "review_days": 2, "issue_key": DONE_KEY,
     }],
 }, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -63,14 +63,14 @@ OUT = REPO / "examples" / "demo_case_alpha_live"
         {
             "id": "196612", "title": "Release Plan · Альфа", "space": "ALPHA",
             "excerpt": f"Целевое окно 03.07 18:00–20:00. Code freeze с 02.07 12:00. "
-            f"Зависимость: payment-adapter (владелец SRE), partner-api. Release-notes по {DONE_KEY}.",
+            f"Зависимость: ППРБ-адаптер (владелец SRE), partner-api. Release-notes по {DONE_KEY}.",
             "url": f"http://demo.atlassian.net/wiki/spaces/ALPHA/pages/196612",
             "version": 3, "updated_at": "2026-07-01",
         },
         {
             "id": "196613", "title": "Decision Log · Альфа", "space": "ALPHA",
             "excerpt": f"26.06: согласовано окно 18:00–20:00 (пятница исключена по регламенту). "
-            f"30.06: {DONE_KEY} «Миграция схемы оплат» — принято в релиз 03.07.",
+            f"30.06: {DONE_KEY} «Миграция на ППРБ» — принято в релиз 03.07.",
             "url": f"http://demo.atlassian.net/wiki/spaces/ALPHA/pages/196613",
             "version": 5, "updated_at": "2026-06-30",
         },
@@ -81,7 +81,7 @@ OUT = REPO / "examples" / "demo_case_alpha_live"
 (OUT / "input" / "transcript.txt").write_text(
     "Тимлид: Решение: выкатываем релиз 03.07 в окно 18:00–20:00, потому что регламентное окно\n"
     f"Разработчик backend: я подготовлю release-notes по {DONE_KEY} до 03.07\n"
-    "Тимлид: SRE, подтверди деплой payment-adapter до 03.07\n",
+    "Тимлид: SRE, подтверди деплой ППРБ-адаптера до 03.07\n",
     encoding="utf-8")
 
 # memory_seed — предыдущее обязательство
@@ -91,7 +91,7 @@ OUT = REPO / "examples" / "demo_case_alpha_live"
     "- [2026-06-26] Релиз 03.07 в стандартное окно 18:00–20:00 · причина: пятница исключена по регламенту · источник: синк 26.06 · статус: действует\n\n"
     "## Обязательства\n"
     "- [ ] SRE: подтвердить готовность стенда предпрода · срок 2026-07-01 · источник OPS-70\n"
-    "- [x] Разработчик backend: закрыть APP-410 (миграция схемы) · срок 2026-06-27 · источник APP-410\n",
+    "- [x] Разработчик backend: закрыть APP-410 (миграция на ППРБ) · срок 2026-06-27 · источник APP-410\n",
     encoding="utf-8")
 
 print(f"live-кейс создан: {OUT}")
