@@ -442,7 +442,12 @@ def google_calendar_events() -> list[dict]:
     for _ in range(3):
         try:
             with urllib.request.urlopen(url, timeout=30) as r:
-                text = _ical_unfold(r.read().decode("utf-8", "replace"))
+                raw = r.read()
+            # UTF-8 (utf-8-sig убирает BOM, если есть); fallback на latin-1 для устойчивости.
+            try:
+                text = _ical_unfold(raw.decode("utf-8-sig"))
+            except UnicodeDecodeError:
+                text = _ical_unfold(raw.decode("utf-8", "replace"))
             break
         except Exception as e:  # noqa: BLE001 — сеть до calendar.google.com нестабильна
             last_err = e

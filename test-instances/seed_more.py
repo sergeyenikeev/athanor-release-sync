@@ -485,29 +485,47 @@ CAL_EVENTS = [
 ]
 
 
+def _ics_escape(text: str) -> str:
+    r"""Экранирование TEXT по RFC 5545: \ , ; и переводы строк."""
+    return (text.replace("\\", "\\\\").replace(",", "\\,").replace(";", "\\;")
+            .replace("\n", "\\n"))
+
+
 def gen_calendar_ics():
     print(f"\n=== Calendar: .ics с {len(CAL_EVENTS)} событиями (все на рабочих днях) ===")
     out_dir = REPO / "examples"
     out_dir.mkdir(parents=True, exist_ok=True)
     ics = out_dir / "calendar_alpha_10.ics"
-    lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Athanor//Ouroboros demo//RU",
-             "CALSCALE:GREGORIAN", "METHOD:PUBLISH"]
+    lines = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Athanor//Ouroboros demo//RU",
+        "CALSCALE:GREGORIAN",
+        "METHOD:PUBLISH",
+        "X-WR-CALNAME:Альфа (демо Ouroboros)",
+        "X-WR-TIMEZONE:UTC",
+    ]
     for ev in CAL_EVENTS:
         lines += [
             "BEGIN:VEVENT",
             f"UID:{ev['uid']}",
-            f"DTSTAMP:20260701T000000Z",
+            "DTSTAMP:20260701T000000Z",
             f"DTSTART:{ev['dtstart']}",
             f"DTEND:{ev['dtend']}",
-            f"SUMMARY:{ev['summary']}",
-            f"DESCRIPTION:{ev['desc']}",
+            f"SUMMARY:{_ics_escape(ev['summary'])}",
+            f"DESCRIPTION:{_ics_escape(ev['desc'])}",
             "END:VEVENT",
         ]
     lines.append("END:VCALENDAR")
-    ics.write_text("\r\n".join(lines), encoding="utf-8")
-    print(f"  [saved] {ics} ({len(CAL_EVENTS)} событий)")
+    # UTF-8 with BOM — иначе Google Calendar может читать кириллицу как Latin-1 (абракадабра).
+    # CRLF — стандарт RFC 5545 для .ics.
+    with ics.open("w", encoding="utf-8-sig", newline="") as f:
+        f.write("\r\n".join(lines) + "\r\n")
+    print(f"  [saved] {ics} ({len(CAL_EVENTS)} событий, UTF-8 BOM, CRLF, TEXT escaped)")
     print("  Импорт в Google Calendar: Settings → Import & export → Import calendar →")
     print("  выберите examples/calendar_alpha_10.ics → выберите календарь (athanorproject2026) → Import.")
+    print("  ВАЖНО: UTF-8 BOM обязателен для кириллицы (без BOM Google Calendar читает Latin-1 → абракадабра).")
+    print("  Если ранее импортировали старый .ics (без BOM) — удалите события с абракадаброй перед переимпортом.")
     print("  После импорта события станут live — iCal URL (GOOGLE_ICAL_URL) начнёт их отдавать.")
     return {"ics": str(ics.relative_to(REPO)), "events": len(CAL_EVENTS)}
 
