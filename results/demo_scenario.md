@@ -47,7 +47,7 @@ APP-412 (Jira «Готово» ↔ письмо «блокер») выявляе
 ## Артефакты
 - Прогон: `results/demo/<run_id>/` (`output.md`, `run.json`, `memory_after/`, `outbox/`)
 - Метрики: `results/metrics.json` (17 сценариев, F1 100%)
-- Демо-видео: `video/Athanor_Ouroboros_Project_Results_Demo.mp4` (2:20.62; F2 — реальный скринкаст UI Ouroboros, прогон a5336602, jetnight-opus, 5 MCP-вызовов, конфликт найден; F3 — реальные скринкасты Cloud UI Jira/Confluence/Calendar)
+- Демо-видео: `video/Athanor_Ouroboros_Project_Results_Demo.mp4` (2:20.59; F2 — реальный скринкаст UI Ouroboros, прогон a5336602, jetnight-opus, 5 MCP-вызовов, конфликт найден; F3 — реальные скринкасты Cloud UI Jira/Confluence/Calendar)
 
 Длительность прогона < 3 мин (детерминированный rule-движок, ~1 с на цикл).
-Длительность демо-видео — 2:20.62 (< 3 мин, критерий «ДЕМО-видео» 30%).
+Длительность демо-видео — 2:20.59 (< 3 мин, критерий «ДЕМО-видео» 30%).

@@ -389,7 +389,7 @@ Calendar (событие «Релиз-синк · Альфа»); для дете
 в `examples/demo_case_alpha_live/` и прогнан через MCP (файловый бэкенд на live-данных).
 
 ## Демо-видео
-`video/Athanor_Ouroboros_Project_Results_Demo.mp4` (2:20.62, 1920×1080,
+`video/Athanor_Ouroboros_Project_Results_Demo.mp4` (2:20.59, 1920×1080,
 H.264/AAC) — финальное демо-видео (< 3 мин, критерий «ДЕМО-видео» 30%).
 Фрагмент F2 — реальный скринкаст браузерного UI Ouroboros (http://127.0.0.1:8765):
 прогон a5336602 (jetnight-opus, 8 rounds, 5 MCP-вызовов, конфликт Jira↔mail↔PR
