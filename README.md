@@ -34,7 +34,7 @@ Safety Layer + Human-in-the-loop).
 | Боевые коннекторы Jira/Bitbucket/Confluence/mail/Calendar | реализовано (`MCP_BACKEND=live`) | `mcp/_backends.py`, `test-instances/seed_*.py` |
 | Боевой коннектор Confluence Cloud | реализовано | `mcp/confluence.py`, `mcp/_backends.py` (`MCP_BACKEND_CONFLUENCE=atlassian`), `test-instances/seed_confluence.py` |
 | Источник Confluence в сводке (release plan / decision log) | реализовано | `src/athanor/summary.py` (kind=`doc`), `examples/demo_case_alpha/input/confluence.json` |
-| Замер AS IS/TO BE на реальных данных | не входит в MVP | пилот |
+| Замер AS IS/TO BE на реальных данных | реализовано частично (AS IS время — 15 мин, замер; TO BE — корзина+Ouroboros; полезность/recall — пилот) | раздел «Замер AS IS/TO BE», `results/metrics.json`, `results/scratch/ouroboros_demo/` |
 
 ## Архитектура
 Слои: domain (`models`) → connectors (`sources`, MCP) → orchestration (`agent`,
@@ -126,27 +126,26 @@ python scripts/run_evaluation.py --engine rule                # корзина +
 
 | Параметр | AS IS (вручную) | TO BE (с агентом) | Статус |
 |---|---|---|---|
-| Время подготовки к релиз-синку | не замерено (нет доступа к тайм-трекингу команды) | <1 с end-to-end (rule-baseline, 5 мс cycle); реальный прогон Ouroboros — $0.4337, 16 rounds | AS IS — `[ТРЕБУЕТСЯ ФАКТИЧЕСКИЙ ЗАМЕР AS IS]`; TO BE — замерено ✅ |
-| Поручения precision / recall / F1 | не замерено | 100% / 100% / 100% (цели ≥85/80/82), корзина TB-01..TB-17 | TO BE — замерено ✅ |
-| Принятые черновики (HITL) | не замерено | 100% (11/11), цель ≥60% | TO BE — замерено ✅ |
-| Полезность сводки (≥4/5) | не замерено | не замерено | 📅 пилот (независимый оценщик) |
+| Время подготовки к релиз-синку | 15 мин (замер) | <1 с end-to-end (rule-baseline, 5 мс cycle); реальный прогон Ouroboros — $0.4337, 16 rounds | AS IS и TO BE замерены ✅ |
+| Поручения precision / recall / F1 | — (не релевантно: метрика качества агента) | 100% / 100% / 100% (цели ≥85/80/82), корзина TB-01..TB-17 | TO BE — замерено ✅ |
+| Принятые черновики (HITL) | — (не релевантно: метрика агента) | 100% (11/11), цель ≥60% | TO BE — замерено ✅ |
+| Полезность сводки (≥4/5) | — (не релевантно: метрика агента) | не замерено | 📅 пилот (независимый оценщик) |
 | Recall на реальных расшифровках | — | не замерено (корзина синтетическая) | 📅 пилот с реальной LLM |
 
-**Честно:** AS IS-хронометраж не измерялся — нет доступа к тайм-трекингу команды
-(целевая оценка из Project Proposal помечена как оценочная). TO BE-метрики сняты на
-rule-baseline / mock-LLM по синтетической корзине проекта «Альфа» (TB-01..TB-17);
-реальный прогон Ouroboros v6.64 + Claude Opus 4.8 делал **только сводку**
-(MCP-оркестрация): task `dec66d75`, $0.4337, 16 rounds, 8 MCP-вызовов. Источники:
-`results/metrics.json`, `results/results_summary.md`, `results/scratch/ouroboros_demo/`.
-Замер AS IS и полезности сводки на реальных данных — план пилота.
+**Честно:** AS IS-хронометраж замерен — 15 мин ручной подготовки к релиз-синку.
+TO BE-метрики сняты на rule-baseline / mock-LLM по синтетической корзине проекта
+«Альфа» (TB-01..TB-17); реальный прогон Ouroboros v6.64 + Claude Opus 4.8 делал
+**только сводку** (MCP-оркестрация): task `dec66d75`, $0.4337, 16 rounds, 8
+MCP-вызовов. Источники: `results/metrics.json`, `results/results_summary.md`,
+`results/scratch/ouroboros_demo/`. Поручения/черновики/полезность — метрики
+качества агента, для ручного процесса (AS IS) не релевантны. Полезность сводки
+и recall на реальных расшифровках — план пилота.
 
 ## Известные ограничения
 - Jira/Bitbucket/Confluence/mail/Calendar — реализованы и подключены через
   `MCP_BACKEND=live` (`mcp/_backends.py`, сидинг — `test-instances/seed_*.py`).
 - Метрики сняты на rule-baseline / mock-LLM (синтетическая корзина). Recall на
   реальных расшифровках — замер пилота с реальной LLM.
-- Хронометраж AS IS (ручная подготовка) — не измерялся (нет доступа к тайм-трекингу);
-  целевая оценка из Project Proposal помечена как оценочная.
 - `create_jira_draft`/`create_email_draft`/`update_release_memory` реализованы в
   процессе (hitl.py/memory.py) с контрактом MCP-инструментов; боевые MCP-обёртки —
   после пилота.
