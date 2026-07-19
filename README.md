@@ -389,7 +389,7 @@ Calendar (событие «Релиз-синк · Альфа»); для дете
 в `examples/demo_case_alpha_live/` и прогнан через MCP (файловый бэкенд на live-данных).
 
 ## Демо-видео
-`video/Athanor_Ouroboros_Project_Results_Demo.mp4` (2:20.63, 1920×1080,
+`video/Athanor_Ouroboros_Project_Results_Demo.mp4` (2:20.50, 1920×1080,
 H.264/AAC) — финальное демо-видео (< 3 мин, критерий «ДЕМО-видео» 30%).
 Фрагмент F2 — реальный скринкаст браузерного UI Ouroboros (http://127.0.0.1:8765):
 прогон a5336602 (jetnight-opus, 8 rounds, 5 MCP-вызовов, конфликт Jira↔mail↔PR
@@ -422,7 +422,7 @@ python scripts/run_demo.py                 # демо-прогон (examples/dem
 python scripts/run_tests.py                # все тесты (unittest, 90+)
 python scripts/run_evaluation.py --engine rule   # корзина + метрики + эволюция навыка
 python tests/run_basket.py --engine rule --run-id my_rule   # только корзина (TB-01..TB-17); my_rule — ваша метка
-python tests/score.py --run results/runs/eval_20260718T164508 --mirror   # метрики каноничного прогона + артефакты
+python tests/score.py --run results/runs/eval_20260719T_fixed --mirror   # метрики каноничного прогона + артефакты
 python -m athanor.cli run --case test-basket/TB-04 --engine rule --print   # один кейс
 python -m athanor.cli demo                                    # демо через CLI
 python -m athanor.cli versions                                # реестр версий навыка
