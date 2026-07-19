@@ -37,7 +37,7 @@ python -m unittest discover -s tests -t .   # эквивалент
 ## Метрики
 ```bash
 python tests/run_basket.py --engine rule --run-id my_rule
-python tests/score.py --run results/runs/eval_20260718T164508 --mirror
+python tests/score.py --run results/runs/eval_20260719T_fixed --mirror
 # → metrics.json, metrics.csv, results_summary.md, evaluation_report.html
 ```
 См. `docs/evaluation.md`.

@@ -57,21 +57,27 @@ OUT = REPO / "examples" / "demo_case_alpha_live"
 }, ensure_ascii=False, indent=2), encoding="utf-8")
 
 # confluence — release plan / decision log (файловый fallback; при MCP_BACKEND=live
-# боевые страницы придут из реальной Confluence Cloud через MCP_BACKEND_CONFLUENCE=atlassian)
+# боевые страницы придут из реальной Confluence Cloud через MCP_BACKEND_CONFLUENCE=atlassian).
+# excerpt синхронизирован с test-instances/seed_confluence.py (APP-412 — канон страниц
+# в реальной Cloud); живые Jira-ключи (DONE_KEY=KAN-1) используются в mail/tracker/transcript.
 (OUT / "input" / "confluence.json").write_text(json.dumps({
     "pages": [
         {
             "id": "196612", "title": "Release Plan · Альфа", "space": "ALPHA",
-            "excerpt": f"Целевое окно 03.07 18:00–20:00. Code freeze с 02.07 12:00. "
-            f"Зависимость: ППРБ-адаптер (владелец SRE), partner-api. Release-notes по {DONE_KEY}.",
-            "url": f"http://demo.atlassian.net/wiki/spaces/ALPHA/pages/196612",
+            "excerpt": "Релиз ALPHA-2026.07, окно 03.07 18:00–20:00 МСК, code freeze с "
+            "02.07 12:00. В скоуп: APP-412 «Миграция на ППРБ», APP-521 «Интеграция с "
+            "партнёром». Зависимости: ППРБ-адаптер (владелец SRE), partner-api. "
+            "Release-notes по APP-412 готовит Разработчик backend.",
+            "url": "http://demo.atlassian.net/wiki/spaces/ALPHA/pages/196612",
             "version": 3, "updated_at": "2026-07-01",
         },
         {
             "id": "196613", "title": "Decision Log · Альфа", "space": "ALPHA",
-            "excerpt": f"26.06: согласовано окно 18:00–20:00 (пятница исключена по регламенту). "
-            f"30.06: {DONE_KEY} «Миграция на ППРБ» — принято в релиз 03.07.",
-            "url": f"http://demo.atlassian.net/wiki/spaces/ALPHA/pages/196613",
+            "excerpt": "26.06: согласовано окно 18:00–20:00 (пятница исключена по регламенту). "
+            "30.06: APP-412 «Миграция на ППРБ» — принято в релиз 03.07. 30.06: APP-521 "
+            "«Интеграция с партнёром» — готово к релизу, отслеживать partner-api. 01.07: "
+            "release-notes по APP-412 готовит Разработчик backend.",
+            "url": "http://demo.atlassian.net/wiki/spaces/ALPHA/pages/196613",
             "version": 5, "updated_at": "2026-06-30",
         },
     ],
