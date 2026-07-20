@@ -32,6 +32,9 @@ venv/
 npm-cache/
 node_modules/
 
+# Internal working notes (kept locally, not published)
+CHANGELOG.md
+
 # OS / editor
 .DS_Store
 Thumbs.db

@@ -169,7 +169,7 @@ MCP-вызовов. Источники: `results/metrics.json`, `results/results
 
 ## Структура репозитория
 ```
-README.md  LICENSE  CHANGELOG.md  .env.example  .gitignore  pyproject.toml  Makefile
+README.md  LICENSE  .env.example  .gitignore  pyproject.toml  Makefile
 docs/        architecture, demo, testing, security, mcp, evaluation
 config/      demo.yaml, local.yaml, test.yaml (пресеты env)
 skills/release_sync/   SKILL.md, main.py, prompts/, versions/ (registry.json, SKILL_v1/v2)
