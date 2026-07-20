@@ -2,7 +2,7 @@
   "issues": [
     {
       "key": "APP-412",
-      "title": "Миграция на ППРБ",
+      "title": "Миграция схемы оплат",
       "status": "в работе",
       "assignee_role": "Разработчик backend"
     },
@@ -16,7 +16,7 @@
   "prs": [
     {
       "number": 128,
-      "title": "Миграция на ППРБ",
+      "title": "Схема оплат",
       "status": "на ревью",
       "review_days": 2,
       "issue_key": "APP-412"

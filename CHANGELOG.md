@@ -1,45 +1,5 @@
 ﻿# Changelog
 
-## [1.9.1] — 2026-07-20 (5 независимых оценок: исправления слабых мест)
-
-### Исправлено
-- **Санитизация tracked-файлов**: `results/atlassian_seeded_keys.json`,
-  `results/confluence_seeded.json` — `senikeev.atlassian.net` → `<tenant>.atlassian.net`;
-  `test-instances/rename_to_pprb.py` — `C:\Users\senik\AppData\Local\Temp\opencode`
-  → относительный путь. `scripts/sanitize_check.py` расширен: +каталоги `results/`,
-  `test-instances/` (было 246 файлов → 553), +детекторы Atlassian-tenant и Windows-пути,
-  whitelist `demo.atlassian.net`/`athanor-demo@gmail.com`, regex телефона исправлен
-  (исключены ложные 11-значные JSON-числа). Отчёт: 553 файла, 0 находок.
-- **Экономика сл.9**: `build_results.py` — `1500₽/ч × 5 × 22 = 165 тыс` → `1500₽/ч ×
-  0,25 ч × 5 × 22 ≈ 41 тыс` (согласовано с AS IS 15 мин; 31 тыс Proposal — рамка).
-- **Артефакт de797d3f**: `results/scratch/ouroboros_e2e_video/e2e_task_result.json`
-  скопирован из `out/video/cloud_capture/` — task_id, 40 rounds, tier=solved.
-- **Слайд 5**: нижняя плашка заменена на таблицу 5 боевых прогонов Ouroboros
-  (de797d3f/ceb91e67/10ffd02e/e11fd35c/dec66d75); dec66d75 review=best_effort оговорён.
-- **Слайд 6**: шрифт 11pt → 13pt (MCP-адаптеры, Результат).
-- **Слайд 8**: строка 10/5/2/0 раскрыта (фиксация неполноты / безопасная блокировка),
-  добавлен LLM-mock прогон 17/17.
-- **`src/athanor/llm.py`**: `"stream": False` в body запроса (jet-night router по
-  умолчанию стримит SSE; athanor не парсил).
-
-### Добавлено
-- **Real-LLM прогон корзины**: `results/runs/llm_real_v1/` — `--engine llm` с
-  jetnight-pro, 17 сценариев, **6 success / 10 partial / 1 failed**, решения F1=64%,
-  среднее 5.5 с. Реальные метрики LLM-извлечения с ошибками (LLM нормализует время
-  глаголов: «подготовлю»→«подготовить»). Закрывает замечание QA-оценки «0 failed/partial,
-  корзина не дискриминирует».
-- **LLM-mock прогон корзины**: `results/runs/llm_mock_v1/` — `--engine llm --mock`,
-  17/17, метрики LLM-пути (отдельно от rule-baseline).
-- README: команда real-LLM прогона + caveat rule-baseline + real-LLM метрики.
-- **Слайд 8**: обновлён — rule-baseline 17/17 + real-LLM 6/10/1; card сокращён с 11
-  до 8 элементов (оценка 5 «перегружен»).
-- **Слайд 9**: убран блок «Эволюция навыка» (перенесён в F8 видео и Прил. D) —
-  слайд теперь только про AS IS→TO BE/экономику (оценка 5 «смешение выводов»).
-- **`before_after.csv`**: заполнен реальными данными «до фикса» (TB-13/15/16 S·F1=0.0
-  из `eval_20260718T164508`) — доказывает дискриминацию корзины.
-- **Канонический results_summary.md/metrics.json** восстановлены из
-  `eval_20260719T_fixed` (был перегенерирован для llm_mock).
-
 ## [1.9.0] — 2026-07-20 (боевой e2e через Ouroboros + cloud_capture + 126 тестов)
 
 ### Добавлено

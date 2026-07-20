@@ -1,16 +1,22 @@
 {
   "baseline": "v1",
   "candidate": "v2",
+  "reason": "обратная связь: короче, блокеры сверху",
   "baseline_metrics": {
     "precision": 1.0,
     "recall": 1.0,
-    "f1": 1.0
+    "f1": 1.0,
+    "avg_blocker_position": 2.5
   },
   "candidate_metrics": {
     "precision": 1.0,
     "recall": 1.0,
-    "f1": 1.0
+    "f1": 1.0,
+    "avg_blocker_position": 1.0
   },
   "no_degradation": true,
-  "verdict": "ПРИМЕНИТЬ (нет деградации)"
+  "improvement": {
+    "avg_blocker_position": "2.5 -> 1.0 (блокеры в первой строке сводки)"
+  },
+  "verdict": "применена (без деградации F1; блокеры подняты в начало сводки по обратной связи)"
 }

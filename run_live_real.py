@@ -21,10 +21,6 @@ import threading
 import time
 from pathlib import Path
 
-import codecs
-sys.stdout = codecs.getwriter("utf-8")(sys.stdout.buffer, "replace")
-sys.stderr = codecs.getwriter("utf-8")(sys.stderr.buffer, "replace")
-
 REPO = Path(__file__).resolve().parent
 sys.path.insert(0, str(REPO / "src"))
 sys.path.insert(0, str(REPO / "mcp"))

@@ -16,7 +16,7 @@ from athanor.models import ActionItem
 class TestCliHitl(unittest.TestCase):
     def setUp(self):
         self.out = Path(tempfile.mkdtemp(prefix="cli-hitl-")) / "outbox"
-        a = ActionItem("деплой ППРБ-адаптера", "SRE", "2026-07-18", "OPS-104")
+        a = ActionItem("деплой payment-adapter", "SRE", "2026-07-18", "OPS-104")
         d = make_drafts([a], self.out, "CLI")[0]
         self.draft_path = self.out / f"{d['id']}.json"
 

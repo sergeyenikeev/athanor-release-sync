@@ -55,30 +55,6 @@
       "status": "открыто",
       "role": "SRE",
       "jira_key": "OPS-5"
-    },
-    {
-      "proj": "APP",
-      "basket_key": "APP-440",
-      "summary": "Автотесты ППРБ",
-      "status": "в работе",
-      "role": "QA",
-      "jira_key": "APP-8"
-    },
-    {
-      "proj": "APP",
-      "basket_key": "APP-431",
-      "summary": "Панель мониторинга ППРБ",
-      "status": "к выполнению",
-      "role": "Разработчик frontend",
-      "jira_key": "APP-9"
-    },
-    {
-      "proj": "OPS",
-      "basket_key": "OPS-81",
-      "summary": "Проверка ППРБ-адаптера в staging",
-      "status": "к выполнению",
-      "role": "SRE",
-      "jira_key": "OPS-7"
     }
   ],
   "jira_map": {
