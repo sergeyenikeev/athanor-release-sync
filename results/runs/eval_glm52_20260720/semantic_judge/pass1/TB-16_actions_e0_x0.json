@@ -1,0 +1,28 @@
+{
+  "case_id": "TB-16",
+  "entity": "actions",
+  "expected_index": 0,
+  "extracted_index": 0,
+  "extracted": {
+    "action": "подготовить план миграции ППРБ-адаптера",
+    "owner": "разработчик backend",
+    "due": "2026-07-05",
+    "source": "расшифровка синка 03.07"
+  },
+  "expected": {
+    "action": "подготовлю план миграции ППРБ-адаптера",
+    "owner": "Разработчик backend",
+    "due": "2026-07-05",
+    "source": "расшифровка синка 03.07"
+  },
+  "match": true,
+  "reason": "Действие совпадает по смыслу, владелец совпадает по роли, срок совпадает по дате, источник совпадает.",
+  "judge_model": "openai/gpt-4o-mini",
+  "temperature": 0,
+  "usage": {
+    "prompt_tokens": 537,
+    "completion_tokens": 38
+  },
+  "cost_usd": 0.000103,
+  "ts": "2026-07-20T21:40:12"
+}

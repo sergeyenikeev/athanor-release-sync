@@ -1,0 +1,24 @@
+{
+  "case_id": "TB-07",
+  "entity": "decisions",
+  "expected_index": 0,
+  "extracted_index": 0,
+  "extracted": {
+    "text": "Откладываем релиз с 03.07 на 05.07",
+    "source": "APP-412"
+  },
+  "expected": {
+    "text": "Откладываем релиз с 03.07 на 05.07",
+    "source": "APP-412"
+  },
+  "match": true,
+  "reason": "Действие и источник совпадают по смыслу и идентификатору.",
+  "judge_model": "openai/gpt-4o-mini",
+  "temperature": 0,
+  "usage": {
+    "prompt_tokens": 482,
+    "completion_tokens": 27
+  },
+  "cost_usd": 8.8e-05,
+  "ts": "2026-07-20T21:43:24"
+}

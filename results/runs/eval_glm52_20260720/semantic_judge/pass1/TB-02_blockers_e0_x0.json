@@ -1,0 +1,22 @@
+{
+  "case_id": "TB-02",
+  "entity": "blockers",
+  "expected_index": 0,
+  "extracted_index": 0,
+  "extracted": {
+    "description": "Блокер из письма (Разработчик frontend, 2026-07-02): ППРБ-адаптер не задеплоен"
+  },
+  "expected": {
+    "description": "Блокер из письма (Разработчик frontend, 2026-07-02): ППРБ-адаптер не задеплоен"
+  },
+  "match": true,
+  "reason": "Описание блокера совпадает по смыслу и тексту.",
+  "judge_model": "openai/gpt-4o-mini",
+  "temperature": 0,
+  "usage": {
+    "prompt_tokens": 501,
+    "completion_tokens": 23
+  },
+  "cost_usd": 8.9e-05,
+  "ts": "2026-07-20T21:37:27"
+}

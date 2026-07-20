@@ -1,0 +1,24 @@
+{
+  "case_id": "TB-02",
+  "entity": "decisions",
+  "expected_index": 0,
+  "extracted_index": 0,
+  "extracted": {
+    "text": "Ждём деплой ППРБ-адаптера, потому что без него релиз невозможен",
+    "source": "расшифровка синка 03.07"
+  },
+  "expected": {
+    "text": "ждём деплой ППРБ-адаптера",
+    "source": "расшифровка синка 03.07"
+  },
+  "match": true,
+  "reason": "Действие совпадает по смыслу, владелец и источник также совпадают.",
+  "judge_model": "openai/gpt-4o-mini",
+  "temperature": 0,
+  "usage": {
+    "prompt_tokens": 501,
+    "completion_tokens": 29
+  },
+  "cost_usd": 9.3e-05,
+  "ts": "2026-07-20T21:41:18"
+}

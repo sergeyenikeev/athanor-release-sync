@@ -2,7 +2,7 @@
 
 Одна команда, без внешних зависимостей (unittest из stdlib):
 ```bash
-python scripts/run_tests.py          # все 126 тестов
+python scripts/run_tests.py          # все 131 тест
 python -m unittest discover -s tests -t .   # эквивалент
 ```
 

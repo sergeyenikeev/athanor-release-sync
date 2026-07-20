@@ -1,0 +1,24 @@
+{
+  "case_id": "TB-04",
+  "entity": "decisions",
+  "expected_index": 1,
+  "extracted_index": 0,
+  "extracted": {
+    "text": "выкатываем релиз 03.07 в окно 18:00–20:00",
+    "source": "расшифровка синка 03.07"
+  },
+  "expected": {
+    "text": "блокер по OPS-77 фиксируем, ответственный SRE",
+    "source": "OPS-77"
+  },
+  "match": false,
+  "reason": "разные действия: A говорит о релизе, B о блокере по задаче OPS-77",
+  "judge_model": "openai/gpt-4o-mini",
+  "temperature": 0,
+  "usage": {
+    "prompt_tokens": 492,
+    "completion_tokens": 31
+  },
+  "cost_usd": 9.2e-05,
+  "ts": "2026-07-20T21:43:04"
+}

@@ -1,0 +1,28 @@
+{
+  "case_id": "TB-01",
+  "entity": "actions",
+  "expected_index": 0,
+  "extracted_index": 0,
+  "extracted": {
+    "action": "подготовить release-notes по APP-412",
+    "owner": "разработчик backend",
+    "due": "2026-07-03",
+    "source": "APP-412"
+  },
+  "expected": {
+    "action": "подготовлю release-notes по APP-412",
+    "owner": "Разработчик backend",
+    "due": "2026-07-03",
+    "source": "APP-412"
+  },
+  "match": true,
+  "reason": "Действие совпадает по смыслу (подготовить vs подготовлю), владелец совпадает по роли, срок совпадает по дате, источник совпадает.",
+  "judge_model": "openai/gpt-4o-mini",
+  "temperature": 0,
+  "usage": {
+    "prompt_tokens": 511,
+    "completion_tokens": 45
+  },
+  "cost_usd": 0.000104,
+  "ts": "2026-07-20T21:37:16"
+}

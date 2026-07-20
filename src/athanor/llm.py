@@ -141,10 +141,16 @@ def _parse_json_reply(reply: str) -> dict:
         text = text.strip("`")
         text = text.split("\n", 1)[1] if "\n" in text else text
         text = text.rsplit("```", 1)[0] if "```" in text else text
-    start, end = text.find("{"), text.rfind("}")
-    if start == -1 or end == -1:
+    start = text.find("{")
+    if start == -1:
         raise LlmError(f"LLM вернула не-JSON: {reply[:200]!r}")
-    return json.loads(text[start : end + 1])
+    try:
+        # raw_decode парсит первый валидный объект и игнорирует хвост:
+        # LLM иногда добавляет лишнюю `}` или текст после JSON ({...}} → Extra data)
+        obj, _ = json.JSONDecoder().raw_decode(text[start:])
+    except json.JSONDecodeError as e:
+        raise LlmError(f"LLM вернула не-JSON: {reply[:200]!r}") from e
+    return obj
 
 
 def extract_llm(

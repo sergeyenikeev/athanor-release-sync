@@ -1,0 +1,24 @@
+{
+  "case_id": "TB-13",
+  "entity": "decisions",
+  "expected_index": 0,
+  "extracted_index": 0,
+  "extracted": {
+    "text": "выкатывать notification-service в окно 10.07",
+    "source": "расшифровка синка 03.07"
+  },
+  "expected": {
+    "text": "выкатывать notification-service в окно 10.07",
+    "source": "расшифровка синка 03.07"
+  },
+  "match": true,
+  "reason": "Действие и срок совпадают по смыслу и дате, источники идентичны.",
+  "judge_model": "openai/gpt-4o-mini",
+  "temperature": 0,
+  "usage": {
+    "prompt_tokens": 490,
+    "completion_tokens": 30
+  },
+  "cost_usd": 9.2e-05,
+  "ts": "2026-07-20T21:44:01"
+}

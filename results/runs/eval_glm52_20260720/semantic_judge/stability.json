@@ -1,0 +1,13 @@
+{
+  "run_id": "eval_glm52_20260720",
+  "passes": [
+    "pass1",
+    "pass2"
+  ],
+  "pairs_total": 40,
+  "verdicts_agree": 40,
+  "verdicts_differ": 0,
+  "diffs": [],
+  "stable": true,
+  "generated_at": "2026-07-20T21:44:32"
+}

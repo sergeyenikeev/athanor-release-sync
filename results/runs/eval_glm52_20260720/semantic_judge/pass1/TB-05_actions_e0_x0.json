@@ -1,0 +1,28 @@
+{
+  "case_id": "TB-05",
+  "entity": "actions",
+  "expected_index": 0,
+  "extracted_index": 0,
+  "extracted": {
+    "action": "подготовить отчёт по инциденту OPS-78",
+    "owner": "SRE",
+    "due": "не указан",
+    "source": "OPS-78"
+  },
+  "expected": {
+    "action": "подготовь отчёт по инциденту OPS-78",
+    "owner": "SRE",
+    "due": "не указан",
+    "source": "OPS-78"
+  },
+  "match": true,
+  "reason": "Действие совпадает по смыслу (подготовить vs подготовь), владелец и срок совпадают, источник также совпадает.",
+  "judge_model": "openai/gpt-4o-mini",
+  "temperature": 0,
+  "usage": {
+    "prompt_tokens": 505,
+    "completion_tokens": 40
+  },
+  "cost_usd": 0.0001,
+  "ts": "2026-07-20T21:38:55"
+}

@@ -1,0 +1,28 @@
+{
+  "case_id": "TB-04",
+  "entity": "actions",
+  "expected_index": 0,
+  "extracted_index": 3,
+  "extracted": {
+    "action": "обновить runbook по инциденту",
+    "owner": "не определён",
+    "due": "не указан",
+    "source": "расшифровка синка 03.07"
+  },
+  "expected": {
+    "action": "подготовлю отчёт по инциденту APP-412",
+    "owner": "Разработчик backend",
+    "due": "2026-07-03",
+    "source": "APP-412"
+  },
+  "match": false,
+  "reason": "разные действия: обновить runbook и подготовить отчёт — это разные задачи",
+  "judge_model": "openai/gpt-4o-mini",
+  "temperature": 0,
+  "usage": {
+    "prompt_tokens": 517,
+    "completion_tokens": 27
+  },
+  "cost_usd": 9.4e-05,
+  "ts": "2026-07-20T21:38:07"
+}

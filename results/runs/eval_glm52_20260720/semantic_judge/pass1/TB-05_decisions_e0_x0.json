@@ -1,0 +1,24 @@
+{
+  "case_id": "TB-05",
+  "entity": "decisions",
+  "expected_index": 0,
+  "extracted_index": 0,
+  "extracted": {
+    "text": "провести разбор инцидента OPS-78",
+    "source": "OPS-78"
+  },
+  "expected": {
+    "text": "провести разбор инцидента OPS-78",
+    "source": "OPS-78"
+  },
+  "match": true,
+  "reason": "Действие и источник совпадают по смыслу и идентификатору.",
+  "judge_model": "openai/gpt-4o-mini",
+  "temperature": 0,
+  "usage": {
+    "prompt_tokens": 472,
+    "completion_tokens": 27
+  },
+  "cost_usd": 8.7e-05,
+  "ts": "2026-07-20T21:38:58"
+}

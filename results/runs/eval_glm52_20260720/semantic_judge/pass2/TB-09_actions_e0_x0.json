@@ -1,0 +1,28 @@
+{
+  "case_id": "TB-09",
+  "entity": "actions",
+  "expected_index": 0,
+  "extracted_index": 0,
+  "extracted": {
+    "action": "проверь APP-412",
+    "owner": "Разработчик backend",
+    "due": "2026-07-03",
+    "source": "APP-412"
+  },
+  "expected": {
+    "action": "проверь APP-412",
+    "owner": "Разработчик backend",
+    "due": "2026-07-03",
+    "source": "APP-412"
+  },
+  "match": true,
+  "reason": "Все поля совпадают по смыслу и значению.",
+  "judge_model": "openai/gpt-4o-mini",
+  "temperature": 0,
+  "usage": {
+    "prompt_tokens": 503,
+    "completion_tokens": 21
+  },
+  "cost_usd": 8.8e-05,
+  "ts": "2026-07-20T21:43:35"
+}

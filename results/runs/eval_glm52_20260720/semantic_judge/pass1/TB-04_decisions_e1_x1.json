@@ -1,0 +1,24 @@
+{
+  "case_id": "TB-04",
+  "entity": "decisions",
+  "expected_index": 1,
+  "extracted_index": 1,
+  "extracted": {
+    "text": "блокер по OPS-77 фиксируем, ответственный SRE",
+    "source": "OPS-77"
+  },
+  "expected": {
+    "text": "блокер по OPS-77 фиксируем, ответственный SRE",
+    "source": "OPS-77"
+  },
+  "match": true,
+  "reason": "Текст и источник совпадают полностью, что указывает на один и тот же факт.",
+  "judge_model": "openai/gpt-4o-mini",
+  "temperature": 0,
+  "usage": {
+    "prompt_tokens": 478,
+    "completion_tokens": 28
+  },
+  "cost_usd": 8.8e-05,
+  "ts": "2026-07-20T21:38:51"
+}

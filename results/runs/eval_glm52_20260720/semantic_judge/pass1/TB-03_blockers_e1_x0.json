@@ -1,0 +1,22 @@
+{
+  "case_id": "TB-03",
+  "entity": "blockers",
+  "expected_index": 1,
+  "extracted_index": 0,
+  "extracted": {
+    "description": "Блокер из письма (SRE, 2026-07-02): Блокер по APP-412"
+  },
+  "expected": {
+    "description": "⚠ КОНФЛИКТ по APP-412: Jira — «готово» ↔ письмо 2026-07-02 — «блокер». Приоритет источников: Git/Jira > переписка; требуется решение человека"
+  },
+  "match": false,
+  "reason": "Разные источники: A ссылается на письмо, B на конфликт между Jira и письмом.",
+  "judge_model": "openai/gpt-4o-mini",
+  "temperature": 0,
+  "usage": {
+    "prompt_tokens": 511,
+    "completion_tokens": 32
+  },
+  "cost_usd": 9.6e-05,
+  "ts": "2026-07-20T21:37:44"
+}

@@ -1,0 +1,28 @@
+{
+  "case_id": "TB-04",
+  "entity": "actions",
+  "expected_index": 0,
+  "extracted_index": 1,
+  "extracted": {
+    "action": "подтвердить деплой ППРБ-адаптера",
+    "owner": "SRE",
+    "due": "2026-07-03",
+    "source": "расшифровка синка 03.07"
+  },
+  "expected": {
+    "action": "подготовлю отчёт по инциденту APP-412",
+    "owner": "Разработчик backend",
+    "due": "2026-07-03",
+    "source": "APP-412"
+  },
+  "match": false,
+  "reason": "разные действия и разные источники",
+  "judge_model": "openai/gpt-4o-mini",
+  "temperature": 0,
+  "usage": {
+    "prompt_tokens": 524,
+    "completion_tokens": 17
+  },
+  "cost_usd": 8.9e-05,
+  "ts": "2026-07-20T21:41:56"
+}

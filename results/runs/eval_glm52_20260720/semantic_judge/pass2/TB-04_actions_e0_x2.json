@@ -1,0 +1,28 @@
+{
+  "case_id": "TB-04",
+  "entity": "actions",
+  "expected_index": 0,
+  "extracted_index": 2,
+  "extracted": {
+    "action": "зафиксировать блокер по OPS-77",
+    "owner": "SRE",
+    "due": "не указан",
+    "source": "OPS-77"
+  },
+  "expected": {
+    "action": "подготовлю отчёт по инциденту APP-412",
+    "owner": "Разработчик backend",
+    "due": "2026-07-03",
+    "source": "APP-412"
+  },
+  "match": false,
+  "reason": "разные действия и источники, разные задачи",
+  "judge_model": "openai/gpt-4o-mini",
+  "temperature": 0,
+  "usage": {
+    "prompt_tokens": 507,
+    "completion_tokens": 19
+  },
+  "cost_usd": 8.7e-05,
+  "ts": "2026-07-20T21:42:02"
+}

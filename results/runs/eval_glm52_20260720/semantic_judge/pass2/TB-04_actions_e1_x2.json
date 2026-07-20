@@ -1,0 +1,28 @@
+{
+  "case_id": "TB-04",
+  "entity": "actions",
+  "expected_index": 1,
+  "extracted_index": 2,
+  "extracted": {
+    "action": "зафиксировать блокер по OPS-77",
+    "owner": "SRE",
+    "due": "не указан",
+    "source": "OPS-77"
+  },
+  "expected": {
+    "action": "подтверди деплой ППРБ-адаптера",
+    "owner": "SRE",
+    "due": "2026-07-03",
+    "source": "расшифровка синка 03.07"
+  },
+  "match": false,
+  "reason": "разные действия и разные источники",
+  "judge_model": "openai/gpt-4o-mini",
+  "temperature": 0,
+  "usage": {
+    "prompt_tokens": 514,
+    "completion_tokens": 17
+  },
+  "cost_usd": 8.7e-05,
+  "ts": "2026-07-20T21:42:23"
+}

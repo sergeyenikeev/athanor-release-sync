@@ -1,0 +1,28 @@
+{
+  "case_id": "TB-04",
+  "entity": "actions",
+  "expected_index": 2,
+  "extracted_index": 2,
+  "extracted": {
+    "action": "зафиксировать блокер по OPS-77",
+    "owner": "SRE",
+    "due": "не указан",
+    "source": "OPS-77"
+  },
+  "expected": {
+    "action": "обновить runbook по инциденту",
+    "owner": "не определён",
+    "due": "не указан",
+    "source": "расшифровка синка 03.07"
+  },
+  "match": false,
+  "reason": "разные действия: A говорит о блокере по OPS-77, B — об обновлении runbook по инциденту",
+  "judge_model": "openai/gpt-4o-mini",
+  "temperature": 0,
+  "usage": {
+    "prompt_tokens": 507,
+    "completion_tokens": 36
+  },
+  "cost_usd": 9.8e-05,
+  "ts": "2026-07-20T21:42:47"
+}
