@@ -16,6 +16,17 @@ results/scratch/*
 # ИСКЛЮЧЕНИЕ: скринкаст-прогон a5336602 (jetnight-opus, 5 MCP-вызовов, конфликт
 # найден) — F2 демо-видео собрано из реального скринкаста UI Ouroboros (Playwright).
 !results/scratch/ouroboros_demo_e2e_jetnight/
+# ИСКЛЮЧЕНИЕ: пруфы боевых e2e-прогонов через Ouroboros v6.64.3 (README, docs/,
+# CHANGELOG 1.9.0 ссылаются на них — критерий «ГигаАгент» проверяем по этим файлам):
+# de797d3f (run+HITL), ceb91e67 (эволюция), 10ffd02e (edit+comment), e11fd35c (--via-mcp).
+!results/scratch/ouroboros_hitl_e2e/
+!results/scratch/ouroboros_evolution/
+!results/scratch/ouroboros_edit_comment/
+!results/scratch/ouroboros_mcp_hitl/
+!results/scratch/OUROBOROS_RUNS_SUMMARY.md
+# ... включая их outbox/ (статусы HITL-черновиков — часть пруфа):
+!results/scratch/ouroboros_hitl_e2e/outbox/
+!results/scratch/ouroboros_mcp_hitl/outbox/
 *.local.log
 
 # Python

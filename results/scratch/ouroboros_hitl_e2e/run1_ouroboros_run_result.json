@@ -1,0 +1,3301 @@
+{
+  "parent_task_id": null,
+  "root_task_id": "0a635a42",
+  "session_id": "a1bca826ac2a4e5785357d4363260fdc",
+  "actor_id": "cli",
+  "delegation_role": "root",
+  "project_id": "athanor-release-sync",
+  "description": "Запусти навык release_sync на кейсе test-basket/TB-04. Выполни ровно эту команду в workspace:",
+  "context": "",
+  "expected_output": "",
+  "constraints": "",
+  "allowed_resources": {},
+  "deadline_at": "2026-07-19T21:02:44.542290Z",
+  "task_contract": {
+    "schema_version": 1,
+    "status": "draft",
+    "source": "host_draft",
+    "task_type": "task",
+    "objective": "Запусти навык release_sync на кейсе test-basket/TB-04. Выполни ровно эту команду в workspace:",
+    "expected_output": "",
+    "constraints": "",
+    "success_criteria": [],
+    "acceptance_claims": [],
+    "allowed_resources": {},
+    "resource_policy": {},
+    "disabled_tools": [],
+    "deadline_at": "2026-07-19T21:02:44.542290Z",
+    "context_requires_self_body_docs": false,
+    "workspace": {
+      "root": "D:\\d\\ouroboros\\athanor-release-sync",
+      "mode": "external"
+    },
+    "lineage": {
+      "parent_task_id": "",
+      "root_task_id": "0a635a42",
+      "session_id": "a1bca826ac2a4e5785357d4363260fdc",
+      "delegation_role": "root"
+    },
+    "delegation_budget": {
+      "may_delegate": true,
+      "may_mutate": false,
+      "may_fan_out": true,
+      "depth_remaining": null,
+      "max_children": null,
+      "intent_note": ""
+    },
+    "budget_profile": {
+      "improvement_policy": "fixed",
+      "max_improvement_passes": null,
+      "reserve_finalization_pct": null,
+      "stall_rounds_threshold": null,
+      "cost_hard_stop_pct": null
+    },
+    "answer_protocol": ""
+  },
+  "workspace_root": "D:\\d\\ouroboros\\athanor-release-sync",
+  "workspace_mode": "external",
+  "memory_mode": "forked",
+  "child_drive_root": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data",
+  "budget_drive_root": "C:\\Users\\senik\\Ouroboros\\data",
+  "artifacts": [
+    {
+      "kind": "workspace_preflight",
+      "name": "workspace_preflight.json",
+      "path": "C:\\Users\\senik\\Ouroboros\\data\\task_results\\artifacts\\0a635a42\\workspace_preflight.json",
+      "size": 3044,
+      "sha256": "10067b34f9c013ccd7c8e1e2e674ba8c15379237a72efd9aff7f056c1cf1baa1",
+      "workspace_root": "D:\\d\\ouroboros\\athanor-release-sync",
+      "status": "ready",
+      "errors": []
+    },
+    {
+      "kind": "workspace_patch",
+      "name": "workspace.patch",
+      "path": "C:\\Users\\senik\\Ouroboros\\data\\task_results\\artifacts\\0a635a42\\workspace.patch",
+      "size": 19295250,
+      "sha256": "0e28aaca19685d8cb1e67e3d89b5954c743146837694baaddb0a7c6c9d0dedbf",
+      "workspace_root": "D:\\d\\ouroboros\\athanor-release-sync",
+      "status": "ready",
+      "errors": []
+    },
+    {
+      "kind": "workspace_patch_manifest",
+      "name": "workspace_patch.json",
+      "path": "C:\\Users\\senik\\Ouroboros\\data\\task_results\\artifacts\\0a635a42\\workspace_patch.json",
+      "size": 7606,
+      "workspace_root": "D:\\d\\ouroboros\\athanor-release-sync",
+      "sha256": "be05a55af5d9cd9be57cf9ea7f7735cc6caa9507242c0dd1e994c6393f3cdbdc",
+      "status": "ready",
+      "errors": []
+    },
+    {
+      "kind": "memory_export",
+      "name": "memory_export.json",
+      "path": "C:\\Users\\senik\\Ouroboros\\data\\task_results\\artifacts\\0a635a42\\memory_export.json",
+      "size": 1997,
+      "memory_mode": "forked",
+      "sha256": "c173d594e03191cb00d8d57addea803f800bfd51d139969f8b07572dbeb58264",
+      "status": "ready",
+      "errors": []
+    },
+    {
+      "kind": "task_artifact",
+      "name": "verification_receipts.jsonl",
+      "path": "C:\\Users\\senik\\Ouroboros\\data\\task_results\\artifacts\\0a635a42\\verification_receipts.jsonl",
+      "size": 1243,
+      "sha256": "612e8ba11a90e13f2fa9e1e2f081b288e1eeae14ec5b85e9a81cbec62cee3e22",
+      "status": "ready",
+      "errors": [],
+      "source_path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\task_results\\artifacts\\0a635a42\\verification_receipts.jsonl"
+    },
+    {
+      "kind": "task_artifact",
+      "name": "verification_receipts_723bb8df.jsonl",
+      "path": "C:\\Users\\senik\\Ouroboros\\data\\task_results\\artifacts\\0a635a42\\verification_receipts_723bb8df.jsonl",
+      "size": 1243,
+      "sha256": "612e8ba11a90e13f2fa9e1e2f081b288e1eeae14ec5b85e9a81cbec62cee3e22",
+      "status": "ready",
+      "errors": []
+    }
+  ],
+  "artifact_status": "ready_with_changes",
+  "metadata": {
+    "source": "cli",
+    "deadline_at": "2026-07-19T21:02:44.542290Z",
+    "session_id": "a1bca826ac2a4e5785357d4363260fdc",
+    "actor_id": "cli",
+    "delegation_role": "root",
+    "task_id": "0a635a42",
+    "parent_task_id": "",
+    "root_task_id": "0a635a42",
+    "workspace_root": "D:\\d\\ouroboros\\athanor-release-sync",
+    "workspace_preflight": {
+      "schema_version": 1,
+      "workspace_root": "D:\\d\\ouroboros\\athanor-release-sync",
+      "git": {
+        "head": "0309823cc378535d414d7cefb627f1b1ada0586a",
+        "branch": "main",
+        "dirty": true,
+        "status_count": 18
+      },
+      "manifests": [
+        {
+          "path": "pyproject.toml",
+          "type": "python",
+          "scripts": []
+        },
+        {
+          "path": "requirements.txt",
+          "type": "python",
+          "scripts": []
+        },
+        {
+          "path": "Makefile",
+          "type": "make",
+          "scripts": [
+            "clean",
+            "demo",
+            "evaluation",
+            "mcp-smoke",
+            "run-basket",
+            "run-basket-llm",
+            "score",
+            "serve",
+            "test"
+          ]
+        }
+      ],
+      "tools": {
+        "available": [
+          "git",
+          "node",
+          "npm",
+          "npx",
+          "pip",
+          "pip3",
+          "pytest",
+          "python",
+          "uv"
+        ],
+        "missing": [
+          "go",
+          "make",
+          "pnpm",
+          "python3",
+          "winget",
+          "yarn"
+        ]
+      }
+    },
+    "task_contract": {
+      "schema_version": 1,
+      "status": "draft",
+      "source": "host_draft",
+      "task_type": "task",
+      "objective": "Запусти навык release_sync на кейсе test-basket/TB-04. Выполни ровно эту команду в workspace:",
+      "expected_output": "",
+      "constraints": "",
+      "success_criteria": [],
+      "acceptance_claims": [],
+      "allowed_resources": {},
+      "resource_policy": {},
+      "disabled_tools": [],
+      "deadline_at": "2026-07-19T21:02:44.542290Z",
+      "context_requires_self_body_docs": false,
+      "workspace": {
+        "root": "D:\\d\\ouroboros\\athanor-release-sync",
+        "mode": "external"
+      },
+      "lineage": {
+        "parent_task_id": "",
+        "root_task_id": "0a635a42",
+        "session_id": "a1bca826ac2a4e5785357d4363260fdc",
+        "delegation_role": "root"
+      },
+      "delegation_budget": {
+        "may_delegate": true,
+        "may_mutate": false,
+        "may_fan_out": true,
+        "depth_remaining": null,
+        "max_children": null,
+        "intent_note": ""
+      },
+      "budget_profile": {
+        "improvement_policy": "fixed",
+        "max_improvement_passes": null,
+        "reserve_finalization_pct": null,
+        "stall_rounds_threshold": null,
+        "cost_hard_stop_pct": null
+      },
+      "answer_protocol": ""
+    },
+    "child_drive_root": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data",
+    "budget_drive_root": "C:\\Users\\senik\\Ouroboros\\data"
+  },
+  "result": "The host-attested verification PASS receipt is recorded. The `release_sync` skill has been successfully run on case `test-basket/TB-04`, and its output matches the locked gold `expected/` exactly.\n\n## Final summary\n\n**Command run** (the skill's canonical entry point, per `skills/release_sync/main.py`):\n```\npython skills/release_sync/main.py run --case test-basket/TB-04 --engine rule --print\n```\nThe skill's `main.py` resolves `src/athanor` from its own checkout location and dispatches to `athanor.cli` → `athanor.agent.run_case`, which loads `test-basket/TB-04/input/` (calendar, tracker, transcript; mail empty/optional) and runs the full pipeline: extract decisions/actions → build summary → draft HITL outbox → update release memory.\n\n**What TB-04 tests** (per `README.md`/`metadata.yaml`): deep extraction from a transcript — 2 decisions, 3 actions (one addressed, one self-commitment, one unaddressed/no-owner), and 2 distractor ideas that must be ignored.\n\n**Skill output** (clean UTF-8 in `results/scratch/TB-04/run.json`; the console print was mojibake'd only because the Windows console codepage is cp866 — the data itself is correct, as the structured JSON and the independent scorer both confirm):\n\n- **Decisions (2/2):**\n  1. «выкатываем релиз 03.07 в окно 18:00–20:00» · reason: регламентное окно · source: расшифровка синка 03.07\n  2. «блокер по OPS-77 фиксируем, ответственный SRE» · source: OPS-77\n- **Actions (3/3):**\n  1. «подготовлю отчёт по инциденту APP-412» → Разработчик backend · due 2026-07-03 · source APP-412 *(addressed)*\n  2. «подтверди деплой ППРБ-адаптера» → SRE · due 2026-07-03 · source расшифровка синка 03.07 *(self-commitment)*\n  3. «обновить runbook по инциденту» → не определён · due не указан · source расшифровка синка 03.07 *(unaddressed — owner/due correctly left as \"не определён\"/\"не указан\" per SKILL.md)*\n- **Distractors ignored:** «идея — может быть стоит перенести на вечер…» and «предлагаю подумать про автотесты на потом» were correctly NOT extracted as decisions or actions (precision 1.0, no false positives).\n- **Summary:** APP-412 «Миграция на ППРБ» — в работе (исп.: Разработчик backend) · Jira APP-412 · 0.9\n- **HITL:** 3 mail drafts written to `outbox/` (TB-04-D01..D03), all in `awaiting_approval` — no auto-send (safety contract honored).\n- **Memory updates:** 5 entries (2 decisions + 3 obligations) written to the release memory, matching `expected/flags.json` exactly.\n\n**Independent verification** (project's own scorer, `python -m evaluation run --scenario TB-04 --engine rule`, comparing skill output to the locked gold `expected/`):\n- Decisions: TP=2, FP=0, FN=0 → P/R/F1 = **1.00/1.00/1.00**\n- Actions: TP=3, FP=0, FN=0 → P/R/F1 = **1.00/1.00/1.00**\n- Summary: TP=1, FP=0, FN=0 → F1 = **1.00**\n- owner_coverage = 1.0 · due_coverage = 1.0 · evidence_coverage = 1.0\n- **status = success**\n\nA host-attested receipt was recorded (`verify_and_record` PASS, exit 0, expected line matched). Artifacts: `results/scratch/TB-04/output.md`, `results/scratch/TB-04/run.json`, and the scorer's `results/runs/verify_tb04/TB-04/metrics.json`.",
+  "task_id": "0a635a42",
+  "status": "completed",
+  "ts": "2026-07-19T20:56:20.965415+00:00",
+  "updated_at": "2026-07-19T20:56:20.965415+00:00",
+  "root_phase_checkpoint": {
+    "phase": "task_acceptance",
+    "status": "pass",
+    "pass_index": 0,
+    "post_task_synthesis": "pending_once"
+  },
+  "cost_final": false,
+  "cost_with_children_partial": true,
+  "cost_accounting_status": "available",
+  "cost_usd": 0.0,
+  "total_rounds": 29,
+  "prompt_tokens": 648521,
+  "completion_tokens": 8168,
+  "reserved_usd": 0.0,
+  "unresolved_upper_bound_usd": 0.0,
+  "unknown_unmetered": 29,
+  "ledger_integrity_degraded": false,
+  "cost_usd_with_children": 0.0,
+  "chat_id": 0,
+  "role": null,
+  "objective": "Запусти навык release_sync на кейсе test-basket/TB-04. Выполни ровно эту команду в workspace:",
+  "drive_root": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data",
+  "task_constraint": null,
+  "model_lane": null,
+  "requested_model_lane": null,
+  "effective_model_lane": null,
+  "model": null,
+  "use_local_model": null,
+  "task_group_id": null,
+  "task_group": null,
+  "subagent_envelope": {},
+  "reason_code": "final_message",
+  "outcome_axes": {
+    "schema_version": 1,
+    "lifecycle": {
+      "status": "completed"
+    },
+    "execution": {
+      "status": "ok",
+      "reason_code": "final_message",
+      "failure": null,
+      "recoveries": [],
+      "cosmetic_tool_errors": [],
+      "ignored_tool_errors": [],
+      "policy_denials": [
+        {
+          "tool": "list_files",
+          "status": "blocked",
+          "exit_code": null,
+          "signal": null,
+          "result": "⚠️ TOOL_ACCESS_BLOCKED: profile=external_workspace_task cannot list root=skill_payload"
+        }
+      ]
+    },
+    "artifacts": {
+      "status": "ready_with_changes"
+    },
+    "objective": {
+      "status": "pass",
+      "source": "task_acceptance_review",
+      "review_status": "pass",
+      "outcome_tier": "solved"
+    },
+    "review": {
+      "status": "pass",
+      "trigger": "auto_nondirect",
+      "eligibility": "eligible",
+      "run_count": 1,
+      "aggregate_signals": [
+        "PASS"
+      ],
+      "outcome_tier": "solved",
+      "acceptance_decision": {
+        "status": "accepted",
+        "source": "task_acceptance_review",
+        "rationale": "Quorum PASS classified the deliverable solved with criterion evidence.",
+        "agent_disposition": "",
+        "agent_rationale": ""
+      }
+    }
+  },
+  "review_status": {
+    "status": "pass",
+    "trigger": "auto_nondirect",
+    "eligibility": "eligible",
+    "run_count": 1,
+    "aggregate_signals": [
+      "PASS"
+    ],
+    "outcome_tier": "solved",
+    "acceptance_decision": {
+      "status": "accepted",
+      "source": "task_acceptance_review",
+      "rationale": "Quorum PASS classified the deliverable solved with criterion evidence.",
+      "agent_disposition": "",
+      "agent_rationale": ""
+    }
+  },
+  "loop_outcome": {
+    "schema_version": 3,
+    "outcome_axes": {
+      "schema_version": 1,
+      "lifecycle": {
+        "status": "completed"
+      },
+      "execution": {
+        "status": "ok",
+        "reason_code": "final_message",
+        "failure": null,
+        "recoveries": [],
+        "cosmetic_tool_errors": [],
+        "ignored_tool_errors": [],
+        "policy_denials": [
+          {
+            "tool": "list_files",
+            "status": "blocked",
+            "exit_code": null,
+            "signal": null,
+            "result": "⚠️ TOOL_ACCESS_BLOCKED: profile=external_workspace_task cannot list root=skill_payload"
+          }
+        ]
+      },
+      "artifacts": {
+        "status": "not_applicable"
+      },
+      "objective": {
+        "status": "pass",
+        "source": "task_acceptance_review",
+        "review_status": "pass",
+        "outcome_tier": "solved"
+      },
+      "review": {
+        "status": "pass",
+        "eligibility": "eligible",
+        "trigger": "auto_nondirect",
+        "run_count": 1,
+        "aggregate_signals": [
+          "PASS"
+        ],
+        "outcome_tier": "solved",
+        "acceptance_decision": {
+          "status": "accepted",
+          "source": "task_acceptance_review",
+          "rationale": "Quorum PASS classified the deliverable solved with criterion evidence.",
+          "agent_disposition": "",
+          "agent_rationale": ""
+        }
+      }
+    },
+    "review_eligibility": "eligible",
+    "review_trigger": "auto_nondirect",
+    "finish_reason": "final_message",
+    "reason_code": "final_message",
+    "final_text": "The host-attested verification PASS receipt is recorded. The `release_sync` skill has been successfully run on case `test-basket/TB-04`, and its output matches the locked gold `expected/` exactly.\n\n## Final summary\n\n**Command run** (the skill's canonical entry point, per `skills/release_sync/main.py`):\n```\npython skills/release_sync/main.py run --case test-basket/TB-04 --engine rule --print\n```\nThe skill's `main.py` resolves `src/athanor` from its own checkout location and dispatches to `athanor.cli` → `athanor.agent.run_case`, which loads `test-basket/TB-04/input/` (calendar, tracker, transcript; mail empty/optional) and runs the full pipeline: extract decisions/actions → build summary → draft HITL outbox → update release memory.\n\n**What TB-04 tests** (per `README.md`/`metadata.yaml`): deep extraction from a transcript — 2 decisions, 3 actions (one addressed, one self-commitment, one unaddressed/no-owner), and 2 distractor ideas that must be ignored.\n\n**Skill output** (clean UTF-8 in `results/scratch/TB-04/run.json`; the console print was mojibake'd only because the Windows console codepage is cp866 — the data itself is correct, as the structured JSON and the independent scorer both confirm):\n\n- **Decisions (2/2):**\n  1. «выкатываем релиз 03.07 в окно 18:00–20:00» · reason: регламентное окно · source: расшифровка синка 03.07\n  2. «блокер по OPS-77 фиксируем, ответственный SRE» · source: OPS-77\n- **Actions (3/3):**\n  1. «подготовлю отчёт по инциденту APP-412» → Разработчик backend · due 2026-07-03 · source APP-412 *(addressed)*\n  2. «подтверди деплой ППРБ-адаптера» → SRE · due 2026-07-03 · source расшифровка синка 03.07 *(self-commitment)*\n  3. «обновить runbook по инциденту» → не определён · due не указан · source расшифровка синка 03.07 *(unaddressed — owner/due correctly left as \"не определён\"/\"не указан\" per SKILL.md)*\n- **Distractors ignored:** «идея — может быть стоит перенести на вечер…» and «предлагаю подумать про автотесты на потом» were correctly NOT extracted as decisions or actions (precision 1.0, no false positives).\n- **Summary:** APP-412 «Миграция на ППРБ» — в работе (исп.: Разработчик backend) · Jira APP-412 · 0.9\n- **HITL:** 3 mail drafts written to `outbox/` (TB-04-D01..D03), all in `awaiting_approval` — no auto-send (safety contract honored).\n- **Memory updates:** 5 entries (2 decisions + 3 obligations) written to the release memory, matching `expected/flags.json` exactly.\n\n**Independent verification** (project's own scorer, `python -m evaluation run --scenario TB-04 --engine rule`, comparing skill output to the locked gold `expected/`):\n- Decisions: TP=2, FP=0, FN=0 → P/R/F1 = **1.00/1.00/1.00**\n- Actions: TP=3, FP=0, FN=0 → P/R/F1 = **1.00/1.00/1.00**\n- Summary: TP=1, FP=0, FN=0 → F1 = **1.00**\n- owner_coverage = 1.0 · due_coverage = 1.0 · evidence_coverage = 1.0\n- **status = success**\n\nA host-attested receipt was recorded (`verify_and_record` PASS, exit 0, expected line matched). Artifacts: `results/scratch/TB-04/output.md`, `results/scratch/TB-04/run.json`, and the scorer's `results/runs/verify_tb04/TB-04/metrics.json`.",
+    "final_answer": "",
+    "final_answer_missing_sentinel": true,
+    "failure": null,
+    "recoveries": [],
+    "usage": {
+      "cost_usd": null,
+      "prompt_tokens": 621088,
+      "completion_tokens": 4584,
+      "total_rounds": 21
+    },
+    "trace_refs": {
+      "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+      "llm_call_refs": [
+        {
+          "llm_call_id": "llm_5d3343c6423e4a00887ab4f0e0cfe0dd",
+          "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+          "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:1",
+          "round": 1,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_5d3343c6423e4a00887ab4f0e0cfe0dd_request.json",
+            "call_id": "llm_5d3343c6423e4a00887ab4f0e0cfe0dd_request",
+            "sha256": "986d81439f448eed7dbc5c73ec793a2a40f702789b00dac7c27a31fd9d3a7550"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_5d3343c6423e4a00887ab4f0e0cfe0dd_response.json",
+            "call_id": "llm_5d3343c6423e4a00887ab4f0e0cfe0dd_response",
+            "sha256": "9f858032bf8ad3351ce62a35d059c992b9d6b14f81dad0a928eda92088290f49"
+          },
+          "model": "openai-compatible::jetnight-pro",
+          "resolved_model": "openai-compatible/jetnight-pro",
+          "provider": "openai-compatible"
+        },
+        {
+          "llm_call_id": "llm_cc1112d0d25740a5aa04388b4f288dcb",
+          "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+          "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:2",
+          "round": 2,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_cc1112d0d25740a5aa04388b4f288dcb_request.json",
+            "call_id": "llm_cc1112d0d25740a5aa04388b4f288dcb_request",
+            "sha256": "69ee163d18b9e836dfafdcf1e46301551a4554b7cfa27f1d8ae8f497951aa74a"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_cc1112d0d25740a5aa04388b4f288dcb_response.json",
+            "call_id": "llm_cc1112d0d25740a5aa04388b4f288dcb_response",
+            "sha256": "b9b803e132fab44b45433a2c14b88e6f96b4b35e19d44a9a26358c00bb01b0fd"
+          },
+          "model": "openai-compatible::jetnight-pro",
+          "resolved_model": "openai-compatible/jetnight-pro",
+          "provider": "openai-compatible"
+        },
+        {
+          "llm_call_id": "llm_fd9db0fcb3ed4e84818d6bf3e7c275c0",
+          "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+          "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:3",
+          "round": 3,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_fd9db0fcb3ed4e84818d6bf3e7c275c0_request.json",
+            "call_id": "llm_fd9db0fcb3ed4e84818d6bf3e7c275c0_request",
+            "sha256": "393c734c3da7416b2e8c7394b9c35e4595b39e6d7a86d77633ba8fb161e3d982"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_fd9db0fcb3ed4e84818d6bf3e7c275c0_response.json",
+            "call_id": "llm_fd9db0fcb3ed4e84818d6bf3e7c275c0_response",
+            "sha256": "5b3987da0984e4fc0e2f4dd6ea64eb7c887d133c90afe2ca2cb1ed21ca0bb2c7"
+          },
+          "model": "openai-compatible::jetnight-pro",
+          "resolved_model": "openai-compatible/jetnight-pro",
+          "provider": "openai-compatible"
+        },
+        {
+          "llm_call_id": "llm_47c6fc138df04778ba36600e733e37e8",
+          "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+          "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:4",
+          "round": 4,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_47c6fc138df04778ba36600e733e37e8_request.json",
+            "call_id": "llm_47c6fc138df04778ba36600e733e37e8_request",
+            "sha256": "d73574a3256d0571c88a7c45f1d3616ddd88eb5914120009bd2b6f86a5dfd973"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_47c6fc138df04778ba36600e733e37e8_response.json",
+            "call_id": "llm_47c6fc138df04778ba36600e733e37e8_response",
+            "sha256": "f8f9b826213c5b765170f6a4674f4610613da69105e314b08e017bc4a6d59738"
+          },
+          "model": "openai-compatible::jetnight-pro",
+          "resolved_model": "openai-compatible/jetnight-pro",
+          "provider": "openai-compatible"
+        },
+        {
+          "llm_call_id": "llm_67bce127f8ca48eb8be03c1b8d6f7545",
+          "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+          "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:5",
+          "round": 5,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_67bce127f8ca48eb8be03c1b8d6f7545_request.json",
+            "call_id": "llm_67bce127f8ca48eb8be03c1b8d6f7545_request",
+            "sha256": "15a35156fe8363558829c81b2b19d0a253572ed2bafac447291809987baaafed"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_67bce127f8ca48eb8be03c1b8d6f7545_response.json",
+            "call_id": "llm_67bce127f8ca48eb8be03c1b8d6f7545_response",
+            "sha256": "cf22f514edb18af84762aff5f583f72889b47068e051e6477d785511136b6a7c"
+          },
+          "model": "openai-compatible::jetnight-pro",
+          "resolved_model": "openai-compatible/jetnight-pro",
+          "provider": "openai-compatible"
+        },
+        {
+          "llm_call_id": "llm_546e27cf6ade42d1933796420f239c9e",
+          "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+          "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:6",
+          "round": 6,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_546e27cf6ade42d1933796420f239c9e_request.json",
+            "call_id": "llm_546e27cf6ade42d1933796420f239c9e_request",
+            "sha256": "1dd67ae8c0074f0ddb3d97faee036c3079e04d83912bad631bcbcfeab55fad05"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_546e27cf6ade42d1933796420f239c9e_response.json",
+            "call_id": "llm_546e27cf6ade42d1933796420f239c9e_response",
+            "sha256": "20a37378760774db2a99af171b3f45fb7a6fc2ad414f99ebb08510ac2998e1b6"
+          },
+          "model": "openai-compatible::jetnight-pro",
+          "resolved_model": "openai-compatible/jetnight-pro",
+          "provider": "openai-compatible"
+        },
+        {
+          "llm_call_id": "llm_defebd91ee474c588ee5722032d50210",
+          "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+          "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:7",
+          "round": 7,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_defebd91ee474c588ee5722032d50210_request.json",
+            "call_id": "llm_defebd91ee474c588ee5722032d50210_request",
+            "sha256": "ae8b4cafbc4da9f6e4b4638250b12b9be809cf511ec83eedc94cf5ee32197fa2"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_defebd91ee474c588ee5722032d50210_response.json",
+            "call_id": "llm_defebd91ee474c588ee5722032d50210_response",
+            "sha256": "b1d7dc7b461daf94b7affecb20c756ea9bf6aa9e344c0f342b98a6a702a3ce35"
+          },
+          "model": "openai-compatible::jetnight-pro",
+          "resolved_model": "openai-compatible/jetnight-pro",
+          "provider": "openai-compatible"
+        },
+        {
+          "llm_call_id": "llm_814e5c99dcf844d0b75ab2ecf020873e",
+          "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+          "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:8",
+          "round": 8,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_814e5c99dcf844d0b75ab2ecf020873e_request.json",
+            "call_id": "llm_814e5c99dcf844d0b75ab2ecf020873e_request",
+            "sha256": "b122b1575e1cbbc67fdf8a66875b1ad004ee16702ad3743758f27c7e757402f3"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_814e5c99dcf844d0b75ab2ecf020873e_response.json",
+            "call_id": "llm_814e5c99dcf844d0b75ab2ecf020873e_response",
+            "sha256": "399624eaa0d1b74489a41d7355fc464d3ff793085adfd9cbc849cd7b78e7a24f"
+          },
+          "model": "openai-compatible::jetnight-pro",
+          "resolved_model": "openai-compatible/jetnight-pro",
+          "provider": "openai-compatible"
+        },
+        {
+          "llm_call_id": "llm_9b018fba30e844a0a203f65a10fa48b7",
+          "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+          "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:9",
+          "round": 9,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_9b018fba30e844a0a203f65a10fa48b7_request.json",
+            "call_id": "llm_9b018fba30e844a0a203f65a10fa48b7_request",
+            "sha256": "110ee9ec7bd43a6edfaa9e7831e7c5cb76e99052e4c6c204247e64cebec240d6"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_9b018fba30e844a0a203f65a10fa48b7_response.json",
+            "call_id": "llm_9b018fba30e844a0a203f65a10fa48b7_response",
+            "sha256": "436e5167616300c9d67d2418c5a9fa65313551a9a552100b506d477bc141f9f3"
+          },
+          "model": "openai-compatible::jetnight-pro",
+          "resolved_model": "openai-compatible/jetnight-pro",
+          "provider": "openai-compatible"
+        },
+        {
+          "llm_call_id": "llm_46a99b7afd28477b86600e4d1850a893",
+          "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+          "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:10",
+          "round": 10,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_46a99b7afd28477b86600e4d1850a893_request.json",
+            "call_id": "llm_46a99b7afd28477b86600e4d1850a893_request",
+            "sha256": "7e213d9dbf931fec29901402bbd5166dfb6d6df8e71cb17c4aa14e31c0dd14d2"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_46a99b7afd28477b86600e4d1850a893_response.json",
+            "call_id": "llm_46a99b7afd28477b86600e4d1850a893_response",
+            "sha256": "e72d4a0b5323cc65e14268c15de8c14c83174d955b9dc263e76eac8128d999b2"
+          },
+          "model": "openai-compatible::jetnight-pro",
+          "resolved_model": "openai-compatible/jetnight-pro",
+          "provider": "openai-compatible"
+        },
+        {
+          "llm_call_id": "llm_6ad9b011fa6d4c1ba4c819bedc83e06b",
+          "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+          "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:11",
+          "round": 11,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_6ad9b011fa6d4c1ba4c819bedc83e06b_request.json",
+            "call_id": "llm_6ad9b011fa6d4c1ba4c819bedc83e06b_request",
+            "sha256": "ced2a79b84ac4f47b3a2f19ba570ccf4ae65c13d5fbe5087adcd9379f909dc77"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_6ad9b011fa6d4c1ba4c819bedc83e06b_response.json",
+            "call_id": "llm_6ad9b011fa6d4c1ba4c819bedc83e06b_response",
+            "sha256": "ab4a87987960c9b784265cfddc74f2c99ecbbbfa5c77718b379007c4ab077a88"
+          },
+          "model": "openai-compatible::jetnight-pro",
+          "resolved_model": "openai-compatible/jetnight-pro",
+          "provider": "openai-compatible"
+        },
+        {
+          "llm_call_id": "llm_b089a74a012b4cf7b7727df8bcb21992",
+          "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+          "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:12",
+          "round": 12,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_b089a74a012b4cf7b7727df8bcb21992_request.json",
+            "call_id": "llm_b089a74a012b4cf7b7727df8bcb21992_request",
+            "sha256": "eedd972e184fd8c82e0b130bcfd399aaa2196f51f9b3bab24440cab6cbeeebe1"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_b089a74a012b4cf7b7727df8bcb21992_response.json",
+            "call_id": "llm_b089a74a012b4cf7b7727df8bcb21992_response",
+            "sha256": "fa4a6eb9f1c9cfb1ad9055f741cc951348faba66d03784561140589c2a6ceab6"
+          },
+          "model": "openai-compatible::jetnight-pro",
+          "resolved_model": "openai-compatible/jetnight-pro",
+          "provider": "openai-compatible"
+        },
+        {
+          "llm_call_id": "llm_20e023546a614e018b1d2d9ab3875c8a",
+          "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+          "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:13",
+          "round": 13,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_20e023546a614e018b1d2d9ab3875c8a_request.json",
+            "call_id": "llm_20e023546a614e018b1d2d9ab3875c8a_request",
+            "sha256": "bf8c27b9171e411afc5de7597cb6ddbb1c08c87700a73be186dcfde5e0836927"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_20e023546a614e018b1d2d9ab3875c8a_response.json",
+            "call_id": "llm_20e023546a614e018b1d2d9ab3875c8a_response",
+            "sha256": "cee1457fccc25dc434a533c3d46a7bb3e7100a6c6087147e0ccc704c6c1bdd69"
+          },
+          "model": "openai-compatible::jetnight-pro",
+          "resolved_model": "openai-compatible/jetnight-pro",
+          "provider": "openai-compatible"
+        },
+        {
+          "llm_call_id": "llm_e77bab31a7064b7c8745f56887730815",
+          "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+          "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:14",
+          "round": 14,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_e77bab31a7064b7c8745f56887730815_request.json",
+            "call_id": "llm_e77bab31a7064b7c8745f56887730815_request",
+            "sha256": "86791483058b35dcbf53ca7ead659d32a75ac189ce516ddc8121bc7b1c63d6a2"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_e77bab31a7064b7c8745f56887730815_response.json",
+            "call_id": "llm_e77bab31a7064b7c8745f56887730815_response",
+            "sha256": "84cc585a95abb6b320ca1aafb8dc85700cc938c3a50a9e9b6b58821434f7b224"
+          },
+          "model": "openai-compatible::jetnight-pro",
+          "resolved_model": "openai-compatible/jetnight-pro",
+          "provider": "openai-compatible"
+        },
+        {
+          "llm_call_id": "llm_c7ed2b17ad854ca0852f5a16f5125cba",
+          "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+          "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:15",
+          "round": 15,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_c7ed2b17ad854ca0852f5a16f5125cba_request.json",
+            "call_id": "llm_c7ed2b17ad854ca0852f5a16f5125cba_request",
+            "sha256": "069c63bab778f020bcb2848f4d9a5bccea341b894bbce511bf7196e61589cc16"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_c7ed2b17ad854ca0852f5a16f5125cba_response.json",
+            "call_id": "llm_c7ed2b17ad854ca0852f5a16f5125cba_response",
+            "sha256": "b2686ae0835abb0220a21bd5aaf9daaa6bb80260d5cfba8fde5067191b2683d6"
+          },
+          "model": "openai-compatible::jetnight-pro",
+          "resolved_model": "openai-compatible/jetnight-pro",
+          "provider": "openai-compatible"
+        },
+        {
+          "llm_call_id": "llm_4ce6cb44a78c42beba8176828ccd151d",
+          "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+          "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:16",
+          "round": 16,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_4ce6cb44a78c42beba8176828ccd151d_request.json",
+            "call_id": "llm_4ce6cb44a78c42beba8176828ccd151d_request",
+            "sha256": "c0772e05a4d8fdf085bf8d9d54f47f19e4c15fd57ae46908e960d5203186e15f"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_4ce6cb44a78c42beba8176828ccd151d_response.json",
+            "call_id": "llm_4ce6cb44a78c42beba8176828ccd151d_response",
+            "sha256": "eec74411db1494c9e7084140d022a12027d43a06a59d6512a4bbe2c2223d9588"
+          },
+          "model": "openai-compatible::jetnight-pro",
+          "resolved_model": "openai-compatible/jetnight-pro",
+          "provider": "openai-compatible"
+        },
+        {
+          "llm_call_id": "llm_16e3aadad88b4f7298599d1834e3d58d",
+          "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+          "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:17",
+          "round": 17,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_16e3aadad88b4f7298599d1834e3d58d_request.json",
+            "call_id": "llm_16e3aadad88b4f7298599d1834e3d58d_request",
+            "sha256": "5270fcfb60b534dc95eacf06513bb9639c36d489efa79c9e87ac1914ad27dc73"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_16e3aadad88b4f7298599d1834e3d58d_response.json",
+            "call_id": "llm_16e3aadad88b4f7298599d1834e3d58d_response",
+            "sha256": "952f9a15d2016d7ed713d261d101f004b27cb10e6761a1115e55484604a9fc17"
+          },
+          "model": "openai-compatible::jetnight-pro",
+          "resolved_model": "openai-compatible/jetnight-pro",
+          "provider": "openai-compatible"
+        },
+        {
+          "llm_call_id": "llm_7215bc8ee63b4d6693498a58589ff72a",
+          "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+          "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:18",
+          "round": 18,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_7215bc8ee63b4d6693498a58589ff72a_request.json",
+            "call_id": "llm_7215bc8ee63b4d6693498a58589ff72a_request",
+            "sha256": "6ce8e6172b1dfc70fc57bbbab670ffcc5c259089057e1acdf82ebfd26e3d55d5"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_7215bc8ee63b4d6693498a58589ff72a_response.json",
+            "call_id": "llm_7215bc8ee63b4d6693498a58589ff72a_response",
+            "sha256": "20790f736c405a87e22724e286546d0f34fc572ac1c9b4d4be2c8bd7a4b67fe2"
+          },
+          "model": "openai-compatible::jetnight-pro",
+          "resolved_model": "openai-compatible/jetnight-pro",
+          "provider": "openai-compatible"
+        },
+        {
+          "llm_call_id": "llm_023b63c6523f49e38ffc5548c8433825",
+          "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+          "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:19",
+          "round": 19,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_023b63c6523f49e38ffc5548c8433825_request.json",
+            "call_id": "llm_023b63c6523f49e38ffc5548c8433825_request",
+            "sha256": "c252eeae04348620a5bfdb401237d0d0b95cf3e7ce2fe6a4a6716c73dc79e038"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_023b63c6523f49e38ffc5548c8433825_response.json",
+            "call_id": "llm_023b63c6523f49e38ffc5548c8433825_response",
+            "sha256": "10248c865d0afa11f4300d0efb0587d2c0cb188fd7a72449d1e12038e6b82c7c"
+          },
+          "model": "openai-compatible::jetnight-pro",
+          "resolved_model": "openai-compatible/jetnight-pro",
+          "provider": "openai-compatible"
+        },
+        {
+          "llm_call_id": "llm_764e5fb00763433c84ca34e781f65ec5",
+          "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+          "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:20",
+          "round": 20,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_764e5fb00763433c84ca34e781f65ec5_request.json",
+            "call_id": "llm_764e5fb00763433c84ca34e781f65ec5_request",
+            "sha256": "fee55b6f934b685f9e5a779a420b77b9da242fbe7683c689d632841e32cb6596"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_764e5fb00763433c84ca34e781f65ec5_response.json",
+            "call_id": "llm_764e5fb00763433c84ca34e781f65ec5_response",
+            "sha256": "f0b5482ffbcea6e790a1bbc7bababbbe272cd5fa6863ece6d7fca5a79b0539e8"
+          },
+          "model": "openai-compatible::jetnight-pro",
+          "resolved_model": "openai-compatible/jetnight-pro",
+          "provider": "openai-compatible"
+        },
+        {
+          "llm_call_id": "llm_1c379b287f934cfa8534e8c258ed85f7",
+          "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+          "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:21",
+          "round": 21,
+          "request_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_1c379b287f934cfa8534e8c258ed85f7_request.json",
+            "call_id": "llm_1c379b287f934cfa8534e8c258ed85f7_request",
+            "sha256": "d1d56cfcd33c1129326ec5890a7d633558deb31c38deb14a82c4360e31f09d34"
+          },
+          "response_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_1c379b287f934cfa8534e8c258ed85f7_response.json",
+            "call_id": "llm_1c379b287f934cfa8534e8c258ed85f7_response",
+            "sha256": "def4cceaaf6f02ce4b5dae8d9e754c0949d1a69729ca4ae74784bdcf8b59e4d6"
+          },
+          "model": "openai-compatible::jetnight-pro",
+          "resolved_model": "openai-compatible/jetnight-pro",
+          "provider": "openai-compatible"
+        }
+      ],
+      "tool_call_refs": [
+        {
+          "call_id": "tool_list_files_c5088173ea664d8789c9a261331af081",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_c5088173ea664d8789c9a261331af081.json",
+            "call_id": "tool_list_files_c5088173ea664d8789c9a261331af081",
+            "sha256": "ae19ebdffd631f6315767f198ca354745b459639f9c68843855568e6e4a82d73"
+          },
+          "redacted_projection_ref": {
+            "sha256": "ecbec1391aa2a4b2d34f9f5a2641b5ccf66b455d6883424fe9a2eef22e8494ec",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\ecbec1391aa2a4b2d34f9f5a2641b5ccf66b455d6883424fe9a2eef22e8494ec.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 494,
+            "compressed_size": 424
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_list_files_7c12a4123dbb4aaea00754b4fdf04022",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_7c12a4123dbb4aaea00754b4fdf04022.json",
+            "call_id": "tool_list_files_7c12a4123dbb4aaea00754b4fdf04022",
+            "sha256": "f53b8d9331d4d9a32766f4dd08f3f70b0bec4d71e7549c5d429f3ecd0d18aa3a"
+          },
+          "redacted_projection_ref": {
+            "sha256": "417b7443a5a3b097150a602b021f83b624b999abd80732112e1c69762c7ed38f",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\417b7443a5a3b097150a602b021f83b624b999abd80732112e1c69762c7ed38f.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 840,
+            "compressed_size": 527
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_list_files_31d25a2996ff4896810ee3c4e32986a3",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_31d25a2996ff4896810ee3c4e32986a3.json",
+            "call_id": "tool_list_files_31d25a2996ff4896810ee3c4e32986a3",
+            "sha256": "7a5812d4ec74f920d6a250d6b9e6fcac4433ebc06bf4060a30557a389fe3d4f2"
+          },
+          "redacted_projection_ref": {
+            "sha256": "e2291cc7a54a81b4a3e82cdd6149de8a506041581be3f8273d1df149a779393c",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\e2291cc7a54a81b4a3e82cdd6149de8a506041581be3f8273d1df149a779393c.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 424,
+            "compressed_size": 361
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_list_files_abb0be9f1235494faa78821a654c8889",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_abb0be9f1235494faa78821a654c8889.json",
+            "call_id": "tool_list_files_abb0be9f1235494faa78821a654c8889",
+            "sha256": "60d0d76a9f5ca410c6a6666b646d254458f1b8115f7004d9a355546f09ec400f"
+          },
+          "redacted_projection_ref": {
+            "sha256": "450727a2ba36d71becc8dcfba606143db7d64ff29f106758827936dd9f37fe06",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\450727a2ba36d71becc8dcfba606143db7d64ff29f106758827936dd9f37fe06.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 907,
+            "compressed_size": 413
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_list_files_927394d5dd3347589a7fb289849fee51",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_927394d5dd3347589a7fb289849fee51.json",
+            "call_id": "tool_list_files_927394d5dd3347589a7fb289849fee51",
+            "sha256": "249f0de9bc396c47a6ca3b6b5103f5e38a249300801b80bb21405bcba43f6dec"
+          },
+          "redacted_projection_ref": {
+            "sha256": "a2cdbdb25cf9a02551f35980100a9648589e2be29a74aa69111022c8f06460ca",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\a2cdbdb25cf9a02551f35980100a9648589e2be29a74aa69111022c8f06460ca.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 577,
+            "compressed_size": 403
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_list_files_939c897a45a84ba8b5dad93d9f0be617",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_939c897a45a84ba8b5dad93d9f0be617.json",
+            "call_id": "tool_list_files_939c897a45a84ba8b5dad93d9f0be617",
+            "sha256": "95603cef59c33377fe10d67e029ccf42dfeb5ab19920db0eaf54bffd34d773e0"
+          },
+          "redacted_projection_ref": {
+            "sha256": "46a28947cefc2f62170881c933038fa402397f6ede5c0e5c5faa51456afbf272",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\46a28947cefc2f62170881c933038fa402397f6ede5c0e5c5faa51456afbf272.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 614,
+            "compressed_size": 416
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_read_file_4241791d08a04c078eb461e750094f03",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_4241791d08a04c078eb461e750094f03.json",
+            "call_id": "tool_read_file_4241791d08a04c078eb461e750094f03",
+            "sha256": "f7ed77202384eebaded604d4fb8fe604dce76e3899f2d18f298bacf51251a4d1"
+          },
+          "redacted_projection_ref": {
+            "sha256": "2a5144ad973858f36155cb3c101f7bf6d4ac00e88d2b8eeccc26900bf766b1ac",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\2a5144ad973858f36155cb3c101f7bf6d4ac00e88d2b8eeccc26900bf766b1ac.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 5285,
+            "compressed_size": 2386
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_read_file_acaffc33a7bf4b4eadf9d9caf6e83861",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_acaffc33a7bf4b4eadf9d9caf6e83861.json",
+            "call_id": "tool_read_file_acaffc33a7bf4b4eadf9d9caf6e83861",
+            "sha256": "8b01f035c795c7e6d73f31659f6d581caaefa39b8cd13b07340529af1c5dce13"
+          },
+          "redacted_projection_ref": {
+            "sha256": "b466b2cc15fc834362ab39590021268ec5e29bc6d7799b18a0623c30a5ae7b0f",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\b466b2cc15fc834362ab39590021268ec5e29bc6d7799b18a0623c30a5ae7b0f.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 2472,
+            "compressed_size": 1222
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_read_file_0fc66b7f563e4f53bb7279af50f91e38",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_0fc66b7f563e4f53bb7279af50f91e38.json",
+            "call_id": "tool_read_file_0fc66b7f563e4f53bb7279af50f91e38",
+            "sha256": "9726cf539203e1db364e24905878f6cdec08333debdbb0e3a18c8ee0daa43fcf"
+          },
+          "redacted_projection_ref": {
+            "sha256": "7ce497d132e9802e39cca8a822963849ba33f25d3679bb0b5b383b2f4c3c6d9a",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\7ce497d132e9802e39cca8a822963849ba33f25d3679bb0b5b383b2f4c3c6d9a.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 893,
+            "compressed_size": 630
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_read_file_3205291bd6354c25aa29ff33ad7f706f",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_3205291bd6354c25aa29ff33ad7f706f.json",
+            "call_id": "tool_read_file_3205291bd6354c25aa29ff33ad7f706f",
+            "sha256": "aaeed79be2a254ff33bdc0df6c56bbfb3adfe8de5130e9832011c429902ffaf9"
+          },
+          "redacted_projection_ref": {
+            "sha256": "7b6a005232d4bb176f49d79d1c728d9ddd2114f2c624aaf8fa8aade343b6c7ce",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\7b6a005232d4bb176f49d79d1c728d9ddd2114f2c624aaf8fa8aade343b6c7ce.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 1553,
+            "compressed_size": 886
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_list_files_6781744ce49d453db0acec44dbeb0e6f",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_6781744ce49d453db0acec44dbeb0e6f.json",
+            "call_id": "tool_list_files_6781744ce49d453db0acec44dbeb0e6f",
+            "sha256": "24555f32f0272e2bd94f8c12077db82325b7fa5ca71f1f0168a82ca252a7e812"
+          },
+          "redacted_projection_ref": {
+            "sha256": "d8a762febdaa5644ed8b9026b32d06077d4f1707edbbabdf3a640ec369144d39",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\d8a762febdaa5644ed8b9026b32d06077d4f1707edbbabdf3a640ec369144d39.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 625,
+            "compressed_size": 409
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_list_files_0a099a86e2f94838854c4f7928232186",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_0a099a86e2f94838854c4f7928232186.json",
+            "call_id": "tool_list_files_0a099a86e2f94838854c4f7928232186",
+            "sha256": "84c209abcc8a9b5ed9cd5da2b858f00aefc0369bc9a14680b138ca3cc3226d1d"
+          },
+          "redacted_projection_ref": {
+            "sha256": "424324020801561753cc4eb5fad4dc9255f2ce31b320c702f92676fbdca267ba",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\424324020801561753cc4eb5fad4dc9255f2ce31b320c702f92676fbdca267ba.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 698,
+            "compressed_size": 415
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_read_file_04a1a2ce566247099e7272db4452f865",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_04a1a2ce566247099e7272db4452f865.json",
+            "call_id": "tool_read_file_04a1a2ce566247099e7272db4452f865",
+            "sha256": "2cbef2ffa954c80f3f49327544ccf56940041659d53c230dc4aa0c9174f7c192"
+          },
+          "redacted_projection_ref": {
+            "sha256": "f640b4dd7d3da59ddba12dd18b05b205ba6d329d1d15eebfb9fe50c1f9802553",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\f640b4dd7d3da59ddba12dd18b05b205ba6d329d1d15eebfb9fe50c1f9802553.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 4942,
+            "compressed_size": 2351
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_read_file_85be74d87eb7416aae2dd9c06046331f",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_85be74d87eb7416aae2dd9c06046331f.json",
+            "call_id": "tool_read_file_85be74d87eb7416aae2dd9c06046331f",
+            "sha256": "3cf71c5a46ca390a8fd52eae786fc75d60547d3c6650ea56bb2d0f9a11d4d3ff"
+          },
+          "redacted_projection_ref": {
+            "sha256": "6da864fae9a9e40b352f0eaedaf37876b9f20c6abbf1d05b1df5ea0878a630dd",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\6da864fae9a9e40b352f0eaedaf37876b9f20c6abbf1d05b1df5ea0878a630dd.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 1314,
+            "compressed_size": 857
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_read_file_49dbcf45ed0241d1ae43a40af1754791",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_49dbcf45ed0241d1ae43a40af1754791.json",
+            "call_id": "tool_read_file_49dbcf45ed0241d1ae43a40af1754791",
+            "sha256": "4ec034a9d19ccfb58e05510cce278f0ab99912730783679ebf8179acf9c4255f"
+          },
+          "redacted_projection_ref": {
+            "sha256": "8e3e406d2303f21be8bc564914de4c1745fcd2ba7ee46052f289b0aa68344091",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\8e3e406d2303f21be8bc564914de4c1745fcd2ba7ee46052f289b0aa68344091.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 921,
+            "compressed_size": 617
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_read_file_fd01757c034d4653b5564363aebbea0d",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_fd01757c034d4653b5564363aebbea0d.json",
+            "call_id": "tool_read_file_fd01757c034d4653b5564363aebbea0d",
+            "sha256": "f2dac5238b0f1729108134c2f56ad8ef82c8918c9edb4b17a9abbdab61484501"
+          },
+          "redacted_projection_ref": {
+            "sha256": "084f85d335d01298ad43aeb60744702650a0ae8ba6753c21bd745c194de7e86f",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\084f85d335d01298ad43aeb60744702650a0ae8ba6753c21bd745c194de7e86f.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 738,
+            "compressed_size": 551
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_read_file_65334de922bc456fa97a6700cb59c640",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_65334de922bc456fa97a6700cb59c640.json",
+            "call_id": "tool_read_file_65334de922bc456fa97a6700cb59c640",
+            "sha256": "cd7215d9f4a310f748c397e08b6745c0c36fec47cbabfba49f9824538fce8a19"
+          },
+          "redacted_projection_ref": {
+            "sha256": "5233d0985e83ff999d7407c603a2df81914a6d5f7571c9d76ae1624db083e40b",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\5233d0985e83ff999d7407c603a2df81914a6d5f7571c9d76ae1624db083e40b.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 514,
+            "compressed_size": 415
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_read_file_49779182caf44131bb903ee26e75f147",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_49779182caf44131bb903ee26e75f147.json",
+            "call_id": "tool_read_file_49779182caf44131bb903ee26e75f147",
+            "sha256": "8989ae7e6e39861efa63d8327cf67bcd728281bb3c9f582aa69993b99c89eda5"
+          },
+          "redacted_projection_ref": {
+            "sha256": "df47e0c77d16296108ca00cbc8a98bad3eb69926c1cb9c7189a1307fcdfebb22",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\df47e0c77d16296108ca00cbc8a98bad3eb69926c1cb9c7189a1307fcdfebb22.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 881,
+            "compressed_size": 615
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_read_file_a233e652fb3e4cc4a83a12866b91a0e5",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_a233e652fb3e4cc4a83a12866b91a0e5.json",
+            "call_id": "tool_read_file_a233e652fb3e4cc4a83a12866b91a0e5",
+            "sha256": "e819054d75b4dfd165cd0cbf3a13d6f1dd8b9f2593883e6730f4a8ad069c78d9"
+          },
+          "redacted_projection_ref": {
+            "sha256": "9877e7624a517602046f61ce49d20f6679173826d2cc8df0206194a667af53a6",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\9877e7624a517602046f61ce49d20f6679173826d2cc8df0206194a667af53a6.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 1147,
+            "compressed_size": 673
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_read_file_3f754cac444947adbfd49328db9638c3",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_3f754cac444947adbfd49328db9638c3.json",
+            "call_id": "tool_read_file_3f754cac444947adbfd49328db9638c3",
+            "sha256": "a19d914ac2ed6b18eb8463b826930cc8fb48f3cfe6a2f76f88192d0bd208d78a"
+          },
+          "redacted_projection_ref": {
+            "sha256": "6c7d88b09e65400e0e79d6f7f7902085f55f8136e9f4309d527268b42759b311",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\6c7d88b09e65400e0e79d6f7f7902085f55f8136e9f4309d527268b42759b311.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 506,
+            "compressed_size": 402
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_read_file_89fcd706dda54dcb8dfb35078168acac",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_89fcd706dda54dcb8dfb35078168acac.json",
+            "call_id": "tool_read_file_89fcd706dda54dcb8dfb35078168acac",
+            "sha256": "1b6d9b7615880ecbce975ce459cbc0a74dada297704fa748396c4bd1430bccad"
+          },
+          "redacted_projection_ref": {
+            "sha256": "727e12ef34ac1eb9be34ec30c72f49b8a6bad977e8659cc50e1e60efa204d5a2",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\727e12ef34ac1eb9be34ec30c72f49b8a6bad977e8659cc50e1e60efa204d5a2.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 1225,
+            "compressed_size": 780
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_read_file_2449638ca44046b6b5e9ec4846bff7ee",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_2449638ca44046b6b5e9ec4846bff7ee.json",
+            "call_id": "tool_read_file_2449638ca44046b6b5e9ec4846bff7ee",
+            "sha256": "8b3db03a8a0effe65f87d1136fe77d38e9f3f1a9f8c0db35245a9cf370bf1852"
+          },
+          "redacted_projection_ref": {
+            "sha256": "bdf204d33a211d9bc9358be3fcf98f91c6e41f4afc66c7bb89711dc903d2cb75",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\bdf204d33a211d9bc9358be3fcf98f91c6e41f4afc66c7bb89711dc903d2cb75.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 728,
+            "compressed_size": 562
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_list_files_6c374c30392646109b24479f19f32499",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_6c374c30392646109b24479f19f32499.json",
+            "call_id": "tool_list_files_6c374c30392646109b24479f19f32499",
+            "sha256": "1c92022361c278503ab082ae27cca692c082fd401a6dd197dbe1d6649f622434"
+          },
+          "redacted_projection_ref": {
+            "sha256": "7b0af013df56292923975fe665905568686589256ba067745cc3531738eb6537",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\7b0af013df56292923975fe665905568686589256ba067745cc3531738eb6537.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 413,
+            "compressed_size": 355
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_list_files_11200b2764904bc8ac4ef1478aa7e897",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_11200b2764904bc8ac4ef1478aa7e897.json",
+            "call_id": "tool_list_files_11200b2764904bc8ac4ef1478aa7e897",
+            "sha256": "6e69b3db39856e995010170009e23af0e41ee48f343d023af59abe688d3812cc"
+          },
+          "redacted_projection_ref": {
+            "sha256": "5e55be89a851861319f3374a5b094cb203d3444228be64d6822d024d9ad566c1",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\5e55be89a851861319f3374a5b094cb203d3444228be64d6822d024d9ad566c1.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 1095,
+            "compressed_size": 481
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_read_file_048eea9fe64c4f779974675dadb7743e",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_048eea9fe64c4f779974675dadb7743e.json",
+            "call_id": "tool_read_file_048eea9fe64c4f779974675dadb7743e",
+            "sha256": "424dca8af54b9867b1753497e4a8ab716d2be8a7be0e65c47f012b7d164f8b61"
+          },
+          "redacted_projection_ref": {
+            "sha256": "0b80ea35f296c354bafca7b3f631bc9be2d8021e7fe980996436c674ebb23ddc",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\0b80ea35f296c354bafca7b3f631bc9be2d8021e7fe980996436c674ebb23ddc.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 18073,
+            "compressed_size": 5272
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_list_files_4e3723bab5e94e4db619cf6ec7e68622",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_4e3723bab5e94e4db619cf6ec7e68622.json",
+            "call_id": "tool_list_files_4e3723bab5e94e4db619cf6ec7e68622",
+            "sha256": "0c3ed4271ebbfacba5fbf9ef8227f644ac81880a07f7db50d6b69c802e2d03a3"
+          },
+          "redacted_projection_ref": {
+            "sha256": "b00536707157ecf9d23a4e133edece30bc3e4d8191b19fd52f06a0b4e9a28b5e",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\b00536707157ecf9d23a4e133edece30bc3e4d8191b19fd52f06a0b4e9a28b5e.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 500,
+            "compressed_size": 382
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_list_files_e66b5151b1da4267ac567483332f640d",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_e66b5151b1da4267ac567483332f640d.json",
+            "call_id": "tool_list_files_e66b5151b1da4267ac567483332f640d",
+            "sha256": "699f848603d01247b7d3242f3e1007e4f00e55e3a64e391f7d24c2d919e6dd9e"
+          },
+          "redacted_projection_ref": {
+            "sha256": "2844adccd3b6aff700b2eafaa3620286ad7d674a6ec0436b1ce7ef767e934a8b",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\2844adccd3b6aff700b2eafaa3620286ad7d674a6ec0436b1ce7ef767e934a8b.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 610,
+            "compressed_size": 412
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_read_file_1e00ee8c954747ae857e0e9630cf0275",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_1e00ee8c954747ae857e0e9630cf0275.json",
+            "call_id": "tool_read_file_1e00ee8c954747ae857e0e9630cf0275",
+            "sha256": "b8ff5148f14aef933e5acac6f15f4227fc1eaa4310d9387fe7e096abb303fa62"
+          },
+          "redacted_projection_ref": {
+            "sha256": "bbbbc46287f0dfb504c61acb14ba5832daf300175b438cdbc1977379763a9eca",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\bbbbc46287f0dfb504c61acb14ba5832daf300175b438cdbc1977379763a9eca.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 8346,
+            "compressed_size": 3024
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_read_file_4323b22443424e35affed3c8f5f83c5e",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_4323b22443424e35affed3c8f5f83c5e.json",
+            "call_id": "tool_read_file_4323b22443424e35affed3c8f5f83c5e",
+            "sha256": "3ac26ede719fc5ddc4a3e3ab815c0117aa7c4a3cd59e4d57e745b770cc41fd86"
+          },
+          "redacted_projection_ref": {
+            "sha256": "da5ffedf28970cb66a481a7b9292156bc14e6fc6033d48bbcce76f33731ef9b0",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\da5ffedf28970cb66a481a7b9292156bc14e6fc6033d48bbcce76f33731ef9b0.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 8724,
+            "compressed_size": 3270
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_read_file_66bfbcb8ff6c40c8a19e59bfb94ab3f8",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_66bfbcb8ff6c40c8a19e59bfb94ab3f8.json",
+            "call_id": "tool_read_file_66bfbcb8ff6c40c8a19e59bfb94ab3f8",
+            "sha256": "9b3a5ab394482e882c35a1279c66039f7afcc089c1091cd2b00463703ea454e1"
+          },
+          "redacted_projection_ref": {
+            "sha256": "03e1eae73e8e29cff58fbaeee79a8ae7e1a50d2840212e89ef481f832ce2eec1",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\03e1eae73e8e29cff58fbaeee79a8ae7e1a50d2840212e89ef481f832ce2eec1.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 19128,
+            "compressed_size": 5792
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_vcs_status_3814ad38db1d40b6840b5e98a8366c4f",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_vcs_status_3814ad38db1d40b6840b5e98a8366c4f.json",
+            "call_id": "tool_vcs_status_3814ad38db1d40b6840b5e98a8366c4f",
+            "sha256": "7498ebbfd1bd570c440823bdbb1b161078ea8b4c388455720078b0bcf2f8e0cb"
+          },
+          "redacted_projection_ref": {
+            "sha256": "d6bdd583a1f3d1abbb20c0ff4536f5742c3b31c67e77b2d7873a6c351f2c37c2",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\d6bdd583a1f3d1abbb20c0ff4536f5742c3b31c67e77b2d7873a6c351f2c37c2.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 943,
+            "compressed_size": 591
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_read_file_af104940cd8849db91b2e184e838fc5f",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_af104940cd8849db91b2e184e838fc5f.json",
+            "call_id": "tool_read_file_af104940cd8849db91b2e184e838fc5f",
+            "sha256": "c1d7a89c245bda1a58d715ec5e497ecba77eab5da0abf4728c5e59907189fb31"
+          },
+          "redacted_projection_ref": {
+            "sha256": "7dee03383d206a71f6f53c1655ac3e66a32dd5cc77b297e874d21d05d3980e50",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\7dee03383d206a71f6f53c1655ac3e66a32dd5cc77b297e874d21d05d3980e50.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 17182,
+            "compressed_size": 5672
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_read_file_ea5ec4d9f42842dabd6d1257215944bb",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_ea5ec4d9f42842dabd6d1257215944bb.json",
+            "call_id": "tool_read_file_ea5ec4d9f42842dabd6d1257215944bb",
+            "sha256": "683530614e8361417a1a0d9904f00e8af6e1f174929ea09170835c5081300a39"
+          },
+          "redacted_projection_ref": {
+            "sha256": "baa787bf1cbf427c4f2c2205b315c235d24ba692704f34e7cae0bf0b59d7a6c0",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\baa787bf1cbf427c4f2c2205b315c235d24ba692704f34e7cae0bf0b59d7a6c0.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 823,
+            "compressed_size": 641
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_read_file_8bb16db4f6a648cd8fc93d5892961c58",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_8bb16db4f6a648cd8fc93d5892961c58.json",
+            "call_id": "tool_read_file_8bb16db4f6a648cd8fc93d5892961c58",
+            "sha256": "aef361809f9f5d517aff271ba508e1245c3100e1f874d05218e89a880266aeb4"
+          },
+          "redacted_projection_ref": {
+            "sha256": "4f00c5400b32b1fc0ff3e6d71d4d9603b4f0b5ba3e3676822bddbe7a9fe7bc06",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\4f00c5400b32b1fc0ff3e6d71d4d9603b4f0b5ba3e3676822bddbe7a9fe7bc06.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 1997,
+            "compressed_size": 1237
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_run_command_a86778f366c8459e8a639aaa3731b9a5",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_run_command_a86778f366c8459e8a639aaa3731b9a5.json",
+            "call_id": "tool_run_command_a86778f366c8459e8a639aaa3731b9a5",
+            "sha256": "a41a3fde2e84322829385816be7786e4afffcab0baeaa74f8414d29b24bcae58"
+          },
+          "redacted_projection_ref": {
+            "sha256": "93d826592a01fbcc1fc1967d62c45e5fdd9d6726c21eae91a963df091c78925c",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\93d826592a01fbcc1fc1967d62c45e5fdd9d6726c21eae91a963df091c78925c.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 476,
+            "compressed_size": 406
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_run_command_3177dd3fe5f740899e6368a026ffb0a5",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_run_command_3177dd3fe5f740899e6368a026ffb0a5.json",
+            "call_id": "tool_run_command_3177dd3fe5f740899e6368a026ffb0a5",
+            "sha256": "5ccb1de2bb06eaa0887d271a7e14b09f45f24fecc50b96e66aff9321516b1dba"
+          },
+          "redacted_projection_ref": {
+            "sha256": "f950d24aff34b0d8f8f586d188e9987068fa8fd2bafc2e15c34800133e7f8fc5",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\f950d24aff34b0d8f8f586d188e9987068fa8fd2bafc2e15c34800133e7f8fc5.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 4941,
+            "compressed_size": 1404
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_list_files_aa6a01524f7046d58d735d22e9527b1d",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_aa6a01524f7046d58d735d22e9527b1d.json",
+            "call_id": "tool_list_files_aa6a01524f7046d58d735d22e9527b1d",
+            "sha256": "b7ec94925c6391d21d77da223150d57f308415e632581eaced4691f5baa91bb1"
+          },
+          "redacted_projection_ref": {
+            "sha256": "d12e974265df02868f7fa337101f8d2f46ddea085c2675c17214e436e0a3f4ed",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\d12e974265df02868f7fa337101f8d2f46ddea085c2675c17214e436e0a3f4ed.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 605,
+            "compressed_size": 408
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_read_file_6f071d4173ff40a7bbf7729ce4960ae1",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_6f071d4173ff40a7bbf7729ce4960ae1.json",
+            "call_id": "tool_read_file_6f071d4173ff40a7bbf7729ce4960ae1",
+            "sha256": "f167661fbc5edf13c7fa3c7774eb221674f460621ffb40bc77481daafb9e83bd"
+          },
+          "redacted_projection_ref": {
+            "sha256": "4fe2b86e802cfcf69e9d9caa9030064b2787282ab098d38281bd11f0822c2aa6",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\4fe2b86e802cfcf69e9d9caa9030064b2787282ab098d38281bd11f0822c2aa6.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 6123,
+            "compressed_size": 1531
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_run_command_e63195cea9fb4de8aedec66b3a7ec73f",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_run_command_e63195cea9fb4de8aedec66b3a7ec73f.json",
+            "call_id": "tool_run_command_e63195cea9fb4de8aedec66b3a7ec73f",
+            "sha256": "e5aa5cc546eb49658925ca2fa66ce80a096694f8cc818ccc61a19209c7f5679d"
+          },
+          "redacted_projection_ref": {
+            "sha256": "4a9ecbc40208cb3a80ea253b616429e4b5972a37ef1a695948f6d7fe01b244e4",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\4a9ecbc40208cb3a80ea253b616429e4b5972a37ef1a695948f6d7fe01b244e4.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 684,
+            "compressed_size": 495
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_read_file_3a9ed1927e754517ac249fde9d73b668",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_3a9ed1927e754517ac249fde9d73b668.json",
+            "call_id": "tool_read_file_3a9ed1927e754517ac249fde9d73b668",
+            "sha256": "6e3586e416997f01837fc342d296e3b248ee4ebdc5ec322fb2f632cc8f058600"
+          },
+          "redacted_projection_ref": {
+            "sha256": "f136ce3f532cf52e5047d693df28b36efa84f6572850ae86287ef5ff9450093f",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\f136ce3f532cf52e5047d693df28b36efa84f6572850ae86287ef5ff9450093f.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 1588,
+            "compressed_size": 756
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_list_files_b3d8f973b58143209b09b6f7c3a6baba",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_b3d8f973b58143209b09b6f7c3a6baba.json",
+            "call_id": "tool_list_files_b3d8f973b58143209b09b6f7c3a6baba",
+            "sha256": "8239fe961d5be6636fd6f1320a7b0c55e2d15c509172a466a4e46fcb005dab6c"
+          },
+          "redacted_projection_ref": {
+            "sha256": "7216dccb391d977c6dadf5f70fce4b8c6a0410e9f0e7acdf0566a859e59db6ad",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\7216dccb391d977c6dadf5f70fce4b8c6a0410e9f0e7acdf0566a859e59db6ad.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 664,
+            "compressed_size": 415
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_read_file_c9982a5ee2df4117ac6aca4f39c335f6",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_c9982a5ee2df4117ac6aca4f39c335f6.json",
+            "call_id": "tool_read_file_c9982a5ee2df4117ac6aca4f39c335f6",
+            "sha256": "bb257a849be8fba92593bbf82f2233f140c59433c85fe45bf5c0b72ccae22ebf"
+          },
+          "redacted_projection_ref": {
+            "sha256": "688d380e89adadc1bc8d1fd20714ba58e11bdc0d3b8b5e24f78754d6b21f2377",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\688d380e89adadc1bc8d1fd20714ba58e11bdc0d3b8b5e24f78754d6b21f2377.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 1258,
+            "compressed_size": 778
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        },
+        {
+          "call_id": "tool_verify_and_record_b036744799d7442fbf6f20ee6bc15788",
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_verify_and_record_b036744799d7442fbf6f20ee6bc15788.json",
+            "call_id": "tool_verify_and_record_b036744799d7442fbf6f20ee6bc15788",
+            "sha256": "d936ef57317eb9086f086898fdc9833d824a8301c91eb95f52f06c2b3a02cadc"
+          },
+          "redacted_projection_ref": {
+            "sha256": "201bfceca30d1f3a8483f4891d18e169d00cade2f1d243a33f4eecaa1dfbe462",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\201bfceca30d1f3a8483f4891d18e169d00cade2f1d243a33f4eecaa1dfbe462.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 1478,
+            "compressed_size": 821
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        }
+      ]
+    }
+  },
+  "title": null,
+  "final_answer": "",
+  "trace_summary": "## Tool trace (43 calls, 0 errors, 1 policy-denied)\n1. list_files(root='skill_payload', skill_name='release_sync') [status=blocked] → ERROR\n2. list_files(root='active_workspace')\n3. list_files(root='active_workspace', path='skills')\n4. list_files(root='active_workspace', path='test-basket')\n5. list_files(path='skills/release_sync', root='active_workspace')\n6. list_files(path='test-basket/TB-04', root='active_workspace')\n7. read_file(path='skills/release_sync/SKILL.md', root='active_workspace')\n8. read_file(path='test-basket/TB-04/README.md', root='active_workspace')\n9. read_file(path='test-basket/TB-04/meta.json', root='active_workspace')\n10. read_file(path='test-basket/TB-04/metadata.yaml', root='active_workspace')\n11. list_files(path='test-basket/TB-04/input', root='active_workspace')\n12. list_files(path='test-basket/TB-04/expected', root='active_workspace')\n13. read_file(path='skills/release_sync/main.py', root='active_workspace')\n14. read_file(path='test-basket/TB-04/input/transcript.txt', root='active_workspace')\n15. read_file(path='test-basket/TB-04/input/calendar.json', root='active_workspace')\n⚠️ OMISSION NOTE: 13 middle tool calls omitted from trace summary.\n29. read_file(path='evaluation/__main__.py', root='active_workspace')\n30. read_file(path='tests/score.py', root='active_workspace')\n31. vcs_status(root='active_workspace')\n32. read_file(path='tests/run_basket.py', root='active_workspace')\n33. read_file(path='requirements.txt', root='active_workspace')\n34. read_file(path='pyproject.toml', root='active_workspace')\n35. run_command(cmd=\"['python', '--version']\")\n36. run_command(cmd=\"['python', 'skills/release_sync/main.py', 'run', '--case', ' ⚠️ OMISSION NOTE: truncated at 60 chars; original length 110\")\n37. list_files(path='results/scratch/TB-04', root='active_workspace')\n38. read_file(path='results/scratch/TB-04/run.json', root='active_workspace')\n39. run_command(cmd=\"['python', '-m', 'evaluation', 'run', '--scenario', 'TB-04', ⚠️ OMISSION NOTE: truncated at 60 chars; original length 110\")\n40. read_file(path='results/runs/tb04_skill_run/TB-04/metrics.json', root='active_workspace')\n41. list_files(path='results/runs/tb04_skill_run/TB-04/outbox', root='active_workspace')\n42. read_file(path='results/runs/tb04_skill_run/TB-04/outbox/TB-04-D01.json', root='active_workspace')\n43. verify_and_record(contract_kind='explicit_command', check=\"['python', '-m', 'evaluation', 'run', '--scenario', 'TB-04', ⚠️ OMISSION NOTE: truncated at 60 chars; original length 107\", ⚠️ OMISSION NOTE: 6 more args omitted)\n\n## Agent notes (supplementary, not source of truth)\n- I'll start by understanding the `release_sync` skill and the `test-basket/TB-04` case. Let me explore the skill payload and the test case structure.\n- The skill payload root is blocked for external workspace tasks. Let me explore the active workspace which contains the project — including the skills directory and test-basket.\n- Теперь я понимаю архитектуру. Навык `release_sync` — это тонкая оболочка, которая вызывает движок `athanor` (в `src/athanor/`). Позвольте мне прочитать входные данные кейса, ожидаемые результаты и изучить движок athanor.\n- Теперь у меня есть четкое представление о том, что ожидает TB-04. Позвольте мне изучить движок athanor, чтобы понять, как запустить навык.\n- Теперь я понимаю, как запустить навык. Позвольте мне просмотреть ключевые модули движка (extract, agent, sources), чтобы понять, что произойдет, а также проверить директорию evaluation/, которая обычно содержит средство оценки (scorer).\n- Теперь я изучу, как устроена оценка, и посмотрю модули `extract`/`agent`, чтобы понимать, что делает движок.\n- Теперь я четко понимаю настройку оценки. Позвольте мне проверить префлайт git и запустить навык. Согласно `main.py` навыка, команда выглядит как `python skills/release_sync/main.py --case test-basket/TB-04 ...`. Позвольте мне сначала проверить git status и наличие `run_basket.py` (для одной оценки сценария).\n- Теперь у меня есть полная картина. Задача\n⚠️ OMISSION NOTE: truncated at 4000 chars; original length 9020",
+  "trace_refs": {
+    "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+    "llm_call_refs": [
+      {
+        "llm_call_id": "llm_5d3343c6423e4a00887ab4f0e0cfe0dd",
+        "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+        "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:1",
+        "round": 1,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_5d3343c6423e4a00887ab4f0e0cfe0dd_request.json",
+          "call_id": "llm_5d3343c6423e4a00887ab4f0e0cfe0dd_request",
+          "sha256": "986d81439f448eed7dbc5c73ec793a2a40f702789b00dac7c27a31fd9d3a7550"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_5d3343c6423e4a00887ab4f0e0cfe0dd_response.json",
+          "call_id": "llm_5d3343c6423e4a00887ab4f0e0cfe0dd_response",
+          "sha256": "9f858032bf8ad3351ce62a35d059c992b9d6b14f81dad0a928eda92088290f49"
+        },
+        "model": "openai-compatible::jetnight-pro",
+        "resolved_model": "openai-compatible/jetnight-pro",
+        "provider": "openai-compatible"
+      },
+      {
+        "llm_call_id": "llm_cc1112d0d25740a5aa04388b4f288dcb",
+        "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+        "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:2",
+        "round": 2,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_cc1112d0d25740a5aa04388b4f288dcb_request.json",
+          "call_id": "llm_cc1112d0d25740a5aa04388b4f288dcb_request",
+          "sha256": "69ee163d18b9e836dfafdcf1e46301551a4554b7cfa27f1d8ae8f497951aa74a"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_cc1112d0d25740a5aa04388b4f288dcb_response.json",
+          "call_id": "llm_cc1112d0d25740a5aa04388b4f288dcb_response",
+          "sha256": "b9b803e132fab44b45433a2c14b88e6f96b4b35e19d44a9a26358c00bb01b0fd"
+        },
+        "model": "openai-compatible::jetnight-pro",
+        "resolved_model": "openai-compatible/jetnight-pro",
+        "provider": "openai-compatible"
+      },
+      {
+        "llm_call_id": "llm_fd9db0fcb3ed4e84818d6bf3e7c275c0",
+        "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+        "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:3",
+        "round": 3,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_fd9db0fcb3ed4e84818d6bf3e7c275c0_request.json",
+          "call_id": "llm_fd9db0fcb3ed4e84818d6bf3e7c275c0_request",
+          "sha256": "393c734c3da7416b2e8c7394b9c35e4595b39e6d7a86d77633ba8fb161e3d982"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_fd9db0fcb3ed4e84818d6bf3e7c275c0_response.json",
+          "call_id": "llm_fd9db0fcb3ed4e84818d6bf3e7c275c0_response",
+          "sha256": "5b3987da0984e4fc0e2f4dd6ea64eb7c887d133c90afe2ca2cb1ed21ca0bb2c7"
+        },
+        "model": "openai-compatible::jetnight-pro",
+        "resolved_model": "openai-compatible/jetnight-pro",
+        "provider": "openai-compatible"
+      },
+      {
+        "llm_call_id": "llm_47c6fc138df04778ba36600e733e37e8",
+        "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+        "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:4",
+        "round": 4,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_47c6fc138df04778ba36600e733e37e8_request.json",
+          "call_id": "llm_47c6fc138df04778ba36600e733e37e8_request",
+          "sha256": "d73574a3256d0571c88a7c45f1d3616ddd88eb5914120009bd2b6f86a5dfd973"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_47c6fc138df04778ba36600e733e37e8_response.json",
+          "call_id": "llm_47c6fc138df04778ba36600e733e37e8_response",
+          "sha256": "f8f9b826213c5b765170f6a4674f4610613da69105e314b08e017bc4a6d59738"
+        },
+        "model": "openai-compatible::jetnight-pro",
+        "resolved_model": "openai-compatible/jetnight-pro",
+        "provider": "openai-compatible"
+      },
+      {
+        "llm_call_id": "llm_67bce127f8ca48eb8be03c1b8d6f7545",
+        "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+        "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:5",
+        "round": 5,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_67bce127f8ca48eb8be03c1b8d6f7545_request.json",
+          "call_id": "llm_67bce127f8ca48eb8be03c1b8d6f7545_request",
+          "sha256": "15a35156fe8363558829c81b2b19d0a253572ed2bafac447291809987baaafed"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_67bce127f8ca48eb8be03c1b8d6f7545_response.json",
+          "call_id": "llm_67bce127f8ca48eb8be03c1b8d6f7545_response",
+          "sha256": "cf22f514edb18af84762aff5f583f72889b47068e051e6477d785511136b6a7c"
+        },
+        "model": "openai-compatible::jetnight-pro",
+        "resolved_model": "openai-compatible/jetnight-pro",
+        "provider": "openai-compatible"
+      },
+      {
+        "llm_call_id": "llm_546e27cf6ade42d1933796420f239c9e",
+        "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+        "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:6",
+        "round": 6,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_546e27cf6ade42d1933796420f239c9e_request.json",
+          "call_id": "llm_546e27cf6ade42d1933796420f239c9e_request",
+          "sha256": "1dd67ae8c0074f0ddb3d97faee036c3079e04d83912bad631bcbcfeab55fad05"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_546e27cf6ade42d1933796420f239c9e_response.json",
+          "call_id": "llm_546e27cf6ade42d1933796420f239c9e_response",
+          "sha256": "20a37378760774db2a99af171b3f45fb7a6fc2ad414f99ebb08510ac2998e1b6"
+        },
+        "model": "openai-compatible::jetnight-pro",
+        "resolved_model": "openai-compatible/jetnight-pro",
+        "provider": "openai-compatible"
+      },
+      {
+        "llm_call_id": "llm_defebd91ee474c588ee5722032d50210",
+        "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+        "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:7",
+        "round": 7,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_defebd91ee474c588ee5722032d50210_request.json",
+          "call_id": "llm_defebd91ee474c588ee5722032d50210_request",
+          "sha256": "ae8b4cafbc4da9f6e4b4638250b12b9be809cf511ec83eedc94cf5ee32197fa2"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_defebd91ee474c588ee5722032d50210_response.json",
+          "call_id": "llm_defebd91ee474c588ee5722032d50210_response",
+          "sha256": "b1d7dc7b461daf94b7affecb20c756ea9bf6aa9e344c0f342b98a6a702a3ce35"
+        },
+        "model": "openai-compatible::jetnight-pro",
+        "resolved_model": "openai-compatible/jetnight-pro",
+        "provider": "openai-compatible"
+      },
+      {
+        "llm_call_id": "llm_814e5c99dcf844d0b75ab2ecf020873e",
+        "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+        "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:8",
+        "round": 8,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_814e5c99dcf844d0b75ab2ecf020873e_request.json",
+          "call_id": "llm_814e5c99dcf844d0b75ab2ecf020873e_request",
+          "sha256": "b122b1575e1cbbc67fdf8a66875b1ad004ee16702ad3743758f27c7e757402f3"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_814e5c99dcf844d0b75ab2ecf020873e_response.json",
+          "call_id": "llm_814e5c99dcf844d0b75ab2ecf020873e_response",
+          "sha256": "399624eaa0d1b74489a41d7355fc464d3ff793085adfd9cbc849cd7b78e7a24f"
+        },
+        "model": "openai-compatible::jetnight-pro",
+        "resolved_model": "openai-compatible/jetnight-pro",
+        "provider": "openai-compatible"
+      },
+      {
+        "llm_call_id": "llm_9b018fba30e844a0a203f65a10fa48b7",
+        "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+        "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:9",
+        "round": 9,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_9b018fba30e844a0a203f65a10fa48b7_request.json",
+          "call_id": "llm_9b018fba30e844a0a203f65a10fa48b7_request",
+          "sha256": "110ee9ec7bd43a6edfaa9e7831e7c5cb76e99052e4c6c204247e64cebec240d6"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_9b018fba30e844a0a203f65a10fa48b7_response.json",
+          "call_id": "llm_9b018fba30e844a0a203f65a10fa48b7_response",
+          "sha256": "436e5167616300c9d67d2418c5a9fa65313551a9a552100b506d477bc141f9f3"
+        },
+        "model": "openai-compatible::jetnight-pro",
+        "resolved_model": "openai-compatible/jetnight-pro",
+        "provider": "openai-compatible"
+      },
+      {
+        "llm_call_id": "llm_46a99b7afd28477b86600e4d1850a893",
+        "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+        "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:10",
+        "round": 10,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_46a99b7afd28477b86600e4d1850a893_request.json",
+          "call_id": "llm_46a99b7afd28477b86600e4d1850a893_request",
+          "sha256": "7e213d9dbf931fec29901402bbd5166dfb6d6df8e71cb17c4aa14e31c0dd14d2"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_46a99b7afd28477b86600e4d1850a893_response.json",
+          "call_id": "llm_46a99b7afd28477b86600e4d1850a893_response",
+          "sha256": "e72d4a0b5323cc65e14268c15de8c14c83174d955b9dc263e76eac8128d999b2"
+        },
+        "model": "openai-compatible::jetnight-pro",
+        "resolved_model": "openai-compatible/jetnight-pro",
+        "provider": "openai-compatible"
+      },
+      {
+        "llm_call_id": "llm_6ad9b011fa6d4c1ba4c819bedc83e06b",
+        "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+        "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:11",
+        "round": 11,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_6ad9b011fa6d4c1ba4c819bedc83e06b_request.json",
+          "call_id": "llm_6ad9b011fa6d4c1ba4c819bedc83e06b_request",
+          "sha256": "ced2a79b84ac4f47b3a2f19ba570ccf4ae65c13d5fbe5087adcd9379f909dc77"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_6ad9b011fa6d4c1ba4c819bedc83e06b_response.json",
+          "call_id": "llm_6ad9b011fa6d4c1ba4c819bedc83e06b_response",
+          "sha256": "ab4a87987960c9b784265cfddc74f2c99ecbbbfa5c77718b379007c4ab077a88"
+        },
+        "model": "openai-compatible::jetnight-pro",
+        "resolved_model": "openai-compatible/jetnight-pro",
+        "provider": "openai-compatible"
+      },
+      {
+        "llm_call_id": "llm_b089a74a012b4cf7b7727df8bcb21992",
+        "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+        "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:12",
+        "round": 12,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_b089a74a012b4cf7b7727df8bcb21992_request.json",
+          "call_id": "llm_b089a74a012b4cf7b7727df8bcb21992_request",
+          "sha256": "eedd972e184fd8c82e0b130bcfd399aaa2196f51f9b3bab24440cab6cbeeebe1"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_b089a74a012b4cf7b7727df8bcb21992_response.json",
+          "call_id": "llm_b089a74a012b4cf7b7727df8bcb21992_response",
+          "sha256": "fa4a6eb9f1c9cfb1ad9055f741cc951348faba66d03784561140589c2a6ceab6"
+        },
+        "model": "openai-compatible::jetnight-pro",
+        "resolved_model": "openai-compatible/jetnight-pro",
+        "provider": "openai-compatible"
+      },
+      {
+        "llm_call_id": "llm_20e023546a614e018b1d2d9ab3875c8a",
+        "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+        "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:13",
+        "round": 13,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_20e023546a614e018b1d2d9ab3875c8a_request.json",
+          "call_id": "llm_20e023546a614e018b1d2d9ab3875c8a_request",
+          "sha256": "bf8c27b9171e411afc5de7597cb6ddbb1c08c87700a73be186dcfde5e0836927"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_20e023546a614e018b1d2d9ab3875c8a_response.json",
+          "call_id": "llm_20e023546a614e018b1d2d9ab3875c8a_response",
+          "sha256": "cee1457fccc25dc434a533c3d46a7bb3e7100a6c6087147e0ccc704c6c1bdd69"
+        },
+        "model": "openai-compatible::jetnight-pro",
+        "resolved_model": "openai-compatible/jetnight-pro",
+        "provider": "openai-compatible"
+      },
+      {
+        "llm_call_id": "llm_e77bab31a7064b7c8745f56887730815",
+        "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+        "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:14",
+        "round": 14,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_e77bab31a7064b7c8745f56887730815_request.json",
+          "call_id": "llm_e77bab31a7064b7c8745f56887730815_request",
+          "sha256": "86791483058b35dcbf53ca7ead659d32a75ac189ce516ddc8121bc7b1c63d6a2"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_e77bab31a7064b7c8745f56887730815_response.json",
+          "call_id": "llm_e77bab31a7064b7c8745f56887730815_response",
+          "sha256": "84cc585a95abb6b320ca1aafb8dc85700cc938c3a50a9e9b6b58821434f7b224"
+        },
+        "model": "openai-compatible::jetnight-pro",
+        "resolved_model": "openai-compatible/jetnight-pro",
+        "provider": "openai-compatible"
+      },
+      {
+        "llm_call_id": "llm_c7ed2b17ad854ca0852f5a16f5125cba",
+        "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+        "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:15",
+        "round": 15,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_c7ed2b17ad854ca0852f5a16f5125cba_request.json",
+          "call_id": "llm_c7ed2b17ad854ca0852f5a16f5125cba_request",
+          "sha256": "069c63bab778f020bcb2848f4d9a5bccea341b894bbce511bf7196e61589cc16"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_c7ed2b17ad854ca0852f5a16f5125cba_response.json",
+          "call_id": "llm_c7ed2b17ad854ca0852f5a16f5125cba_response",
+          "sha256": "b2686ae0835abb0220a21bd5aaf9daaa6bb80260d5cfba8fde5067191b2683d6"
+        },
+        "model": "openai-compatible::jetnight-pro",
+        "resolved_model": "openai-compatible/jetnight-pro",
+        "provider": "openai-compatible"
+      },
+      {
+        "llm_call_id": "llm_4ce6cb44a78c42beba8176828ccd151d",
+        "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+        "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:16",
+        "round": 16,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_4ce6cb44a78c42beba8176828ccd151d_request.json",
+          "call_id": "llm_4ce6cb44a78c42beba8176828ccd151d_request",
+          "sha256": "c0772e05a4d8fdf085bf8d9d54f47f19e4c15fd57ae46908e960d5203186e15f"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_4ce6cb44a78c42beba8176828ccd151d_response.json",
+          "call_id": "llm_4ce6cb44a78c42beba8176828ccd151d_response",
+          "sha256": "eec74411db1494c9e7084140d022a12027d43a06a59d6512a4bbe2c2223d9588"
+        },
+        "model": "openai-compatible::jetnight-pro",
+        "resolved_model": "openai-compatible/jetnight-pro",
+        "provider": "openai-compatible"
+      },
+      {
+        "llm_call_id": "llm_16e3aadad88b4f7298599d1834e3d58d",
+        "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+        "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:17",
+        "round": 17,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_16e3aadad88b4f7298599d1834e3d58d_request.json",
+          "call_id": "llm_16e3aadad88b4f7298599d1834e3d58d_request",
+          "sha256": "5270fcfb60b534dc95eacf06513bb9639c36d489efa79c9e87ac1914ad27dc73"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_16e3aadad88b4f7298599d1834e3d58d_response.json",
+          "call_id": "llm_16e3aadad88b4f7298599d1834e3d58d_response",
+          "sha256": "952f9a15d2016d7ed713d261d101f004b27cb10e6761a1115e55484604a9fc17"
+        },
+        "model": "openai-compatible::jetnight-pro",
+        "resolved_model": "openai-compatible/jetnight-pro",
+        "provider": "openai-compatible"
+      },
+      {
+        "llm_call_id": "llm_7215bc8ee63b4d6693498a58589ff72a",
+        "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+        "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:18",
+        "round": 18,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_7215bc8ee63b4d6693498a58589ff72a_request.json",
+          "call_id": "llm_7215bc8ee63b4d6693498a58589ff72a_request",
+          "sha256": "6ce8e6172b1dfc70fc57bbbab670ffcc5c259089057e1acdf82ebfd26e3d55d5"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_7215bc8ee63b4d6693498a58589ff72a_response.json",
+          "call_id": "llm_7215bc8ee63b4d6693498a58589ff72a_response",
+          "sha256": "20790f736c405a87e22724e286546d0f34fc572ac1c9b4d4be2c8bd7a4b67fe2"
+        },
+        "model": "openai-compatible::jetnight-pro",
+        "resolved_model": "openai-compatible/jetnight-pro",
+        "provider": "openai-compatible"
+      },
+      {
+        "llm_call_id": "llm_023b63c6523f49e38ffc5548c8433825",
+        "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+        "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:19",
+        "round": 19,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_023b63c6523f49e38ffc5548c8433825_request.json",
+          "call_id": "llm_023b63c6523f49e38ffc5548c8433825_request",
+          "sha256": "c252eeae04348620a5bfdb401237d0d0b95cf3e7ce2fe6a4a6716c73dc79e038"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_023b63c6523f49e38ffc5548c8433825_response.json",
+          "call_id": "llm_023b63c6523f49e38ffc5548c8433825_response",
+          "sha256": "10248c865d0afa11f4300d0efb0587d2c0cb188fd7a72449d1e12038e6b82c7c"
+        },
+        "model": "openai-compatible::jetnight-pro",
+        "resolved_model": "openai-compatible/jetnight-pro",
+        "provider": "openai-compatible"
+      },
+      {
+        "llm_call_id": "llm_764e5fb00763433c84ca34e781f65ec5",
+        "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+        "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:20",
+        "round": 20,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_764e5fb00763433c84ca34e781f65ec5_request.json",
+          "call_id": "llm_764e5fb00763433c84ca34e781f65ec5_request",
+          "sha256": "fee55b6f934b685f9e5a779a420b77b9da242fbe7683c689d632841e32cb6596"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_764e5fb00763433c84ca34e781f65ec5_response.json",
+          "call_id": "llm_764e5fb00763433c84ca34e781f65ec5_response",
+          "sha256": "f0b5482ffbcea6e790a1bbc7bababbbe272cd5fa6863ece6d7fca5a79b0539e8"
+        },
+        "model": "openai-compatible::jetnight-pro",
+        "resolved_model": "openai-compatible/jetnight-pro",
+        "provider": "openai-compatible"
+      },
+      {
+        "llm_call_id": "llm_1c379b287f934cfa8534e8c258ed85f7",
+        "execution_id": "exec_a06f80b88c044fd69e5f14346440e881",
+        "round_id": "exec_a06f80b88c044fd69e5f14346440e881:round:21",
+        "round": 21,
+        "request_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_1c379b287f934cfa8534e8c258ed85f7_request.json",
+          "call_id": "llm_1c379b287f934cfa8534e8c258ed85f7_request",
+          "sha256": "d1d56cfcd33c1129326ec5890a7d633558deb31c38deb14a82c4360e31f09d34"
+        },
+        "response_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\llm_1c379b287f934cfa8534e8c258ed85f7_response.json",
+          "call_id": "llm_1c379b287f934cfa8534e8c258ed85f7_response",
+          "sha256": "def4cceaaf6f02ce4b5dae8d9e754c0949d1a69729ca4ae74784bdcf8b59e4d6"
+        },
+        "model": "openai-compatible::jetnight-pro",
+        "resolved_model": "openai-compatible/jetnight-pro",
+        "provider": "openai-compatible"
+      }
+    ],
+    "tool_call_refs": [
+      {
+        "call_id": "tool_list_files_c5088173ea664d8789c9a261331af081",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_c5088173ea664d8789c9a261331af081.json",
+          "call_id": "tool_list_files_c5088173ea664d8789c9a261331af081",
+          "sha256": "ae19ebdffd631f6315767f198ca354745b459639f9c68843855568e6e4a82d73"
+        },
+        "redacted_projection_ref": {
+          "sha256": "ecbec1391aa2a4b2d34f9f5a2641b5ccf66b455d6883424fe9a2eef22e8494ec",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\ecbec1391aa2a4b2d34f9f5a2641b5ccf66b455d6883424fe9a2eef22e8494ec.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 494,
+          "compressed_size": 424
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_list_files_7c12a4123dbb4aaea00754b4fdf04022",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_7c12a4123dbb4aaea00754b4fdf04022.json",
+          "call_id": "tool_list_files_7c12a4123dbb4aaea00754b4fdf04022",
+          "sha256": "f53b8d9331d4d9a32766f4dd08f3f70b0bec4d71e7549c5d429f3ecd0d18aa3a"
+        },
+        "redacted_projection_ref": {
+          "sha256": "417b7443a5a3b097150a602b021f83b624b999abd80732112e1c69762c7ed38f",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\417b7443a5a3b097150a602b021f83b624b999abd80732112e1c69762c7ed38f.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 840,
+          "compressed_size": 527
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_list_files_31d25a2996ff4896810ee3c4e32986a3",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_31d25a2996ff4896810ee3c4e32986a3.json",
+          "call_id": "tool_list_files_31d25a2996ff4896810ee3c4e32986a3",
+          "sha256": "7a5812d4ec74f920d6a250d6b9e6fcac4433ebc06bf4060a30557a389fe3d4f2"
+        },
+        "redacted_projection_ref": {
+          "sha256": "e2291cc7a54a81b4a3e82cdd6149de8a506041581be3f8273d1df149a779393c",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\e2291cc7a54a81b4a3e82cdd6149de8a506041581be3f8273d1df149a779393c.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 424,
+          "compressed_size": 361
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_list_files_abb0be9f1235494faa78821a654c8889",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_abb0be9f1235494faa78821a654c8889.json",
+          "call_id": "tool_list_files_abb0be9f1235494faa78821a654c8889",
+          "sha256": "60d0d76a9f5ca410c6a6666b646d254458f1b8115f7004d9a355546f09ec400f"
+        },
+        "redacted_projection_ref": {
+          "sha256": "450727a2ba36d71becc8dcfba606143db7d64ff29f106758827936dd9f37fe06",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\450727a2ba36d71becc8dcfba606143db7d64ff29f106758827936dd9f37fe06.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 907,
+          "compressed_size": 413
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_list_files_927394d5dd3347589a7fb289849fee51",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_927394d5dd3347589a7fb289849fee51.json",
+          "call_id": "tool_list_files_927394d5dd3347589a7fb289849fee51",
+          "sha256": "249f0de9bc396c47a6ca3b6b5103f5e38a249300801b80bb21405bcba43f6dec"
+        },
+        "redacted_projection_ref": {
+          "sha256": "a2cdbdb25cf9a02551f35980100a9648589e2be29a74aa69111022c8f06460ca",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\a2cdbdb25cf9a02551f35980100a9648589e2be29a74aa69111022c8f06460ca.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 577,
+          "compressed_size": 403
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_list_files_939c897a45a84ba8b5dad93d9f0be617",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_939c897a45a84ba8b5dad93d9f0be617.json",
+          "call_id": "tool_list_files_939c897a45a84ba8b5dad93d9f0be617",
+          "sha256": "95603cef59c33377fe10d67e029ccf42dfeb5ab19920db0eaf54bffd34d773e0"
+        },
+        "redacted_projection_ref": {
+          "sha256": "46a28947cefc2f62170881c933038fa402397f6ede5c0e5c5faa51456afbf272",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\46a28947cefc2f62170881c933038fa402397f6ede5c0e5c5faa51456afbf272.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 614,
+          "compressed_size": 416
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_read_file_4241791d08a04c078eb461e750094f03",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_4241791d08a04c078eb461e750094f03.json",
+          "call_id": "tool_read_file_4241791d08a04c078eb461e750094f03",
+          "sha256": "f7ed77202384eebaded604d4fb8fe604dce76e3899f2d18f298bacf51251a4d1"
+        },
+        "redacted_projection_ref": {
+          "sha256": "2a5144ad973858f36155cb3c101f7bf6d4ac00e88d2b8eeccc26900bf766b1ac",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\2a5144ad973858f36155cb3c101f7bf6d4ac00e88d2b8eeccc26900bf766b1ac.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 5285,
+          "compressed_size": 2386
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_read_file_acaffc33a7bf4b4eadf9d9caf6e83861",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_acaffc33a7bf4b4eadf9d9caf6e83861.json",
+          "call_id": "tool_read_file_acaffc33a7bf4b4eadf9d9caf6e83861",
+          "sha256": "8b01f035c795c7e6d73f31659f6d581caaefa39b8cd13b07340529af1c5dce13"
+        },
+        "redacted_projection_ref": {
+          "sha256": "b466b2cc15fc834362ab39590021268ec5e29bc6d7799b18a0623c30a5ae7b0f",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\b466b2cc15fc834362ab39590021268ec5e29bc6d7799b18a0623c30a5ae7b0f.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 2472,
+          "compressed_size": 1222
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_read_file_0fc66b7f563e4f53bb7279af50f91e38",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_0fc66b7f563e4f53bb7279af50f91e38.json",
+          "call_id": "tool_read_file_0fc66b7f563e4f53bb7279af50f91e38",
+          "sha256": "9726cf539203e1db364e24905878f6cdec08333debdbb0e3a18c8ee0daa43fcf"
+        },
+        "redacted_projection_ref": {
+          "sha256": "7ce497d132e9802e39cca8a822963849ba33f25d3679bb0b5b383b2f4c3c6d9a",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\7ce497d132e9802e39cca8a822963849ba33f25d3679bb0b5b383b2f4c3c6d9a.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 893,
+          "compressed_size": 630
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_read_file_3205291bd6354c25aa29ff33ad7f706f",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_3205291bd6354c25aa29ff33ad7f706f.json",
+          "call_id": "tool_read_file_3205291bd6354c25aa29ff33ad7f706f",
+          "sha256": "aaeed79be2a254ff33bdc0df6c56bbfb3adfe8de5130e9832011c429902ffaf9"
+        },
+        "redacted_projection_ref": {
+          "sha256": "7b6a005232d4bb176f49d79d1c728d9ddd2114f2c624aaf8fa8aade343b6c7ce",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\7b6a005232d4bb176f49d79d1c728d9ddd2114f2c624aaf8fa8aade343b6c7ce.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 1553,
+          "compressed_size": 886
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_list_files_6781744ce49d453db0acec44dbeb0e6f",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_6781744ce49d453db0acec44dbeb0e6f.json",
+          "call_id": "tool_list_files_6781744ce49d453db0acec44dbeb0e6f",
+          "sha256": "24555f32f0272e2bd94f8c12077db82325b7fa5ca71f1f0168a82ca252a7e812"
+        },
+        "redacted_projection_ref": {
+          "sha256": "d8a762febdaa5644ed8b9026b32d06077d4f1707edbbabdf3a640ec369144d39",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\d8a762febdaa5644ed8b9026b32d06077d4f1707edbbabdf3a640ec369144d39.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 625,
+          "compressed_size": 409
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_list_files_0a099a86e2f94838854c4f7928232186",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_0a099a86e2f94838854c4f7928232186.json",
+          "call_id": "tool_list_files_0a099a86e2f94838854c4f7928232186",
+          "sha256": "84c209abcc8a9b5ed9cd5da2b858f00aefc0369bc9a14680b138ca3cc3226d1d"
+        },
+        "redacted_projection_ref": {
+          "sha256": "424324020801561753cc4eb5fad4dc9255f2ce31b320c702f92676fbdca267ba",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\424324020801561753cc4eb5fad4dc9255f2ce31b320c702f92676fbdca267ba.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 698,
+          "compressed_size": 415
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_read_file_04a1a2ce566247099e7272db4452f865",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_04a1a2ce566247099e7272db4452f865.json",
+          "call_id": "tool_read_file_04a1a2ce566247099e7272db4452f865",
+          "sha256": "2cbef2ffa954c80f3f49327544ccf56940041659d53c230dc4aa0c9174f7c192"
+        },
+        "redacted_projection_ref": {
+          "sha256": "f640b4dd7d3da59ddba12dd18b05b205ba6d329d1d15eebfb9fe50c1f9802553",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\f640b4dd7d3da59ddba12dd18b05b205ba6d329d1d15eebfb9fe50c1f9802553.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 4942,
+          "compressed_size": 2351
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_read_file_85be74d87eb7416aae2dd9c06046331f",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_85be74d87eb7416aae2dd9c06046331f.json",
+          "call_id": "tool_read_file_85be74d87eb7416aae2dd9c06046331f",
+          "sha256": "3cf71c5a46ca390a8fd52eae786fc75d60547d3c6650ea56bb2d0f9a11d4d3ff"
+        },
+        "redacted_projection_ref": {
+          "sha256": "6da864fae9a9e40b352f0eaedaf37876b9f20c6abbf1d05b1df5ea0878a630dd",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\6da864fae9a9e40b352f0eaedaf37876b9f20c6abbf1d05b1df5ea0878a630dd.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 1314,
+          "compressed_size": 857
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_read_file_49dbcf45ed0241d1ae43a40af1754791",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_49dbcf45ed0241d1ae43a40af1754791.json",
+          "call_id": "tool_read_file_49dbcf45ed0241d1ae43a40af1754791",
+          "sha256": "4ec034a9d19ccfb58e05510cce278f0ab99912730783679ebf8179acf9c4255f"
+        },
+        "redacted_projection_ref": {
+          "sha256": "8e3e406d2303f21be8bc564914de4c1745fcd2ba7ee46052f289b0aa68344091",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\8e3e406d2303f21be8bc564914de4c1745fcd2ba7ee46052f289b0aa68344091.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 921,
+          "compressed_size": 617
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_read_file_fd01757c034d4653b5564363aebbea0d",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_fd01757c034d4653b5564363aebbea0d.json",
+          "call_id": "tool_read_file_fd01757c034d4653b5564363aebbea0d",
+          "sha256": "f2dac5238b0f1729108134c2f56ad8ef82c8918c9edb4b17a9abbdab61484501"
+        },
+        "redacted_projection_ref": {
+          "sha256": "084f85d335d01298ad43aeb60744702650a0ae8ba6753c21bd745c194de7e86f",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\084f85d335d01298ad43aeb60744702650a0ae8ba6753c21bd745c194de7e86f.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 738,
+          "compressed_size": 551
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_read_file_65334de922bc456fa97a6700cb59c640",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_65334de922bc456fa97a6700cb59c640.json",
+          "call_id": "tool_read_file_65334de922bc456fa97a6700cb59c640",
+          "sha256": "cd7215d9f4a310f748c397e08b6745c0c36fec47cbabfba49f9824538fce8a19"
+        },
+        "redacted_projection_ref": {
+          "sha256": "5233d0985e83ff999d7407c603a2df81914a6d5f7571c9d76ae1624db083e40b",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\5233d0985e83ff999d7407c603a2df81914a6d5f7571c9d76ae1624db083e40b.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 514,
+          "compressed_size": 415
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_read_file_49779182caf44131bb903ee26e75f147",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_49779182caf44131bb903ee26e75f147.json",
+          "call_id": "tool_read_file_49779182caf44131bb903ee26e75f147",
+          "sha256": "8989ae7e6e39861efa63d8327cf67bcd728281bb3c9f582aa69993b99c89eda5"
+        },
+        "redacted_projection_ref": {
+          "sha256": "df47e0c77d16296108ca00cbc8a98bad3eb69926c1cb9c7189a1307fcdfebb22",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\df47e0c77d16296108ca00cbc8a98bad3eb69926c1cb9c7189a1307fcdfebb22.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 881,
+          "compressed_size": 615
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_read_file_a233e652fb3e4cc4a83a12866b91a0e5",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_a233e652fb3e4cc4a83a12866b91a0e5.json",
+          "call_id": "tool_read_file_a233e652fb3e4cc4a83a12866b91a0e5",
+          "sha256": "e819054d75b4dfd165cd0cbf3a13d6f1dd8b9f2593883e6730f4a8ad069c78d9"
+        },
+        "redacted_projection_ref": {
+          "sha256": "9877e7624a517602046f61ce49d20f6679173826d2cc8df0206194a667af53a6",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\9877e7624a517602046f61ce49d20f6679173826d2cc8df0206194a667af53a6.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 1147,
+          "compressed_size": 673
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_read_file_3f754cac444947adbfd49328db9638c3",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_3f754cac444947adbfd49328db9638c3.json",
+          "call_id": "tool_read_file_3f754cac444947adbfd49328db9638c3",
+          "sha256": "a19d914ac2ed6b18eb8463b826930cc8fb48f3cfe6a2f76f88192d0bd208d78a"
+        },
+        "redacted_projection_ref": {
+          "sha256": "6c7d88b09e65400e0e79d6f7f7902085f55f8136e9f4309d527268b42759b311",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\6c7d88b09e65400e0e79d6f7f7902085f55f8136e9f4309d527268b42759b311.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 506,
+          "compressed_size": 402
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_read_file_89fcd706dda54dcb8dfb35078168acac",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_89fcd706dda54dcb8dfb35078168acac.json",
+          "call_id": "tool_read_file_89fcd706dda54dcb8dfb35078168acac",
+          "sha256": "1b6d9b7615880ecbce975ce459cbc0a74dada297704fa748396c4bd1430bccad"
+        },
+        "redacted_projection_ref": {
+          "sha256": "727e12ef34ac1eb9be34ec30c72f49b8a6bad977e8659cc50e1e60efa204d5a2",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\727e12ef34ac1eb9be34ec30c72f49b8a6bad977e8659cc50e1e60efa204d5a2.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 1225,
+          "compressed_size": 780
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_read_file_2449638ca44046b6b5e9ec4846bff7ee",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_2449638ca44046b6b5e9ec4846bff7ee.json",
+          "call_id": "tool_read_file_2449638ca44046b6b5e9ec4846bff7ee",
+          "sha256": "8b3db03a8a0effe65f87d1136fe77d38e9f3f1a9f8c0db35245a9cf370bf1852"
+        },
+        "redacted_projection_ref": {
+          "sha256": "bdf204d33a211d9bc9358be3fcf98f91c6e41f4afc66c7bb89711dc903d2cb75",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\bdf204d33a211d9bc9358be3fcf98f91c6e41f4afc66c7bb89711dc903d2cb75.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 728,
+          "compressed_size": 562
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_list_files_6c374c30392646109b24479f19f32499",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_6c374c30392646109b24479f19f32499.json",
+          "call_id": "tool_list_files_6c374c30392646109b24479f19f32499",
+          "sha256": "1c92022361c278503ab082ae27cca692c082fd401a6dd197dbe1d6649f622434"
+        },
+        "redacted_projection_ref": {
+          "sha256": "7b0af013df56292923975fe665905568686589256ba067745cc3531738eb6537",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\7b0af013df56292923975fe665905568686589256ba067745cc3531738eb6537.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 413,
+          "compressed_size": 355
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_list_files_11200b2764904bc8ac4ef1478aa7e897",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_11200b2764904bc8ac4ef1478aa7e897.json",
+          "call_id": "tool_list_files_11200b2764904bc8ac4ef1478aa7e897",
+          "sha256": "6e69b3db39856e995010170009e23af0e41ee48f343d023af59abe688d3812cc"
+        },
+        "redacted_projection_ref": {
+          "sha256": "5e55be89a851861319f3374a5b094cb203d3444228be64d6822d024d9ad566c1",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\5e55be89a851861319f3374a5b094cb203d3444228be64d6822d024d9ad566c1.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 1095,
+          "compressed_size": 481
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_read_file_048eea9fe64c4f779974675dadb7743e",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_048eea9fe64c4f779974675dadb7743e.json",
+          "call_id": "tool_read_file_048eea9fe64c4f779974675dadb7743e",
+          "sha256": "424dca8af54b9867b1753497e4a8ab716d2be8a7be0e65c47f012b7d164f8b61"
+        },
+        "redacted_projection_ref": {
+          "sha256": "0b80ea35f296c354bafca7b3f631bc9be2d8021e7fe980996436c674ebb23ddc",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\0b80ea35f296c354bafca7b3f631bc9be2d8021e7fe980996436c674ebb23ddc.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 18073,
+          "compressed_size": 5272
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_list_files_4e3723bab5e94e4db619cf6ec7e68622",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_4e3723bab5e94e4db619cf6ec7e68622.json",
+          "call_id": "tool_list_files_4e3723bab5e94e4db619cf6ec7e68622",
+          "sha256": "0c3ed4271ebbfacba5fbf9ef8227f644ac81880a07f7db50d6b69c802e2d03a3"
+        },
+        "redacted_projection_ref": {
+          "sha256": "b00536707157ecf9d23a4e133edece30bc3e4d8191b19fd52f06a0b4e9a28b5e",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\b00536707157ecf9d23a4e133edece30bc3e4d8191b19fd52f06a0b4e9a28b5e.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 500,
+          "compressed_size": 382
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_list_files_e66b5151b1da4267ac567483332f640d",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_e66b5151b1da4267ac567483332f640d.json",
+          "call_id": "tool_list_files_e66b5151b1da4267ac567483332f640d",
+          "sha256": "699f848603d01247b7d3242f3e1007e4f00e55e3a64e391f7d24c2d919e6dd9e"
+        },
+        "redacted_projection_ref": {
+          "sha256": "2844adccd3b6aff700b2eafaa3620286ad7d674a6ec0436b1ce7ef767e934a8b",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\2844adccd3b6aff700b2eafaa3620286ad7d674a6ec0436b1ce7ef767e934a8b.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 610,
+          "compressed_size": 412
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_read_file_1e00ee8c954747ae857e0e9630cf0275",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_1e00ee8c954747ae857e0e9630cf0275.json",
+          "call_id": "tool_read_file_1e00ee8c954747ae857e0e9630cf0275",
+          "sha256": "b8ff5148f14aef933e5acac6f15f4227fc1eaa4310d9387fe7e096abb303fa62"
+        },
+        "redacted_projection_ref": {
+          "sha256": "bbbbc46287f0dfb504c61acb14ba5832daf300175b438cdbc1977379763a9eca",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\bbbbc46287f0dfb504c61acb14ba5832daf300175b438cdbc1977379763a9eca.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 8346,
+          "compressed_size": 3024
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_read_file_4323b22443424e35affed3c8f5f83c5e",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_4323b22443424e35affed3c8f5f83c5e.json",
+          "call_id": "tool_read_file_4323b22443424e35affed3c8f5f83c5e",
+          "sha256": "3ac26ede719fc5ddc4a3e3ab815c0117aa7c4a3cd59e4d57e745b770cc41fd86"
+        },
+        "redacted_projection_ref": {
+          "sha256": "da5ffedf28970cb66a481a7b9292156bc14e6fc6033d48bbcce76f33731ef9b0",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\da5ffedf28970cb66a481a7b9292156bc14e6fc6033d48bbcce76f33731ef9b0.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 8724,
+          "compressed_size": 3270
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_read_file_66bfbcb8ff6c40c8a19e59bfb94ab3f8",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_66bfbcb8ff6c40c8a19e59bfb94ab3f8.json",
+          "call_id": "tool_read_file_66bfbcb8ff6c40c8a19e59bfb94ab3f8",
+          "sha256": "9b3a5ab394482e882c35a1279c66039f7afcc089c1091cd2b00463703ea454e1"
+        },
+        "redacted_projection_ref": {
+          "sha256": "03e1eae73e8e29cff58fbaeee79a8ae7e1a50d2840212e89ef481f832ce2eec1",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\03e1eae73e8e29cff58fbaeee79a8ae7e1a50d2840212e89ef481f832ce2eec1.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 19128,
+          "compressed_size": 5792
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_vcs_status_3814ad38db1d40b6840b5e98a8366c4f",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_vcs_status_3814ad38db1d40b6840b5e98a8366c4f.json",
+          "call_id": "tool_vcs_status_3814ad38db1d40b6840b5e98a8366c4f",
+          "sha256": "7498ebbfd1bd570c440823bdbb1b161078ea8b4c388455720078b0bcf2f8e0cb"
+        },
+        "redacted_projection_ref": {
+          "sha256": "d6bdd583a1f3d1abbb20c0ff4536f5742c3b31c67e77b2d7873a6c351f2c37c2",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\d6bdd583a1f3d1abbb20c0ff4536f5742c3b31c67e77b2d7873a6c351f2c37c2.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 943,
+          "compressed_size": 591
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_read_file_af104940cd8849db91b2e184e838fc5f",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_af104940cd8849db91b2e184e838fc5f.json",
+          "call_id": "tool_read_file_af104940cd8849db91b2e184e838fc5f",
+          "sha256": "c1d7a89c245bda1a58d715ec5e497ecba77eab5da0abf4728c5e59907189fb31"
+        },
+        "redacted_projection_ref": {
+          "sha256": "7dee03383d206a71f6f53c1655ac3e66a32dd5cc77b297e874d21d05d3980e50",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\7dee03383d206a71f6f53c1655ac3e66a32dd5cc77b297e874d21d05d3980e50.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 17182,
+          "compressed_size": 5672
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_read_file_ea5ec4d9f42842dabd6d1257215944bb",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_ea5ec4d9f42842dabd6d1257215944bb.json",
+          "call_id": "tool_read_file_ea5ec4d9f42842dabd6d1257215944bb",
+          "sha256": "683530614e8361417a1a0d9904f00e8af6e1f174929ea09170835c5081300a39"
+        },
+        "redacted_projection_ref": {
+          "sha256": "baa787bf1cbf427c4f2c2205b315c235d24ba692704f34e7cae0bf0b59d7a6c0",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\baa787bf1cbf427c4f2c2205b315c235d24ba692704f34e7cae0bf0b59d7a6c0.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 823,
+          "compressed_size": 641
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_read_file_8bb16db4f6a648cd8fc93d5892961c58",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_8bb16db4f6a648cd8fc93d5892961c58.json",
+          "call_id": "tool_read_file_8bb16db4f6a648cd8fc93d5892961c58",
+          "sha256": "aef361809f9f5d517aff271ba508e1245c3100e1f874d05218e89a880266aeb4"
+        },
+        "redacted_projection_ref": {
+          "sha256": "4f00c5400b32b1fc0ff3e6d71d4d9603b4f0b5ba3e3676822bddbe7a9fe7bc06",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\4f00c5400b32b1fc0ff3e6d71d4d9603b4f0b5ba3e3676822bddbe7a9fe7bc06.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 1997,
+          "compressed_size": 1237
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_run_command_a86778f366c8459e8a639aaa3731b9a5",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_run_command_a86778f366c8459e8a639aaa3731b9a5.json",
+          "call_id": "tool_run_command_a86778f366c8459e8a639aaa3731b9a5",
+          "sha256": "a41a3fde2e84322829385816be7786e4afffcab0baeaa74f8414d29b24bcae58"
+        },
+        "redacted_projection_ref": {
+          "sha256": "93d826592a01fbcc1fc1967d62c45e5fdd9d6726c21eae91a963df091c78925c",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\93d826592a01fbcc1fc1967d62c45e5fdd9d6726c21eae91a963df091c78925c.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 476,
+          "compressed_size": 406
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_run_command_3177dd3fe5f740899e6368a026ffb0a5",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_run_command_3177dd3fe5f740899e6368a026ffb0a5.json",
+          "call_id": "tool_run_command_3177dd3fe5f740899e6368a026ffb0a5",
+          "sha256": "5ccb1de2bb06eaa0887d271a7e14b09f45f24fecc50b96e66aff9321516b1dba"
+        },
+        "redacted_projection_ref": {
+          "sha256": "f950d24aff34b0d8f8f586d188e9987068fa8fd2bafc2e15c34800133e7f8fc5",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\f950d24aff34b0d8f8f586d188e9987068fa8fd2bafc2e15c34800133e7f8fc5.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 4941,
+          "compressed_size": 1404
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_list_files_aa6a01524f7046d58d735d22e9527b1d",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_aa6a01524f7046d58d735d22e9527b1d.json",
+          "call_id": "tool_list_files_aa6a01524f7046d58d735d22e9527b1d",
+          "sha256": "b7ec94925c6391d21d77da223150d57f308415e632581eaced4691f5baa91bb1"
+        },
+        "redacted_projection_ref": {
+          "sha256": "d12e974265df02868f7fa337101f8d2f46ddea085c2675c17214e436e0a3f4ed",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\d12e974265df02868f7fa337101f8d2f46ddea085c2675c17214e436e0a3f4ed.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 605,
+          "compressed_size": 408
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_read_file_6f071d4173ff40a7bbf7729ce4960ae1",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_6f071d4173ff40a7bbf7729ce4960ae1.json",
+          "call_id": "tool_read_file_6f071d4173ff40a7bbf7729ce4960ae1",
+          "sha256": "f167661fbc5edf13c7fa3c7774eb221674f460621ffb40bc77481daafb9e83bd"
+        },
+        "redacted_projection_ref": {
+          "sha256": "4fe2b86e802cfcf69e9d9caa9030064b2787282ab098d38281bd11f0822c2aa6",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\4fe2b86e802cfcf69e9d9caa9030064b2787282ab098d38281bd11f0822c2aa6.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 6123,
+          "compressed_size": 1531
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_run_command_e63195cea9fb4de8aedec66b3a7ec73f",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_run_command_e63195cea9fb4de8aedec66b3a7ec73f.json",
+          "call_id": "tool_run_command_e63195cea9fb4de8aedec66b3a7ec73f",
+          "sha256": "e5aa5cc546eb49658925ca2fa66ce80a096694f8cc818ccc61a19209c7f5679d"
+        },
+        "redacted_projection_ref": {
+          "sha256": "4a9ecbc40208cb3a80ea253b616429e4b5972a37ef1a695948f6d7fe01b244e4",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\4a9ecbc40208cb3a80ea253b616429e4b5972a37ef1a695948f6d7fe01b244e4.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 684,
+          "compressed_size": 495
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_read_file_3a9ed1927e754517ac249fde9d73b668",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_3a9ed1927e754517ac249fde9d73b668.json",
+          "call_id": "tool_read_file_3a9ed1927e754517ac249fde9d73b668",
+          "sha256": "6e3586e416997f01837fc342d296e3b248ee4ebdc5ec322fb2f632cc8f058600"
+        },
+        "redacted_projection_ref": {
+          "sha256": "f136ce3f532cf52e5047d693df28b36efa84f6572850ae86287ef5ff9450093f",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\f136ce3f532cf52e5047d693df28b36efa84f6572850ae86287ef5ff9450093f.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 1588,
+          "compressed_size": 756
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_list_files_b3d8f973b58143209b09b6f7c3a6baba",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_b3d8f973b58143209b09b6f7c3a6baba.json",
+          "call_id": "tool_list_files_b3d8f973b58143209b09b6f7c3a6baba",
+          "sha256": "8239fe961d5be6636fd6f1320a7b0c55e2d15c509172a466a4e46fcb005dab6c"
+        },
+        "redacted_projection_ref": {
+          "sha256": "7216dccb391d977c6dadf5f70fce4b8c6a0410e9f0e7acdf0566a859e59db6ad",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\7216dccb391d977c6dadf5f70fce4b8c6a0410e9f0e7acdf0566a859e59db6ad.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 664,
+          "compressed_size": 415
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_read_file_c9982a5ee2df4117ac6aca4f39c335f6",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_read_file_c9982a5ee2df4117ac6aca4f39c335f6.json",
+          "call_id": "tool_read_file_c9982a5ee2df4117ac6aca4f39c335f6",
+          "sha256": "bb257a849be8fba92593bbf82f2233f140c59433c85fe45bf5c0b72ccae22ebf"
+        },
+        "redacted_projection_ref": {
+          "sha256": "688d380e89adadc1bc8d1fd20714ba58e11bdc0d3b8b5e24f78754d6b21f2377",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\688d380e89adadc1bc8d1fd20714ba58e11bdc0d3b8b5e24f78754d6b21f2377.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 1258,
+          "compressed_size": 778
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      },
+      {
+        "call_id": "tool_verify_and_record_b036744799d7442fbf6f20ee6bc15788",
+        "manifest_ref": {
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_verify_and_record_b036744799d7442fbf6f20ee6bc15788.json",
+          "call_id": "tool_verify_and_record_b036744799d7442fbf6f20ee6bc15788",
+          "sha256": "d936ef57317eb9086f086898fdc9833d824a8301c91eb95f52f06c2b3a02cadc"
+        },
+        "redacted_projection_ref": {
+          "sha256": "201bfceca30d1f3a8483f4891d18e169d00cade2f1d243a33f4eecaa1dfbe462",
+          "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\201bfceca30d1f3a8483f4891d18e169d00cade2f1d243a33f4eecaa1dfbe462.json.gz",
+          "kind": "json",
+          "encoding": "gzip",
+          "size": 1478,
+          "compressed_size": 821
+        },
+        "redaction": {
+          "redacted": false,
+          "count": 0,
+          "rules": []
+        }
+      }
+    ]
+  },
+  "review_evidence": {
+    "task_id": "0a635a42",
+    "repo_key": "C:\\Users\\senik\\Ouroboros\\repo",
+    "current_repo": {
+      "snapshot_hash": "5fb2f3f8dc1a",
+      "advisory_status": "missing",
+      "repo_commit_ready": false,
+      "bypass_reason": "",
+      "stale_reason": "",
+      "stale_ts": ""
+    },
+    "recent_attempts": [],
+    "omitted_attempts": 0,
+    "recent_advisory_runs": [],
+    "omitted_advisory_runs": 0,
+    "open_obligations": [],
+    "omitted_obligations": 0,
+    "commit_readiness_debts": [],
+    "continuations": [],
+    "omitted_continuations": 0,
+    "corrupt_continuations": [],
+    "omitted_corrupt": 0,
+    "has_evidence": false
+  },
+  "verification_ledger": {
+    "schema_version": 2,
+    "created_at": "2026-07-19T20:56:20.963408+00:00",
+    "task_id": "0a635a42",
+    "task_contract": {
+      "schema_version": 1,
+      "status": "draft",
+      "source": "host_draft",
+      "task_type": "task",
+      "objective": "Запусти навык release_sync на кейсе test-basket/TB-04. Выполни ровно эту команду в workspace:",
+      "expected_output": "",
+      "constraints": "",
+      "success_criteria": [],
+      "acceptance_claims": [],
+      "allowed_resources": {},
+      "resource_policy": {},
+      "disabled_tools": [],
+      "deadline_at": "2026-07-19T21:02:44.542290Z",
+      "context_requires_self_body_docs": false,
+      "workspace": {
+        "root": "D:\\d\\ouroboros\\athanor-release-sync",
+        "mode": "external"
+      },
+      "lineage": {
+        "parent_task_id": "",
+        "root_task_id": "0a635a42",
+        "session_id": "a1bca826ac2a4e5785357d4363260fdc",
+        "delegation_role": "root"
+      },
+      "delegation_budget": {
+        "may_delegate": true,
+        "may_mutate": false,
+        "may_fan_out": true,
+        "depth_remaining": null,
+        "max_children": null,
+        "intent_note": ""
+      },
+      "budget_profile": {
+        "improvement_policy": "fixed",
+        "max_improvement_passes": null,
+        "reserve_finalization_pct": null,
+        "stall_rounds_threshold": null,
+        "cost_hard_stop_pct": null
+      },
+      "answer_protocol": ""
+    },
+    "outcome_axes": {
+      "schema_version": 1,
+      "lifecycle": {
+        "status": "completed"
+      },
+      "execution": {
+        "status": "ok",
+        "reason_code": "final_message",
+        "failure": null,
+        "recoveries": [],
+        "cosmetic_tool_errors": [],
+        "ignored_tool_errors": [],
+        "policy_denials": [
+          {
+            "tool": "list_files",
+            "status": "blocked",
+            "exit_code": null,
+            "signal": null,
+            "result": "⚠️ TOOL_ACCESS_BLOCKED: profile=external_workspace_task cannot list root=skill_payload"
+          }
+        ]
+      },
+      "artifacts": {
+        "status": "not_applicable"
+      },
+      "objective": {
+        "status": "pass",
+        "source": "task_acceptance_review",
+        "review_status": "pass",
+        "outcome_tier": "solved"
+      },
+      "review": {
+        "status": "pass",
+        "eligibility": "eligible",
+        "trigger": "auto_nondirect",
+        "run_count": 1,
+        "aggregate_signals": [
+          "PASS"
+        ],
+        "outcome_tier": "solved",
+        "acceptance_decision": {
+          "status": "accepted",
+          "source": "task_acceptance_review",
+          "rationale": "Quorum PASS classified the deliverable solved with criterion evidence.",
+          "agent_disposition": "",
+          "agent_rationale": ""
+        }
+      }
+    },
+    "entries": [
+      {
+        "kind": "objective_outcome",
+        "status": "pass",
+        "source": "task_acceptance_review"
+      },
+      {
+        "kind": "task_contract",
+        "status": "recorded",
+        "contract_status": "draft",
+        "objective": "Запусти навык release_sync на кейсе test-basket/TB-04. Выполни ровно эту команду в workspace:",
+        "expected_output": ""
+      },
+      {
+        "kind": "tool_call",
+        "index": 1,
+        "tool": "list_files",
+        "status": "blocked",
+        "exit_code": null,
+        "signal": null,
+        "trace_ref": {
+          "call_id": "tool_list_files_c5088173ea664d8789c9a261331af081",
+          "redacted_projection_ref": {
+            "sha256": "ecbec1391aa2a4b2d34f9f5a2641b5ccf66b455d6883424fe9a2eef22e8494ec",
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\blobs\\ecbec1391aa2a4b2d34f9f5a2641b5ccf66b455d6883424fe9a2eef22e8494ec.json.gz",
+            "kind": "json",
+            "encoding": "gzip",
+            "size": 494,
+            "compressed_size": 424
+          },
+          "full_payload_redacted": true,
+          "manifest_ref": {
+            "path": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data\\observability\\calls\\0a635a42\\tool_list_files_c5088173ea664d8789c9a261331af081.json",
+            "call_id": "tool_list_files_c5088173ea664d8789c9a261331af081",
+            "sha256": "ae19ebdffd631f6315767f198ca354745b459639f9c68843855568e6e4a82d73"
+          },
+          "redaction": {
+            "redacted": false,
+            "count": 0,
+            "rules": []
+          }
+        }
+      },
+      {
+        "kind": "verification_receipt",
+        "status": "pass",
+        "contract_kind": "explicit_command",
+        "criterion_id": "tb04-gold-match",
+        "check": "python -m evaluation run --scenario TB-04 --engine rule --run-id verify_tb04",
+        "expected": "TB-04: status=success A·F1=1.00 D·F1=1.00 S·F1=1.00",
+        "expected_match": "substring",
+        "matched": true,
+        "returncode": 0,
+        "summary": "TB-04: status=success A·F1=1.00 D·F1=1.00 S·F1=1.00 t=0.02s · D:\\d\\ouroboros\\athanor-release-sync\\results\\runs\\verify_tb04",
+        "artifact_lifecycle": [
+          {
+            "path": "results/scratch/TB-04/output.md",
+            "exists_after": true,
+            "check_surface": "host"
+          },
+          {
+            "path": "results/scratch/TB-04/run.json",
+            "exists_after": true,
+            "check_surface": "host"
+          },
+          {
+            "path": "results/runs/verify_tb04/TB-04/metrics.json",
+            "exists_after": true,
+            "check_surface": "host"
+          }
+        ],
+        "artifacts_missing_after": [],
+        "check_exit_masking": false,
+        "check_exit_masking_reasons": [],
+        "criterion_source": "task_stated",
+        "criterion_basis": "TB-04 README/meta.json state the skill must extract exactly 2 decisions, 3 actions (addressed/self-commitment/unaddressed), and ignore 2 distractor ideas; the project's own scorer (tests/run_basket.py run via evaluation run) compares the skill output to the locked expected/ gold and reports status=success with F1=1.00 iff all checks pass."
+      },
+      {
+        "kind": "task_acceptance_review",
+        "status": "ok",
+        "aggregate_signal": "PASS",
+        "degraded": false,
+        "superseded": false,
+        "finding_count": 0
+      }
+    ],
+    "summary": {
+      "entry_count": 5,
+      "has_failures": true
+    }
+  },
+  "artifact_bundle": {
+    "schema_version": 1,
+    "status": "ready_with_changes",
+    "artifacts": [
+      {
+        "kind": "workspace_preflight",
+        "name": "workspace_preflight.json",
+        "path": "C:\\Users\\senik\\Ouroboros\\data\\task_results\\artifacts\\0a635a42\\workspace_preflight.json",
+        "size": 3044,
+        "sha256": "10067b34f9c013ccd7c8e1e2e674ba8c15379237a72efd9aff7f056c1cf1baa1",
+        "status": "ready",
+        "errors": []
+      },
+      {
+        "kind": "workspace_patch",
+        "name": "workspace.patch",
+        "path": "C:\\Users\\senik\\Ouroboros\\data\\task_results\\artifacts\\0a635a42\\workspace.patch",
+        "size": 19295250,
+        "sha256": "0e28aaca19685d8cb1e67e3d89b5954c743146837694baaddb0a7c6c9d0dedbf",
+        "status": "ready",
+        "errors": []
+      },
+      {
+        "kind": "workspace_patch_manifest",
+        "name": "workspace_patch.json",
+        "path": "C:\\Users\\senik\\Ouroboros\\data\\task_results\\artifacts\\0a635a42\\workspace_patch.json",
+        "size": 7606,
+        "sha256": "be05a55af5d9cd9be57cf9ea7f7735cc6caa9507242c0dd1e994c6393f3cdbdc",
+        "status": "ready",
+        "errors": []
+      },
+      {
+        "kind": "memory_export",
+        "name": "memory_export.json",
+        "path": "C:\\Users\\senik\\Ouroboros\\data\\task_results\\artifacts\\0a635a42\\memory_export.json",
+        "size": 1997,
+        "sha256": "c173d594e03191cb00d8d57addea803f800bfd51d139969f8b07572dbeb58264",
+        "status": "ready",
+        "errors": []
+      },
+      {
+        "kind": "task_artifact",
+        "name": "verification_receipts.jsonl",
+        "path": "C:\\Users\\senik\\Ouroboros\\data\\task_results\\artifacts\\0a635a42\\verification_receipts.jsonl",
+        "size": 1243,
+        "sha256": "612e8ba11a90e13f2fa9e1e2f081b288e1eeae14ec5b85e9a81cbec62cee3e22",
+        "status": "ready",
+        "errors": []
+      },
+      {
+        "kind": "task_artifact",
+        "name": "verification_receipts_723bb8df.jsonl",
+        "path": "C:\\Users\\senik\\Ouroboros\\data\\task_results\\artifacts\\0a635a42\\verification_receipts_723bb8df.jsonl",
+        "size": 1243,
+        "sha256": "612e8ba11a90e13f2fa9e1e2f081b288e1eeae14ec5b85e9a81cbec62cee3e22",
+        "status": "ready",
+        "errors": []
+      }
+    ],
+    "errors": []
+  },
+  "headless_child_drive_root": "C:\\Users\\senik\\Ouroboros\\data\\state\\headless_tasks\\0a635a42\\data",
+  "child_status": "completed",
+  "artifact_finalized_at": "2026-07-19T20:56:37.011798+00:00"
+}

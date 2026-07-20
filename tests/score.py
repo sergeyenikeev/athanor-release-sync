@@ -98,13 +98,16 @@ def compute_metrics(run_dir: Path) -> dict[str, Any]:
     drafts_total = sum(r["drafts"] for r in results)
     cost = _read_cost(run_dir)
 
-    # Доля принятых черновиков: в демо-режиме все approvable; здесь — доля черновиков
-    # с определённым владельцем (годные к отправке). Реальное %acceptance — замер человека.
-    draft_acceptance = 1.0  # в демо все черновики подтверждаются (см. scripts/run_demo.py)
+    # Принятие черновиков человеком в автопрогоне НЕ замеряется: все черновики
+    # создаются в статусе awaiting_approval (HITL), решение принимает человек.
+    # None = «не замерено»; фактический % принятия — замер пилота с оценщиком.
+    draft_acceptance = None
 
     agg = {
         "run_id": manifest["run_id"], "engine": manifest["engine"], "mock": manifest["mock"],
-        "skill_version": manifest["skill_version"], "model": manifest["model"],
+        "skill_version": manifest["skill_version"],
+        # model — только для llm-движка; в rule-прогоне LLM не вызывается (llm_calls=0)
+        "model": manifest["model"] if manifest["engine"] == "llm" else None,
         "scenarios": n,
         "actions": {"precision": round(a_p, 4), "recall": round(a_r, 4), "f1": round(a_f1, 4),
                     "tp": a_tp, "fp": a_fp, "fn": a_fn},
@@ -134,7 +137,8 @@ def compute_metrics(run_dir: Path) -> dict[str, Any]:
             "actions_precision": a_p >= TARGETS["actions_precision"],
             "actions_recall": a_r >= TARGETS["actions_recall"],
             "actions_f1": a_f1 >= TARGETS["actions_f1"],
-            "draft_acceptance": draft_acceptance >= TARGETS["draft_acceptance"],
+            # None = не замерено (принятие черновиков — решение человека, замер пилота)
+            "draft_acceptance": None,
         },
     }
     return agg
@@ -187,7 +191,7 @@ def write_summary_md(agg: dict, results: list[dict], path: Path) -> None:
     lines = [
         f"# Сводка результатов прогона {agg['run_id']}",
         "",
-        f"- Движок: **{agg['engine']}**{' (mock)' if agg['mock'] else ''} · навык: **{agg['skill_version']}** · модель: `{agg['model'] or '—'}`",
+        f"- Движок: **{agg['engine']}**{' (mock)' if agg['mock'] else ''} · навык: **{agg['skill_version']}** · модель: `{agg['model'] or '— (rule, LLM не вызывалась)'}`",
         f"- Сценариев: **{agg['scenarios']}** · успешных: **{int(agg['success_rate']*agg['scenarios'])}** · частичных: {agg['partial']} · неуспешных: {agg['failed']} · ошибок: {agg['errors']}",
         "",
         "## Метрики (micro по корзине)",
@@ -205,7 +209,7 @@ def write_summary_md(agg: dict, results: list[dict], path: Path) -> None:
         f"| Полнота владельцев | {_pct(agg['owner_coverage'])} | — | — |",
         f"| Полнота сроков | {_pct(agg['due_coverage'])} | — | — |",
         f"| Доля утверждений с источниками | {_pct(agg['evidence_coverage'])} | — | — |",
-        f"| Принятые черновики | {_pct(agg['draft_acceptance'])} | ≥60% | {'✅' if agg['draft_acceptance']>=0.6 else '❌'} |",
+        f"| Принятые черновики | не замерено ({agg['drafts_total']} сформировано, awaiting_approval) | ≥60% | 📅 пилот |",
         f"| Среднее время | {t['mean_sec']} с | ≤180 с | {'✅' if t['mean_sec']<=180 else '❌'} |",
         f"| p50 / p95 | {t['p50_sec']} / {t['p95_sec']} с | — | — |",
         f"| Доля успешных прогонов | {_pct(agg['success_rate'])} | — | — |",
@@ -267,7 +271,7 @@ def write_html(agg: dict, results: list[dict], path: Path) -> None:
         f"<tr><td>Полнота владельцев</td><td>{_pct(agg['owner_coverage'])}</td><td>—</td><td>—</td></tr>"
         f"<tr><td>Полнота сроков</td><td>{_pct(agg['due_coverage'])}</td><td>—</td><td>—</td></tr>"
         f"<tr><td>Доля с источниками</td><td>{_pct(agg['evidence_coverage'])}</td><td>—</td><td>—</td></tr>"
-        f"<tr><td>Принятые черновики</td><td>{_pct(agg['draft_acceptance'])}</td><td>≥60%</td><td>{'✅' if agg['draft_acceptance']>=0.6 else '❌'}</td></tr>"
+        f"<tr><td>Принятые черновики</td><td>не замерено ({agg['drafts_total']} сформировано, awaiting_approval)</td><td>≥60%</td><td>📅 пилот</td></tr>"
         f"<tr><td>Среднее время</td><td>{t['mean_sec']} с</td><td>≤180 с</td><td>{'✅' if t['mean_sec']<=180 else '❌'}</td></tr>"
         f"<tr><td>p50 / p95</td><td>{t['p50_sec']} / {t['p95_sec']} с</td><td>—</td><td>—</td></tr>"
         f"<tr><td>Успешных прогонов</td><td>{_pct(agg['success_rate'])}</td><td>—</td><td>—</td></tr>"
@@ -284,7 +288,7 @@ th{{background:#f0f4ff}}tr:nth-child(even){{background:#fafafa}}
 .ok{{color:#0a7}}.bad{{color:#c33}}.muted{{color:#666}}
 </style></head><body>
 <h1>Отчёт оценки · прогон {agg['run_id']}</h1>
-<p class="muted">Движок: <b>{agg['engine']}</b>{' (mock)' if agg['mock'] else ''} · навык: <b>{agg['skill_version']}</b> · модель: <code>{_esc(agg['model']) or '—'}</code><br>
+<p class="muted">Движок: <b>{agg['engine']}</b>{' (mock)' if agg['mock'] else ''} · навык: <b>{agg['skill_version']}</b> · модель: <code>{_esc(agg['model'] or '— (rule, LLM не вызывалась)')}</code><br>
 Сценариев: <b>{agg['scenarios']}</b> · успешных: {int(agg['success_rate']*agg['scenarios'])} · частичных: {agg['partial']} · неуспешных: {agg['failed']} · ошибок: {agg['errors']}</p>
 <h2>Агрегированные метрики</h2>
 <table><tr><th>Метрика</th><th>Значение</th><th>Цель</th><th>Статус</th></tr>{met}</table>
