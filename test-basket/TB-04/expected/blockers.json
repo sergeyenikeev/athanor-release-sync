@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "id": "B-002",
+    "description": "блокер по OPS-77 фиксируем, ответственный SRE",
+    "severity": "high",
+    "owner": "SRE",
+    "source_evidence": "OPS-77",
+    "confidence": 0.9,
+    "resolution_status": "confirmed"
+  }
+]

@@ -12,6 +12,7 @@ import re
 from .models import (
     CONFIDENCE,
     DUE_NOT_SET,
+    OWNER_NOT_SET,
     ActionItem,
     Blocker,
     CalendarEvent,
@@ -22,6 +23,14 @@ from .models import (
 )
 
 _ISSUE_KEY_RX = re.compile(r"\b([A-Z]{2,5}-\d{1,5})\b(?!\.\d)")
+
+# Блокер, зафиксированный в решении синка («блокер по OPS-77 фиксируем, ответственный SRE»).
+# Уже словами «блокер/заблокирован»: решения — очищенные формулировки, широкий почтовый
+# регэксп (падает/критично/…) дал бы ложные блокеры на решениях о переносах.
+_DECISION_BLOCKER_RX = re.compile(r"блокер|заблокирован", re.IGNORECASE)
+_BLOCKER_OWNER_RX = re.compile(
+    r"ответственн(?:ый|ая|ые)?\s*[—:-]?\s*(?P<owner>[А-ЯA-Z][\w /-]{1,30})", re.IGNORECASE
+)
 
 # Относительный срок вида «до следующего релизного окна» / «до следующего окна» —
 # разрешается по календарю release_windows (task4 СЦ-06: неявный срок).
@@ -102,8 +111,17 @@ def enrich_actions(actions: list[ActionItem], case: CaseInput, run_date: str) ->
     return actions
 
 
-def extract_blockers(case: CaseInput, summary_items: list[SummaryItem]) -> list[Blocker]:
-    """Структурированные блокеры и конфликты из сводки (для expected/blockers.json)."""
+def extract_blockers(
+    case: CaseInput,
+    summary_items: list[SummaryItem],
+    decisions: list[Decision] | None = None,
+) -> list[Blocker]:
+    """Структурированные блокеры: из сводки (письма/конфликты) и из решений синка.
+
+    Блокер, зафиксированный голосом на встрече, приходит как решение
+    («блокер по OPS-77 фиксируем, ответственный SRE») — он тоже попадает в
+    blockers со статусом confirmed и владельцем из «ответственный X».
+    """
     blockers: list[Blocker] = []
     event_date = case.event.date if case.event else ""
     for idx, it in enumerate(summary_items, 1):
@@ -133,4 +151,21 @@ def extract_blockers(case: CaseInput, summary_items: list[SummaryItem]) -> list[
                     resolution_status="confirmed",
                 )
             )
+    for d in decisions or []:
+        if not _DECISION_BLOCKER_RX.search(d.text):
+            continue
+        om = _BLOCKER_OWNER_RX.search(d.text)
+        blockers.append(
+            Blocker(
+                id=f"B-{len(summary_items) + len(blockers) + 1:03d}",
+                description=d.text,
+                severity="high",
+                owner=om.group("owner").strip().rstrip(" ,.;—-") if om else OWNER_NOT_SET,
+                affected_release=event_date,
+                source_evidence=d.source,
+                confidence=d.confidence or CONFIDENCE["transcript"],
+                detected_at=event_date,
+                resolution_status="confirmed",  # зафиксирован решением на синке
+            )
+        )
     return blockers

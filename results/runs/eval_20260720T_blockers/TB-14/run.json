@@ -1,0 +1,40 @@
+{
+  "case_id": "TB-14",
+  "engine": "rule",
+  "format_profile": "v1",
+  "summary_items": [
+    {
+      "text": "Открытый вопрос (Владелец продукта, 2026-07-02): Уточнить окно заморозки",
+      "source": "письмо M1 от 2026-07-02",
+      "confidence": 0.7,
+      "kind": "question"
+    },
+    {
+      "text": "Источник «tracker_repo» недоступен — данные неполны; повторю запрос при следующем прогоне",
+      "source": "самодиагностика",
+      "confidence": 1.0,
+      "kind": "warning"
+    }
+  ],
+  "decisions": [
+    {
+      "text": "заморозка релиза ALPHA-2026.07 с 03.07 18:00",
+      "reason": "регламент",
+      "source": "расшифровка синка 03.07",
+      "confidence": 0.6,
+      "source_evidence": "evidence:transcript:расшифровка синка 03.07"
+    }
+  ],
+  "actions": [],
+  "drafts": [],
+  "memory_updates": [
+    "решение: «заморозка релиза ALPHA-2026.07 с 03.07 18:00»"
+  ],
+  "security_flags": [],
+  "warnings": [],
+  "elapsed_seconds": 0.0010322000016458333,
+  "blockers": [],
+  "llm_calls": 0,
+  "skill_version": "v1",
+  "model": ""
+}

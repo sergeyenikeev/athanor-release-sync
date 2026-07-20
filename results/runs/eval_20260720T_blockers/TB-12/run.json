@@ -1,0 +1,100 @@
+{
+  "case_id": "TB-12",
+  "engine": "rule",
+  "format_profile": "v2",
+  "summary_items": [
+    {
+      "text": "APP-412 «Миграция на ППРБ» — в работе (исп.: Разработчик backend)",
+      "source": "Jira APP-412",
+      "confidence": 0.9,
+      "kind": "status"
+    },
+    {
+      "text": "APP-521 «Интеграция с партнёром» — готово к релизу (исп.: Разработчик frontend)",
+      "source": "Jira APP-521",
+      "confidence": 0.9,
+      "kind": "status"
+    },
+    {
+      "text": "PR #128 «Миграция на ППРБ» по APP-412 — на ревью, на ревью 2 дн.",
+      "source": "Git PR#128",
+      "confidence": 0.9,
+      "kind": "status"
+    },
+    {
+      "text": "Блокер из письма (Разработчик frontend, 2026-07-02): ППРБ-адаптер не задеплоен",
+      "source": "письмо M1 от 2026-07-02",
+      "confidence": 0.7,
+      "kind": "blocker"
+    },
+    {
+      "text": "SRE: подтвердить готовность стенда предпрода · срок 2026-07-01",
+      "source": "память релиза · OPS-70",
+      "confidence": 0.8,
+      "kind": "commitment"
+    },
+    {
+      "text": "✔ выполнено: Разработчик backend: закрыть APP-410 (миграция на ППРБ) · срок 2026-06-27",
+      "source": "память релиза · APP-410",
+      "confidence": 0.8,
+      "kind": "commitment"
+    }
+  ],
+  "decisions": [
+    {
+      "text": "окно релиза 03.07 18:00–20:00",
+      "reason": "стандартное окно",
+      "source": "расшифровка синка 03.07",
+      "confidence": 0.6,
+      "source_evidence": "evidence:transcript:расшифровка синка 03.07"
+    }
+  ],
+  "actions": [
+    {
+      "action": "подготовлю release-notes по APP-412",
+      "owner": "Разработчик backend",
+      "due": "2026-07-03",
+      "source": "APP-412",
+      "id": "C-001",
+      "confidence": 0.9,
+      "source_evidence": "evidence:jira:APP-412",
+      "created_at": "2026-07-20T22:21:00",
+      "updated_at": "2026-07-20T22:21:00"
+    }
+  ],
+  "drafts": [
+    {
+      "id": "TB-12-D01",
+      "type": "mail_draft",
+      "to_role": "Разработчик backend",
+      "subject": "[APP-412] подготовлю release-notes по APP-412",
+      "body": "Коллега (Разработчик backend), по итогам релиз-синка за вами: подготовлю release-notes по APP-412. Срок: 2026-07-03. Источник: APP-412.\n— черновик подготовлен агентом, отправка только после подтверждения человека",
+      "status": "awaiting_approval",
+      "source_evidence": "evidence:jira:APP-412",
+      "created_at": "2026-07-20T22:21:00"
+    }
+  ],
+  "memory_updates": [
+    "решение: «окно релиза 03.07 18:00–20:00» (заменяет: «Релиз 03.07 в стандартное окно 18:00–20:00»)",
+    "обязательство: Разработчик backend — «подготовлю release-notes по APP-412» · срок 2026-07-03"
+  ],
+  "security_flags": [],
+  "warnings": [],
+  "elapsed_seconds": 0.003986600029747933,
+  "blockers": [
+    {
+      "id": "B-004",
+      "description": "Блокер из письма (Разработчик frontend, 2026-07-02): ППРБ-адаптер не задеплоен",
+      "severity": "high",
+      "owner": "не определён",
+      "affected_release": "2026-07-03",
+      "source_evidence": "письмо M1 от 2026-07-02",
+      "confidence": 0.7,
+      "detected_at": "2026-07-03",
+      "resolution_status": "open"
+    }
+  ],
+  "llm_calls": 0,
+  "skill_version": "v1",
+  "model": ""
+}

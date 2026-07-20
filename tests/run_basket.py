@@ -286,7 +286,10 @@ def main() -> int:
 
     manifest = {
         "run_id": run_id, "engine": engine, "mock": cfg.get("ATHANOR_LLM_MOCK") == "1",
-        "skill_version": skill_version, "model": cfg.get("LLM_MODEL", ""),
+        # модель фиксируется только если движок реально вызывает LLM: у rule-прогона
+        # model=null (иначе в метриках появляется модель из .env, которая не вызывалась)
+        "skill_version": skill_version,
+        "model": cfg.get("LLM_MODEL", "") if engine == "llm" else None,
         "started_at": dt.datetime.now().isoformat(timespec="seconds"),
         "scenarios": len(results), "results": results,
     }

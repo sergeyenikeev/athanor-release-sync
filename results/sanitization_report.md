@@ -1,6 +1,6 @@
 # Отчёт по обезличиванию данных (task4 §26)
 
-- Сканировано файлов: **669** в test-basket/, memory/, examples/, skills/, results/, test-instances/
+- Сканировано файлов: **843** в test-basket/, memory/, examples/, skills/, results/, test-instances/
 - Каталоги проверки: 6
 - Детекторов: 10 (ФИО, email, Jira ID, внутренние URL, токены/ключи/пароли, карты, телефоны, табельные)
 

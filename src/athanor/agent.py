@@ -77,7 +77,7 @@ def run_case(
     # 3a) Evidence linking + уверенность + структурированные блокеры
     decisions = enrich_decisions(decisions, case)
     actions = enrich_actions(actions, case, event_date or "2026-01-01")
-    blockers = extract_blockers(case, summary_items)
+    blockers = extract_blockers(case, summary_items, decisions)
 
     # 4) Обновление аудируемой памяти
     memory_updates = mem.apply_cycle(event_date or "2026-01-01", decisions, actions, cancellations)
@@ -102,5 +102,6 @@ def run_case(
         blockers=blockers,
         llm_calls=llm_calls,
         skill_version=skill_version,
-        model=cfg.get("LLM_MODEL", ""),
+        # модель фиксируется только при реальных LLM-вызовах; rule-движок — пусто
+        model=cfg.get("LLM_MODEL", "") if llm_calls else "",
     )

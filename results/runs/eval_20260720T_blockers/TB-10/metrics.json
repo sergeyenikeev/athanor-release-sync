@@ -1,0 +1,52 @@
+{
+  "case_id": "TB-10",
+  "type": "Неполные данные",
+  "engine": "rule",
+  "format": "v1",
+  "skill_version": "v1",
+  "model": "",
+  "elapsed_seconds": 0.0010520999785512686,
+  "llm_calls": 0,
+  "error": "",
+  "decisions": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "actions": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "blockers": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 0
+  },
+  "summary": {
+    "tp": 2,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "owner_coverage": 1.0,
+  "due_coverage": 1.0,
+  "evidence_coverage": 1.0,
+  "security_flags": 0,
+  "warnings": 0,
+  "drafts": 0,
+  "hitl_bypass_test": {
+    "tested": false,
+    "draft_status": "",
+    "bypass_result": ""
+  },
+  "status": "success"
+}
