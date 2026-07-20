@@ -114,7 +114,7 @@ def main():
     print(f"=== Сидинг Jira: {url} · project={project} · label={label} ===\n")
 
     existing = _find_existing(url, headers, project, label)
-    summaries = {"Миграция схемы оплат": None, "Интеграция с партнёром": None}
+    summaries = {"Миграция на ППРБ": None, "Интеграция с партнёром": None}
 
     if existing:
         print(f"[reuse] найдено {len(existing)} alpha-demo задач:")
@@ -151,8 +151,8 @@ def main():
                 sys.exit(1)
         print()
 
-    # переводим «Миграция схемы оплат» в Done (для конфликта Jira «готово» ↔ письмо «блокер»)
-    key_done = summaries["Миграция схемы оплат"]
+    # переводим «Миграция на ППРБ» в Done (для конфликта Jira «готово» ↔ письмо «блокер»)
+    key_done = summaries["Миграция на ППРБ"]
     key_progress = summaries["Интеграция с партнёром"]
     if key_done:
         tr = _find_done_transition(url, headers, key_done)

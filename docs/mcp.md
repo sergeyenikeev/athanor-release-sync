@@ -93,7 +93,7 @@ MCP_BACKEND=live python mcp/serve_all.py
 MCP_BACKEND=live python -m athanor.cli run --case examples/demo_case_alpha_live --via-mcp --engine rule --print
 
 # добавить боевой Bitbucket Cloud к live:
-python test-instances/seed_bitbucket.py                                  # репо + ветка + PR «Схема оплат»
+python test-instances/seed_bitbucket.py                                  # репо + ветка + PR «Миграция на ППРБ»
 MCP_BACKEND=live MCP_BACKEND_PR=bitbucket python mcp/serve_all.py
 MCP_BACKEND=live MCP_BACKEND_PR=bitbucket python -m athanor.cli run --case examples/demo_case_alpha_live --via-mcp --engine rule --print
 ```
@@ -115,7 +115,7 @@ MCP_BACKEND=live MCP_BACKEND_PR=bitbucket python -m athanor.cli run --case examp
 ```bash
 # .env: BITBUCKET_WORKSPACE, BITBUCKET_REPO_SLUG, BITBUCKET_PR_ISSUE_KEY (опц.) +
 #        (A) BITBUCKET_EMAIL + BITBUCKET_API_TOKEN  — либо —  (B) BITBUCKET_WORKSPACE_TOKEN
-python test-instances/seed_bitbucket.py    # репо (B only) + ветка + PR «Схема оплат»
+python test-instances/seed_bitbucket.py    # репо (B only) + ветка + PR «Миграция на ППРБ»
 MCP_BACKEND_PR=bitbucket python mcp/serve_all.py
 MCP_BACKEND_PR=bitbucket python -m athanor.cli run --case examples/demo_case_alpha --via-mcp --engine rule --print
 ```
