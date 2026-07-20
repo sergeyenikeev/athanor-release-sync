@@ -1,0 +1,72 @@
+{
+  "run_id": "eval_glm52_20260720",
+  "engine": "llm",
+  "mock": false,
+  "skill_version": "v1",
+  "model": "z-ai/glm-5.2",
+  "scenarios": 17,
+  "actions": {
+    "precision": 0.1818,
+    "recall": 0.1818,
+    "f1": 0.1818,
+    "tp": 2,
+    "fp": 9,
+    "fn": 9
+  },
+  "decisions": {
+    "precision": 0.8462,
+    "recall": 0.8462,
+    "f1": 0.8462,
+    "tp": 11,
+    "fp": 2,
+    "fn": 2
+  },
+  "blockers": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 4,
+    "fp": 0,
+    "fn": 0
+  },
+  "summary": {
+    "precision": 0.9767,
+    "recall": 0.9767,
+    "f1": 0.9767,
+    "tp": 42,
+    "fp": 1,
+    "fn": 1
+  },
+  "owner_coverage": 0.5882,
+  "due_coverage": 0.6471,
+  "evidence_coverage": 1.0,
+  "timing": {
+    "mean_sec": 10.898,
+    "p50_sec": 7.116,
+    "p95_sec": 31.328,
+    "total_sec": 185.261
+  },
+  "success_rate": 0.4118,
+  "partial": 10,
+  "failed": 0,
+  "errors": 0,
+  "fallback_rate": 0.1176,
+  "llm_calls": 15,
+  "drafts_total": 11,
+  "draft_acceptance": 1.0,
+  "cost_usd": 0.023932,
+  "targets": {
+    "actions_precision": 0.85,
+    "actions_recall": 0.8,
+    "actions_f1": 0.82,
+    "usefulness": 4.0,
+    "draft_acceptance": 0.6,
+    "prep_time_sec": 180.0
+  },
+  "target_met": {
+    "actions_precision": false,
+    "actions_recall": false,
+    "actions_f1": false,
+    "draft_acceptance": true
+  }
+}

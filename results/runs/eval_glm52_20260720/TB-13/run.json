@@ -1,0 +1,58 @@
+{
+  "case_id": "TB-13",
+  "engine": "llm",
+  "format_profile": "v1",
+  "summary_items": [
+    {
+      "text": "APP-412 «Миграция на ППРБ (alpha-api)» — в работе (исп.: Разработчик backend)",
+      "source": "Jira APP-412",
+      "confidence": 0.9,
+      "kind": "status"
+    }
+  ],
+  "decisions": [
+    {
+      "text": "выкатывать notification-service в окно 10.07",
+      "reason": "alpha-api ещё на ревью",
+      "source": "расшифровка синка 03.07",
+      "confidence": 0.6,
+      "source_evidence": "evidence:transcript:расшифровка синка 03.07"
+    }
+  ],
+  "actions": [
+    {
+      "action": "обновить runbook по инциденту",
+      "owner": "Разработчик backend",
+      "due": "2026-07-10",
+      "source": "расшифровка синка 03.07",
+      "id": "C-001",
+      "confidence": 0.6,
+      "source_evidence": "основание: относительный срок «до следующего окна» → 2026-07-10 (release_windows)",
+      "created_at": "2026-07-20T16:34:53",
+      "updated_at": "2026-07-20T16:34:53"
+    }
+  ],
+  "drafts": [
+    {
+      "id": "TB-13-D01",
+      "type": "mail_draft",
+      "to_role": "Разработчик backend",
+      "subject": "[расшифровка синка 03.07] обновить runbook по инциденту",
+      "body": "Коллега (Разработчик backend), по итогам релиз-синка за вами: обновить runbook по инциденту. Срок: 2026-07-10. Источник: расшифровка синка 03.07.\n— черновик подготовлен агентом, отправка только после подтверждения человека",
+      "status": "awaiting_approval",
+      "source_evidence": "основание: относительный срок «до следующего окна» → 2026-07-10 (release_windows)",
+      "created_at": "2026-07-20T16:34:53"
+    }
+  ],
+  "memory_updates": [
+    "решение: «выкатывать notification-service в окно 10.07»",
+    "обязательство: Разработчик backend — «обновить runbook по инциденту» · срок 2026-07-10"
+  ],
+  "security_flags": [],
+  "warnings": [],
+  "elapsed_seconds": 13.744924400001764,
+  "blockers": [],
+  "llm_calls": 1,
+  "skill_version": "v1",
+  "model": "z-ai/glm-5.2"
+}

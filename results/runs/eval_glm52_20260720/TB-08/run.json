@@ -1,0 +1,41 @@
+{
+  "case_id": "TB-08",
+  "engine": "llm",
+  "format_profile": "v1",
+  "summary_items": [
+    {
+      "text": "APP-412 «Миграция на ППРБ» — в работе (исп.: Разработчик backend)",
+      "source": "Jira APP-412",
+      "confidence": 0.9,
+      "kind": "status"
+    },
+    {
+      "text": "SRE: поднять стенд предпрода для OPS-77 · срок 2026-07-02",
+      "source": "память релиза · OPS-77",
+      "confidence": 0.8,
+      "kind": "commitment"
+    }
+  ],
+  "decisions": [
+    {
+      "text": "OPS-77 больше не нужен, ППРБ-адаптер уже задеплоен",
+      "reason": "ППРБ-адаптер уже задеплоен",
+      "source": "расшифровка синка 03.07",
+      "confidence": 0.6,
+      "source_evidence": "evidence:transcript:расшифровка синка 03.07"
+    }
+  ],
+  "actions": [],
+  "drafts": [],
+  "memory_updates": [
+    "решение: «OPS-77 больше не нужен, ППРБ-адаптер уже задеплоен»",
+    "отменено обязательство по OPS-77: «поднять стенд предпрода для OPS-77» (SRE)"
+  ],
+  "security_flags": [],
+  "warnings": [],
+  "elapsed_seconds": 7.071701899985783,
+  "blockers": [],
+  "llm_calls": 1,
+  "skill_version": "v1",
+  "model": "z-ai/glm-5.2"
+}
