@@ -157,6 +157,30 @@ def write_csv(agg: dict, results: list[dict], path: Path) -> None:
             ])
 
 
+def _engine_note(agg: dict) -> str:
+    """Описывает движок в зависимости от engine/mock/model."""
+    eng = agg["engine"]
+    if eng == "rule":
+        return "Метрики сняты с движка **rule** (rule-baseline, офлайн, детерминированно)."
+    if agg.get("mock"):
+        return "Метрики сняты с движка **llm** (mock-LLM, детерминированный прокси rule-baseline, без сети)."
+    model = agg.get("model") or "—"
+    return (
+        f"Метрики сняты с движка **llm** (реальная LLM: `{model}`, "
+        f"стоимость ${agg.get('cost_usd', 0):.4f})."
+    )
+
+
+def _engine_note_html(agg: dict) -> str:
+    eng = agg["engine"]
+    if eng == "rule":
+        return "Метрики сняты с rule (rule-baseline, офлайн)."
+    if agg.get("mock"):
+        return "Метрики сняты с llm (mock-LLM — детерминированный прокси rule-baseline)."
+    model = _esc(agg.get("model") or "—")
+    return f"Метрики сняты с llm (реальная LLM: <code>{model}</code>)."
+
+
 def write_summary_md(agg: dict, results: list[dict], path: Path) -> None:
     a, d, b = agg["actions"], agg["decisions"], agg["blockers"]
     t = agg["timing"]
@@ -206,11 +230,11 @@ def write_summary_md(agg: dict, results: list[dict], path: Path) -> None:
         "",
         "## Примечание о движке",
         "",
-        "Метрики сняты с движка **" + agg["engine"] + "**" + (" (mock-LLM, детерминированный прокси rule-baseline)" if agg["mock"] else " (rule-baseline, офлайн)") + ".",
-        "Метрики реальной LLM (основной путь) требуют API-ключа и измеряются отдельно; "
-        "mock-LLM прогоняет тот же путь (JSON-валидация, изоляция недоверенного текста, ретраи) без сети.",
+        _engine_note(agg),
         "Корзина синтетическая и выровнена с детерминированным извлечением — доказывает работу конвейера, "
-        "Safety Layer, памяти, HITL и версионирования навыка; recall на реальных расшифровках — замер пилота.",
+        "Safety Layer, памяти, HITL и версионирования навыка; recall на реальных расшифровках — замер пилота. "
+        "Строгое текстовое сопоставление занижает метрики LLM при парафразе (например, «подготовить» vs «подготовлю»); "
+        "семантически корректные извлечения засчитываются только при точном совпадении.",
     ]
     path.write_text("\n".join(lines), encoding="utf-8")
 
@@ -266,7 +290,7 @@ th{{background:#f0f4ff}}tr:nth-child(even){{background:#fafafa}}
 <table><tr><th>Метрика</th><th>Значение</th><th>Цель</th><th>Статус</th></tr>{met}</table>
 <h2>По сценариям</h2>
     <table><tr><th>ID</th><th>Тип</th><th>Статус</th><th>A·P/R/F1</th><th>D·F1</th><th>S·F1</th><th>Время, с</th><th>LLM</th><th>Черновики</th><th>Ошибка</th></tr>{rows}</table>
-<p class="muted">Метрики сняты с {agg['engine']}{' (mock-LLM — детерминированный прокси rule-baseline)' if agg['mock'] else ' (rule-baseline, офлайн)'}. 
+<p class="muted">{_engine_note_html(agg)}
 Метрики реальной LLM требуют API-ключа. Корзина синтетическая, доказывает работу конвейера, Safety Layer, памяти, HITL и версионирования.</p>
 </body></html>"""
     path.write_text(html, encoding="utf-8")
