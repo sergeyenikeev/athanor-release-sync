@@ -34,7 +34,9 @@ _EMAIL = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.(ru|com|org|net|io|sbe
 _REAL_JIRA = re.compile(r"\b(?:JIRA|DEVOPS|PROD|CORP|INFRA|SEC|SBER|GIGA|CLOUD)-\d{1,5}\b", re.IGNORECASE)
 _INTERNAL_URL = re.compile(r"https?://(?:[a-z0-9-]+\.)?(sber|sberbank|alfabank|vtb|gazprom|yandex|team|corp|intra|jira\.company|wiki\.company|git\.company)\b", re.IGNORECASE)
 _TOKEN = re.compile(r"\b(sk-[A-Za-z0-9_-]{12,}|Bearer\s+[A-Za-z0-9._-]{12,}|api[_-]?key\s*[:=]\s*['\"]?[A-Za-z0-9]{16,}|token\s*[:=]\s*['\"]?[A-Za-z0-9]{16,}|password\s*[:=]\s*['\"]?\S{6,})\b", re.IGNORECASE)
-_CARD = re.compile(r"\b(?:\d{4}[\s-]?){3}\d{4}\b")
+# Номер банковской карты — 16 цифр (опционально с разделителями),
+# НЕ часть десятичной дроби и НЕ часть hex-хеша
+_CARD = re.compile(r"(?<![.\dA-Za-z])(?:\d{4}[\s-]?){3}\d{4}(?![.\dA-Za-z])")
 # Телефон — требует разделителей (иначе ложные срабатывания на 11-значных JSON-числах)
 _PHONE = re.compile(r"(?:\+7|8)\s*\(?\d{3}\)?[\s-]\d{3}[\s-]\d{2}[\s-]\d{2}")
 _TABEL = re.compile(r"\bтабель\s*(?:номер|№)\s*[:\-]?\s*\d{4,}\b", re.IGNORECASE)

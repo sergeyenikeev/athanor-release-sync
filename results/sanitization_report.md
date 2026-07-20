@@ -41,13 +41,21 @@
 
 ## Результат
 
-⚠ Обнаружено **4** потенциальных совпадений:
+⚠ Обнаружено **12** потенциальных совпадений:
 
-### Номер банковской карты (4)
-- `results\scratch\llm_real_TB-01\run.json`: «5721722000162117»
-- `results\runs\llm_real_v1\manifest.json`: «0975456000305712»
-- `results\runs\llm_real_v1\TB-16\metrics.json`: «0975456000305712»
-- `results\runs\llm_real_v1\TB-16\run.json`: «0975456000305712»
+### Номер банковской карты (12)
+- `results\sanitization_report.md`: «5721722000162117»
+- `results\sanitization_report.md`: «0975456000305712»
+- `results\sanitization_report.md`: «0975456000305712»
+- `results\sanitization_report.md`: «0975456000305712»
+- `results\scratch\ouroboros_evolution_result.json`: «1279673565432325»
+- `results\scratch\ouroboros_evolution_result.json`: «1279673565432325»
+- `results\scratch\ouroboros_evolution_result.json`: «1279673565432325»
+- `results\scratch\ouroboros_evolution_result.json`: «1279673565432325»
+- `results\scratch\ouroboros_hitl_run3_result.json`: «4262362228767252»
+- `results\scratch\ouroboros_hitl_run3_result.json`: «4262362228767252»
+- `results\scratch\req_f464c226.json`: «5825808426019137»
+- `results\scratch\req_f464c226.json`: «5825808426019137»
 
 
 ## Замены, выполненные при создании данных
