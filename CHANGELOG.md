@@ -1,5 +1,164 @@
 ﻿# Changelog
 
+## [1.9.1] — 2026-07-20 (5 независимых оценок: исправления слабых мест)
+
+### Исправлено
+- **Санитизация tracked-файлов**: `results/atlassian_seeded_keys.json`,
+  `results/confluence_seeded.json` — `senikeev.atlassian.net` → `<tenant>.atlassian.net`;
+  `test-instances/rename_to_pprb.py` — `C:\Users\senik\AppData\Local\Temp\opencode`
+  → относительный путь. `scripts/sanitize_check.py` расширен: +каталоги `results/`,
+  `test-instances/` (было 246 файлов → 553), +детекторы Atlassian-tenant и Windows-пути,
+  whitelist `demo.atlassian.net`/`athanor-demo@gmail.com`, regex телефона исправлен
+  (исключены ложные 11-значные JSON-числа). Отчёт: 553 файла, 0 находок.
+- **Экономика сл.9**: `build_results.py` — `1500₽/ч × 5 × 22 = 165 тыс` → `1500₽/ч ×
+  0,25 ч × 5 × 22 ≈ 41 тыс` (согласовано с AS IS 15 мин; 31 тыс Proposal — рамка).
+- **Артефакт de797d3f**: `results/scratch/ouroboros_e2e_video/e2e_task_result.json`
+  скопирован из `out/video/cloud_capture/` — task_id, 40 rounds, tier=solved.
+- **Слайд 5**: нижняя плашка заменена на таблицу 5 боевых прогонов Ouroboros
+  (de797d3f/ceb91e67/10ffd02e/e11fd35c/dec66d75); dec66d75 review=best_effort оговорён.
+- **Слайд 6**: шрифт 11pt → 13pt (MCP-адаптеры, Результат).
+- **Слайд 8**: строка 10/5/2/0 раскрыта (фиксация неполноты / безопасная блокировка),
+  добавлен LLM-mock прогон 17/17.
+- **`src/athanor/llm.py`**: `"stream": False` в body запроса (jet-night router по
+  умолчанию стримит SSE; athanor не парсил).
+
+### Добавлено
+- **Real-LLM прогон корзины**: `results/runs/llm_real_v1/` — `--engine llm` с
+  jetnight-pro, 17 сценариев, **6 success / 10 partial / 1 failed**, решения F1=64%,
+  среднее 5.5 с. Реальные метрики LLM-извлечения с ошибками (LLM нормализует время
+  глаголов: «подготовлю»→«подготовить»). Закрывает замечание QA-оценки «0 failed/partial,
+  корзина не дискриминирует».
+- **LLM-mock прогон корзины**: `results/runs/llm_mock_v1/` — `--engine llm --mock`,
+  17/17, метрики LLM-пути (отдельно от rule-baseline).
+- README: команда real-LLM прогона + caveat rule-baseline + real-LLM метрики.
+- **Слайд 8**: обновлён — rule-baseline 17/17 + real-LLM 6/10/1; card сокращён с 11
+  до 8 элементов (оценка 5 «перегружен»).
+- **Слайд 9**: убран блок «Эволюция навыка» (перенесён в F8 видео и Прил. D) —
+  слайд теперь только про AS IS→TO BE/экономику (оценка 5 «смешение выводов»).
+- **`before_after.csv`**: заполнен реальными данными «до фикса» (TB-13/15/16 S·F1=0.0
+  из `eval_20260718T164508`) — доказывает дискриминацию корзины.
+- **Канонический results_summary.md/metrics.json** восстановлены из
+  `eval_20260719T_fixed` (был перегенерирован для llm_mock).
+
+## [1.9.0] — 2026-07-20 (боевой e2e через Ouroboros + cloud_capture + 126 тестов)
+
+### Добавлено
+- **CLI HITL**: subparsers `reject`, `edit`, `comment` в `src/athanor/cli.py`
+  (раньше был только `approve`). 9 unit-тестов в `tests/unit/test_cli_hitl.py`.
+  Всего тестов: **126** (было 117).
+- **Whitelist skill main.py**: расширен до `{run, approve, reject, edit, comment,
+  feedback, versions, promote, rollback}` — Ouroboros может вызывать все HITL- и
+  evolution-команды через чат.
+- **Боевые прогоны через Ouroboros v6.64.3** (headless CLI, jetnight-pro):
+  - `de797d3f` — полный e2e (run + HITL approve + reject) в одном прогоне,
+    40 rounds, tier=solved. Запись Playwright → `out/video/cloud_capture/ouroboros_e2e_*.mp4`.
+  - `ceb91e67` — управляемая эволюция (feedback → promote v2 с контрольным тестом
+    F1 1.0 → rollback v1).
+  - `10ffd02e` — edit + comment + approve (полный HITL-цикл правки).
+  - `e11fd35c` — `--via-mcp` + HITL (MCP-сбор + подтверждение).
+  Артефакты: `results/scratch/ouroboros_{hitl_e2e,evolution,edit_comment,mcp_hitl}/`
+  + `OUROBOROS_RUNS_SUMMARY.md`. Все 10 пунктов критерия «ГигаАгент» подтверждены
+  через Ouroboros.
+- **Демо-видео 2:30** (150.48с, H.264/AAC, 1920×1080, 11.9МБ):
+  F2=e2e_launch клип (Ouroboros UI), F3=5 cloud_capture клипов (Calendar · mail ·
+  Jira · Bitbucket · Confluence Cloud), F6=e2e_hitl клип (HITL approve/reject через
+  Ouroboros), F8=CLI эволюция. `record_ouroboros_e2e.py` — Playwright-запись UI.
+
+### Изменено
+- `SKILL.md`: секция 8 — обратная связь и эволюция (команды, контрольные тесты, откат).
+- `build_results.py` (презентация): 117→126 тестов, 2:48→2:30, HITL «в чате Ouroboros»,
+  границы честности обновлены (боевой e2e через Ouroboros).
+- `docs/architecture.md`, `docs/security.md`, `docs/demo.md`, `README.md` — HITL
+  через Ouroboros, новые CLI-команды, 126 тестов.
+
+## [1.8.1] — 2026-07-19 (demo v19: устранён SRT↔audio desync + 3 документационных фикса)
+
+### Изменено
+- **Демо-видео** (`video/Athanor_Ouroboros_Project_Results_Demo.mp4`): озвучка
+  пересобрана с edge-tts DmitryNeural (rate=-12%) из текущего `voiceover.txt`.
+  Причина: MiniMax MP3 (2026-07-17 23:17) был сгенерирован ДО правок voiceover.txt
+  (2026-07-18: добавлено «В результате агент выводит готовую сводку…» в фрагмент 2,
+  «payment-adapter»→«ППРБ-адаптер» в фрагмент 4) — SRT (из текущего voiceover.txt)
+  показывал текст, которого нет в аудио. **v19: edge-tts из текущего voiceover.txt →
+  SRT = аудио = визуал (ППРБ-адаптер).** Длительность: mvhd 168.281 с = **2:48.28**,
+  8 558 222 байт. 2:48 в рекомендованном диапазоне task6 (2:35–2:50), < 3:00 ✓.
+  `ATHANOR_EDGE_TTS_RATE` env var добавлена в `synth_edge_mp3` (default `+0%`).
+- **README.md**: `results/runs/after_fix/TB-01/output.md` → `eval_20260719T_fixed/TB-01/output.md`
+  (after_fix переименован в v13, но путь в README остался — broken link). Сборщик
+  озвучки: «edge-tts DmitryNeural» → «edge-tts DmitryNeural и/или готовый MiniMax MP3
+  через `VOICEOVER_MP3`» (отражает оба режима `make_video.py`).
+- **Deck** (`build_results.py`, внешний репо): сл.10 «LLM — OpenRouter» →
+  «LLM — jet-night router (GLM 5.2)» (фактический провайдер per `.env.example`,
+  `config/local.yaml`, `src/athanor/config.py`, README); сл.6 «OpenRouter / OpenAI /
+  локальная» → «jet-night / OpenRouter / OpenAI / локальная» (jet-night первым —
+  фактический провайдер). Длительность 2:43.10 → 2:48.28 (сл.4, сл.11 notes, сл.13).
+
+### Не изменено (исторические артефакты — правило честности)
+- `results/scratch/ouroboros_demo_e2e_jetnight/result.json` (прогон `a5336602`):
+  поля `model`/`resolved_model` = `openai-compatible::jetnight-opus` — **факт
+  прогона** (до [1.7.3]), не переписывается.
+- `results/scratch/ouroboros_demo/result.json` (прогон `dec66d75`):
+  `model` = `anthropic/claude-opus-4.8` — **факт прогона**, не переписывается.
+- Метрики `results/metrics.json` (run_id `eval_20260719T_fixed`, F1=1.0, 17/17,
+  timing 0.002 с) — без изменений.
+- Записи CHANGELOG `[1.4.0]`…`[1.8.0]` (включая 2:43.10/MiniMax) сохранены как история.
+
+## [1.8.0] — 2026-07-19 (demo v17/v18: озвучка MiniMax 2:43.10 + усиление deck↔repo↔artifact)
+
+### Изменено
+- **Демо-видео** (`video/Athanor_Ouroboros_Project_Results_Demo.mp4`): озвучка
+  edge-tts (SvetlanaNeural/DmitryNeural, 2:20.50) заменена на готовый MP3
+  `MiniMax_2026-07-17_23_17_57_Articulate_Tutor.mp3` (163.08 с, 128 kbps mono).
+  Финальное MP4: mvhd 163.103 с = **2:43.10**, 8 349 478 байт (было 7 138 160 /
+  2:20.63). 2:43 в рекомендованном диапазоне task6 (2:35–2:50), < 3:00 ✓.
+  Сборщик `out/video/make_video.py`: режим `VOICEOVER_MP3=<path>` — длительности
+  10 фрагментов масштабируются пропорционально edge-tts-долям, сцены и границы
+  F2/F3/F8 адаптируются автоматически; аудио одним треком. `setpts` к F2/F3
+  (как уже было у F8) — клипы замедляются до слота, вся озвучка сохранена.
+- **README.md**, `results/demo_scenario.md`: длительность 2:20.50 → 2:43.10;
+  путь `/blob/main/video/*.mp4` (raw URL HTTP 200 после Public). SRT тайминги
+  пересчитаны по новым пропорциям (последняя cue 00:02:43,078); текст SRT —
+  исходный edge-tts-скрипт (`voiceover.txt`). Откат: `Remove-Item Env:\
+  VOICEOVER_MP3; python make_video.py` → edge-tts 2:20.53 (кеш frag01-10.wav).
+- **Deck** (`build_results.py`, внешний репо): сл.4/13 — 2:20.50 → 2:43.10;
+  сл.16 (Прил. E) — subtitle «Не подгоняем под 100%» → «100% в каждом классе
+  значит разное: полное извлечение · корректная фиксация пропуска · безопасная
+  блокировка»; footnote дополнен data-sync note (см. ниже). v18 docstring
+  фиксирует 3 найденных расхождения (video desync, README vs artifact model,
+  slide 16 optics) и их исправления.
+
+### Исправлено (v18 — сверка deck↔public repo↔artifacts)
+- **Video desync**: deck (рабочее дерево) заявлял 2:43.10, но публичный inner-репо
+  (origin/main, commit 4fba955) содержал видео 2:20.63 — QR на сл.11 вёл на 2:20.63,
+  а сл.4/13 утверждали 2:43.10. Видео 2:43.10 (8 349 478 байт, mvhd 163.103 с)
+  скопировано в `athanor-release-sync/video/` — QR теперь ведёт на 2:43.10,
+  согласовано с deck-ом. **Команда делает commit+push для публикации.**
+- **README vs artifact (a5336602 model)**: README (рабочее дерево) утверждал
+  «прогон a5336602 (jetnight-pro, ...)», но `results/scratch/ouroboros_demo_e2e_jetnight/
+  result.json` (`loop_outcome.trace_refs.llm_call_refs[0].model`) =
+  «openai-compatible::jetnight-opus». Прогон a5336602 выполнялся ДО миграции
+  jetnight-opus→jetnight-pro ([1.7.3]); CHANGELOG [1.7.3] явно фиксирует, что
+  historical artifact не переписывается. README возвращён к «jetnight-opus» —
+  согласовано с result.json, deck-ом (сл.5) и demo_scenario.md.
+- **Slide 16 optics (Прил. E)**: subtitle «Не подгоняем под 100%» + таблица
+  100/100/100 во ВСЕХ классах выглядела внутренне противоречиво. Subtitle
+  переписан; footnote дополнен: «Data-sync TB-13/15/16 (commit 0309823):
+  expected-метки синхронизированы с актуальной tracker-данной после миграции
+  "Миграция схемы оплат"→"Миграция на ППРБ"; код агента не менялся — output.md
+  байт-идентичен до/после». Закрывает подозрение «эталон подогнали под агента»
+  (task4 §20): data-sync input→expected, не agent→expected.
+
+### Не изменено (исторические артефакты — правило честности)
+- `results/scratch/ouroboros_demo_e2e_jetnight/result.json` (прогон `a5336602`):
+  поля `model`/`resolved_model` = `openai-compatible::jetnight-opus` — **факт
+  прогона** (до [1.7.3]), не переписывается. Deck сл.5 и demo_scenario.md
+  говорят «jetnight-opus» (верно); README исправлен к тому же.
+- `results/scratch/ouroboros_demo/result.json` (прогон `dec66d75`):
+  `model` = `anthropic/claude-opus-4.8` — **факт прогона**, не переписывается.
+- Метрики `results/metrics.json` (run_id `eval_20260719T_fixed`, F1=1.0, 17/17,
+  timing 0.002 с) — без изменений; v18 не меняет фактические метрики, только
+  устраняет рассинхроны deck↔public repo↔artifact и усиливает оптику slide 16.
+
 ## [1.7.3] — 2026-07-18 (task5: модели Ouroboros → jetnight-pro / jetnight-fast)
 
 ### Изменено

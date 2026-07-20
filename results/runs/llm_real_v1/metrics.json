@@ -1,0 +1,72 @@
+{
+  "run_id": "llm_real_v1",
+  "engine": "llm",
+  "mock": false,
+  "skill_version": "v1",
+  "model": "jetnight-pro",
+  "scenarios": 17,
+  "actions": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 9,
+    "fn": 11
+  },
+  "decisions": {
+    "precision": 0.6667,
+    "recall": 0.6154,
+    "f1": 0.64,
+    "tp": 8,
+    "fp": 4,
+    "fn": 5
+  },
+  "blockers": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 4,
+    "fp": 0,
+    "fn": 0
+  },
+  "summary": {
+    "precision": 0.9762,
+    "recall": 0.9535,
+    "f1": 0.9647,
+    "tp": 41,
+    "fp": 1,
+    "fn": 2
+  },
+  "owner_coverage": 0.5294,
+  "due_coverage": 0.5882,
+  "evidence_coverage": 1.0,
+  "timing": {
+    "mean_sec": 5.487,
+    "p50_sec": 3.912,
+    "p95_sec": 14.522,
+    "total_sec": 93.279
+  },
+  "success_rate": 0.3529,
+  "partial": 10,
+  "failed": 1,
+  "errors": 1,
+  "fallback_rate": 0.1176,
+  "llm_calls": 14,
+  "drafts_total": 9,
+  "draft_acceptance": 1.0,
+  "cost_usd": 0.0,
+  "targets": {
+    "actions_precision": 0.85,
+    "actions_recall": 0.8,
+    "actions_f1": 0.82,
+    "usefulness": 4.0,
+    "draft_acceptance": 0.6,
+    "prep_time_sec": 180.0
+  },
+  "target_met": {
+    "actions_precision": false,
+    "actions_recall": false,
+    "actions_f1": false,
+    "draft_acceptance": true
+  }
+}

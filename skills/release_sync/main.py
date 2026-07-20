@@ -69,7 +69,8 @@ def _preflight_mcp() -> str | None:
 
 def main() -> int:
     argv = sys.argv[1:]
-    if argv and argv[0] not in {"run", "approve"}:
+    if argv and argv[0] not in {"run", "approve", "reject", "edit", "comment",
+                                "feedback", "versions", "promote", "rollback"}:
         argv = ["run", *argv, "--print"]
 
     src_dir = _resolve_athanor_src()

@@ -1,0 +1,94 @@
+{
+  "case_id": "demo_case",
+  "engine": "rule",
+  "format_profile": "v1",
+  "summary_items": [
+    {
+      "text": "APP-412 «Миграция схемы оплат» — в работе (исп.: Разработчик backend)",
+      "source": "Jira APP-412",
+      "confidence": 0.9,
+      "kind": "status"
+    },
+    {
+      "text": "APP-521 «Интеграция с партнёром» — готово к релизу (исп.: Разработчик frontend)",
+      "source": "Jira APP-521",
+      "confidence": 0.9,
+      "kind": "status"
+    },
+    {
+      "text": "PR #128 «Схема оплат» по APP-412 — на ревью, на ревью 2 дн.",
+      "source": "Git PR#128",
+      "confidence": 0.9,
+      "kind": "status"
+    },
+    {
+      "text": "Release Plan · Альфа: Релиз ALPHA-2026.07, окно 03.07 18:00–20:00 МСК, code freeze с 02.07 12:00. В скоуп: APP-412 «Миграция на ППРБ», APP-521 «Интеграция с партнёром». Зависимости: ППРБ-адаптер (владелец SRE), partner-api. Release-notes по APP-412 готовит Разработчик backend.",
+      "source": "Confluence 196612 (ALPHA)",
+      "confidence": 0.8,
+      "kind": "doc"
+    },
+    {
+      "text": "Decision Log · Альфа: 26.06: согласовано окно 18:00–20:00 (пятница исключена по регламенту). 30.06: APP-412 «Миграция на ППРБ» — принято в релиз 03.07. 30.06: APP-521 «Интеграция с партнёром» — готово к релизу, отслеживать partner-api. 01.07: release-notes по APP-412 готовит Разработчик backend.",
+      "source": "Confluence 196613 (ALPHA)",
+      "confidence": 0.8,
+      "kind": "doc"
+    },
+    {
+      "text": "SRE: подтвердить готовность стенда предпрода · срок 2026-07-01",
+      "source": "память релиза · OPS-70",
+      "confidence": 0.8,
+      "kind": "commitment"
+    },
+    {
+      "text": "✔ выполнено: Разработчик backend: закрыть APP-410 (миграция схемы) · срок 2026-06-27",
+      "source": "память релиза · APP-410",
+      "confidence": 0.8,
+      "kind": "commitment"
+    }
+  ],
+  "decisions": [
+    {
+      "text": "окно релиза 03.07 18:00–20:00",
+      "reason": "стандартное окно",
+      "source": "расшифровка синка 03.07",
+      "confidence": 0.6,
+      "source_evidence": "evidence:transcript:расшифровка синка 03.07"
+    }
+  ],
+  "actions": [
+    {
+      "action": "подготовлю release-notes по APP-412",
+      "owner": "Разработчик backend",
+      "due": "2026-07-03",
+      "source": "APP-412",
+      "id": "C-001",
+      "confidence": 0.9,
+      "source_evidence": "evidence:jira:APP-412",
+      "created_at": "2026-07-20T12:42:37",
+      "updated_at": "2026-07-20T12:42:37"
+    }
+  ],
+  "drafts": [
+    {
+      "id": "demo_case-D01",
+      "type": "mail_draft",
+      "to_role": "Разработчик backend",
+      "subject": "[APP-412] подготовлю release-notes по APP-412",
+      "body": "Коллега (Разработчик backend), по итогам релиз-синка за вами: подготовлю release-notes по APP-412. Срок: 2026-07-03. Источник: APP-412.\n— черновик подготовлен агентом, отправка только после подтверждения человека",
+      "status": "awaiting_approval",
+      "source_evidence": "evidence:jira:APP-412",
+      "created_at": "2026-07-20T12:42:37"
+    }
+  ],
+  "memory_updates": [
+    "решение: «окно релиза 03.07 18:00–20:00» (заменяет: «Релиз 03.07 в стандартное окно 18:00–20:00»)",
+    "обязательство: Разработчик backend — «подготовлю release-notes по APP-412» · срок 2026-07-03"
+  ],
+  "security_flags": [],
+  "warnings": [],
+  "elapsed_seconds": 0.003681899979710579,
+  "blockers": [],
+  "llm_calls": 0,
+  "skill_version": "v1",
+  "model": "openai/gpt-4o-mini"
+}

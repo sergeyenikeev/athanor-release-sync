@@ -13,7 +13,7 @@
     "v2": {
       "version": "v2",
       "status": "candidate",
-      "reason": "CLI promote by user",
+      "reason": "обратная связь: короче",
       "format_profile": "v2",
       "test_results": {
         "baseline": {
@@ -28,7 +28,7 @@
         }
       },
       "created_at": "2026-07-03T18:00:00",
-      "promoted_at": "2026-07-19T03:55:46"
+      "promoted_at": "2026-07-20T00:39:36"
     }
   },
   "history": [
@@ -142,6 +142,70 @@
       "from": "v2",
       "to": "v1",
       "at": "2026-07-19T03:55:46"
+    },
+    {
+      "action": "promote",
+      "version": "v2",
+      "reason": "обратная связь: короче, блокеры сверху",
+      "baseline_f1": 1.0,
+      "candidate_f1": 1.0,
+      "at": "2026-07-19T11:40:11"
+    },
+    {
+      "action": "promote",
+      "version": "v2",
+      "reason": "CLI promote by user",
+      "baseline_f1": 1.0,
+      "candidate_f1": 1.0,
+      "at": "2026-07-19T11:40:11"
+    },
+    {
+      "action": "rollback",
+      "from": "v2",
+      "to": "v1",
+      "at": "2026-07-19T11:40:11"
+    },
+    {
+      "action": "promote",
+      "version": "v2",
+      "reason": "обратная связь: короче, блокеры сверху",
+      "baseline_f1": 1.0,
+      "candidate_f1": 1.0,
+      "at": "2026-07-19T11:40:41"
+    },
+    {
+      "action": "promote",
+      "version": "v2",
+      "reason": "CLI promote by user",
+      "baseline_f1": 1.0,
+      "candidate_f1": 1.0,
+      "at": "2026-07-19T11:40:41"
+    },
+    {
+      "action": "rollback",
+      "from": "v2",
+      "to": "v1",
+      "at": "2026-07-19T11:40:41"
+    },
+    {
+      "action": "rollback",
+      "from": "v1",
+      "to": "v1",
+      "at": "2026-07-20T00:36:24"
+    },
+    {
+      "action": "promote",
+      "version": "v2",
+      "reason": "обратная связь: короче",
+      "baseline_f1": 1.0,
+      "candidate_f1": 1.0,
+      "at": "2026-07-20T00:39:36"
+    },
+    {
+      "action": "rollback",
+      "from": "v2",
+      "to": "v1",
+      "at": "2026-07-20T00:40:23"
     }
   ]
 }

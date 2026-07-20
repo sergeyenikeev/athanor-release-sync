@@ -20,6 +20,19 @@ python scripts/run_demo.py
 7. HITL: черновик подтверждён и исполнен (демо-имитация отправки).
 8. Артефакты: `results/demo/<run_id>/` (output.md, run.json, memory_after/, outbox/).
 
+## Боевой e2e через Ouroboros (HITL в чате)
+
+Помимо детерминированного `cli demo` (авто-подтверждение), есть боевой прогон через
+Ouroboros v6.64.3, где человек подтверждает/отклоняет черновики **в чате Ouroboros**:
+```bash
+ouroboros run --workspace . --jsonl --timeout 600 "<промпт одной строкой>"
+```
+Навык `release_sync` (skills/release_sync/main.py) принимает команды:
+`run`, `approve`, `reject`, `edit`, `comment`, `feedback`, `versions`, `promote`,
+`rollback`. Артефакты: `results/scratch/ouroboros_{hitl_e2e,evolution,edit_comment,
+mcp_hitl}/` + `OUROBOROS_RUNS_SUMMARY.md`. Демо-видео 2:30 включает клипы боевого
+e2e (F2=e2e_launch, F6=e2e_hitl) + 5 cloud_capture клипов (F3).
+
 ## Через MCP-серверы (file-режим)
 ```bash
 python mcp/serve_all.py                # терминал 1 (MCP_CASE_DIR=examples/demo_case по умолчанию)

@@ -1,1 +1,19 @@
-ID,Статус до,A·F1 до,D·F1 до,Статус после,A·F1 после,D·F1 после,Дельта
+ID,Статус до,A·F1 до,D·F1 до,S·F1 до,Статус после,A·F1 после,D·F1 после,S·F1 после,Дельта
+TB-01,Passed,1.0,1.0,1.0,Passed,1.0,1.0,1.0,—
+TB-02,Passed,1.0,1.0,1.0,Passed,1.0,1.0,1.0,—
+TB-03,Passed,1.0,1.0,1.0,Passed,1.0,1.0,1.0,—
+TB-04,Passed,1.0,1.0,1.0,Passed,1.0,1.0,1.0,—
+TB-05,Passed,1.0,1.0,1.0,Passed,1.0,1.0,1.0,—
+TB-06,Passed,1.0,1.0,1.0,Passed,1.0,1.0,1.0,—
+TB-07,Passed,1.0,1.0,1.0,Passed,1.0,1.0,1.0,—
+TB-08,Passed,1.0,1.0,1.0,Passed,1.0,1.0,1.0,—
+TB-09,Passed,1.0,1.0,1.0,Passed,1.0,1.0,1.0,—
+TB-10,Passed,1.0,1.0,1.0,Passed,1.0,1.0,1.0,—
+TB-11,Passed,1.0,1.0,1.0,Passed,1.0,1.0,1.0,—
+TB-12,Passed,1.0,1.0,1.0,Passed,1.0,1.0,1.0,—
+TB-13,Passed,1.0,1.0,0.0,Passed,1.0,1.0,1.0,S·F1 0.0→1.0 (deadline_error, fix: relative window resolution)
+TB-14,Passed,1.0,1.0,1.0,Passed,1.0,1.0,1.0,—
+TB-15,Passed,1.0,1.0,0.0,Passed,1.0,1.0,1.0,S·F1 0.0→1.0 (ingestion_error, fix: damaged transcript guard)
+TB-16,Passed,1.0,1.0,0.0,Passed,1.0,1.0,1.0,S·F1 0.0→1.0 (source_linking, fix: release-key lookahead)
+TB-17,Passed,1.0,1.0,1.0,Passed,1.0,1.0,1.0,—
+,17/17 success,1.0,1.0,0.882 (15/17),17/17 success,1.0,1.0,1.0,3 бага найдены и исправлены (TB-13/15/16)

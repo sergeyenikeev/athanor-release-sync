@@ -128,7 +128,7 @@ def gen_scenario_results(after: dict) -> None:
                 _actual_short(r), STATUS_RU.get(r["status"], r["status"]),
                 f"{a['precision']:.2f}", f"{a['recall']:.2f}", f"{a['f1']:.2f}",
                 f"{r['elapsed_seconds']:.3f}", r["error"],
-                f"results/runs/after_fix/{tb}/",
+                f"results/runs/eval_20260719T_fixed/{tb}/",
             ])
     print(f"scenario_results.csv -> {path}")
 
@@ -142,7 +142,7 @@ ERRORS = [
         "severity": "Major", "reproducible": "да (детерминированно)",
         "root_cause": "extract._parse_due не разрешает относительные сроки через календарь; enrich_actions не связывал action с release_windows",
         "fix": "models.CaseInput.release_windows + sources.load + enrich._resolve_relative_window: фраза «до следующего … окна» → дата из release_windows, текст действия очищается, основание фиксируется",
-        "fix_status": "исправлено", "retest": "after_fix: A·F1=1.00, due=2026-07-10, status=Passed",
+        "fix_status": "исправлено", "retest": "eval_20260719T_fixed: A·F1=1.00, due=2026-07-10, status=Passed",
     },
     {
         "scenario": "TB-14", "category": "source_linking_error",
@@ -151,7 +151,7 @@ ERRORS = [
         "severity": "Major", "reproducible": "да (детерминированно)",
         "root_cause": "_ISSUE_KEY_RX `\\b([A-Z]{2,5}-\\d{1,5})\\b` матчит «ALPHA-2026» из «ALPHA-2026.07»",
         "fix": "Негативный lookahead `(?!\\.\\d)` в _ISSUE_KEY_RX (extract/enrich/summary) — отбраковывает версии релизов KEY.YYYY.NN",
-        "fix_status": "исправлено", "retest": "after_fix: D·F1=1.00, source=«расшифровка синка 03.07», status=Passed",
+        "fix_status": "исправлено", "retest": "eval_20260719T_fixed: D·F1=1.00, source=«расшифровка синка 03.07», status=Passed",
     },
     {
         "scenario": "TB-15", "category": "ingestion_error",
@@ -160,7 +160,7 @@ ERRORS = [
         "severity": "Major", "reproducible": "да (детерминированно)",
         "root_cause": "agent.run_case не диагностировал повреждение расшифровки: пустой/бесструктурный transcript обрабатывался молча",
         "fix": "agent.run_case: проверка case.transcript.strip() и отсутствия _LINE_RX-совпадений → warning «Расшифровка пуста или повреждена … повторите загрузку»",
-        "fix_status": "исправлено", "retest": "after_fix: warning есть, 0 фикций, status=Passed",
+        "fix_status": "исправлено", "retest": "eval_20260719T_fixed: warning есть, 0 фикций, status=Passed",
     },
 ]
 
@@ -247,37 +247,74 @@ def gen_presentation_data(after: dict, agg: dict) -> None:
 
 
 def gen_demo_scenario() -> None:
-    # task4 §25: TB-03 (конфликт Jira↔письмо) — понятен, много источников, блокер, HITL, память, < 3 мин
+    # task4 §25: demo_case_alpha (релиз-синк проекта Альфа) — понятен, много источников, блокер, HITL, память, < 3 мин
     path = RESULTS / "demo_scenario.md"
     lines = [
-        "# ДЕМО-сценарий: TB-03 «Конфликт Jira и письма»",
+        "# ДЕМО-сценарий: релиз-синк проекта «Альфа» (demo_case_alpha)",
         "",
-        "**Выбор (task4 §25):** понятен без объяснений; данные из нескольких источников "
-        "(календарь, Jira, Git, почта, расшифровка); заметный блокер/конфликт; сводка; "
-        "решения и поручения; Human-in-the-loop; обновление памяти; < 3 мин; не самый сложный.",
+        "**Кейс:** `examples/demo_case_alpha/` — сквозной обезличенный сценарий релиз-синка",
+        "проекта «Альфа», релиз `ALPHA-2026.07`, 03.07 14:00. Содержит: событие календаря,",
+        "2 Jira-задачи, открытый PR, письмо-блокер, обязательства с прошлого синка (память),",
+        "короткую расшифровку (решение + 2 поручения). Конфликт Jira↔письмо и блокер",
+        "`ППРБ-адаптер` выявляются автоматически.",
+        "",
+        "**Выбор (task4 §25):** понятен без объяснений; данные из нескольких источников",
+        "(календарь, Jira, Git, почта, расшифровка, память); заметный блокер/конфликт;",
+        "сводка; решения и поручения; Human-in-the-loop; обновление памяти; < 3 мин;",
+        "не самый сложный; детерминированный (rule-движок, 100% воспроизводимость).",
+        "",
+        "## Запуск (три режима)",
+        "```bash",
+        "# 1) файловый демо-контур (офлайн, по умолчанию)",
+        "python -m athanor.cli demo --case examples/demo_case_alpha --engine rule",
+        "# эквивалент: python scripts/run_demo.py --case examples/demo_case_alpha",
+        "",
+        "# 2) через MCP-серверы (файловый бэкенд)",
+        "python mcp/serve_all.py",
+        "python -m athanor.cli run --case examples/demo_case_alpha --via-mcp --engine rule --print",
+        "",
+        "# 3) через реальную Jira (боевой контракт Atlassian, MCP_BACKEND=atlassian)",
+        "python test-instances/seed_atlassian.py",
+        "python test-instances/gen_live_case.py",
+        "MCP_BACKEND=atlassian python mcp/serve_all.py",
+        "MCP_BACKEND=atlassian python -m athanor.cli run --case examples/demo_case_alpha_live --via-mcp --engine rule --print",
+        "```",
+        "",
+        "Все три режима дают идентичный результат (сводка, конфликт, блокер, решения,",
+        "поручения, черновики HITL, обновление памяти). Режим 3 (реальная Jira) — основа",
+        "финального демо-видео: задачи APP-412/APP-521 (канонический live-снимок) — в сводке,",
+        "конфликт APP-412 (Jira «Готово» ↔ письмо «блокер») выявляется на live-данных.",
         "",
         "## Шаги ДЕМО",
-        "1. `python -m athanor.cli run --case test-basket/TB-03 --engine rule --print` — сводка с конфликтом",
-        "2. Показать в output.md: ⚠ КОНФЛИКТ по APP-412 (Jira «готово» ↔ письмо «блокер»), приоритет источников, HITL-эскалация",
-        "3. Показать решения/поручения из расшифровки с источником и уверенностью",
-        "4. `python -m athanor.cli approve --draft results/scratch/TB-03/outbox/<id>.json` — HITL-подтверждение",
-        "5. Показать memory_after/ — обновлённая память релиза (аудит)",
+        "1. Запуск (одна из команд выше) — сводка с конфликтом Jira↔письмо и блокером.",
+        "2. В `output.md`: ⚠ КОНФЛИКТ по APP-412 (Jira «готово» ↔ письмо «блокер»),",
+        "   приоритет источников, HITL-эскалация; блокер `ППРБ-адаптер не в prod`.",
+        "3. Решения/поручения из расшифровки с источником и уверенностью (2 поручения:",
+        "   Разработчик backend — release-notes, SRE — деплой ППРБ-адаптера; срок 2026-07-03).",
+        "4. `python -m athanor.cli approve --draft <outbox>/<id>.json --execute` — HITL.",
+        "5. `memory_after/` — обновлённая память релиза (новое решение + 2 обязательства,",
+        "   журнал `journal.log`).",
         "",
         "## Артефакты",
-        "- Прогон: `results/runs/after_fix/TB-03/output.md`, `run.json`",
-        "- Эталон: `test-basket/TB-03/expected/`",
-        "- Метрики: `results/runs/after_fix/TB-03/metrics.json`",
+        "- Прогон: `results/runs/eval_20260719T_fixed/` (`output.md`, `run.json`, `memory_after/`, `outbox/`)",
+        "- Метрики: `results/metrics.json` (17 сценариев, F1 100%)",
+        "- Демо-видео: `video/Athanor_Ouroboros_Project_Results_Demo.mp4` (2:48.28; F2 — реальный",
+        "  скринкаст UI Ouroboros, прогон a5336602, jetnight-opus, 5 MCP-вызовов, конфликт найден;",
+        "  F3 — реальные скринкасты Cloud UI Jira/Confluence/Calendar)",
         "",
-        "Длительность < 3 мин (детерминированный rule-движок, ~1 с на цикл).",
+        "Длительность прогона < 3 мин (детерминированный rule-движок, ~1 с на цикл).",
+        "Длительность демо-видео — 2:48.28 (< 3 мин, критерий «ДЕМО-видео» 30%).",
     ]
     path.write_text("\n".join(lines), encoding="utf-8")
     print(f"demo_scenario.md -> {path}")
 
 
 def main() -> int:
-    after = _load_run("after_fix")
+    # v18: каноничный прогон — eval_20260719T_fixed (after_fix переименован в v13)
+    RUN_AFTER = "eval_20260719T_fixed"
+    after = _load_run(RUN_AFTER)
     before = _load_run("before_fix")
-    agg_path = RESULTS / "runs" / "after_fix" / "metrics.json"
+    agg_path = RESULTS / "runs" / RUN_AFTER / "metrics.json"
     agg = json.loads(agg_path.read_text(encoding="utf-8")) if agg_path.is_file() else {}
     gen_scenario_results(after)
     gen_error_catalog()

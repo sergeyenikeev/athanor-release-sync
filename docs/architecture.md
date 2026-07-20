@@ -44,6 +44,8 @@ output.md + run.json + memory_after/ + outbox/ + metrics.json
 | Реальная Confluence Cloud (Atlassian, `/wiki/rest/api/content/search`, CQL) | реализовано (`MCP_BACKEND_CONFLUENCE=atlassian`, live) | mcp/_backends.py, test-instances/seed_confluence.py |
 | Реальный mail + Calendar (Google, IMAP + iCal) | реализовано (`MCP_BACKEND=live`) | mcp/_backends.py, test-instances/seed_google.py |
 | Версионирование навыка + rollback | реализовано | src/athanor/skill_versioning.py |
+| Боевой e2e через Ouroboros (HITL approve/reject в чате) | реализовано (Ouroboros v6.64.3, jetnight-pro) | results/scratch/ouroboros_hitl_e2e/ (task de797d3f) |
+| Управляемая эволюция через Ouroboros (feedback→promote→rollback) | реализовано | results/scratch/ouroboros_evolution/ (task ceb91e67) |
 | Коннектор Confluence Cloud | реализовано (Basic auth + CQL, страницы в сводке kind=`doc`) | mcp/confluence.py + mcp/_backends.py |
 
 ## Схема (Mermaid)

@@ -5,6 +5,9 @@
   python -m athanor.cli run --case test-basket/TB-03 --engine llm --out results/scratch/TB-03
   python -m athanor.cli run --case test-basket/TB-01 --via-mcp   # через MCP-серверы
   python -m athanor.cli approve --draft outbox/TB-04-D01.json
+  python -m athanor.cli reject  --draft outbox/TB-04-D01.json --reason "неактуально"
+  python -m athanor.cli edit    --draft outbox/TB-04-D01.json --subject "новая тема"
+  python -m athanor.cli comment --draft outbox/TB-04-D01.json --text "проверить срок"
   python -m athanor.cli demo                          # демо-прогон < 3 мин
   python -m athanor.cli basket --engine rule          # вся корзина
   python -m athanor.cli score                         # метрики последнего прогона
@@ -24,11 +27,12 @@ import subprocess
 import sys
 import tempfile
 from pathlib import Path
+from typing import Any
 
 from .agent import run_case
 from .config import load_config
 from .format import render_result
-from .hitl import approve_draft, execute_draft
+from .hitl import approve_draft, comment_draft, edit_draft, execute_draft, reject_draft
 from .models import Feedback
 from .sources import load_case_from_files, load_case_via_mcp
 
@@ -119,6 +123,37 @@ def cmd_approve(args: argparse.Namespace) -> int:
     if args.execute:
         execute_draft(Path(args.draft))
         print(f"Исполнено (демо-имитация): {draft['id']}")
+    return 0
+
+
+def cmd_reject(args: argparse.Namespace) -> int:
+    draft = reject_draft(Path(args.draft), reason=args.reason or "")
+    print(f"Отклонено человеком: {draft['id']} → статус {draft['status']}"
+          + (f" (причина: {draft.get('reject_reason')})" if draft.get('reject_reason') else ""))
+    return 0
+
+
+def cmd_edit(args: argparse.Namespace) -> int:
+    patch: dict[str, Any] = {}
+    if args.subject:
+        patch["subject"] = args.subject
+    if args.body:
+        patch["body"] = args.body
+    if args.to_role:
+        patch["to_role"] = args.to_role
+    if args.due:
+        patch["due"] = args.due
+    if not patch:
+        print("Не указано ни одного поля для правки (--subject/--body/--to-role/--due)", file=sys.stderr)
+        return 2
+    draft = edit_draft(Path(args.draft), patch)
+    print(f"Отредактировано человеком: {draft['id']} · поля: {', '.join(patch)}")
+    return 0
+
+
+def cmd_comment(args: argparse.Namespace) -> int:
+    draft = comment_draft(Path(args.draft), args.text)
+    print(f"Комментарий добавлен: {draft['id']} · всего комментариев: {len(draft.get('comments', []))}")
     return 0
 
 
@@ -265,6 +300,24 @@ def main(argv: list[str] | None = None) -> int:
     pa.add_argument("--draft", required=True, help="путь к outbox/<id>.json")
     pa.add_argument("--execute", action="store_true", help="также исполнить (демо-имитация)")
     pa.set_defaults(func=cmd_approve)
+
+    pr = sub.add_parser("reject", help="отклонить черновик (HITL)")
+    pr.add_argument("--draft", required=True, help="путь к outbox/<id>.json")
+    pr.add_argument("--reason", default="", help="причина отклонения")
+    pr.set_defaults(func=cmd_reject)
+
+    pe = sub.add_parser("edit", help="отредактировать черновик (HITL)")
+    pe.add_argument("--draft", required=True, help="путь к outbox/<id>.json")
+    pe.add_argument("--subject", default="", help="новая тема письма")
+    pe.add_argument("--body", default="", help="новый текст письма")
+    pe.add_argument("--to-role", default="", help="новый получатель (роль)")
+    pe.add_argument("--due", default="", help="новый срок")
+    pe.set_defaults(func=cmd_edit)
+
+    pc = sub.add_parser("comment", help="добавить комментарий к черновику (HITL)")
+    pc.add_argument("--draft", required=True, help="путь к outbox/<id>.json")
+    pc.add_argument("--text", required=True, help="текст комментария")
+    pc.set_defaults(func=cmd_comment)
 
     pd = sub.add_parser("demo", help="детерминированный end-to-end демо-прогон")
     pd.add_argument("--case", default="examples/demo_case", help="папка кейса (по умолчанию examples/demo_case)")

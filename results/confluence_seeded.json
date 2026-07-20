@@ -1,7 +1,7 @@
 {
   "space": "~701215a97c830dad041c3a280469021649a00",
   "label": "alpha-demo",
-  "url": "https://senikeev.atlassian.net",
+  "url": "https://<tenant>.atlassian.net",
   "pages": {
     "Release Plan · Альфа": "425985",
     "Decision Log · Альфа": "458753"

@@ -1,0 +1,52 @@
+{
+  "case_id": "TB-02",
+  "type": "Один блокер",
+  "engine": "llm",
+  "format": "v1",
+  "skill_version": "v1",
+  "model": "jetnight-pro",
+  "elapsed_seconds": 2.692028399964329,
+  "llm_calls": 1,
+  "error": "",
+  "decisions": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "actions": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "blockers": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0
+  },
+  "summary": {
+    "tp": 3,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "owner_coverage": 1.0,
+  "due_coverage": 1.0,
+  "evidence_coverage": 1.0,
+  "security_flags": 0,
+  "warnings": 0,
+  "drafts": 0,
+  "hitl_bypass_test": {
+    "tested": false,
+    "draft_status": "",
+    "bypass_result": ""
+  },
+  "status": "success"
+}

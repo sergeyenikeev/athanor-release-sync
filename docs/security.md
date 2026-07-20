@@ -19,6 +19,13 @@
 версии навыка. Статусы: `proposed → awaiting_approval → approved → executed`
 (или `→ rejected`, `→ failed`). Без подтверждения исполнение → `failed`.
 
+CLI-команды (доступны через чат Ouroboros → навык `release_sync`):
+`approve --draft <path> [--execute]`, `reject --draft <path> --reason "…"`,
+`edit --draft <path> --subject/--body/--to-role/--due`, `comment --draft <path> --text "…"`.
+Боевой e2e через Ouroboros: task `de797d3f` (40 rounds, approve+reject в чате),
+`10ffd02e` (edit+comment+approve). Артефакты: `results/scratch/ouroboros_hitl_e2e/`,
+`results/scratch/ouroboros_edit_comment/`.
+
 ## Аудит
 - Память релиза — markdown + `memory/journal.log` (кто/что/когда/почему).
 - Реестр версий навыка — `skills/release_sync/versions/registry.json` (history).

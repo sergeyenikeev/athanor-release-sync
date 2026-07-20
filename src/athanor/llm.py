@@ -97,6 +97,7 @@ def _chat(cfg: dict[str, str], messages: list[dict[str, str]]) -> dict:
         {
             "model": cfg["LLM_MODEL"],
             "temperature": float(cfg["LLM_TEMPERATURE"]),
+            "stream": False,
             "messages": messages,
         }
     ).encode("utf-8")

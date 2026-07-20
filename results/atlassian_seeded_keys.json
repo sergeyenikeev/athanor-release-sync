@@ -2,5 +2,5 @@
   "done": "KAN-1",
   "in_progress": "KAN-2",
   "project": "KAN",
-  "url": "https://senikeev.atlassian.net"
+  "url": "https://<tenant>.atlassian.net"
 }
