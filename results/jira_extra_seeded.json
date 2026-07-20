@@ -1,0 +1,23 @@
+[
+  {
+    "jira_key": "APP-8",
+    "summary": "Автотесты ППРБ",
+    "basket_key": "APP-440",
+    "role": "QA",
+    "status": "created"
+  },
+  {
+    "jira_key": "APP-9",
+    "summary": "Панель мониторинга ППРБ",
+    "basket_key": "APP-431",
+    "role": "Разработчик frontend",
+    "status": "created"
+  },
+  {
+    "jira_key": "OPS-7",
+    "summary": "Проверка ППРБ-адаптера в staging",
+    "basket_key": "OPS-81",
+    "role": "SRE",
+    "status": "created"
+  }
+]
