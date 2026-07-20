@@ -46,9 +46,9 @@ MCP_BACKEND=atlassian python -m athanor.cli run --case examples/demo_case_alpha_
 ## Артефакты
 - Прогон: `results/runs/eval_20260720T_blockers/` (`output.md`, `run.json`, `memory_after/`, `outbox/`)
 - Метрики: `results/metrics.json` (17 сценариев, F1 100%)
-- Демо-видео: `video/Athanor_Ouroboros_Project_Results_Demo.mp4` (2:53.01; F2 — реальный
+- Демо-видео: `video/Athanor_Ouroboros_Project_Results_Demo.mp4` (~2:49; F2 — реальный
   скринкаст UI Ouroboros, прогон a5336602, jetnight-opus, 5 MCP-вызовов, конфликт найден;
   F3 — реальные скринкасты Cloud UI Jira/Confluence/Calendar)
 
 Длительность прогона < 3 мин (детерминированный rule-движок, ~1 с на цикл).
-Длительность демо-видео — 2:53.01 (< 3 мин, критерий «ДЕМО-видео» 30%).
+Длительность демо-видео — ~2:49 (< 3 мин, критерий «ДЕМО-видео» 30%).
