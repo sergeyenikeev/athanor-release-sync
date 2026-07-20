@@ -22,6 +22,8 @@ RESULTS = _ROOT / "results"
 TARGETS = [_ROOT / "test-basket", _ROOT / "memory", _ROOT / "examples",
            _ROOT / "skills", _ROOT / "results", _ROOT / "test-instances"]
 EXCLUDE = {".git", "__pycache__", "node_modules", "npm-cache", ".venv"}
+# Файлы, которые не сканируем (self-referential отчёт, бинарные артефакты)
+SKIP_FILES = {"sanitization_report.md"}
 EXTS = {".json", ".txt", ".md", ".yaml", ".yml", ".py"}
 
 # Реальные русские имена/фамилии (выборка) — детектор ПДн
@@ -92,7 +94,7 @@ def main() -> int:
         for p in tgt.rglob("*"):
             if any(part in EXCLUDE for part in p.parts):
                 continue
-            if p.is_file() and p.suffix.lower() in EXTS:
+            if p.is_file() and p.suffix.lower() in EXTS and p.name not in SKIP_FILES:
                 scanned += 1
                 all_findings += _scan_file(p)
 

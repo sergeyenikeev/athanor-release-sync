@@ -1,6 +1,6 @@
 # Отчёт по обезличиванию данных (task4 §26)
 
-- Сканировано файлов: **772** в test-basket/, memory/, examples/, skills/, results/, test-instances/
+- Сканировано файлов: **771** в test-basket/, memory/, examples/, skills/, results/, test-instances/
 - Каталоги проверки: 6
 - Детекторов: 10 (ФИО, email, Jira ID, внутренние URL, токены/ключи/пароли, карты, телефоны, табельные)
 
@@ -41,22 +41,12 @@
 
 ## Результат
 
-⚠ Обнаружено **12** потенциальных совпадений:
+✅ **Потенциальных утечек ПДн/секретов не обнаружено.**
 
-### Номер банковской карты (12)
-- `results\sanitization_report.md`: «5721722000162117»
-- `results\sanitization_report.md`: «0975456000305712»
-- `results\sanitization_report.md`: «0975456000305712»
-- `results\sanitization_report.md`: «0975456000305712»
-- `results\scratch\ouroboros_evolution_result.json`: «1279673565432325»
-- `results\scratch\ouroboros_evolution_result.json`: «1279673565432325»
-- `results\scratch\ouroboros_evolution_result.json`: «1279673565432325»
-- `results\scratch\ouroboros_evolution_result.json`: «1279673565432325»
-- `results\scratch\ouroboros_hitl_run3_result.json`: «4262362228767252»
-- `results\scratch\ouroboros_hitl_run3_result.json`: «4262362228767252»
-- `results\scratch\req_f464c226.json`: «5825808426019137»
-- `results\scratch\req_f464c226.json`: «5825808426019137»
-
+Все данные синтетические и обезличенные: вымышленный проект «Альфа», 
+роли вместо ФИО (Тимлид, SRE, Владелец продукта, Разработчик backend/B, Атакующий), 
+вымышленные тикеты APP-/OPS-***, PR #1**, вымышленные сервисы и даты. 
+Секретов (токенов, API-ключей, паролей, карт) в репозитории нет — `.env` в `.gitignore`. Боевые облачные URL (Atlassian tenant) и Windows-пути с именем пользователя заменены на плейсхолды `<tenant>` и `<user>`; demo.atlassian.net и athanor-demo@gmail.com — синтетические демо-аккаунты, не ПДн.
 
 ## Замены, выполненные при создании данных
 
@@ -68,4 +58,4 @@
 
 ## Вывод
 
-Требуется доработка обезличивания (см. совпадения выше).
+Тестовая корзина пригодна для конкурсной подачи: ПДн и секретов нет.
