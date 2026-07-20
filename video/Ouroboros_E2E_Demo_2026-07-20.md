@@ -52,7 +52,8 @@
   run.json — 2 решения, 3 поручения; outbox: **D01 executed · D02 rejected
   (duplicate) · D03 awaiting_approval**; memory_after сохранена.
 - **Исходные записи** (три записи одного live-прогона, монтаж без
-  постановочных вставок): `out/video/e2e_demo_20260720/` во внешнем репо
+  постановочных вставок): `out/video/e2e_demo_20260720/` в рабочей копии
+  внешнего репо (raw webm ~90 МБ — локально, вне git; скрипты записи — в git)
   (page@*.webm + ключевые скриншоты + e2e_task_result.json), скрипты
   `record_e2e_demo_20260720.py`, `record_e2e_finale_20260720.py`,
   `record_e2e_results_20260720.py`, сборка `build_e2e_demo_video.py`.
