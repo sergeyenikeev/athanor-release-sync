@@ -1,0 +1,19 @@
+{
+  "case_id": "TB-07",
+  "engine": "llm",
+  "format_profile": "v1",
+  "summary_items": [],
+  "decisions": [],
+  "actions": [],
+  "drafts": [],
+  "memory_updates": [],
+  "security_flags": [],
+  "warnings": [
+    "JSONDecodeError: Extra data: line 1 column 141 (char 140)"
+  ],
+  "elapsed_seconds": 0.0,
+  "blockers": [],
+  "llm_calls": 0,
+  "skill_version": "v1",
+  "model": ""
+}

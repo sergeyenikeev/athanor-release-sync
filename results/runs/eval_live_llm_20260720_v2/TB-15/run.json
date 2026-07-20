@@ -1,0 +1,26 @@
+{
+  "case_id": "TB-15",
+  "engine": "llm",
+  "format_profile": "v1",
+  "summary_items": [
+    {
+      "text": "APP-412 «Миграция на ППРБ (alpha-api)» — в работе (исп.: Разработчик backend)",
+      "source": "Jira APP-412",
+      "confidence": 0.9,
+      "kind": "status"
+    }
+  ],
+  "decisions": [],
+  "actions": [],
+  "drafts": [],
+  "memory_updates": [],
+  "security_flags": [],
+  "warnings": [
+    "Расшифровка пуста или повреждена — ожидаемый формат «Роль: текст»; извлечение пропущено, повторите загрузку"
+  ],
+  "elapsed_seconds": 0.0008126000175252557,
+  "blockers": [],
+  "llm_calls": 0,
+  "skill_version": "v1",
+  "model": "openai/gpt-4o-mini"
+}
